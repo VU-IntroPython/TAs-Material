@@ -1,0 +1,47 @@
+{
+    "history": [
+        "Serena",
+        "Simone",
+        "Naomi",
+        "Megan",
+        "Allyson",
+        "Marta",
+        "Caster"
+    ],
+    "math": [
+        "Serena",
+        "Simone",
+        "Allyson",
+        "Megan",
+        "Marta",
+        "Caster"
+    ],
+    "physics": [
+        "Serena",
+        "Simone",
+        "Allyson",
+        "Marta",
+        "Shelly-Ann"
+    ],
+    "economics": [
+        "Serena",
+        "Simone",
+        "Naomi",
+        "Megan",
+        "Allyson",
+        "Shelly-Ann"
+    ],
+    "biology": [
+        "Simone",
+        "Allyson",
+        "Naomi",
+        "Serena",
+        "Caster",
+        "Shelly-Ann"
+    ],
+    "literature": [
+        "Megan",
+        "Marta",
+        "Caster"
+    ]
+}
