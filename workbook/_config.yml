@@ -44,3 +44,6 @@ sphinx:
   config:
     bibtex_reference_style: label
     language: en
+    html_favicon: favicon.ico
+
+    
