@@ -3,6 +3,8 @@
 
 format: jb-book
 root: intro
+options:
+  numbered: true
 chapters:
 - file: notebooks/01-variables-expressions-statements/variables-expressions-statements.ipynb
 
