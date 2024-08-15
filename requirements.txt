@@ -15,6 +15,7 @@ docutils==0.20.1
 exceptiongroup==1.2.2
 executing==2.0.1
 fastjsonschema==2.20.0
+ghp-import==2.1.0
 greenlet==3.0.3
 idna==3.7
 imagesize==1.4.1
