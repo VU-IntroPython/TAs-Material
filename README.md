@@ -1,3 +1,4 @@
+[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](<https://vu-intropython.github.io/TAs-Material/intro.html>)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/VU-IntroPython/TAs-Material.git/master)
 
 ## Compile the workbook locally:
