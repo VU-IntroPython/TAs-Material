@@ -11,3 +11,7 @@ To compile the project you must run the following commands (assuming you're at t
 
 _Note_: The book's content is inside `workbook/notebooks`. To add a new notebook to the book, you must place the notebook inside this folder, and you **must** include it in the table of contents (`workbook/_toc.yml`).
 
+
+### Useful links
+* [Dropdown](https://jupyterbook.org/en/stable/content/components.html#components-dropdowns)
+* [Content blocks](https://jupyterbook.org/en/stable/content/content-blocks.html#notes-warnings-and-other-admonitions)
