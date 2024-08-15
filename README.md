@@ -13,5 +13,6 @@ _Note_: The book's content is inside `workbook/notebooks`. To add a new notebook
 
 
 ### Useful links
+* [Admonitions](https://sphinx-book-theme.readthedocs.io/en/stable/reference/kitchen-sink/admonitions.html)
 * [Dropdown](https://jupyterbook.org/en/stable/content/components.html#components-dropdowns)
 * [Content blocks](https://jupyterbook.org/en/stable/content/content-blocks.html#notes-warnings-and-other-admonitions)
