@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title : Workbook Intro Python
-author                      : "Koen van der Pool & Mauricio Verano Merino"
+author                      : "Koen van der Pool, Mauricio Verano Merino & Márton Bodó"
 copyright                   : "2024. Vrije Universiteit Amsterdam" 
 logo                        : logo.png
 exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
