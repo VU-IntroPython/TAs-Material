@@ -430,69 +430,49 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="variables-expressions-and-statements">
 <h1><span class="section-number">1. </span>Variables, Expressions, and Statements<a class="headerlink" href="#variables-expressions-and-statements" title="Permalink to this heading">#</a></h1>
-<p><em>Material for the VU Amsterdam course “Introduction to Python Programming” for BSc Artificial Intelligence students. These notebooks are created using the following sources:</em></p>
-<ol class="arabic simple">
-<li><p><a class="reference external" href="https://programming-pybook.github.io/introProgramming/intro.html">Learning Python by Doing</a>: This book, developed by teachers of TU/e Eindhoven and VU Amsterdam, is the main source for the course materials. Code snippets or text explanations from the book may be used in the notebooks, sometimes with slight adjustments.</p></li>
-<li><p><a class="reference external" href="https://greenteapress.com/thinkpython2/html/">Think Python</a></p></li>
-<li><p><a class="reference external" href="https://www.geeksforgeeks.org">GeekForGeeks</a></p></li>
-</ol>
 <p><strong>In this notebook, we cover the following subjects:</strong></p>
 <ul class="simple">
-<li><p>Introduction to Data Types;</p></li>
-<li><p>The Print Function;</p></li>
-<li><p>Variables and Values;</p></li>
-<li><p>Operators;</p></li>
-<li><p>Expressions;</p></li>
-<li><p>Statements.</p></li>
+<li><p>Introduction to Data Types</p></li>
+<li><p>The Print Function</p></li>
+<li><p>Variables and Values</p></li>
+<li><p>Operators</p></li>
+<li><p>Expressions</p></li>
+<li><p>Statements</p></li>
 </ul>
 <hr class="docutils" />
 <h2 style="color:#4169E1">Introduction to Data Types</h2>
-<p>Python is a well-known object-oriented programming language, designed by Guido van Rossum at the Centrum Wiskunde &amp; Informatica (CWI) in Amsterdam. The object-oriented design of the language allows code to be organized into <u>reusable</u> and <u>self-contained</u> objects. Knowing the three essential data types—<a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/strings.html">String</a>, Integer, and Float—is important as they are fundamental for <u>representing</u> and <u>manipulating</u> data.</p>
+<p>Python is a well-known programming language, designed by Guido van Rossum at the Centrum Wiskunde &amp; Informatica (CWI) in Amsterdam. The design of the language allows code to be organized into <u>reusable</u> and <u>self-contained</u> objects. Knowing the three essential data types—<a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/strings.html">String</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">Integer</a>, and <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">Float</a>—is important as they are fundamental for <u>representing</u> and <u>manipulating</u> data.</p>
 <ol class="arabic simple">
-<li><p>A <strong>string (str)</strong> respresents text as a sequence of characters, and is denoted using single (‘’) or double quotes (“”).</p></li>
+<li><p>A <strong>string (str)</strong> respresents a sequence of characters, and is denoted using single (‘’) or double quotes (“”). A character represents any letter, digit or other symbol. Python has the following <a class="reference external" href="https://www.geeksforgeeks.org/python-tokens-and-character-sets/">character sets</a>:</p>
+<ul class="simple">
+<li><p>Letters – A to Z, a to z</p></li>
+<li><p>Digits – 0 to 9</p></li>
+<li><p>Special Symbols - + - * / etc.</p></li>
+</ul>
+</li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_string</span> <span class="o">=</span> <span class="s2">&quot;Welcome to the first Practical&quot;</span>
-<span class="n">a_second_string</span> <span class="o">=</span> <span class="s1">&#39;This will be an amazing class!&#39;</span>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Welcome to the first Practical ;)&quot;</span>
+<span class="n">expectation</span> <span class="o">=</span> <span class="s1">&#39;This will be a 10/10!&#39;</span>
 </pre></div>
-</div>
-</div>
 </div>
 <details>
   <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
-    Q: How can we see the strings "on the screen"? <span style="font-style: italic;"></span>
+    Q: What’s wrong with this string: <code>tricky_string = ' Oops, what goes wrong here?"</code>?
   </summary>
 <div style="background-color: #f4fdf7; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #b7e4c7; color: #155724;">
-    To display the data stored in variables, we use the <code>print()</code> function.
+    The string starts with a single quote <code>'</code> but ends with a double quote <code>"</code>. To fix it, use matching quotes at both ends.
   </div>
-</details><div class="tip dropdown admonition">
-<p class="admonition-title">Q: How can we see the strings “on the screen”?</p>
-<p>To display the data stored in variables, we use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function.</p>
-</div>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-0">
-Question</label><div class="sd-tab-content docutils">
-<p>How can we see the strings “on the screen”?</p>
-</div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-</input><label class="sd-tab-label" for="sd-tab-item-1">
-Answer</label><div class="sd-tab-content docutils">
-<p>To display the data stored in variables, we use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function.</p>
-</div>
-</div>
-<div class="cell docutils container">
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What will happen here?:</span>
-<span class="n">a_third_string</span> <span class="o">=</span> <span class="s1">&#39; Oops, what goes wrong here?&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tricky_string</span> <span class="o">=</span> <span class="s1">&#39; Oops, what goes wrong here?&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-    <span class="n">a_third_string</span> <span class="o">=</span> <span class="s1">&#39; Oops, what goes wrong here?&quot;</span>
-                                                   <span class="o">^</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">tricky_string</span> <span class="o">=</span> <span class="s1">&#39; Oops, what goes wrong here?&quot;</span>
+                                                  <span class="o">^</span>
 <span class="ne">SyntaxError</span>: EOL while scanning string literal
 </pre></div>
 </div>
@@ -500,48 +480,36 @@ Answer</label><div class="sd-tab-content docutils">
 </div>
 <div class="alert" style="background-color: #ffecb3; color: #856404;">
     <b>Note</b> <br>
-Using the <code>#</code> symbol, you can add comments to your code for explanations or instructions. These lines of text are ignored during program execution.
-</div><div class="tip dropdown admonition">
-<p class="admonition-title">Note</p>
-<p>Using the <code>#</code> symbol, you can add comments to your code for explanations or instructions. These lines of text are ignored during program execution.</p>
-</div>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note</p>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol, you can add comments to your code for explanations or instructions. These lines of text are ignored during program execution.</p>
-</div>
-</aside>
-<ol class="arabic simple" start="2">
-<li><p>A <strong>float</strong> represents numbers with decimals.</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_float</span> <span class="o">=</span> <span class="mf">3.1415</span>
-
-<span class="c1"># Who can tell me the next two numbers in pi? :)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ol class="arabic simple" start="3">
+By using the <code>#</code> symbol, you can add comments to your code for explanations or instructions. These lines of text are ignored during program execution.
+</div><ol class="arabic simple" start="2">
 <li><p>An <strong>integer (int)</strong> represents whole numbers.</p></li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">an_integer</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># my first intiger</span>
+<span class="n">max_grade</span> <span class="o">=</span> <span class="mi">10</span>
 </pre></div>
 </div>
+<ol class="arabic simple" start="3">
+<li><p>A <strong>floating-point number (float)</strong> is a number with a decimal point, for example, 3.14 or 7.0. Floats are used to represent numbers that are not whole, allowing you to work with fractions and real numbers.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># my first float</span>
+<span class="n">pi_number</span> <span class="o">=</span> <span class="mf">3.1415</span> 
+</pre></div>
 </div>
-</div>
-<p>By now, you might be asking yourself two questions:</p>
+<details>
+  <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
+    Q: What are the next two digits of pi after 3.1415?
+  </summary>
+<div style="background-color: #f4fdf7; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #b7e4c7; color: #155724;">
+    The next two digits are 9 and 2, making it 3.1415<b>92</b>6535...
+  </div>
+</details><p>By now, you might be asking yourself two questions:</p>
 <ol class="arabic simple">
 <li><p>Why does nothing show when we run our cells?</p></li>
 <li><p>Why do we have this structure of <code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">=</span> <span class="pre">value</span></code>?</p></li>
 </ol>
 <p>Let’s answer the first one.</p>
 <h2 style="color:#4169E1">The Print Function</h2>
-<p>In order to display certain output from your program, one must use a print statement, known as the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function.</p>
+<p>Thee <a class="reference external" href="https://docs.python.org/3/library/functions.html#pint"><code class="docutils literal notranslate"><span class="pre">print()</span></code></a> funcion is used to display text or other information on the screen. It’s a way to show output to the user.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What will happen when we run this cell?</span>
@@ -551,16 +519,39 @@ Using the <code>#</code> symbol, you can add comments to your code for explanati
 </div>
 </div>
 </div>
-<p>Printing is handy as it allows us to visualize or display specific information. For example, by using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function, we can figure out the data type of an object.</p>
+<p>This line of code tells Python to display the text:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Welcome to Intro to Python :)&#39;</span>
+</pre></div>
+</div>
+<p>on the screen. You can use <a class="reference external" href="https://docs.python.org/3/library/functions.html#pint"><code class="docutils literal notranslate"><span class="pre">print()</span></code></a> to display numbers, text and even the results of calculations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">an_integer</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The sum of 3 and 4 is&quot;</span><span class="p">,</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Printing is handy as it allows us to visualize or display specific information. For example, by using the <a class="reference external" href="https://docs.python.org/3/library/functions.html#type"><code class="docutils literal notranslate"><span class="pre">type()</span></code></a> function, we can figure out the data type of an object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is an int</span>
+<span class="n">max_grade</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">max_grade</span><span class="p">))</span>
+
+<span class="c1"># this is an aesthetic print</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-------------&#39;</span><span class="p">)</span>
+
+<span class="c1"># this is a str</span>
+<span class="n">fav_animal</span> <span class="o">=</span> <span class="s1">&#39;red panda&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">fav_animal</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <h2 style="color:#4169E1">Variables and Values</h2>
-<p>To answer the second question, we explore a fundamental concept in Python: <strong>variables</strong>. Variables in programming are often referred to as containers for data, similar to mathematical variables that store values that can later be changed. A variable in Python is created by assigning a value to a name, for which the equals sign (<code class="docutils literal notranslate"><span class="pre">=</span></code>) is used. The basic syntax is:</p>
+<p>To answer the second question, we explore a fundamental concept in Python: <a class="reference external" href="https://www.geeksforgeeks.org/python-variables/"><strong>variables</strong></a>. Variables in programming are often referred to as containers for data, similar to mathematical variables that store values that can later be changed. A variable in Python is created by assigning a value to a name, for which the equals sign (<code class="docutils literal notranslate"><span class="pre">=</span></code>) is used. The basic syntax is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">variable_name</span> <span class="o">=</span> <span class="n">value</span>
 </pre></div>
 </div>
@@ -577,12 +568,12 @@ Using the <code>#</code> symbol, you can add comments to your code for explanati
 <span class="n">month_number</span> <span class="o">=</span> <span class="mi">9</span> 
 
 <span class="c1"># 21.7 is the value of type float</span>
-<span class="n">degreesCelsius</span> <span class="o">=</span> <span class="mf">21.7</span>
+<span class="n">degrees_celsius</span> <span class="o">=</span> <span class="mf">21.7</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>It is good practise and <strong>mandatory</strong> in this course to add <strong>type hints</strong> to your variables. With type hints you specify the expected data type of a variable, using the syntax:</p>
+<h4 style="color:#B22222">Type Hints</h4><p>It is good practise and <strong>mandatory</strong> in this course to add <strong>type hints</strong> to your variables. With type hints you specify the expected data type of a variable, using the syntax:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">variable_name</span><span class="p">:</span> <span class="nb">type</span> <span class="o">=</span> <span class="n">value</span>
 </pre></div>
 </div>
@@ -594,7 +585,7 @@ Using the <code>#</code> symbol, you can add comments to your code for explanati
 
 <span class="n">month_number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">9</span> 
 
-<span class="n">degreesCelsius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">21.7</span>
+<span class="n">degrees_celsius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">21.7</span>
 </pre></div>
 </div>
 </div>
@@ -617,7 +608,7 @@ Using the <code>#</code> symbol, you can add comments to your code for explanati
 </div>
 </div>
 <p><strong>2. Format Method</strong></p>
-<p>Another way is to use the <code class="docutils literal notranslate"><span class="pre">format</span></code> method, which allows you to set the format of the variables in your message. In the following example, we specify that we want to use three decimal places using the syntax <code class="docutils literal notranslate"><span class="pre">.3f</span></code>.</p>
+<p>Another way is to use the <a class="reference external" href="https://docs.python.org/3/library/functions.html#format"><code class="docutils literal notranslate"><span class="pre">format</span></code></a> method, which allows you to set the format of the variables in your message. In the following example, we specify that we want to use three decimal places using the syntax <code class="docutils literal notranslate"><span class="pre">.3f</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expected_rain</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.35</span>
@@ -635,7 +626,14 @@ Using the <code>#</code> symbol, you can add comments to your code for explanati
 <li><p>It must only contain alpha-numeric (i.e., letters a-z A-Z and digits 0-9) characters and underscores.</p></li>
 <li><p>They cannot share the name of a Python keyword.</p></li>
 </ol>
-<div class="cell docutils container">
+<details>
+  <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
+    Q: What might go wrong if we uncomment and run the following code snippet?
+  </summary>
+<div style="background-color: #f4fdf7; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #b7e4c7; color: #155724;">
+    There are three issues: variable names can't start with a number, strings need quotes around them, and <code>class</code> is a reserved keyword in Python.
+  </div>
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment to see what happens:</span>
 
@@ -658,7 +656,6 @@ Using the <code>#</code> symbol, you can add comments to your code for explanati
 </div>
 </div>
 </div>
-<p>See? When the names of the variables don’t clearly reflect what they represent, it is much harder to read the code. Initially, it might be a struggle to find the right names for your variables, but you’ll get better along the way.</p>
 <div class="alert" style="background-color: #ffecb3; color: #856404;">
     <b>Note</b> <br>
 In this course, we use <b>snake_case</b> as our naming convention, which means all letters are lowercase, and words are separated by underscores. Another common convention is <b>CamelCase</b>, where each word starts with a capital letter, and words are not separated at all.</div><p>The naming of your variables is <strong>extremely</strong> important as this improves the readability of your code. Make sure the variable name truly reflects what it represents. Below are two pieces of code that are functionally the same but differ in naming. Mind, we introduce several new concepts in this piece of code, but don’t worry about those for now. Just focus on the naming conventions of variables.</p>
@@ -697,7 +694,14 @@ In this course, we use <b>snake_case</b> as our naming convention, which means a
 <p>See? When the names of the variables don’t clearly reflect what they represent, it is much harder to read the code. Initially, it might be a struggle to find the right names for your variables, but you’ll get better along the way.</p>
 <div class="alert" style="background-color: #ffecb3; color: #856404;">
     <b>Note</b> <br>
-In our notebooks we often use the variable names <code>x</code>, <code>y</code>, and <code>z</code> in our example code. This is solely to explain a concept in a plain way and <b>not</b> something that is recommended in real-world applications. For your assignments, it is very likely this will even be <b>penalized</b>. </div><h4 style="color:#B22222">Reassignments</h4>
+In our notebooks we often use the variable names <code>x</code>, <code>y</code>, and <code>z</code> in our example code. This is solely to explain a concept in a plain way and <b>not</b> something that is recommended in real-world applications. For your assignments, it is very likely this will even be <b>penalized</b>. </div><details>
+  <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
+    Q: Which of these is a better variable name, and why? <code>a_float = 3.1415</code> or <code>pi_number = 3.1415</code>?
+  </summary>
+<div style="background-color: #f4fdf7; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #b7e4c7; color: #155724;">
+    Using <code>pi_number</code> is more descriptive and clearly indicates that the value is related to pi, which helps make the code easier to understand.
+  </div>
+</details><h4 style="color:#B22222">Reassignments</h4>
 <p>It is allowed to assign a new value to an existing variable. This process is called <strong>reassignment</strong>. As soon as you assign a value to a variable, the old value is lost.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -722,7 +726,7 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 </div>
 </div>
 <h2 style="color:#4169E1">Operators</h2>
-<p>In the last cell, we introduced something new, namely the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator. There are many more operators that can be used on variables and values, which is crucial for the construction of <strong>expressions</strong>.</p>
+<p>In the last cell, we introduced something new, namely the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator. However, there are many more operators that can be used on variables and values.</p>
 <h4 style="color:#B22222">Operations on Numerical Data Types</h4>
 <p>Let’s explore the basic mathematical operators and see how they work with numerical data types.</p>
 <p><strong>1. Addition:</strong> <code class="docutils literal notranslate"><span class="pre">+</span></code></p>
@@ -785,7 +789,10 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 </div>
 </div>
 <h4 style="color:#B22222">Hierarchy of Operations</h4>
-<p>The usual hierarchy of operations (remember the acronym <strong>PEMDAS</strong>) apply for maths in Python as well.</p>
+<p>The usual hierarchy of operations (remember the acronyms <strong>PEMDAS</strong> or <strong>BODMAS</strong>) apply for maths in Python as well. (highest on top, lowest at the bottom)</p>
+<div style="text-align: center;">
+    <img src="attachment:5341ec2e-6ac4-4cfd-8eaf-b49731245b64.png" alt="BODMAS-(1).png" style="width: 50%; height: auto;" />
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
@@ -891,7 +898,14 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 </div>
 <p>The first statement initializes the variable <code class="docutils literal notranslate"><span class="pre">n</span></code> with the value <code class="docutils literal notranslate"><span class="pre">17</span></code>, this is a so-called <strong>assignment statement</strong>. The second statement is a <strong>print statement</strong> that prints the value of the variable <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 <p>The effect is not always visible. Assigning a value to a variable is not visible, but printing the value of a variable is.</p>
-<h2 style="color:#3CB371">Exercises</h2><p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+<details>
+  <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
+    Q: In the following code snippet, identify the expression and the statement: <code>circle_circumference = 2 * pi * radius</code>
+  </summary>
+<div style="background-color: #f4fdf7; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #b7e4c7; color: #155724;">
+    The expression is <code>2 * pi * radius</code> because it can be evaluated to produce a value. The entire snippet <code>circle_circumference = 2 * pi * radius</code> is an assignment statement as it assigns the value of the expression to the variable <code>circle_circumference</code>.
+  </div>
+</details><h2 style="color:#3CB371">Exercises</h2><p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
 <p>For each of the exercises, make sure to add <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
 <br></p>
 <p>As we cover the most basic concepts of Python programming in this notebook, all the exercises are designed at <span style="color:darkorange;"><strong>Level 1</strong></span> to help you get familiar with the fundamentals.</p>
@@ -899,6 +913,7 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <h2><span class="section-number">1.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h2>
 <p>The official scientific name of a species in Latin consists of two parts: the <em>genus name</em> and the <em>species epithet</em>. However, in English, we often refer to animals by their common names.</p>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a program that, given the genus, species epithet, and English name of an animal, prints both the full Latin name and the English name of the animal. Do <strong>not</strong> use the <code class="docutils literal notranslate"><span class="pre">.format()</span></code> method!</p>
+<img src="attachment:c20bc395-29ad-41b3-868c-8f762e4adabe.png" alt="Description of image" width="350">
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">genus</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Felis&#39;</span>
 <span class="n">epithet</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;catus&#39;</span>
@@ -920,6 +935,7 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <section id="exercise-2">
 <h2><span class="section-number">1.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h2>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Let’s create a program that prints the message ‘Happy birthday’ followed by the person’s name. The message should be repeated as many times as the age they are turning.</p>
+<p><img alt="image.png" src="notebooks/01-variables-expressions-statements/attachment:bfdd4333-d8be-4c77-8068-4cd0edf2e8bf.png" /></p>
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Mia&#39;</span>
 <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span>
@@ -941,10 +957,18 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <h2><span class="section-number">1.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h2>
 <p>Assume you are a cashier who needs to calculate the amount of money to return to a customer as change. However, you have a special cash drawer that <strong>only</strong> contains dollars, quarters, and dimes.</p>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a program that uses the <strong>modulo operator</strong> to calculate the number of dollars, quarters, and dimes to be given when a customer needs to receive €8.60 in change.</p>
+<p><img alt="image.png" src="notebooks/01-variables-expressions-statements/attachment:2050d1cd-35c7-4809-8870-6d736e9fa29a.png" /></p>
 <p>The output should be a string in the following format:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Cashier has to give back: 8 dollar(s), 2 quarter(s), and 1 dime(s).&#39;</span>
 </pre></div>
 </div>
+<p><strong>Hints:</strong></p>
+<ul class="simple">
+<li><p><span style="color: green;">1 nickel</span> is worth <span style="color: blue;">5 pennies</span></p></li>
+<li><p><span style="color: blue;">10 pennies</span> equals <span style="color: purple;">1 dime</span></p></li>
+<li><p><span style="color: blue;">25 pennies</span> equals <span style="color: magenta;">1 quarter</span></p></li>
+<li><p><span style="color: blue;">100 pennies</span> equals <span style="color: red;">1 dollar</span></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
@@ -952,6 +976,12 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 </div>
 </div>
 </div>
+<p><em>Material for the VU Amsterdam course “Introduction to Python Programming” for BSc Artificial Intelligence students. These notebooks are created using the following sources:</em></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://programming-pybook.github.io/introProgramming/intro.html">Learning Python by Doing</a>: This book, developed by teachers of TU/e Eindhoven and VU Amsterdam, is the main source for the course materials. Code snippets or text explanations from the book may be used in the notebooks, sometimes with slight adjustments.</p></li>
+<li><p><a class="reference external" href="https://greenteapress.com/thinkpython2/html/">Think Python</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org">GeekForGeeks</a></p></li>
+</ol>
 </section>
 </section>
 
