@@ -443,7 +443,7 @@ document.write(`
 <h2 style="color:#4169E1">Introduction to Data Types</h2>
 <p>Python is a well-known programming language, designed by Guido van Rossum at the Centrum Wiskunde &amp; Informatica (CWI) in Amsterdam. The design of the language allows code to be organized into <u>reusable</u> and <u>self-contained</u> objects. Knowing the three essential data types—<a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/strings.html">String</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">Integer</a>, and <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">Float</a>—is important as they are fundamental for <u>representing</u> and <u>manipulating</u> data.</p>
 <ol class="arabic simple">
-<li><p>A <strong>string (str)</strong> respresents a sequence of characters, and is denoted using single (‘’) or double quotes (“”). A character represents any letter, digit or other symbol. Python has the following <a class="reference external" href="https://www.geeksforgeeks.org/python-tokens-and-character-sets/">character sets</a>:</p>
+<li><p>A <strong>string (str)</strong> represents a sequence of characters, and is denoted using single (‘’) or double quotes (“”). A character represents any letter, digit or other symbol. Python has the following <a class="reference external" href="https://www.geeksforgeeks.org/python-tokens-and-character-sets/">character sets</a>:</p>
 <ul class="simple">
 <li><p>Letters – A to Z, a to z</p></li>
 <li><p>Digits – 0 to 9</p></li>
@@ -482,7 +482,7 @@ document.write(`
     <b>Note</b> <br>
 By using the <code>#</code> symbol, you can add comments to your code for explanations or instructions. These lines of text are ignored during program execution.
 </div><ol class="arabic simple" start="2">
-<li><p>An <strong>integer (int)</strong> represents whole numbers.</p></li>
+<li><p>An <strong>intiger (int)</strong> represents whole numbers.</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># my first intiger</span>
 <span class="n">max_grade</span> <span class="o">=</span> <span class="mi">10</span>
@@ -509,7 +509,7 @@ By using the <code>#</code> symbol, you can add comments to your code for explan
 </ol>
 <p>Let’s answer the first one.</p>
 <h2 style="color:#4169E1">The Print Function</h2>
-<p>Thee <a class="reference external" href="https://docs.python.org/3/library/functions.html#pint"><code class="docutils literal notranslate"><span class="pre">print()</span></code></a> funcion is used to display text or other information on the screen. It’s a way to show output to the user.</p>
+<p>The <a class="reference external" href="https://docs.python.org/3/library/functions.html#pint"><code class="docutils literal notranslate"><span class="pre">print()</span></code></a> function is used to display text or other information on the screen. It’s a way to show output to the user.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What will happen when we run this cell?</span>
@@ -608,12 +608,17 @@ By using the <code>#</code> symbol, you can add comments to your code for explan
 </div>
 </div>
 <p><strong>2. Format Method</strong></p>
-<p>Another way is to use the <a class="reference external" href="https://docs.python.org/3/library/functions.html#format"><code class="docutils literal notranslate"><span class="pre">format</span></code></a> method, which allows you to set the format of the variables in your message. In the following example, we specify that we want to use three decimal places using the syntax <code class="docutils literal notranslate"><span class="pre">.3f</span></code>.</p>
+<p>Another way is to use the <a class="reference external" href="https://docs.python.org/3/library/functions.html#format"><code class="docutils literal notranslate"><span class="pre">format</span></code></a> method, which allows you to set the format of the variables in your message. In the following example, we specify that we want to use three decimal places using the syntax <code class="docutils literal notranslate"><span class="pre">.2f</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expected_rain</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.35</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m so happy only </span><span class="si">{rain:.3f}</span><span class="s2"> mms of rain is expected today!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rain</span> <span class="o">=</span> <span class="n">expected_rain</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I&#39;m so happy only </span><span class="si">{rain:.2f}</span><span class="s2"> mms of rain is expected today!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rain</span> <span class="o">=</span> <span class="n">expected_rain</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I&#39;m so happy only 2.35 mms of rain is expected today!
 </pre></div>
 </div>
 </div>
@@ -624,7 +629,7 @@ By using the <code>#</code> symbol, you can add comments to your code for explan
 <li><p>It should start with a letter or underscore.</p></li>
 <li><p>It cannot start with a number.</p></li>
 <li><p>It must only contain alpha-numeric (i.e., letters a-z A-Z and digits 0-9) characters and underscores.</p></li>
-<li><p>They cannot share the name of a Python keyword.</p></li>
+<li><p>They cannot share the name of a Python keyword. (Python has a set of keywords that are reserved words that cannot be used as variable names, function names, or any other identifiers. You can find them <a class="reference external" href="https://www.w3schools.com/python/python_ref_keywords.asp">here</a>)</p></li>
 </ol>
 <details>
   <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
@@ -662,15 +667,18 @@ In this course, we use <b>snake_case</b> as our naming convention, which means a
 <p>Let’s look at the proper way of naming first.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mercury&quot;</span><span class="p">,</span> <span class="s2">&quot;Venus&quot;</span><span class="p">,</span> <span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="s2">&quot;Mars&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2000</span>
+<span class="n">c</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2024</span>
+<span class="n">n</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Bob&#39;</span>
 
-<span class="n">distance_rank</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">a</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">c</span><span class="o">-</span><span class="n">y</span>
 
-<span class="k">while</span> <span class="n">distance_rank</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">planets</span><span class="p">):</span>
-    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{rank}</span><span class="s2">. planet from Sun: </span><span class="si">{planet}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rank</span> <span class="o">=</span> <span class="n">distance_rank</span><span class="p">,</span> <span class="n">planet</span> <span class="o">=</span> <span class="n">planets</span><span class="p">[</span><span class="n">distance_rank</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-    
-    <span class="n">distance_rank</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My name is </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1"> and I am </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1"> years old&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My name is Bob and I am 24 years old
 </pre></div>
 </div>
 </div>
@@ -678,15 +686,18 @@ In this course, we use <b>snake_case</b> as our naming convention, which means a
 <p>You can see how this piece of code almost reads like English, thanks to the proper naming of variables. Not convinced? Let’s check out a more abstract approach to naming things.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mercury&quot;</span><span class="p">,</span> <span class="s2">&quot;Venus&quot;</span><span class="p">,</span> <span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="s2">&quot;Mars&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birth_year</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2000</span>
+<span class="n">current_year</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2024</span>
+<span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Bob&#39;</span>
 
-<span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">current_year</span><span class="o">-</span><span class="n">birth_year</span>
 
-<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
-    <span class="n">m</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{n}</span><span class="s2">. planet from Sun: </span><span class="si">{i}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="n">l</span><span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-    
-    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My name is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> and I am </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1"> years old&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My name is Bob and I am 24 years old
 </pre></div>
 </div>
 </div>
@@ -732,7 +743,13 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <p><strong>1. Addition:</strong> <code class="docutils literal notranslate"><span class="pre">+</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span>  <span class="c1"># Adds 3 and 4, result is 7</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span>  <span class="c1"># Adds 3 and 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 </div>
@@ -740,7 +757,8 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <p><strong>2. Subtraction:</strong> <code class="docutils literal notranslate"><span class="pre">-</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">5</span>  <span class="c1"># Subtracts 5 from 10, result is 5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">5</span>  <span class="c1"># Subtracts 5 from 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -748,7 +766,8 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <p><strong>3. Multiplication:</strong> <code class="docutils literal notranslate"><span class="pre">*</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">5</span>  <span class="c1"># Multiplies 4 by 5, result is 20</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">5</span>  <span class="c1"># Multiplies 4 by 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -757,7 +776,13 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <p>Divides one number by another. In Python, this results in a number with a decimal point (float).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">/</span> <span class="mi">4</span>  <span class="c1"># Divides 20 by 4, result is 5.0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">/</span> <span class="mi">4</span>  <span class="c1"># Divides 20 by 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
 </pre></div>
 </div>
 </div>
@@ -766,7 +791,13 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <p>The <strong>Modulo</strong> operator is very useful for finding out if a number is even or odd as it computes the remainder when dividing the first integer by the second one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span>  <span class="c1"># Divides 10 by 3, remainder is 1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span>  <span class="c1"># Divides 10 by 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -775,7 +806,8 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <p>Divides one number by another and rounds down to the nearest integer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">//</span> <span class="mi">3</span>  <span class="c1"># Divides 20 by 3 and floors the result, result is 6</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">//</span> <span class="mi">3</span>  <span class="c1"># Divides 20 by 3 and floors the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -783,17 +815,15 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <p><strong>7. Exponentiation:</strong> <code class="docutils literal notranslate"><span class="pre">**</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span>  <span class="c1"># Raises 2 to the power of 3, result is 8</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span>  <span class="c1"># Raises 2 to the power of 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <h4 style="color:#B22222">Hierarchy of Operations</h4>
 <p>The usual hierarchy of operations (remember the acronyms <strong>PEMDAS</strong> or <strong>BODMAS</strong>) apply for maths in Python as well. (highest on top, lowest at the bottom)</p>
-<div style="text-align: center;">
-    <img src="attachment:5341ec2e-6ac4-4cfd-8eaf-b49731245b64.png" alt="BODMAS-(1).png" style="width: 50%; height: auto;" />
-</div>
-<div class="cell docutils container">
+<img src="assets/BODMAS.png" width=600 height=600 /><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
@@ -913,7 +943,7 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <h2><span class="section-number">1.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h2>
 <p>The official scientific name of a species in Latin consists of two parts: the <em>genus name</em> and the <em>species epithet</em>. However, in English, we often refer to animals by their common names.</p>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a program that, given the genus, species epithet, and English name of an animal, prints both the full Latin name and the English name of the animal. Do <strong>not</strong> use the <code class="docutils literal notranslate"><span class="pre">.format()</span></code> method!</p>
-<img src="attachment:c20bc395-29ad-41b3-868c-8f762e4adabe.png" alt="Description of image" width="350">
+<img src="assets/animal.jpg" width=300 height=300 />
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">genus</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Felis&#39;</span>
 <span class="n">epithet</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;catus&#39;</span>
@@ -935,7 +965,7 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <section id="exercise-2">
 <h2><span class="section-number">1.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h2>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Let’s create a program that prints the message ‘Happy birthday’ followed by the person’s name. The message should be repeated as many times as the age they are turning.</p>
-<p><img alt="image.png" src="notebooks/01-variables-expressions-statements/attachment:bfdd4333-d8be-4c77-8068-4cd0edf2e8bf.png" /></p>
+<img src="assets/cake.jpg" width=400 height=400 />
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Mia&#39;</span>
 <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span>
@@ -957,7 +987,7 @@ In our notebooks we often use the variable names <code>x</code>, <code>y</code>,
 <h2><span class="section-number">1.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h2>
 <p>Assume you are a cashier who needs to calculate the amount of money to return to a customer as change. However, you have a special cash drawer that <strong>only</strong> contains dollars, quarters, and dimes.</p>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a program that uses the <strong>modulo operator</strong> to calculate the number of dollars, quarters, and dimes to be given when a customer needs to receive €8.60 in change.</p>
-<p><img alt="image.png" src="notebooks/01-variables-expressions-statements/attachment:2050d1cd-35c7-4809-8870-6d736e9fa29a.png" /></p>
+<img src="assets/money.jpg" width=400 height=400 />
 <p>The output should be a string in the following format:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Cashier has to give back: 8 dollar(s), 2 quarter(s), and 1 dime(s).&#39;</span>
 </pre></div>
