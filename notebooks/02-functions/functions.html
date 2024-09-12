@@ -1,0 +1,1334 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Functions &#8212; Workbook Intro Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/02-functions/functions';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="1. Variables, Expressions, and Statements" href="../01-variables-expressions-statements/variables-expressions-statements.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Workbook Intro Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Workbook Intro Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Programming Workbook XB-0082
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Functions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/VU-IntroPython/TAs-Material.git/master/v2/gh/VU-IntroPython/TAs-Material/master?urlpath=lab/tree/notebooks/notebooks/02-functions/functions.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02-functions/functions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/02-functions/functions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-function-calls-span">2.1. <span style="color:blue">Function calls</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-built-in-functions-span">2.2. <span style="color:blue">Built in Functions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-print-span">2.2.1. <span style="color:red">print()</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-type-span">2.2.2. <span style="color:red">type()</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-len-span">2.2.3. <span style="color:red">len()</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-input-span">2.2.4. <span style="color:red">input()</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-upper-lower-span">2.2.5. <span style="color:red">upper(), lower()</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-int-float-str-span">2.2.6. <span style="color:red">int(), float(), str()</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-max-min-sum-span">2.2.7. <span style="color:red">max(), min(), sum()</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-creating-your-own-functions-span">2.3. <span style="color:blue">Creating Your Own Functions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-generalization-span">2.3.1. <span style="color:red">Generalization</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-docstring-span">2.3.2. <span style="color:red">Docstring</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-scope-span">2.3.3. <span style="color:red">Scope</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-code-print-code-vs-code-return-code-span">2.3.4. <span style="color:red"><code> print() </code> vs <code> return() </code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-calling-functions-in-functions-span">2.4. <span style="color:blue">Calling Functions in Functions</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-green-exercises-span">2.5. <span style="color:green">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">2.5.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">2.5.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">2.5.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="functions">
+<h1><span class="section-number">2. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h1>
+<p><strong>In this notebook, we cover the following subjects:</strong></p>
+<ul class="simple">
+<li><p>Function Calls;</p></li>
+<li><p>Creating Functions;</p></li>
+<li><p>Functions in Functions.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="span-style-color-blue-function-calls-span">
+<h2><span class="section-number">2.1. </span><span style="color:blue"><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#function-definitions">Function calls</a></span><a class="headerlink" href="#span-style-color-blue-function-calls-span" title="Permalink to this heading">#</a></h2>
+<p><strong>Functions</strong> let us execute processes multiple times without repeating the code. Unlike iterative loops (discussed in notebooks 4 and 5), we can call the function whenever we want to run a specific sequence of code. Plus, we can use <strong>parameters</strong> to run the same process with different values for certain variables.</p>
+<p>Before we will construct our own functions, we touch upon <strong>function calls</strong> first. Luckily, these aren’t new to you, and you have already used them multiple times by now. A function call is when you run a function in your code, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;animal&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, the name of the function is <code class="docutils literal notranslate"><span class="pre">type</span></code>. The <strong>expression</strong> in parentheses is called the <strong>argument</strong> of the function. The result, for this function, is the type of the argument.</p>
+<p>It is common to say that a function “takes” an argument and “returns” a result. The result is called the <strong>return value</strong>.</p>
+</section>
+<section id="span-style-color-blue-built-in-functions-span">
+<h2><span class="section-number">2.2. </span><span style="color:blue"><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#function-definitions">Built in Functions</a></span><a class="headerlink" href="#span-style-color-blue-built-in-functions-span" title="Permalink to this heading">#</a></h2>
+<p>Python’s <strong>built-in functions</strong> are a set of functions that are always available for you to use without needing to import any additional modules (we will cover modules in a later notebook, you do not have to worry about them right now). They provide a variety of useful functionalities, making it easier to perform common tasks without writing extra code.</p>
+<p>Let’s go through some of the most common built-in functions and see how they work:</p>
+<section id="span-style-color-red-print-span">
+<h3><span class="section-number">2.2.1. </span><span style="color:red">print()</span><a class="headerlink" href="#span-style-color-red-print-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Purpose:</strong> As we know already, the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function is used to display information on the screen.<br />
+<strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Hello, World!&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-red-type-span">
+<h3><span class="section-number">2.2.2. </span><span style="color:red">type()</span><a class="headerlink" href="#span-style-color-red-type-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Purpose:</strong> Again, as we know already, the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function is used to find the type of an object (e.g., string, integer, flat, etc.)<br />
+<strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;&lt;class &#39;int&#39;&gt;&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-red-len-span">
+<h3><span class="section-number">2.2.3. </span><span style="color:red">len()</span><a class="headerlink" href="#span-style-color-red-len-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Purpose:</strong> The <a class="reference external" href="https://www.w3schools.com/python/ref_func_len.asp"><code class="docutils literal notranslate"><span class="pre">len()</span></code></a> function returns the number of items in an object. When the object is a string, it returns the number of characters in the string.<br />
+<strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-red-input-span">
+<h3><span class="section-number">2.2.4. </span><span style="color:red">input()</span><a class="headerlink" href="#span-style-color-red-input-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Purpose:</strong> The <a class="reference external" href="https://www.w3schools.com/python/ref_func_len.asp"><code class="docutils literal notranslate"><span class="pre">input()</span></code></a> function is used to take input from the user. It pauses the program and waits for the user to type something.<br />
+<strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello, Bob!&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-red-upper-lower-span">
+<h3><span class="section-number">2.2.5. </span><span style="color:red">upper(), lower()</span><a class="headerlink" href="#span-style-color-red-upper-lower-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Purpose:</strong> The <a class="reference external" href="https://www.w3schools.com/python/ref_string_upper.asp"><code class="docutils literal notranslate"><span class="pre">upper()</span></code></a> function converts all the lowercase letters in a string to uppercase (capital) letters. It does not change any characters that are already uppercase, and it leaves non-letter characters unchanged. On the other hand, the <a class="reference external" href="https://www.w3schools.com/python/ref_string_lower.asp"><code class="docutils literal notranslate"><span class="pre">lower()</span></code></a> function converts all the uppercase letters in a string to lowercase. It does not change any characters that are already lowercase, and it leaves non-letter characters unchanged.<br />
+<strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;HELLO, WORLD!&#39;</span>
+<span class="s1">&#39;hello, world!&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-red-int-float-str-span">
+<h3><span class="section-number">2.2.6. </span><span style="color:red">int(), float(), str()</span><a class="headerlink" href="#span-style-color-red-int-float-str-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Purpose:</strong>: These functions convert values to different data types.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int()</span></code> converts to an integer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float()</span></code> converts to a floating-point number (a number with a decimal).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str()</span></code> converts to a string.
+<strong>Example:</strong></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;10&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">15</span> <span class="c1"># Converts &quot;10&quot; to integer 10  </span>
+<span class="mf">10.5</span> <span class="c1"># Converts &quot;10&quot; to float 10.0 and adds 0.5 to it</span>
+<span class="s1">&#39;100&#39;</span> <span class="c1"># Converts the integer 100 to the string &#39;100&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-red-max-min-sum-span">
+<h3><span class="section-number">2.2.7. </span><span style="color:red">max(), min(), sum()</span><a class="headerlink" href="#span-style-color-red-max-min-sum-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Purpose:</strong> These built-in functions work quite intuitively. The <a class="reference external" href="https://www.w3schools.com/python/ref_string_upper.asp"><code class="docutils literal notranslate"><span class="pre">max()</span></code></a> and <a class="reference external" href="https://www.w3schools.com/python/ref_string_lower.asp"><code class="docutils literal notranslate"><span class="pre">min()</span></code></a> functions return the largest or smallest item in an iterable (like a list or a string), while the <a class="reference external" href="https://www.w3schools.com/python/ref_func_sum.asp"><code class="docutils literal notranslate"><span class="pre">sum()</span></code></a> function  adds up all the items in an iterable (like a list or a tuple).</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span>
+<span class="mi">1</span>
+<span class="mi">15</span>
+</pre></div>
+</div>
+<details>
+  <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
+    Q: What’s the length of the followig variable:  
+      <code>lengthy_string: str = ''</code>
+  </summary>
+<div style="background-color: #f4fdf7; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #b7e4c7; color: #155724;">
+    The length of the <code>lengthy_string</code> variable is 0. This is becasue <code>lengthy_string</code> is assigned an empty string. An empty string is a string, that contains no characters.
+  </div>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try it yourself</span>
+
+<span class="n">lengthy_string</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lengthy_string</span><span class="p">))</span>
+
+<span class="c1"># aesthetic print</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-------------&#39;</span><span class="p">)</span>
+
+<span class="c1"># what about now?</span>
+<span class="n">lengthier_string</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lengthier_string</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+-------------
+1
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are many more built-in functions in Python. If you would like to see more, visit <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#function-definitions">this link</a>.</p>
+</section>
+</section>
+<section id="span-style-color-blue-creating-your-own-functions-span">
+<h2><span class="section-number">2.3. </span><span style="color:blue">Creating Your Own Functions</span><a class="headerlink" href="#span-style-color-blue-creating-your-own-functions-span" title="Permalink to this heading">#</a></h2>
+<p>Along with using built-in functions, you can create your own. This allows you to package up computations in functions that you can reuse later, making your code more flexible.</p>
+<p>To define a function, just use the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, give it a name, optionally add some parameters, and then write out the sequence of instructions you want it to run. This is called a <strong>function definition</strong>, and it looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">:</span>
+    <span class="c1"># Code</span>
+</pre></div>
+</div>
+<p>Note that the <strong>return type</strong> can be added to the function definition via <code class="docutils literal notranslate"><span class="pre">-&gt;</span> <span class="pre">type</span></code>. Let’s look at a very simple example where we simply greet a person.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+    
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Roger&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, Roger!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s break down all the components of this function definition and call. From the example, we can clearly see that this is a function because of the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword. The function’s name is <code class="docutils literal notranslate"><span class="pre">greet</span></code>, and it has one <strong>parameter</strong> called <code class="docutils literal notranslate"><span class="pre">name</span></code>. In the function body, we simply <code class="docutils literal notranslate"><span class="pre">print</span></code> the greeting <code class="docutils literal notranslate"><span class="pre">f&quot;Hello,</span> <span class="pre">{name}!&quot;</span></code>, therefore returning <code class="docutils literal notranslate"><span class="pre">None</span></code>. When we call the function, the <strong>argument</strong> passed is the string <code class="docutils literal notranslate"><span class="pre">&quot;Roger&quot;</span></code>.</p>
+<div class="alert" style="background-color: #ffecb3; color: #856404;">
+    <b>Note</b> <br>
+The variables that are defined in the function definition are what we call <b>parameters</b>, while actual values that are passed to the function in the function call are named <b>arguments</b>.<section id="span-style-color-red-generalization-span">
+<h3><span class="section-number">2.3.1. </span><span style="color:red">Generalization</span><a class="headerlink" href="#span-style-color-red-generalization-span" title="Permalink to this heading">#</a></h3>
+<p>It’s crucial for a function to be <strong>clear</strong> and <strong>reusable</strong>. To make your life easier, it’s best if you can use the same function multiple times and with different parameter values.</p>
+<p>Let’s look at a poor example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">travel_time</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="mi">240000</span> <span class="o">/</span> <span class="mi">1600</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The travel time between Earth and Moon for this ship is </span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2"> hours.&quot;</span><span class="p">)</span>
+
+<span class="n">travel_time</span><span class="p">()</span>
+
+<span class="c1">## What is the problem with this function?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The travel time between Earth and Moon for this ship is 150.0 hours.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we’ll improve this function definition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distance_Earth_Moon</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">240000</span>
+<span class="n">travel_speed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1600</span>
+
+<span class="k">def</span> <span class="nf">travel_time</span><span class="p">(</span><span class="n">distance</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">speed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">planet1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">planet2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">/</span> <span class="n">speed</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The travel time between </span><span class="si">{</span><span class="n">planet1</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">planet2</span><span class="si">}</span><span class="s2"> for this ship is </span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2"> hours.&quot;</span><span class="p">)</span>
+
+<span class="n">travel_time</span><span class="p">(</span><span class="n">distance_Earth_Moon</span><span class="p">,</span> <span class="n">travel_speed</span><span class="p">,</span> <span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="s2">&quot;Moon&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The travel time between Earth and Moon for this ship is 150.0 hours.
+</pre></div>
+</div>
+</div>
+</div>
+<p>That looks much better already! However, we can still make the function definition easier to reuse by adding a <strong>docstring</strong>.</p>
+<div class="alert" style="background-color: #ffecb3; color: #856404;">
+    <b>Note</b> <br>
+If your function doesn’t take any parameters, that’s a <b>warning sign</b>. It means the function can only handle a single, specific computation, which is sometimes okay, but not ideal in most cases. So, consider this carefully.</section>
+<section id="span-style-color-red-docstring-span">
+<h3><span class="section-number">2.3.2. </span><span style="color:red">Docstring</span><a class="headerlink" href="#span-style-color-red-docstring-span" title="Permalink to this heading">#</a></h3>
+<p>To explain the interface of your function, you use a <strong>docstring</strong> (“doc” is short for “documentation”), which is a string placed at the beginning of your function. The main aim of a docstring is to clearly describe what the function does without delving into the details of how this is done. For example:</p>
+<div class="alert" style="background-color: #FF8080; color: black;">
+    <b>Reminder</b> <br>
+    Whenever your create a new function <b> always </b> add <b> typehints </b> to all parameters, moreower, to include the <b>return typehint</b> and write a <b>docstring</b>.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="c1"># Union[int, float] means that type can be either int or float.</span>
+
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the square of the given number.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">number</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>A docstring starts with <strong>triple-quoted strings</strong>, allowing the text to span multiple lines. If it’s not immediately clear what each parameter does, its purpose in the function should also be explained. This looks as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_date</span><span class="p">(</span><span class="n">day</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">month</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Formats a date in the DD-MM-YYYY format.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    day (int): The day of the month (1-31).</span>
+<span class="sd">    month (int): The month of the year (1-12).</span>
+<span class="sd">    year (int): The full year (e.g., 2024).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    str: A string representing the date in the format DD-MM-YYYY.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">day</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">format_date</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1999</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;01-01-1999&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert" style="background-color: #ffecb3; color: #856404;">
+    <b>Note</b> <br>
+A well designed interface should be simple to explain; if you have a hard time explaining one of your functions, maybe the interface could be improved.</section>
+<section id="span-style-color-red-scope-span">
+<h3><span class="section-number">2.3.3. </span><span style="color:red">Scope</span><a class="headerlink" href="#span-style-color-red-scope-span" title="Permalink to this heading">#</a></h3>
+<p>When we define variables, we distinguish between <strong>local</strong> and <strong>global variables</strong>. <strong>Local variables</strong> are those defined inside a function, meaning they only exist within that function and cannot be accessed outside of it. Let’s have a look.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">explorer</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Explores the planets Mars and Venus.&quot;&quot;&quot;</span>
+    <span class="n">planet</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Mars&quot;</span>
+    <span class="n">planet2</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Venus&quot;</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">planet</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">planet</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Mars&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">planet2</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Venus&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">planet</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;planet&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we try to access the <strong>variable</strong> <code class="docutils literal notranslate"><span class="pre">planet</span></code> outside the function and print it, we get an error saying that the name <code class="docutils literal notranslate"><span class="pre">planet</span></code> is not defined. The same holds true for <strong>parameters</strong>, as they are also invisible outside the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">concat</span><span class="p">(</span><span class="n">part1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">part2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Concatenates two strings and prints the result twice.&quot;&quot;&quot;</span>
+    <span class="n">cc_result</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">part1</span> <span class="o">+</span> <span class="n">part2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cc_result</span><span class="p">)</span>
+    
+<span class="n">concat</span><span class="p">(</span><span class="s1">&#39;Data &#39;</span><span class="p">,</span> <span class="s1">&#39;Science&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">part1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In contrast, <strong>global variables</strong> are defined outside of functions and can be accessed and used throughout the whole program, also in a function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">the_best_footballer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Messi&quot;</span>
+
+<span class="k">def</span> <span class="nf">the_best</span><span class="p">(</span><span class="n">human</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the given human is the footballer Messi.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">human</span> <span class="o">==</span> <span class="n">the_best_footballer</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">human</span><span class="si">}</span><span class="s2"> is the best footballer!&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">human</span><span class="si">}</span><span class="s2"> is great, but </span><span class="si">{</span><span class="n">the_best_footballer</span><span class="si">}</span><span class="s2"> is the best!&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">the_best</span><span class="p">(</span><span class="s2">&quot;Bellingham&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s test if we clearly understand the difference between <strong>local</strong> and <strong>global variables</strong>. What happens when we run the following cell, what is the <strong>exact</strong> output?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the square of the given number.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">number</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="n">square_of_4</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">square_of_4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details>
+  <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
+    Q: What are the 3 main parts of a docstring?
+  </summary>
+<div style="background-color: #f4fdf7; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #b7e4c7; color: #155724;">
+    1) General explanation of what the function does.<br>
+    2) Description of all parameters including their type and purpose.<br>
+    3) Explanation of what the function returns including it's type.  
+</div>
+</details></section>
+<section id="span-style-color-red-code-print-code-vs-code-return-code-span">
+<h3><span class="section-number">2.3.4. </span><span style="color:red"><code> print() </code> vs <code> return() </code></span><a class="headerlink" href="#span-style-color-red-code-print-code-vs-code-return-code-span" title="Permalink to this heading">#</a></h3>
+<p>It’s important to note that some functions just execute code, while others return a result. Depending on the function’s purpose, calling it can differ:</p>
+<ul class="simple">
+<li><p>If the function simply runs some code, just call it on a line by itself, like a full statement (e.g., a <strong>void function</strong>);</p></li>
+<li><p>If the function returns a result, call it where you need the result, like saving it in a variable or printing it (e.g., a <strong>fruitful function</strong>).</p></li>
+</ul>
+<p>Although a <strong>void function</strong> might display something or have some other effect, it doesn’t return anything. Therefore, using it on the right side of an assignment statement is pointless. If you do, the variable will receive a special value called <code class="docutils literal notranslate"><span class="pre">None</span></code>. Here’s an example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints a message.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Message: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">result</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">message</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A <strong>fruitful function</strong> does return a result which can be stored in a variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A simple example of a function that returns a result</span>
+
+<span class="k">def</span> <span class="nf">sum_int_numbers</span><span class="p">(</span><span class="n">nr1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nr2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the sum of two integers numbers&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nr1</span> <span class="o">+</span> <span class="n">nr2</span>
+
+<span class="n">sum_var</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">sum_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_var</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert" style="background-color: #ffecb3; color: #856404;">
+    <b>Note</b> <br>
+    The <b>return type</b> can be added to the <b>function definition</b> via <code>-> type</code>.<details>
+  <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
+    Q: Consider the following 2 cases:<br>
+      In case 1, I am trying to create a function knowing that I will need to use it's output later on.<br>
+      In case 2, I am creating a function knowing that I only need to display the result immediately and won't need to use it later.<br>
+      <br>
+      Based on these 2 cases, when should I use <code> print() </code> and when should I use <code> return </code> ?
+  </summary>
+<div style="background-color: #f4fdf7; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #b7e4c7; color: #155724;">
+    In case 1, I should use <code>return</code> to be able to reuse the output later on. <br>
+    In case 2, I should use <code>print()</code> since I know that I will not have to reuse the function's output.
+</div>
+</details><p>Let’s test our knowledge. What does this piece of code print?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">explorer</span><span class="p">(</span><span class="n">celestial_body</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a landing message for a given celestial body.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;I am now landing on </span><span class="si">{</span><span class="n">celestial_body</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="n">message1</span> <span class="o">=</span> <span class="n">explorer</span><span class="p">(</span><span class="s2">&quot;Moon&quot;</span><span class="p">)</span>
+<span class="n">message2</span> <span class="o">=</span> <span class="n">explorer</span><span class="p">(</span><span class="s2">&quot;Mars&quot;</span><span class="p">)</span>
+
+<span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hurray! &quot;</span> <span class="o">+</span> <span class="n">message1</span>
+<span class="n">message</span> <span class="o">=</span> <span class="n">message2</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">message</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="span-style-color-blue-calling-functions-in-functions-span">
+<h2><span class="section-number">2.4. </span><span style="color:blue">Calling Functions in Functions</span><a class="headerlink" href="#span-style-color-blue-calling-functions-in-functions-span" title="Permalink to this heading">#</a></h2>
+<p>Python also allows you to call a function within another function, which modularizes the code, allowing the same function to be used for different purposes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the square of the given number.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">number</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">sum_of_squares</span><span class="p">(</span><span class="n">number_1</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">number_2</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the sum of the squares of two numbers.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">square</span><span class="p">(</span><span class="n">number_1</span><span class="p">)</span> <span class="o">+</span> <span class="n">square</span><span class="p">(</span><span class="n">number_2</span><span class="p">)</span>  <span class="c1"># Calls to square()</span>
+
+<span class="c1"># Example usage</span>
+<span class="n">number_1</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">number_2</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">4.0</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">sum_of_squares</span><span class="p">(</span><span class="n">number_1</span><span class="p">,</span> <span class="n">number_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sum of the squares of </span><span class="si">{</span><span class="n">number_1</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">number_2</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-green-exercises-span">
+<h2><span class="section-number">2.5. </span><span style="color:green">Exercises</span><a class="headerlink" href="#span-style-color-green-exercises-span" title="Permalink to this heading">#</a></h2>
+<p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+<p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
+<br></p>
+<section id="exercise-1">
+<h3><span class="section-number">2.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a Python function named <code class="docutils literal notranslate"><span class="pre">calculate_triangle_area()</span></code> that calculates and returns the area of a triangle given its base and height as input arguments. The function should use the formula <code class="docutils literal notranslate"><span class="pre">0.5</span> <span class="pre">*</span> <span class="pre">base</span> <span class="pre">*</span> <span class="pre">height</span></code> to compute the area and return the result. After calling the function, print the area using an f-String outside of the function. Assume both the base and height are positive numbers.</p>
+<img src="assets/Triangle-1.png" width=600 height=600>
+<p><strong>Example input</strong>: you pass these in a function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">base</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;The area of the triangle with base 6 and height 8 is 24.0.&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Create a Python function named calculate_triangle_fit_with_remainder() that takes five parameters: the base and height of a triangle (base, height), the unit of measurement for the triangle (unit), and the dimensions of a rectangular surface (surface_length, surface_width). The function should:</p>
+<ul class="simple">
+<li><p>Calculate the area of the triangle using the <code> calculate_triangle_area() </code> (function from Level 1).</p></li>
+<li><p>Calculate the area of the rectangular surface using <code> surface_length * surface_width </code>.</p></li>
+<li><p>Determine how many whole triangles can fit into the rectangular surface.</p></li>
+<li><p>Calculate the remaining area on the surface after placing as many whole triangles as possible.</p></li>
+</ul>
+<p>After having calculated the above mentioned information, return a formatted string indicating:</p>
+<ul class="simple">
+<li><p>The area of the triangle.</p></li>
+<li><p>The area of the surface.</p></li>
+<li><p>The number of triangles that can fit.</p></li>
+<li><p>The remaining area on the surface.</p></li>
+</ul>
+<p><strong>Example input</strong>: you pass these in a function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">base</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mf">6.0</span>
+<span class="n">unit</span> <span class="o">=</span> <span class="s2">&quot;cm&quot;</span>
+<span class="n">surface_length</span> <span class="o">=</span> <span class="mf">30.0</span>
+<span class="n">surface_width</span> <span class="o">=</span> <span class="mf">10.0</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;The area of the triangle is: 15.00 cm. The area of the surface is: 300.00 cm. Based on this, the number of triangles that fit is: 20. While the remaining surface area is: 0.00 cm.&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span>  Upgrade the <code class="docutils literal notranslate"><span class="pre">calculate_triangle_area()</span></code> function to handle multiple triangles by accepting a <a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/lists.html">list</a> of <a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/tuples.html">tuples</a>, where each tuple contains a base-height pair. For each pair, calculate the area using the formula <code class="docutils literal notranslate"><span class="pre">0.5</span> <span class="pre">*</span> <span class="pre">base</span> <span class="pre">*</span> <span class="pre">height</span></code> and return a list of all the areas. Make sure both bases and heights are positive numbers. Use the return statement to get the list of areas, and don’t forget to print the result outside the function.</p>
+<p><strong>Example input</strong>: you pass this in a function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">base_height_pairs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">24.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">,</span> <span class="mf">42.0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2">
+<h3><span class="section-number">2.5.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Imagine you’re at a delightful farm, surrounded by various animals. To keep yourself entertained, you decide to count the number of legs each type of animal has. Your task is to create a function named <code> count_animal_legs() </code> that takes three inputs: the number of chickens, cows, and dogs you see. The function should then calculate and return the total number of legs based on the counts you provide alongside with the number of each animal.</p>
+<img src="assets/farm.jpg" width=600 height=600 >
+<p>Hint:</p>
+<ul class="simple">
+<li><p>Chickens have 2 legs.</p></li>
+<li><p>Cows have 4 legs.</p></li>
+<li><p>Dogs have 4 legs</p></li>
+</ul>
+<p><strong>Example input</strong>: you pass this in a function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_of_chickens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">num_of_cows</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">num_of_dogs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;I can see 6 chickens, 3 cows and 1 dog. In total, I can see 28 legs.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> You’re back at the farm, and this time you need a more detailed analysis of the animals you encounter. Your task is to create a function called <code> animal_info() </code> which, beyond counting the number of legs and the total number of animals, can also calculate the total weight of all the animals combined. Additionally, you’ll need to calculate the cumulative weight of each species and present a message that includes all these insights. Your function should take 5 inputs representing the number of animals you see from each species. Use the information provided regarding the weight of each animal.</p>
+<p>Details:</p>
+<ul class="simple">
+<li><p>Chickens weigh 1.5 kg each.</p></li>
+<li><p>Cows weigh 500 kg each.</p></li>
+<li><p>Dogs weigh 30 kg each.</p></li>
+<li><p>Pigs weigh 150 kg each.</p></li>
+<li><p>Horses weigh 600 kg each.</p></li>
+</ul>
+<p><strong>Note</strong>: Think about what you learned in the <code> Scope </code> section, and where could that be used.</p>
+<p><strong>Example input</strong>: you pass this in a function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_of_chickens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">num_of_cows</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">num_of_dogs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">num_of_pigs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">num_of_horses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;I can see 5 chickens, 3 cows, 2 dogs, 4 pigs, and 1 horse. In total, I can see 32 legs and the total weight of the animals is 2,767.5 kg. The animals cumulative weight by species is: chicken (7.5 kg), dog (60 kg), pig (600 kg), cow (1,500 kg), and horse (600 kg).&quot;&quot;</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> You’re back at the farm for a final observation. This time you need to measure the speed of the animals as they cover different distances. Unfortunatelly, it is raining today so all animals are in the barn. Therefore, you decide to conduct a survey and gather information about the speed of each animal. Create a function called <code> sprinter_of_the_farm() </code> which takes no input, however, asks the user for the following information:</p>
+<ul class="simple">
+<li><p>the name of the animal</p></li>
+<li><p>the species of the animal</p></li>
+<li><p>the distance it covered (in kilometers)</p></li>
+<li><p>the time it took to cover that distance (in hours</p></li>
+</ul>
+<p>Then, the function should calculate the speed of the animal, in meters per second (m/s) and show a summary message to the user.</p>
+<p>Hint:</p>
+<ul class="simple">
+<li><p>Speed is calculated using the formula: <code> Speed = Distance / Time </code></p></li>
+<li><p>You can find inspiation about how to ask the user for input on <a class="reference external" href="https://www.w3schools.com/python/ref_func_len.asp">this site</a></p></li>
+</ul>
+<p><strong>Example user input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Pedro&#39;</span>
+<span class="n">species</span> <span class="o">=</span> <span class="s1">&#39;Teacup Pig&#39;</span>
+<span class="n">distance_covered</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">time_required</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Based on the provided information, Pedro - the Teacup Pig - runs with 0.167 m/s.&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3">
+<h3><span class="section-number">2.5.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> You are an astronaut on a mission to explore the mysterious Planet Numerica. Your spaceship has landed on the planet, and you’ve encountered several tasks that require your Python Programming skills to solve. First, you need to calculate the total amount of fuel required for a round-trip to a nearby research station. Create a function called <code> fuel_calculator() </code> which takes as input the spaceship’s fuel consumption rate (litre/hour) and the time it requires to reach the nearest research station (in hours). Your function should return a detailed summary including the spaceship’s fuel consumption rate, the distance to the nearest research station and total amount of fuel (in litres) required for the round-trip.</p>
+<img src="assets/space.jpg" width=600 height=600 >
+<p><strong>Example user input</strong>: you pass this in a function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fuel_consumption_rate</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="n">distance_to_research_station</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;The spaceship&#39;s fuel consumption rate is 35 litres/hour and the nearest research station is 8 hours away. Therefore, we need 560 litres of fuel for a round-trip.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> As part of your mission on Planet Numerica, you need to perform a special calculation to navigate through a dangerous asteroid field. The calculation involves determining the position of your spaceship after a series of complex movements. This will require you to carefully apply a sequence of operations to ensure your spaceship arrives at the correct position. Create a function called <code>navigation_system()</code> that takes three inputs:</p>
+<ul class="simple">
+<li><p>initial_position (an integer representing your starting position)</p></li>
+<li><p>movement_units (an integer representing how many units your spaceship will move in each step)</p></li>
+<li><p>total_steps (an integer representing the total number of steps you will take)</p></li>
+</ul>
+<p>The function should return a message with your final position after performing the following sequence of calculations:</p>
+<ol class="arabic simple">
+<li><p>Find the remainder when the total number of steps is compared to the movement units.</p></li>
+<li><p>Calculate how many <strong>full</strong> units of movement can be performed given the total number of steps.</p></li>
+<li><p>Determine the impact of the calculated units on your movement by multiplying the number of units by the remainder.</p></li>
+<li><p>Adjust your movement by dividing the impact by a combined value derived from the movement units and the initial remainder.</p></li>
+<li><p>Finally, update your initial position by adding the adjusted movement to it.</p></li>
+</ol>
+<p><strong>Example user input</strong>: you pass this in a function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">initial_position</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">movement_units</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">total_steps</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Your final position after the calculation is 11.2.&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> As you navigate the vibrant intergalactic market on Planet Numerica, you encounter a dazzling array of space rocks, each with a unique name and price tag. To fully understand the market dynamics, you need to analyze these rocks and uncover three key pieces of information:</p>
+<ul class="simple">
+<li><p>Most Expensive Rock: Identify the rock with the highest price.</p></li>
+<li><p>Least Expensive Rock: Find the rock with the lowest price.</p></li>
+<li><p>Average Price: Calculate the average price of all the space rocks.</p></li>
+</ul>
+<p>To complete this task, create a function called <code> market_analysis() </code> that takes two lists as inputs:</p>
+<ol class="arabic simple">
+<li><p>prices: A list of numerical values representing the prices of the space rocks.</p></li>
+<li><p>space_rocks: A list of names for each space rock, corresponding to the prices list.</p></li>
+</ol>
+<p>Your function should return a summary including the most expensive rock, the least expensive rock, and the average price.</p>
+<p><strong>Note</strong>: The rocks and prices go in pairs, meaning that the first price in the prices list belongs to the first rock in the space rocks list and so on.</p>
+<p><strong>Example user input</strong>: you pass this in a function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">450</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">95</span><span class="p">]</span>
+<span class="n">space_rocks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Nebula Shard&quot;</span><span class="p">,</span> <span class="s2">&quot;Quantum Crystal&quot;</span><span class="p">,</span> <span class="s2">&quot;Dark Matter Orb&quot;</span><span class="p">,</span> <span class="s2">&quot;Stellar Gem&quot;</span><span class="p">,</span> <span class="s2">&quot;Cosmic Dust&quot;</span><span class="p">]</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Based on my findings, the most expensive space rock is called Dark Matter Orb and is worth 600. The least expensive&#39;s name is Cosmic Dust with a price of 95. While, in average, a space rock in this market costs 293.&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Material for the VU Amsterdam course “Introduction to Python Programming” for BSc Artificial Intelligence students. These notebooks are created using the following sources:</em></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://programming-pybook.github.io/introProgramming/intro.html">Learning Python by Doing</a>: This book, developed by teachers of TU/e Eindhoven and VU Amsterdam, is the main source for the course materials. Code snippets or text explanations from the book may be used in the notebooks, sometimes with slight adjustments.</p></li>
+<li><p><a class="reference external" href="https://greenteapress.com/thinkpython2/html/">Think Python</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org">GeekForGeeks</a></p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "VU-IntroPython/TAs-Material",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/02-functions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../01-variables-expressions-statements/variables-expressions-statements.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Variables, Expressions, and Statements</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-function-calls-span">2.1. <span style="color:blue">Function calls</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-built-in-functions-span">2.2. <span style="color:blue">Built in Functions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-print-span">2.2.1. <span style="color:red">print()</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-type-span">2.2.2. <span style="color:red">type()</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-len-span">2.2.3. <span style="color:red">len()</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-input-span">2.2.4. <span style="color:red">input()</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-upper-lower-span">2.2.5. <span style="color:red">upper(), lower()</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-int-float-str-span">2.2.6. <span style="color:red">int(), float(), str()</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-max-min-sum-span">2.2.7. <span style="color:red">max(), min(), sum()</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-creating-your-own-functions-span">2.3. <span style="color:blue">Creating Your Own Functions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-generalization-span">2.3.1. <span style="color:red">Generalization</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-docstring-span">2.3.2. <span style="color:red">Docstring</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-scope-span">2.3.3. <span style="color:red">Scope</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-red-code-print-code-vs-code-return-code-span">2.3.4. <span style="color:red"><code> print() </code> vs <code> return() </code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-blue-calling-functions-in-functions-span">2.4. <span style="color:blue">Calling Functions in Functions</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-green-exercises-span">2.5. <span style="color:green">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">2.5.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">2.5.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">2.5.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Koen van der Pool, Mauricio Verano Merino & Márton Bodó
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024. Vrije Universiteit Amsterdam.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
