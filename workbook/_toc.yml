@@ -7,4 +7,5 @@ options:
   numbered: true
 chapters:
 - file: notebooks/01-variables-expressions-statements/variables-expressions-statements.ipynb
+- file: notebooks/02-functions/functions.ipynb
 
