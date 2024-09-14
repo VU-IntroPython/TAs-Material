@@ -573,15 +573,11 @@ document.write(`
 <span class="mi">15</span>
 </pre></div>
 </div>
-<details>
-  <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
-    Q: What’s the length of the followig variable:  
-      <code>lengthy_string: str = ''</code>
-  </summary>
-<div style="background-color: #f4fdf7; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #b7e4c7; color: #155724;">
-    The length of the <code>lengthy_string</code> variable is 0. This is becasue <code>lengthy_string</code> is assigned an empty string. An empty string is a string, that contains no characters.
-  </div>
-</details><div class="cell docutils container">
+<div class="highlight-{admonition}What’s notranslate"><div class="highlight"><pre><span></span>:class: tip, dropdown
+The length of the &lt;code&gt;lengthy_string&lt;/code&gt; variable is 0. This is becasue &lt;code&gt;lengthy_string&lt;/code&gt; is assigned an empty string. An empty string is a string, that contains no characters.
+</pre></div>
+</div>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try it yourself</span>
 
@@ -636,10 +632,11 @@ document.write(`
 </div>
 </div>
 <p>Let’s break down all the components of this function definition and call. From the example, we can clearly see that this is a function because of the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword. The function’s name is <code class="docutils literal notranslate"><span class="pre">greet</span></code>, and it has one <strong>parameter</strong> called <code class="docutils literal notranslate"><span class="pre">name</span></code>. In the function body, we simply <code class="docutils literal notranslate"><span class="pre">print</span></code> the greeting <code class="docutils literal notranslate"><span class="pre">f&quot;Hello,</span> <span class="pre">{name}!&quot;</span></code>, therefore returning <code class="docutils literal notranslate"><span class="pre">None</span></code>. When we call the function, the <strong>argument</strong> passed is the string <code class="docutils literal notranslate"><span class="pre">&quot;Roger&quot;</span></code>.</p>
-<div class="alert" style="background-color: #ffecb3; color: #856404;">
-    <b>Note</b> <br>
-The variables that are defined in the function definition are what we call <b>parameters</b>, while actual values that are passed to the function in the function call are named <b>arguments</b>.
-</div><section id="span-style-color-b22222-generalization-span">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The variables that are defined in the function definition are what we call <b>parameters</b>, while actual values that are passed to the function in the function call are named <b>arguments</b>.</p>
+</div>
+<section id="span-style-color-b22222-generalization-span">
 <h3><span class="section-number">2.3.1. </span><span style="color:#B22222">Generalization</span><a class="headerlink" href="#span-style-color-b22222-generalization-span" title="Permalink to this heading">#</a></h3>
 <p>It’s crucial for a function to be <strong>clear</strong> and <strong>reusable</strong>. To make your life easier, it’s best if you can use the same function multiple times and with different parameter values.</p>
 <p>Let’s look at a poor example.</p>
@@ -682,17 +679,15 @@ The variables that are defined in the function definition are what we call <b>pa
 </div>
 </div>
 <p>That looks much better already! However, we can still make the function definition easier to reuse by adding a <strong>docstring</strong>.</p>
-<div class="alert" style="background-color: #ffecb3; color: #856404;">
-    <b>Note</b> <br>
-If your function doesn’t take any parameters, that’s a <b>warning sign</b>. It means the function can only handle a single, specific computation, which is sometimes okay, but not ideal in most cases. So, consider this carefully.
-</div></section>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your function doesn’t take any parameters, that’s a <b>warning sign</b>. It means the function can only handle a single, specific computation, which is sometimes okay, but not ideal in most cases. So, consider this carefully.</p>
+</div>
+</section>
 <section id="span-style-color-b22222-docstring-span">
 <h3><span class="section-number">2.3.2. </span><span style="color:#B22222">Docstring</span><a class="headerlink" href="#span-style-color-b22222-docstring-span" title="Permalink to this heading">#</a></h3>
 <p>To explain the interface of your function, you use a <strong>docstring</strong> (“doc” is short for “documentation”), which is a string placed at the beginning of your function. The main aim of a docstring is to clearly describe what the function does without delving into the details of how this is done. For example:</p>
-<div class="alert" style="background-color: #FF8080; color: #8B0000;">
-    <b>Reminder</b> <br>
-    Whenever your create a new function <b> always </b> add <b> typehints </b> to all parameters, moreover, to include the <b>return typehint</b> and write a <b>docstring</b>.
-</div><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 <span class="c1"># Union[int, float] means that type can be either int or float.</span>
@@ -740,10 +735,11 @@ If your function doesn’t take any parameters, that’s a <b>warning sign</b>. 
 </div>
 </div>
 </div>
-<div class="alert" style="background-color: #ffecb3; color: #856404;">
-    <b>Note</b> <br>
-A well designed interface should be simple to explain; if you have a hard time explaining one of your functions, maybe the interface could be improved.
-</div></section>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A well designed interface should be simple to explain; if you have a hard time explaining one of your functions, maybe the interface could be improved.</p>
+</div>
+</section>
 <section id="span-style-color-b22222-scope-span">
 <h3><span class="section-number">2.3.3. </span><span style="color:#B22222">Scope</span><a class="headerlink" href="#span-style-color-b22222-scope-span" title="Permalink to this heading">#</a></h3>
 <p>When we define variables, we distinguish between <strong>local</strong> and <strong>global variables</strong>. <strong>Local variables</strong> are those defined inside a function, meaning they only exist within that function and cannot be accessed outside of it. Let’s have a look.</p>
@@ -823,16 +819,15 @@ A well designed interface should be simple to explain; if you have a hard time e
 </div>
 </div>
 </div>
-<details>
-  <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
-    Q: What are the 3 main parts of a docstring?
-  </summary>
-<div style="background-color: #f4fdf7; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #b7e4c7; color: #155724;">
-    1) General explanation of what the function does.<br>
-    2) Description of all parameters including their type and purpose.<br>
-    3) Explanation of what the function returns including it's type.  
+<div class="tip dropdown admonition">
+<p class="admonition-title">What are the 3 main parts of a docstring?</p>
+<ol class="arabic simple">
+<li><p>General explanation of what the function does.<br></p></li>
+<li><p>Description of all parameters including their type and purpose.<br></p></li>
+<li><p>Explanation of what the function returns including it’s type.</p></li>
+</ol>
 </div>
-</details></section>
+</section>
 <section id="span-style-color-b22222-code-print-code-vs-code-return-code-span">
 <h3><span class="section-number">2.3.4. </span><span style="color:#B22222"><code> print() </code> vs <code> return </code></span><a class="headerlink" href="#span-style-color-b22222-code-print-code-vs-code-return-code-span" title="Permalink to this heading">#</a></h3>
 <p>It’s important to note that some functions just execute code, while others return a result. Depending on the function’s purpose, calling it can differ:</p>
@@ -869,10 +864,11 @@ A well designed interface should be simple to explain; if you have a hard time e
 </div>
 </div>
 </div>
-<div class="alert" style="background-color: #ffecb3; color: #856404;">
-    <b>Note</b> <br>
-    The <b>return type</b> can be added to the <b>function definition</b> via <code>-> type</code>.
-</div><details>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <b>return type</b> can be added to the <b>function definition</b> via <code>-&gt; type</code>.</p>
+</div>
+<details>
   <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
     Q: Consider the following 2 cases:<br>
       In case 1, I am trying to create a function knowing that I will need to use it's output later on.<br>
@@ -884,7 +880,8 @@ A well designed interface should be simple to explain; if you have a hard time e
     In case 1, I should use <code>return</code> to be able to reuse the output later on. <br>
     In case 2, I should use <code>print()</code> since I know that I will not have to reuse the function's output.
 </div>
-</details><p>Let’s test our knowledge. What does this piece of code print?</p>
+</details>
+<p>Let’s test our knowledge. What does this piece of code print?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">explorer</span><span class="p">(</span><span class="n">celestial_body</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
