@@ -573,9 +573,9 @@ document.write(`
 <span class="mi">15</span>
 </pre></div>
 </div>
-<div class="highlight-{admonition}What’s notranslate"><div class="highlight"><pre><span></span>:class: tip, dropdown
-The length of the &lt;code&gt;lengthy_string&lt;/code&gt; variable is 0. This is becasue &lt;code&gt;lengthy_string&lt;/code&gt; is assigned an empty string. An empty string is a string, that contains no characters.
-</pre></div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">What’s the length of the followig variable: <code>lengthy_string: str = ‘’</code>?</p>
+<p>The length of the <code>lengthy_string</code> variable is 0. This is becasue <code>lengthy_string</code> is assigned an empty string. An empty string is a string, that contains no characters.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -868,19 +868,18 @@ The length of the &lt;code&gt;lengthy_string&lt;/code&gt; variable is 0. This is
 <p class="admonition-title">Note</p>
 <p>The <b>return type</b> can be added to the <b>function definition</b> via <code>-&gt; type</code>.</p>
 </div>
-<details>
-  <summary style="cursor: pointer; background-color: #d4edda; padding: 10px; border-radius: 5px; color: #155724; font-weight: bold;">
-    Q: Consider the following 2 cases:<br>
-      In case 1, I am trying to create a function knowing that I will need to use it's output later on.<br>
-      In case 2, I am creating a function knowing that I only need to display the result immediately and won't need to use it later.<br>
-      <br>
-      Based on these 2 cases, when should I use <code> print() </code> and when should I use <code> return </code> ?
-  </summary>
-<div style="background-color: #f4fdf7; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #b7e4c7; color: #155724;">
-    In case 1, I should use <code>return</code> to be able to reuse the output later on. <br>
-    In case 2, I should use <code>print()</code> since I know that I will not have to reuse the function's output.
+<div class="admonition-consider-the-following-2-cases-br admonition">
+<p class="admonition-title">Consider the following 2 cases:<br></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  In case 1, I am trying to create a function knowing that I will need to use it&#39;s output later on.&lt;br&gt;
+  In case 2, I am creating a function knowing that I only need to display the result immediately and won&#39;t need to use it later.&lt;br&gt;
+  &lt;br&gt;
+  Based on these 2 cases, when should I use &lt;code&gt; print() &lt;/code&gt; and when should I use &lt;code&gt; return &lt;/code&gt; ?
+</pre></div>
 </div>
-</details>
+<p>:class: tip, dropdown
+In case 1, I should use <code>return</code> to be able to reuse the output later on. <br>
+In case 2, I should use <code>print()</code> since I know that I will not have to reuse the function’s output.</p>
+</div>
 <p>Let’s test our knowledge. What does this piece of code print?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
