@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Functions &#8212; Workbook Intro Python</title>
+    <title>2. Functions &#8212; Workbook Intro Python</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Programming Workbook XB-0082" href="../../intro.html" />
+    <link rel="prev" title="1. Variables, Expressions, and Statements" href="../01-variables-expressions-statements/variables-expressions-statements.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,7 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Functions</a></li>
 </ul>
 
     </div>
@@ -414,28 +415,28 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-function-calls-span">1.1. <span style="color:#4169E1">Function calls</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-built-in-functions-span">1.2. <span style="color:#4169E1">Built in Functions</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-print-code-span">1.2.1. <span style="color:#B22222"><code>print()</code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-type-code-span">1.2.2. <span style="color:#B22222"><code>type()</code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-len-code-span">1.2.3. <span style="color:#B22222"><code>len()</code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-input-code-span">1.2.4. <span style="color:#B22222"><code>input()</code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-int-float-str-code-span">1.2.5. <span style="color:#B22222"><code>int(), float(), str()</code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-max-min-sum-code-span">1.2.6. <span style="color:#B22222"><code>max(), min(), sum()</code></span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-function-calls-span">2.1. <span style="color:#4169E1">Function calls</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-built-in-functions-span">2.2. <span style="color:#4169E1">Built in Functions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-print-code-span">2.2.1. <span style="color:#B22222"><code>print()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-type-code-span">2.2.2. <span style="color:#B22222"><code>type()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-len-code-span">2.2.3. <span style="color:#B22222"><code>len()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-input-code-span">2.2.4. <span style="color:#B22222"><code>input()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-int-float-str-code-span">2.2.5. <span style="color:#B22222"><code>int(), float(), str()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-max-min-sum-code-span">2.2.6. <span style="color:#B22222"><code>max(), min(), sum()</code></span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-creating-your-own-functions-span">1.3. <span style="color:#4169E1">Creating Your Own Functions</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-generalization-span">1.3.1. <span style="color:#B22222">Generalization</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-docstring-span">1.3.2. <span style="color:#B22222">Docstring</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-scope-span">1.3.3. <span style="color:#B22222">Scope</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-print-code-vs-code-return-code-span">1.3.4. <span style="color:#B22222"><code> print() </code> vs <code> return </code></span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-creating-your-own-functions-span">2.3. <span style="color:#4169E1">Creating Your Own Functions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-generalization-span">2.3.1. <span style="color:#B22222">Generalization</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-docstring-span">2.3.2. <span style="color:#B22222">Docstring</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-scope-span">2.3.3. <span style="color:#B22222">Scope</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-print-code-vs-code-return-code-span">2.3.4. <span style="color:#B22222"><code> print() </code> vs <code> return </code></span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-calling-functions-in-functions-span">1.4. <span style="color:#4169E1">Calling Functions in Functions</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">1.5. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">1.5.1. Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">1.5.2. Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">1.5.3. Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-calling-functions-in-functions-span">2.4. <span style="color:#4169E1">Calling Functions in Functions</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">2.5. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">2.5.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">2.5.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">2.5.3. Exercise 3</a></li>
 </ul>
 </li>
 </ul>
@@ -450,7 +451,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="functions">
-<h1><span class="section-number">1. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h1>
 <p><strong>In this notebook, we cover the following subjects:</strong></p>
 <ul class="simple">
 <li><p>Function Calls;</p></li>
@@ -459,7 +460,7 @@ document.write(`
 </ul>
 <hr class="docutils" />
 <section id="span-style-color-4169e1-function-calls-span">
-<h2><span class="section-number">1.1. </span><span style="color:#4169E1">Function calls</span><a class="headerlink" href="#span-style-color-4169e1-function-calls-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1. </span><span style="color:#4169E1">Function calls</span><a class="headerlink" href="#span-style-color-4169e1-function-calls-span" title="Permalink to this heading">#</a></h2>
 <p><strong>Functions</strong> let us execute processes multiple times without repeating the code. Unlike iterative loops (discussed in notebooks 4 and 5), we can call the function whenever we want to run a specific sequence of code. Plus, we can use <strong>parameters</strong> to run the same process with different values for certain variables.</p>
 <p>Before we will construct our own functions, we touch upon <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#function-definitions"><strong>function calls</strong></a> first. Luckily, these aren’t new to you, and you have already used them multiple times by now. A function call is when you run a function in your code, for example:</p>
 <div class="cell docutils container">
@@ -478,11 +479,11 @@ document.write(`
 <p>It is common to say that a function “takes” an argument and “returns” a result. The result is called the <strong>return value</strong>.</p>
 </section>
 <section id="span-style-color-4169e1-built-in-functions-span">
-<h2><span class="section-number">1.2. </span><span style="color:#4169E1">Built in Functions</span><a class="headerlink" href="#span-style-color-4169e1-built-in-functions-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2. </span><span style="color:#4169E1">Built in Functions</span><a class="headerlink" href="#span-style-color-4169e1-built-in-functions-span" title="Permalink to this heading">#</a></h2>
 <p>Python’s <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#function-definitions"><strong>built-in functions</strong></a> are a set of functions that are always available for you to use without needing to import any additional modules (we will cover modules in a later notebook, you do not have to worry about them right now). They provide a variety of useful functionalities, making it easier to perform common tasks without writing extra code.</p>
 <p>Let’s go through some of the most common built-in functions and see how they work:</p>
 <section id="span-style-color-b22222-code-print-code-span">
-<h3><span class="section-number">1.2.1. </span><span style="color:#B22222"><code>print()</code></span><a class="headerlink" href="#span-style-color-b22222-code-print-code-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.1. </span><span style="color:#B22222"><code>print()</code></span><a class="headerlink" href="#span-style-color-b22222-code-print-code-span" title="Permalink to this heading">#</a></h3>
 <p><strong>Purpose:</strong> As we know already, the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function is used to display information on the screen.</p>
 <p><strong>Example:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
@@ -494,7 +495,7 @@ document.write(`
 </div>
 </section>
 <section id="span-style-color-b22222-code-type-code-span">
-<h3><span class="section-number">1.2.2. </span><span style="color:#B22222"><code>type()</code></span><a class="headerlink" href="#span-style-color-b22222-code-type-code-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.2. </span><span style="color:#B22222"><code>type()</code></span><a class="headerlink" href="#span-style-color-b22222-code-type-code-span" title="Permalink to this heading">#</a></h3>
 <p><strong>Purpose:</strong> Again, as we know already, the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function is used to find the type of an object (e.g., string, integer, float, etc.)</p>
 <p><strong>Example:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
@@ -507,7 +508,7 @@ document.write(`
 </div>
 </section>
 <section id="span-style-color-b22222-code-len-code-span">
-<h3><span class="section-number">1.2.3. </span><span style="color:#B22222"><code>len()</code></span><a class="headerlink" href="#span-style-color-b22222-code-len-code-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.3. </span><span style="color:#B22222"><code>len()</code></span><a class="headerlink" href="#span-style-color-b22222-code-len-code-span" title="Permalink to this heading">#</a></h3>
 <p><strong>Purpose:</strong> The <a class="reference external" href="https://www.w3schools.com/python/ref_func_len.asp"><code class="docutils literal notranslate"><span class="pre">len()</span></code></a> function returns the number of items in an object. When the object is a string, it returns the number of characters in the string. It only works for iterable objects, and not integers or floats etc.</p>
 <p><strong>Example:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
@@ -520,7 +521,7 @@ document.write(`
 </div>
 </section>
 <section id="span-style-color-b22222-code-input-code-span">
-<h3><span class="section-number">1.2.4. </span><span style="color:#B22222"><code>input()</code></span><a class="headerlink" href="#span-style-color-b22222-code-input-code-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.4. </span><span style="color:#B22222"><code>input()</code></span><a class="headerlink" href="#span-style-color-b22222-code-input-code-span" title="Permalink to this heading">#</a></h3>
 <p><strong>Purpose:</strong> The <a class="reference external" href="https://www.w3schools.com/python/ref_func_len.asp"><code class="docutils literal notranslate"><span class="pre">input()</span></code></a> function is used to take input from the user. It pauses the program and waits for the user to type something.</p>
 <p><strong>Example:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)</span>
@@ -533,7 +534,7 @@ document.write(`
 </div>
 </section>
 <section id="span-style-color-b22222-code-int-float-str-code-span">
-<h3><span class="section-number">1.2.5. </span><span style="color:#B22222"><code>int(), float(), str()</code></span><a class="headerlink" href="#span-style-color-b22222-code-int-float-str-code-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.5. </span><span style="color:#B22222"><code>int(), float(), str()</code></span><a class="headerlink" href="#span-style-color-b22222-code-int-float-str-code-span" title="Permalink to this heading">#</a></h3>
 <p><strong>Purpose:</strong>: These functions convert values to different data types.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">int()</span></code> converts to an integer.</p></li>
@@ -556,7 +557,7 @@ document.write(`
 </div>
 </section>
 <section id="span-style-color-b22222-code-max-min-sum-code-span">
-<h3><span class="section-number">1.2.6. </span><span style="color:#B22222"><code>max(), min(), sum()</code></span><a class="headerlink" href="#span-style-color-b22222-code-max-min-sum-code-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.6. </span><span style="color:#B22222"><code>max(), min(), sum()</code></span><a class="headerlink" href="#span-style-color-b22222-code-max-min-sum-code-span" title="Permalink to this heading">#</a></h3>
 <p><strong>Purpose:</strong> These built-in functions work quite intuitively. The <a class="reference external" href="https://www.w3schools.com/python/ref_func_max.asp"><code class="docutils literal notranslate"><span class="pre">max()</span></code></a> and <a class="reference external" href="https://www.w3schools.com/python/ref_func_min.asp"><code class="docutils literal notranslate"><span class="pre">min()</span></code></a> functions return the largest or smallest item in an iterable (like a list or a string), while the <a class="reference external" href="https://www.w3schools.com/python/ref_func_sum.asp"><code class="docutils literal notranslate"><span class="pre">sum()</span></code></a> function  adds up all the items in an iterable (like a list or a tuple).</p>
 <p><strong>Example:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -608,7 +609,7 @@ document.write(`
 </section>
 </section>
 <section id="span-style-color-4169e1-creating-your-own-functions-span">
-<h2><span class="section-number">1.3. </span><span style="color:#4169E1">Creating Your Own Functions</span><a class="headerlink" href="#span-style-color-4169e1-creating-your-own-functions-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span><span style="color:#4169E1">Creating Your Own Functions</span><a class="headerlink" href="#span-style-color-4169e1-creating-your-own-functions-span" title="Permalink to this heading">#</a></h2>
 <p>Along with using built-in functions, you can create your own. This allows you to package up computations in functions that you can reuse later, making your code more flexible.</p>
 <p>To define a function, just use the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, give it a name, optionally add some parameters, and then write out the sequence of instructions you want it to run. This is called a <strong>function definition</strong>, and it looks like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">:</span>
@@ -639,7 +640,7 @@ document.write(`
     <b>Note</b> <br>
 The variables that are defined in the function definition are what we call <b>parameters</b>, while actual values that are passed to the function in the function call are named <b>arguments</b>.
 </div><section id="span-style-color-b22222-generalization-span">
-<h3><span class="section-number">1.3.1. </span><span style="color:#B22222">Generalization</span><a class="headerlink" href="#span-style-color-b22222-generalization-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.1. </span><span style="color:#B22222">Generalization</span><a class="headerlink" href="#span-style-color-b22222-generalization-span" title="Permalink to this heading">#</a></h3>
 <p>It’s crucial for a function to be <strong>clear</strong> and <strong>reusable</strong>. To make your life easier, it’s best if you can use the same function multiple times and with different parameter values.</p>
 <p>Let’s look at a poor example.</p>
 <div class="cell docutils container">
@@ -686,7 +687,7 @@ The variables that are defined in the function definition are what we call <b>pa
 If your function doesn’t take any parameters, that’s a <b>warning sign</b>. It means the function can only handle a single, specific computation, which is sometimes okay, but not ideal in most cases. So, consider this carefully.
 </div></section>
 <section id="span-style-color-b22222-docstring-span">
-<h3><span class="section-number">1.3.2. </span><span style="color:#B22222">Docstring</span><a class="headerlink" href="#span-style-color-b22222-docstring-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.2. </span><span style="color:#B22222">Docstring</span><a class="headerlink" href="#span-style-color-b22222-docstring-span" title="Permalink to this heading">#</a></h3>
 <p>To explain the interface of your function, you use a <strong>docstring</strong> (“doc” is short for “documentation”), which is a string placed at the beginning of your function. The main aim of a docstring is to clearly describe what the function does without delving into the details of how this is done. For example:</p>
 <div class="alert" style="background-color: #FF8080; color: #8B0000;">
     <b>Reminder</b> <br>
@@ -744,7 +745,7 @@ If your function doesn’t take any parameters, that’s a <b>warning sign</b>. 
 A well designed interface should be simple to explain; if you have a hard time explaining one of your functions, maybe the interface could be improved.
 </div></section>
 <section id="span-style-color-b22222-scope-span">
-<h3><span class="section-number">1.3.3. </span><span style="color:#B22222">Scope</span><a class="headerlink" href="#span-style-color-b22222-scope-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.3. </span><span style="color:#B22222">Scope</span><a class="headerlink" href="#span-style-color-b22222-scope-span" title="Permalink to this heading">#</a></h3>
 <p>When we define variables, we distinguish between <strong>local</strong> and <strong>global variables</strong>. <strong>Local variables</strong> are those defined inside a function, meaning they only exist within that function and cannot be accessed outside of it. Let’s have a look.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -833,7 +834,7 @@ A well designed interface should be simple to explain; if you have a hard time e
 </div>
 </details></section>
 <section id="span-style-color-b22222-code-print-code-vs-code-return-code-span">
-<h3><span class="section-number">1.3.4. </span><span style="color:#B22222"><code> print() </code> vs <code> return </code></span><a class="headerlink" href="#span-style-color-b22222-code-print-code-vs-code-return-code-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4. </span><span style="color:#B22222"><code> print() </code> vs <code> return </code></span><a class="headerlink" href="#span-style-color-b22222-code-print-code-vs-code-return-code-span" title="Permalink to this heading">#</a></h3>
 <p>It’s important to note that some functions just execute code, while others return a result. Depending on the function’s purpose, calling it can differ:</p>
 <ul class="simple">
 <li><p>If the function simply runs some code, just call it on a line by itself, like a full statement (e.g., a <strong>void function</strong>);</p></li>
@@ -904,7 +905,7 @@ A well designed interface should be simple to explain; if you have a hard time e
 </section>
 </section>
 <section id="span-style-color-4169e1-calling-functions-in-functions-span">
-<h2><span class="section-number">1.4. </span><span style="color:#4169E1">Calling Functions in Functions</span><a class="headerlink" href="#span-style-color-4169e1-calling-functions-in-functions-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4. </span><span style="color:#4169E1">Calling Functions in Functions</span><a class="headerlink" href="#span-style-color-4169e1-calling-functions-in-functions-span" title="Permalink to this heading">#</a></h2>
 <p>Python also allows you to call a function within another function, which modularizes the code, allowing the same function to be used for different purposes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -930,12 +931,12 @@ A well designed interface should be simple to explain; if you have a hard time e
 </div>
 </section>
 <section id="span-style-color-3cb371-exercises-span">
-<h2><span class="section-number">1.5. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.5. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
 <p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
 <p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
 <br></p>
 <section id="exercise-1">
-<h3><span class="section-number">1.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a Python function named <code class="docutils literal notranslate"><span class="pre">calculate_triangle_area()</span></code> that calculates and returns the area of a triangle given its base and height as input arguments. The function should use the formula <code class="docutils literal notranslate"><span class="pre">0.5</span> <span class="pre">*</span> <span class="pre">base</span> <span class="pre">*</span> <span class="pre">height</span></code> to compute the area and return the result. After calling the function, print the area using an f-String outside of the function. Assume both the base and height are positive numbers.</p>
 <img src="assets/Triangle-1.png" width=600 height=300>
 <p><strong>Example input</strong>: you pass these in a function call.</p>
@@ -1005,7 +1006,7 @@ A well designed interface should be simple to explain; if you have a hard time e
 </div>
 </section>
 <section id="exercise-2">
-<h3><span class="section-number">1.5.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.5.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Imagine you’re at a delightful farm, surrounded by various animals. To keep yourself entertained, you decide to count the number of legs each type of animal has. Your task is to create a function named <code> count_animal_legs() </code> that takes three inputs: the number of chickens, cows, and dogs you see. The function should then calculate and return the total number of legs based on the counts you provide alongside with the number of each animal.</p>
 <img src="assets/farm.jpg" width=600 height=300 >
 <p>Hint:</p>
@@ -1095,7 +1096,7 @@ A well designed interface should be simple to explain; if you have a hard time e
 </div>
 </section>
 <section id="exercise-3">
-<h3><span class="section-number">1.5.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.5.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> You are an astronaut on a mission to explore the mysterious Planet Numerica. Your spaceship has landed on the planet, and you’ve encountered several tasks that require your Python Programming skills to solve. First, you need to calculate the total amount of fuel required for a round-trip to a nearby research station. Create a function called <code> fuel_calculator() </code> which takes as input the spaceship’s fuel consumption rate (litre/hour) and the time it requires to reach the nearest research station (in hours). Your function should return a detailed summary including the spaceship’s fuel consumption rate, the distance to the nearest research station and total amount of fuel (in litres) required for the round-trip.</p>
 <img src="assets/space.jpg" width=600 height=300 >
 <p><strong>Example user input</strong>: you pass this in a function call.</p>
@@ -1218,12 +1219,12 @@ A well designed interface should be simple to explain; if you have a hard time e
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../intro.html"
+       href="../01-variables-expressions-statements/variables-expressions-statements.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Programming Workbook XB-0082</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Variables, Expressions, and Statements</p>
       </div>
     </a>
 </div>
@@ -1241,28 +1242,28 @@ A well designed interface should be simple to explain; if you have a hard time e
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-function-calls-span">1.1. <span style="color:#4169E1">Function calls</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-built-in-functions-span">1.2. <span style="color:#4169E1">Built in Functions</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-print-code-span">1.2.1. <span style="color:#B22222"><code>print()</code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-type-code-span">1.2.2. <span style="color:#B22222"><code>type()</code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-len-code-span">1.2.3. <span style="color:#B22222"><code>len()</code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-input-code-span">1.2.4. <span style="color:#B22222"><code>input()</code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-int-float-str-code-span">1.2.5. <span style="color:#B22222"><code>int(), float(), str()</code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-max-min-sum-code-span">1.2.6. <span style="color:#B22222"><code>max(), min(), sum()</code></span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-function-calls-span">2.1. <span style="color:#4169E1">Function calls</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-built-in-functions-span">2.2. <span style="color:#4169E1">Built in Functions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-print-code-span">2.2.1. <span style="color:#B22222"><code>print()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-type-code-span">2.2.2. <span style="color:#B22222"><code>type()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-len-code-span">2.2.3. <span style="color:#B22222"><code>len()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-input-code-span">2.2.4. <span style="color:#B22222"><code>input()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-int-float-str-code-span">2.2.5. <span style="color:#B22222"><code>int(), float(), str()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-max-min-sum-code-span">2.2.6. <span style="color:#B22222"><code>max(), min(), sum()</code></span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-creating-your-own-functions-span">1.3. <span style="color:#4169E1">Creating Your Own Functions</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-generalization-span">1.3.1. <span style="color:#B22222">Generalization</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-docstring-span">1.3.2. <span style="color:#B22222">Docstring</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-scope-span">1.3.3. <span style="color:#B22222">Scope</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-print-code-vs-code-return-code-span">1.3.4. <span style="color:#B22222"><code> print() </code> vs <code> return </code></span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-creating-your-own-functions-span">2.3. <span style="color:#4169E1">Creating Your Own Functions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-generalization-span">2.3.1. <span style="color:#B22222">Generalization</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-docstring-span">2.3.2. <span style="color:#B22222">Docstring</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-scope-span">2.3.3. <span style="color:#B22222">Scope</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-code-print-code-vs-code-return-code-span">2.3.4. <span style="color:#B22222"><code> print() </code> vs <code> return </code></span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-calling-functions-in-functions-span">1.4. <span style="color:#4169E1">Calling Functions in Functions</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">1.5. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">1.5.1. Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">1.5.2. Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">1.5.3. Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-calling-functions-in-functions-span">2.4. <span style="color:#4169E1">Calling Functions in Functions</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">2.5. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">2.5.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">2.5.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">2.5.3. Exercise 3</a></li>
 </ul>
 </li>
 </ul>
