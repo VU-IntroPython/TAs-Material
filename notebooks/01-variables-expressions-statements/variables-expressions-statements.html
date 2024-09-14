@@ -416,9 +416,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">1.1. Exercise 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">1.2. Exercise 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">1.3. Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-introduction-to-data-types-span">1.1. <span style="color:#4169E1">Introduction to Data Types</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-the-print-function-span">1.2. <span style="color:#4169E1">The Print Function</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-variables-and-values-span">1.3. <span style="color:#4169E1">Variables and Values</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-type-hints-span">1.3.1. <span style="color:#B22222">Type Hints</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-printing-with-variables-span">1.3.2. <span style="color:#B22222">Printing with Variables</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-naming-rules-of-variables-span">1.3.3. <span style="color:#B22222">Naming Rules of Variables</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-reassignments-span">1.3.4. <span style="color:#B22222">Reassignments</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-operators-span">1.4. <span style="color:#4169E1">Operators</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-operations-on-numerical-data-types-span">1.4.1. <span style="color:#B22222">Operations on Numerical Data Types</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-hierarchy-of-operations-span">1.4.2. <span style="color:#B22222">Hierarchy of Operations</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-operations-on-non-numeric-data-types-span">1.4.3. <span style="color:#B22222">Operations on Non-Numeric Data Types</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-expressions-span">1.5. <span style="color:#4169E1">Expressions</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-statements-span">1.6. <span style="color:#4169E1">Statements</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">1.7. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">1.7.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">1.7.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">1.7.3. Exercise 3</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -442,7 +462,8 @@ document.write(`
 <li><p>Statements</p></li>
 </ul>
 <hr class="docutils" />
-<h2 style="color:#4169E1">Introduction to Data Types</h2>
+<section id="span-style-color-4169e1-introduction-to-data-types-span">
+<h2><span class="section-number">1.1. </span><span style="color:#4169E1">Introduction to Data Types</span><a class="headerlink" href="#span-style-color-4169e1-introduction-to-data-types-span" title="Permalink to this heading">#</a></h2>
 <p>Python is a well-known programming language, designed by Guido van Rossum at the Centrum Wiskunde &amp; Informatica (CWI) in Amsterdam. The design of the language allows code to be organized into <u>reusable</u> and <u>self-contained</u> objects. Knowing the three essential data types—<a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/strings.html">String</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">Integer</a>, and <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">Float</a>—is important as they are fundamental for <u>representing</u> and <u>manipulating</u> data.</p>
 <ol class="arabic simple">
 <li><p>A <strong>string (str)</strong> represents a sequence of characters, and is denoted using single (‘’) or double quotes (“”). A character represents any letter, digit or other symbol. Python has the following <a class="reference external" href="https://www.geeksforgeeks.org/python-tokens-and-character-sets/">character sets</a>:</p>
@@ -501,7 +522,9 @@ document.write(`
 <li><p>Why do we have this structure of <code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">=</span> <span class="pre">value</span></code>?</p></li>
 </ol>
 <p>Let’s answer the first one.</p>
-<h2 style="color:#4169E1">The Print Function</h2>
+</section>
+<section id="span-style-color-4169e1-the-print-function-span">
+<h2><span class="section-number">1.2. </span><span style="color:#4169E1">The Print Function</span><a class="headerlink" href="#span-style-color-4169e1-the-print-function-span" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference external" href="https://docs.python.org/3/library/functions.html#pint"><code class="docutils literal notranslate"><span class="pre">print()</span></code></a> function is used to display text or other information on the screen. It’s a way to show output to the user.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -543,7 +566,9 @@ document.write(`
 </div>
 </div>
 </div>
-<h2 style="color:#4169E1">Variables and Values</h2>
+</section>
+<section id="span-style-color-4169e1-variables-and-values-span">
+<h2><span class="section-number">1.3. </span><span style="color:#4169E1">Variables and Values</span><a class="headerlink" href="#span-style-color-4169e1-variables-and-values-span" title="Permalink to this heading">#</a></h2>
 <p>To answer the second question, we explore a fundamental concept in Python: <a class="reference external" href="https://www.geeksforgeeks.org/python-variables/"><strong>variables</strong></a>. Variables in programming are often referred to as containers for data, similar to mathematical variables that store values that can later be changed. A variable in Python is created by assigning a value to a name, for which the equals sign (<code class="docutils literal notranslate"><span class="pre">=</span></code>) is used. The basic syntax is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">variable_name</span> <span class="o">=</span> <span class="n">value</span>
 </pre></div>
@@ -566,7 +591,9 @@ document.write(`
 </div>
 </div>
 </div>
-<h4 style="color:#B22222">Type Hints</h4><p>It is good practise and <strong>mandatory</strong> in this course to add <strong>type hints</strong> to your variables. With type hints you specify the expected data type of a variable, using the syntax:</p>
+<section id="span-style-color-b22222-type-hints-span">
+<h3><span class="section-number">1.3.1. </span><span style="color:#B22222">Type Hints</span><a class="headerlink" href="#span-style-color-b22222-type-hints-span" title="Permalink to this heading">#</a></h3>
+<p>It is good practise and <strong>mandatory</strong> in this course to add <strong>type hints</strong> to your variables. With type hints you specify the expected data type of a variable, using the syntax:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">variable_name</span><span class="p">:</span> <span class="nb">type</span> <span class="o">=</span> <span class="n">value</span>
 </pre></div>
 </div>
@@ -583,7 +610,10 @@ document.write(`
 </div>
 </div>
 </div>
-<h4 style="color:#B22222">Printing with Variables</h4><p><strong>1. f-Strings</strong></p>
+</section>
+<section id="span-style-color-b22222-printing-with-variables-span">
+<h3><span class="section-number">1.3.2. </span><span style="color:#B22222">Printing with Variables</span><a class="headerlink" href="#span-style-color-b22222-printing-with-variables-span" title="Permalink to this heading">#</a></h3>
+<p><strong>1. f-Strings</strong></p>
 <p>Printed messages can include variables. A very neat way of creating print statements is f-strings, as they allow us to add the values of variables in a string. To create an f-String, you place the letter <code class="docutils literal notranslate"><span class="pre">f</span></code> before the string and include the variables inside curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Here’s the basic syntax:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;string </span><span class="si">{</span><span class="n">variable</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
@@ -616,7 +646,9 @@ document.write(`
 </div>
 </div>
 </div>
-<h4 style="color:#B22222">Naming Rules of Variables</h4>
+</section>
+<section id="span-style-color-b22222-naming-rules-of-variables-span">
+<h3><span class="section-number">1.3.3. </span><span style="color:#B22222">Naming Rules of Variables</span><a class="headerlink" href="#span-style-color-b22222-naming-rules-of-variables-span" title="Permalink to this heading">#</a></h3>
 <p>In Python, you can’t use any arbitrary sets of characters when naming your variables; you must follow specific rules:</p>
 <ol class="arabic simple">
 <li><p>It should start with a letter or underscore.</p></li>
@@ -703,7 +735,9 @@ document.write(`
 <p class="admonition-title">Which of these is a better variable name, and why? <code>a_float = 3.1415</code> or <code>pi_number = 3.1415</code>?</p>
 <p>Using <code>pi_number</code> is more descriptive and clearly indicates that the value is related to pi, which helps make the code easier to understand.</p>
 </div>
-<h4 style="color:#B22222">Reassignments</h4>
+</section>
+<section id="span-style-color-b22222-reassignments-span">
+<h3><span class="section-number">1.3.4. </span><span style="color:#B22222">Reassignments</span><a class="headerlink" href="#span-style-color-b22222-reassignments-span" title="Permalink to this heading">#</a></h3>
 <p>It is allowed to assign a new value to an existing variable. This process is called <strong>reassignment</strong>. As soon as you assign a value to a variable, the old value is lost.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -727,9 +761,13 @@ document.write(`
 </div>
 </div>
 </div>
-<h2 style="color:#4169E1">Operators</h2>
+</section>
+</section>
+<section id="span-style-color-4169e1-operators-span">
+<h2><span class="section-number">1.4. </span><span style="color:#4169E1">Operators</span><a class="headerlink" href="#span-style-color-4169e1-operators-span" title="Permalink to this heading">#</a></h2>
 <p>In the last cell, we introduced something new, namely the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator. However, there are many more operators that can be used on variables and values.</p>
-<h4 style="color:#B22222">Operations on Numerical Data Types</h4>
+<section id="span-style-color-b22222-operations-on-numerical-data-types-span">
+<h3><span class="section-number">1.4.1. </span><span style="color:#B22222">Operations on Numerical Data Types</span><a class="headerlink" href="#span-style-color-b22222-operations-on-numerical-data-types-span" title="Permalink to this heading">#</a></h3>
 <p>Let’s explore the basic mathematical operators and see how they work with numerical data types.</p>
 <p><strong>1. Addition:</strong> <code class="docutils literal notranslate"><span class="pre">+</span></code></p>
 <div class="cell docutils container">
@@ -812,9 +850,11 @@ document.write(`
 </div>
 </div>
 </div>
-<h4 style="color:#B22222">Hierarchy of Operations</h4>
+</section>
+<section id="span-style-color-b22222-hierarchy-of-operations-span">
+<h3><span class="section-number">1.4.2. </span><span style="color:#B22222">Hierarchy of Operations</span><a class="headerlink" href="#span-style-color-b22222-hierarchy-of-operations-span" title="Permalink to this heading">#</a></h3>
 <p>The usual hierarchy of operations (remember the acronyms <strong>PEMDAS</strong> or <strong>BODMAS</strong>) apply for maths in Python as well. (highest on top, lowest at the bottom)</p>
-<img src="assets/BODMAS.png" width=600 height=500 ><div class="cell docutils container">
+<img src="assets/BODMAS.png" width=400 height=300 ><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
@@ -827,7 +867,9 @@ document.write(`
 </div>
 </div>
 </div>
-<h4 style="color:#B22222">Operations on Non-Numeric Data Types</h4>
+</section>
+<section id="span-style-color-b22222-operations-on-non-numeric-data-types-span">
+<h3><span class="section-number">1.4.3. </span><span style="color:#B22222">Operations on Non-Numeric Data Types</span><a class="headerlink" href="#span-style-color-b22222-operations-on-non-numeric-data-types-span" title="Permalink to this heading">#</a></h3>
 <p>Some operators can also be applied on non-numeric data types. For example, strings can be concatenated, so it’s perfectly fine to do this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -871,7 +913,10 @@ document.write(`
 </div>
 </div>
 </div>
-<h2 style="color:#4169E1">Expressions</h2>
+</section>
+</section>
+<section id="span-style-color-4169e1-expressions-span">
+<h2><span class="section-number">1.5. </span><span style="color:#4169E1">Expressions</span><a class="headerlink" href="#span-style-color-4169e1-expressions-span" title="Permalink to this heading">#</a></h2>
 <p>Now that we have covered variables, values, operators, and function calls, we can explain <strong>expressions</strong>. An expression is a combination of these elements, producing a new value. When you type an expression at the prompt, the interpreter <strong>evaluates</strong> it, which means that it calculates the value of the expression and displays it.</p>
 <p><strong>1. Basic Arithmetic Expression</strong></p>
 <div class="cell docutils container">
@@ -894,7 +939,9 @@ document.write(`
 </div>
 </div>
 </div>
-<h2 style="color:#4169E1">Statements</h2>
+</section>
+<section id="span-style-color-4169e1-statements-span">
+<h2><span class="section-number">1.6. </span><span style="color:#4169E1">Statements</span><a class="headerlink" href="#span-style-color-4169e1-statements-span" title="Permalink to this heading">#</a></h2>
 <p>A statement is an instruction that has an effect, like creating a variable or displaying a value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -923,15 +970,18 @@ document.write(`
 <p class="admonition-title">In the following code snippet, identify the expression and the statement: <code>circle_circumference = 2 * pi * radius</code></p>
 <p>The expression is <code>2 * pi * radius</code> because it can be evaluated to produce a value. The entire snippet <code>circle_circumference = 2 * pi * radius</code> is an assignment statement as it assigns the value of the expression to the variable <code>circle_circumference</code>.</p>
 </div>
-<h2 style="color:#3CB371">Exercises</h2><p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+</section>
+<section id="span-style-color-3cb371-exercises-span">
+<h2><span class="section-number">1.7. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
 <p>For each of the exercises, make sure to add <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
 <br></p>
 <p>As we cover the most basic concepts of Python programming in this notebook, all the exercises are designed at <span style="color:darkorange;"><strong>Level 1</strong></span> to help you get familiar with the fundamentals.</p>
 <section id="exercise-1">
-<h2><span class="section-number">1.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">1.7.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p>The official scientific name of a species in Latin consists of two parts: the <em>genus name</em> and the <em>species epithet</em>. However, in English, we often refer to animals by their common names.</p>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a program that, given the genus, species epithet, and English name of an animal, prints both the full Latin name and the English name of the animal. Do <strong>not</strong> use the <code class="docutils literal notranslate"><span class="pre">.format()</span></code> method!</p>
-<img src="assets/animal.jpg" width=300 height=200>
+<img src="assets/animal.jpg" width=300 height=400>
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">genus</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Felis&#39;</span>
 <span class="n">epithet</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;catus&#39;</span>
@@ -951,7 +1001,7 @@ document.write(`
 </div>
 </section>
 <section id="exercise-2">
-<h2><span class="section-number">1.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">1.7.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Let’s create a program that prints the message ‘Happy birthday’ followed by the person’s name. The message should be repeated as many times as the age they are turning.</p>
 <img src="assets/cake.jpg" width=400 height=300>
 <p><strong>Example input:</strong></p>
@@ -972,7 +1022,7 @@ document.write(`
 </div>
 </section>
 <section id="exercise-3">
-<h2><span class="section-number">1.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">1.7.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
 <p>Assume you are a cashier who needs to calculate the amount of money to return to a customer as change. However, you have a special cash drawer that <strong>only</strong> contains dollars, quarters, and dimes.</p>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a program that uses the <strong>modulo operator</strong> to calculate the number of dollars, quarters, and dimes to be given when a customer needs to receive €8.60 in change.</p>
 <img src="assets/money.jpg" width=400 height=300>
@@ -1000,6 +1050,7 @@ document.write(`
 <li><p><a class="reference external" href="https://greenteapress.com/thinkpython2/html/">Think Python</a></p></li>
 <li><p><a class="reference external" href="https://www.geeksforgeeks.org">GeekForGeeks</a></p></li>
 </ol>
+</section>
 </section>
 </section>
 
@@ -1066,9 +1117,29 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">1.1. Exercise 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">1.2. Exercise 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">1.3. Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-introduction-to-data-types-span">1.1. <span style="color:#4169E1">Introduction to Data Types</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-the-print-function-span">1.2. <span style="color:#4169E1">The Print Function</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-variables-and-values-span">1.3. <span style="color:#4169E1">Variables and Values</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-type-hints-span">1.3.1. <span style="color:#B22222">Type Hints</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-printing-with-variables-span">1.3.2. <span style="color:#B22222">Printing with Variables</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-naming-rules-of-variables-span">1.3.3. <span style="color:#B22222">Naming Rules of Variables</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-reassignments-span">1.3.4. <span style="color:#B22222">Reassignments</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-operators-span">1.4. <span style="color:#4169E1">Operators</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-operations-on-numerical-data-types-span">1.4.1. <span style="color:#B22222">Operations on Numerical Data Types</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-hierarchy-of-operations-span">1.4.2. <span style="color:#B22222">Hierarchy of Operations</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-operations-on-non-numeric-data-types-span">1.4.3. <span style="color:#B22222">Operations on Non-Numeric Data Types</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-expressions-span">1.5. <span style="color:#4169E1">Expressions</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-statements-span">1.6. <span style="color:#4169E1">Statements</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">1.7. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">1.7.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">1.7.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">1.7.3. Exercise 3</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
