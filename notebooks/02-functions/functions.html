@@ -868,17 +868,16 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>The <b>return type</b> can be added to the <b>function definition</b> via <code>-&gt; type</code>.</p>
 </div>
-<div class="admonition-consider-the-following-2-cases-br admonition">
-<p class="admonition-title">Consider the following 2 cases:<br></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  In case 1, I am trying to create a function knowing that I will need to use it&#39;s output later on.&lt;br&gt;
-  In case 2, I am creating a function knowing that I only need to display the result immediately and won&#39;t need to use it later.&lt;br&gt;
-  &lt;br&gt;
-  Based on these 2 cases, when should I use &lt;code&gt; print() &lt;/code&gt; and when should I use &lt;code&gt; return &lt;/code&gt; ?
-</pre></div>
-</div>
-<p>:class: tip, dropdown
-In case 1, I should use <code>return</code> to be able to reuse the output later on. <br>
-In case 2, I should use <code>print()</code> since I know that I will not have to reuse the function’s output.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Consider the following 2 cases:</p>
+<p>In <strong>Case 1</strong>, I am trying to create a function knowing that I will need to use its output later on.<br />
+In <strong>Case 2</strong>, I am creating a function knowing that I only need to display the result immediately and won’t need to use it later.</p>
+<hr class="docutils" />
+<p><strong>Question</strong>: Based on these 2 cases, when should I use <code class="docutils literal notranslate"><span class="pre">print()</span></code> and when should I use <code class="docutils literal notranslate"><span class="pre">return</span></code>?</p>
+<ul class="simple">
+<li><p>In <strong>Case 1</strong>, I should use <code class="docutils literal notranslate"><span class="pre">return</span></code> to be able to reuse the output later on.</p></li>
+<li><p>In <strong>Case 2</strong>, I should use <code class="docutils literal notranslate"><span class="pre">print()</span></code> since I know that I will not have to reuse the function’s output.</p></li>
+</ul>
 </div>
 <p>Let’s test our knowledge. What does this piece of code print?</p>
 <div class="cell docutils container">
