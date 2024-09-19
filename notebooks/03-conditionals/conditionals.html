@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Conditionals &#8212; Workbook Intro Python</title>
+    <title>3. Conditionals &#8212; Workbook Intro Python</title>
   
   
   
@@ -68,6 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="2. Functions" href="../02-functions/functions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,9 +170,10 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-functions/functions.html">2. Functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Conditionals</a></li>
 </ul>
 
     </div>
@@ -416,21 +418,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-boolean-values-and-expressions-span"><span style="color:#4169E1">Boolean Values and Expressions</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-comparison-operators-span"><span style="color:#B22222">Comparison Operators</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-logical-operators-span"><span style="color:#B22222">Logical Operators</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-boolean-values-and-expressions-span">3.1. <span style="color:#4169E1">Boolean Values and Expressions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-comparison-operators-span">3.1.1. <span style="color:#B22222">Comparison Operators</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-logical-operators-span">3.1.2. <span style="color:#B22222">Logical Operators</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-conditional-statements-span"><span style="color:#4169E1">Conditional Statements</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-let-s-think-span"><span style="color:#B22222">Let’s think</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-nested-conditionals-span"><span style="color:#B22222">Nested Conditionals</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-conditional-statements-span">3.2. <span style="color:#4169E1">Conditional Statements</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-let-s-think-span">3.2.1. <span style="color:#B22222">Let’s think</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-nested-conditionals-span">3.2.2. <span style="color:#B22222">Nested Conditionals</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-user-input-span"><span style="color:#4169E1">User input</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span"><span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-user-input-span">3.3. <span style="color:#4169E1">User input</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">3.4. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">3.4.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">3.4.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">3.4.3. Exercise 3</a></li>
 </ul>
 </li>
 </ul>
@@ -445,7 +447,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="conditionals">
-<h1>Conditionals<a class="headerlink" href="#conditionals" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Conditionals<a class="headerlink" href="#conditionals" title="Permalink to this heading">#</a></h1>
 <p><strong>In this notebook, we cover the following subjects:</strong></p>
 <ul class="simple">
 <li><p>Boolean Values and Expressions;</p></li>
@@ -454,7 +456,7 @@ document.write(`
 </ul>
 <hr class="docutils" />
 <section id="span-style-color-4169e1-boolean-values-and-expressions-span">
-<h2><span style="color:#4169E1">Boolean Values and Expressions</span><a class="headerlink" href="#span-style-color-4169e1-boolean-values-and-expressions-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span><span style="color:#4169E1">Boolean Values and Expressions</span><a class="headerlink" href="#span-style-color-4169e1-boolean-values-and-expressions-span" title="Permalink to this heading">#</a></h2>
 <p>Stemming from <a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/conditionals.html#boolean-logic-a-class-anchor-id-boolean-logic-a">Boolean Logic</a>, let’s talk about another data type: <strong>Boolean values</strong>. This data type can only have two values, namely <strong>True</strong> or <strong>False</strong>, and is often used to represent the outcome of a condition or expression.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -491,7 +493,7 @@ document.write(`
 <p>The above code will print <b> False </b> since the variable <code>y</code> stores the value of 5, which is greater then the value 1 stored in variable <code>x</code>. In simple terms, 1 &gt; 5 is <b>False</b>.</p>
 </div>
 <section id="span-style-color-b22222-comparison-operators-span">
-<h3><span style="color:#B22222">Comparison Operators</span><a class="headerlink" href="#span-style-color-b22222-comparison-operators-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.1.1. </span><span style="color:#B22222">Comparison Operators</span><a class="headerlink" href="#span-style-color-b22222-comparison-operators-span" title="Permalink to this heading">#</a></h3>
 <p>To perform comparisons between values or expressions, we use what are called <strong>comparison operators</strong>. While these operations might already be familiar to you, the symbols used in Python are different from the standard mathematical symbols.</p>
 <table class="table">
 <thead>
@@ -546,7 +548,7 @@ False
 </div>
 </section>
 <section id="span-style-color-b22222-logical-operators-span">
-<h3><span style="color:#B22222">Logical Operators</span><a class="headerlink" href="#span-style-color-b22222-logical-operators-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.1.2. </span><span style="color:#B22222">Logical Operators</span><a class="headerlink" href="#span-style-color-b22222-logical-operators-span" title="Permalink to this heading">#</a></h3>
 <p>Now, with <strong>logical operators</strong> we can combine multiple boolean expressions and return a <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> value. In Python, there are three logical operators: <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, and <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
 <table class="table">
 <thead>
@@ -634,7 +636,7 @@ False
 </section>
 </section>
 <section id="span-style-color-4169e1-conditional-statements-span">
-<h2><span style="color:#4169E1">Conditional Statements</span><a class="headerlink" href="#span-style-color-4169e1-conditional-statements-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span><span style="color:#4169E1">Conditional Statements</span><a class="headerlink" href="#span-style-color-4169e1-conditional-statements-span" title="Permalink to this heading">#</a></h2>
 <p>Now that we’ve covered boolean values and expressions, let’s move on to a new concept: <strong>conditional statements</strong>. In order to write useful code, we want to be able to change the behavior of the program based on the fulfillment of certain conditions. Conditional statements allow us to do this, as Boolean expressions are used to determine which blocks of code to execute. The three types of conditional statements are <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">else</span></code>.</p>
 <p><strong>1. if-statement</strong>: this is the simplest form of a conditional statement. If the condition after the <code class="docutils literal notranslate"><span class="pre">if</span></code> holds <code class="docutils literal notranslate"><span class="pre">True</span></code>, then the following statement is executed. The syntax is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
@@ -720,7 +722,7 @@ False
 <p>There is no limit to the amount of <code>elif</code> blocks you wish to use, but remember to start with an <code>if</code> statement. While an <code>else</code> block at the end is optional, you can also end the statement with an <code>elif</code>.</p>
 </div>
 <section id="span-style-color-b22222-let-s-think-span">
-<h3><span style="color:#B22222">Let’s think</span><a class="headerlink" href="#span-style-color-b22222-let-s-think-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.1. </span><span style="color:#B22222">Let’s think</span><a class="headerlink" href="#span-style-color-b22222-let-s-think-span" title="Permalink to this heading">#</a></h3>
 <p>Let’s test our understanding! Answer the following questions regarding the piece of code underneath:</p>
 <ul class="simple">
 <li><p>Question 1: Would the output change if I changed <code class="docutils literal notranslate"><span class="pre">elif</span></code> to <code class="docutils literal notranslate"><span class="pre">if</span></code>?</p></li>
@@ -781,7 +783,7 @@ False
 </div>
 </section>
 <section id="span-style-color-b22222-nested-conditionals-span">
-<h3><span style="color:#B22222">Nested Conditionals</span><a class="headerlink" href="#span-style-color-b22222-nested-conditionals-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.2. </span><span style="color:#B22222">Nested Conditionals</span><a class="headerlink" href="#span-style-color-b22222-nested-conditionals-span" title="Permalink to this heading">#</a></h3>
 <p>One conditional can also be nested within another. That is, you can have a conditional statement within the body of one of the alternative executions of a conditional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">condition2</span><span class="p">:</span>
@@ -822,7 +824,7 @@ Perfect day for a hike!
 </section>
 </section>
 <section id="span-style-color-4169e1-user-input-span">
-<h2><span style="color:#4169E1">User input</span><a class="headerlink" href="#span-style-color-4169e1-user-input-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span><span style="color:#4169E1">User input</span><a class="headerlink" href="#span-style-color-4169e1-user-input-span" title="Permalink to this heading">#</a></h2>
 <p>A program in Python can interact with the user using the <a class="reference external" href="https://www.w3schools.com/python/ref_func_input.asp"><code class="docutils literal notranslate"><span class="pre">input()</span></code></a> function. This function asks the user for input and returns the written answer as a string.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -867,12 +869,12 @@ Perfect day for a hike!
 </div>
 </section>
 <section id="span-style-color-3cb371-exercises-span">
-<h2><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.4. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
 <p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
 <p>For each of the exercises, make sure to add <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>,  and <code class="docutils literal notranslate"><span class="pre">docstrings</span></code> (if applicable), moreover <strong>do not</strong> import any libraries unless specified otherwise.
 <br></p>
 <section id="exercise-1">
-<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Using <code class="docutils literal notranslate"><span class="pre">input()</span></code>, ask the user of your program to enter an integer number and checks whether it is a multiple of 6, 8, or both. You can assume that the input is a valid positive integer. The program should output a message using an <strong>f-string</strong> to indicate the result.</p>
 <img src="assets/divide.jpg" width=300 height=200>
 <p><strong>Example 1 input:</strong></p>
@@ -951,7 +953,7 @@ A number is prime if it is greater than 1 and has no divisors other than 1 and i
 </div>
 </section>
 <section id="exercise-2">
-<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a program that prints <code class="docutils literal notranslate"><span class="pre">“Hello</span> <span class="pre">World”</span></code> if both of the following conditions are met:</p>
 <ol class="arabic simple">
 <li><p>The variable <code class="docutils literal notranslate"><span class="pre">a</span></code> is greater than the variable <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
@@ -1051,7 +1053,7 @@ A number is prime if it is greater than 1 and has no divisors other than 1 and i
 </div>
 </section>
 <section id="exercise-3">
-<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.4.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a script that asks the user to rate a restaurant between 0 and 5. Depending on the rating, the program should give a specific recommendation. Here are the rating categories and the corresponding messages:</p>
 <ul class="simple">
 <li><p>If the rating falls between 3.5 (inclusive) and 5 (inclusive), print: <code class="docutils literal notranslate"><span class="pre">Definitely</span> <span class="pre">worth</span> <span class="pre">your</span> <span class="pre">time!</span> <span class="pre">Give</span> <span class="pre">it</span> <span class="pre">a</span> <span class="pre">go.</span></code></p></li>
@@ -1188,6 +1190,15 @@ Think about wether you should use <code class="docutils literal notranslate"><sp
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../02-functions/functions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Functions</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -1203,21 +1214,21 @@ Think about wether you should use <code class="docutils literal notranslate"><sp
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-boolean-values-and-expressions-span"><span style="color:#4169E1">Boolean Values and Expressions</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-comparison-operators-span"><span style="color:#B22222">Comparison Operators</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-logical-operators-span"><span style="color:#B22222">Logical Operators</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-boolean-values-and-expressions-span">3.1. <span style="color:#4169E1">Boolean Values and Expressions</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-comparison-operators-span">3.1.1. <span style="color:#B22222">Comparison Operators</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-logical-operators-span">3.1.2. <span style="color:#B22222">Logical Operators</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-conditional-statements-span"><span style="color:#4169E1">Conditional Statements</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-let-s-think-span"><span style="color:#B22222">Let’s think</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-nested-conditionals-span"><span style="color:#B22222">Nested Conditionals</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-conditional-statements-span">3.2. <span style="color:#4169E1">Conditional Statements</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-let-s-think-span">3.2.1. <span style="color:#B22222">Let’s think</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-nested-conditionals-span">3.2.2. <span style="color:#B22222">Nested Conditionals</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-user-input-span"><span style="color:#4169E1">User input</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span"><span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-user-input-span">3.3. <span style="color:#4169E1">User input</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">3.4. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">3.4.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">3.4.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">3.4.3. Exercise 3</a></li>
 </ul>
 </li>
 </ul>
