@@ -579,7 +579,33 @@ False
 <ul class="simple">
 <li><p><strong>The <code class="docutils literal notranslate"><span class="pre">and</span></code> Operator</strong>: returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <strong>all</strong> expressions are <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
 </ul>
-<img src="assets/truth-and.png" width=150 height=90><div class="cell docutils container">
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>A</p></th>
+<th class="head"><p>B</p></th>
+<th class="head"><p>A ∧ B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">17</span>
 
@@ -598,7 +624,33 @@ False
 <ul class="simple">
 <li><p><strong>The <code class="docutils literal notranslate"><span class="pre">or</span></code> Operator</strong>: returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <strong>at least one</strong> expression holds <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
 </ul>
-<img src="assets/or.png" width=150 height=90><div class="cell docutils container">
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>A</p></th>
+<th class="head"><p>B</p></th>
+<th class="head"><p>A ∨ B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">day</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Saturday&quot;</span>
 
@@ -617,7 +669,37 @@ False
 <ul class="simple">
 <li><p><strong>The <code class="docutils literal notranslate"><span class="pre">not</span></code> Operator</strong>: negates a boolean expression.</p></li>
 </ul>
-<img src="assets/negation.png" width=150 height=90><div class="cell docutils container">
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>A</p></th>
+<th class="head"><p>¬A</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>B</p></th>
+<th class="head"><p>¬B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_sunny</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
 
@@ -876,7 +958,7 @@ Perfect day for a hike!
 <section id="exercise-1">
 <h3><span class="section-number">3.4.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Using <code class="docutils literal notranslate"><span class="pre">input()</span></code>, ask the user of your program to enter an integer number and checks whether it is a multiple of 6, 8, or both. You can assume that the input is a valid positive integer. The program should output a message using an <strong>f-string</strong> to indicate the result.</p>
-<img src="assets/divide.jpg" width=300 height=200>
+<img src="assets/divide.jpg" width=200 height=350>
 <p><strong>Example 1 input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">24</span>  <span class="c1"># note that 24 is the obtained value from the user input</span>
 </pre></div>
@@ -1088,7 +1170,7 @@ Think about wether you should use <code class="docutils literal notranslate"><sp
 <li><p>Returns the result of the operation.</p></li>
 <li><p>If the user enters an invalid operation, it should print an error message.</p></li>
 </ol>
-<img src="assets/calculator.jpg" width=300 height=200>
+<img src="assets/calculator.jpg" width=200 height=300>
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">the</span> <span class="n">first</span> <span class="n">number</span><span class="p">:</span> <span class="mi">10</span>
 <span class="n">Enter</span> <span class="n">the</span> <span class="n">second</span> <span class="n">number</span><span class="p">:</span> <span class="mi">5</span>
@@ -1124,7 +1206,7 @@ Think about wether you should use <code class="docutils literal notranslate"><sp
 </ol>
 <br>
 <p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the year is a leap year, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
-<img src="assets/leap.png" width=200 height=100>
+<img src="assets/leap.png" width=200 height=150>
 <p><strong>Example inputs</strong>: you pass this in a function call.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">custom_leap_year_validator</span><span class="p">(</span><span class="mi">2024</span><span class="p">)</span>
 <span class="n">custom_leap_year_validator</span><span class="p">(</span><span class="mi">2100</span><span class="p">)</span>
