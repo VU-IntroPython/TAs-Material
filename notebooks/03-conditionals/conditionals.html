@@ -424,8 +424,9 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-conditional-statements-span">3.2. <span style="color:#4169E1">Conditional Statements</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-let-s-think-span">3.2.1. <span style="color:#B22222">Let’s think</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-nested-conditionals-span">3.2.2. <span style="color:#B22222">Nested Conditionals</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-importance-of-indentation-span">3.2.1. <span style="color:#B22222">Importance of Indentation</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-let-s-think-span">3.2.2. <span style="color:#B22222">Let’s think</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-nested-conditionals-span">3.2.3. <span style="color:#B22222">Nested Conditionals</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-user-input-span">3.3. <span style="color:#4169E1">User input</span></a></li>
@@ -803,8 +804,29 @@ False
 <p class="admonition-title">Note</p>
 <p>There is no limit to the amount of <code>elif</code> blocks you wish to use, but remember to start with an <code>if</code> statement. While an <code>else</code> block at the end is optional, you can also end the statement with an <code>elif</code>.</p>
 </div>
+<section id="span-style-color-b22222-importance-of-indentation-span">
+<h3><span class="section-number">3.2.1. </span><span style="color:#B22222">Importance of Indentation</span><a class="headerlink" href="#span-style-color-b22222-importance-of-indentation-span" title="Permalink to this heading">#</a></h3>
+<p>As you will see in the code snippet bellow, we used different levels of indentation. You have already used indentation in the previous chapter (Functions), but it is very important that you fully understand its meaning and power.</p>
+<p>So what is indentation?</p>
+<ul class="simple">
+<li><p>In Python, <strong>indentation</strong> isn’t just for making code look nice—it’s how the language knows what code belongs together. When you write a <code class="docutils literal notranslate"><span class="pre">loop</span></code>, <code class="docutils literal notranslate"><span class="pre">function</span></code>, or <code class="docutils literal notranslate"><span class="pre">conditional</span></code> (like an <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">statement</span></code>), everything that should happen inside it needs to be indented.<br></p></li>
+<li><p>If you forget or mix up spaces and tabs, Python will give you an error.</p></li>
+</ul>
+<p>Here’s an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x is greater than 5&quot;</span><span class="p">)</span>  <span class="c1"># This line is indented, so it&#39;s part of the if-statement</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This runs no matter what&quot;</span><span class="p">)</span>  <span class="c1"># No indentation, so it&#39;s outside the if-statement</span>
+</pre></div>
+</div>
+<p>The indented part runs only if the condition is true, while the non-indented code runs regardless. So, Python uses indentation to tell what should happen inside or outside certain blocks of code.</p>
+<p>Keep it neat and consistent, and you’ll be good!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In Python, we usually use 4 spaces or 1 tab to indent.</p>
+</div>
+</section>
 <section id="span-style-color-b22222-let-s-think-span">
-<h3><span class="section-number">3.2.1. </span><span style="color:#B22222">Let’s think</span><a class="headerlink" href="#span-style-color-b22222-let-s-think-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.2. </span><span style="color:#B22222">Let’s think</span><a class="headerlink" href="#span-style-color-b22222-let-s-think-span" title="Permalink to this heading">#</a></h3>
 <p>Let’s test our understanding! Answer the following questions regarding the piece of code underneath:</p>
 <ul class="simple">
 <li><p>Question 1: Would the output change if I changed <code class="docutils literal notranslate"><span class="pre">elif</span></code> to <code class="docutils literal notranslate"><span class="pre">if</span></code>?</p></li>
@@ -865,7 +887,7 @@ False
 </div>
 </section>
 <section id="span-style-color-b22222-nested-conditionals-span">
-<h3><span class="section-number">3.2.2. </span><span style="color:#B22222">Nested Conditionals</span><a class="headerlink" href="#span-style-color-b22222-nested-conditionals-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3. </span><span style="color:#B22222">Nested Conditionals</span><a class="headerlink" href="#span-style-color-b22222-nested-conditionals-span" title="Permalink to this heading">#</a></h3>
 <p>One conditional can also be nested within another. That is, you can have a conditional statement within the body of one of the alternative executions of a conditional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">condition2</span><span class="p">:</span>
@@ -1302,8 +1324,9 @@ Think about wether you should use <code class="docutils literal notranslate"><sp
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-conditional-statements-span">3.2. <span style="color:#4169E1">Conditional Statements</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-let-s-think-span">3.2.1. <span style="color:#B22222">Let’s think</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-nested-conditionals-span">3.2.2. <span style="color:#B22222">Nested Conditionals</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-importance-of-indentation-span">3.2.1. <span style="color:#B22222">Importance of Indentation</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-let-s-think-span">3.2.2. <span style="color:#B22222">Let’s think</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-nested-conditionals-span">3.2.3. <span style="color:#B22222">Nested Conditionals</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-user-input-span">3.3. <span style="color:#4169E1">User input</span></a></li>
