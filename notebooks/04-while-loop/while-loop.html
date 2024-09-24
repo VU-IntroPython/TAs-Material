@@ -1,0 +1,990 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>4. While Loop &#8212; Workbook Intro Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/04-while-loop/while-loop';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="3. Conditionals" href="../03-conditionals/conditionals.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Workbook Intro Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Workbook Intro Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Programming Workbook XB-0082
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-functions/functions.html">2. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-conditionals/conditionals.html">3. Conditionals</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. While Loop</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/VU-IntroPython/TAs-Material.git/master/v2/gh/VU-IntroPython/TAs-Material/master?urlpath=lab/tree/notebooks/notebooks/04-while-loop/while-loop.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material/issues/new?title=Issue%20on%20page%20%2Fnotebooks/04-while-loop/while-loop.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/04-while-loop/while-loop.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>While Loop</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-the-while-statement-span">4.1. <span style="color:#4169E1">The While Statement</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-structure-of-a-while-loop-span">4.1.1. <span style="color:#B22222">Structure of a while loop</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-flow-of-execution-for-a-while-statement-span">4.1.2. <span style="color:#B22222">The flow of execution for a while statement</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-the-break-statement-span">4.2. <span style="color:#4169E1">The Break Statement</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-the-continue-statement-span">4.3. <span style="color:#4169E1">The Continue Statement</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-infinite-loops-span">4.4. <span style="color:#4169E1">Infinite Loops</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">4.5. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">4.5.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">4.5.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">4.5.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="while-loop">
+<h1><span class="section-number">4. </span>While Loop<a class="headerlink" href="#while-loop" title="Permalink to this heading">#</a></h1>
+<p><strong>In this notebook, we cover the following subjects:</strong></p>
+<ul class="simple">
+<li><p>While Statement;</p></li>
+<li><p>Break;</p></li>
+<li><p>Continue.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="span-style-color-4169e1-the-while-statement-span">
+<h2><span class="section-number">4.1. </span><span style="color:#4169E1">The While Statement</span><a class="headerlink" href="#span-style-color-4169e1-the-while-statement-span" title="Permalink to this heading">#</a></h2>
+<p>Thankfully, computers are good at repeating boring tasks, saving us from having to do them ourselves. Due to their computational power, they do this faster and more accurately than we can. When a block of code is executed several times, we referred to it as a <strong>loop</strong>. Each repetition of instructions within a loop is called an <strong>iteration</strong>.</p>
+<p>One of the fundamental loop statements in Python is a <a class="reference external" href="https://wiki.python.org/moin/WhileLoop"><strong>while loop</strong></a>, which allows you to repeatedly execute the body of code within the while statement as long as the specified condition holds <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="c1"># Code to execute while condition is True</span>
+</pre></div>
+</div>
+<section id="span-style-color-b22222-structure-of-a-while-loop-span">
+<h3><span class="section-number">4.1.1. </span><span style="color:#B22222">Structure of a while loop</span><a class="headerlink" href="#span-style-color-b22222-structure-of-a-while-loop-span" title="Permalink to this heading">#</a></h3>
+<p>Bellow, you can see the standard components of a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">loop</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Step 1:</strong> Initialize the loop by using the <code class="docutils literal notranslate"><span class="pre">while</span></code> keyword.</p></li>
+<li><p><strong>Step 2:</strong> Apart from the keyword, we need to add a condition like <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code> etc.</p></li>
+<li><p><strong>Step 3:</strong> We check if the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.:</p>
+<ul>
+<li><p>If the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>, we excecute the <strong>body</strong> of the loop.</p></li>
+<li><p>If the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>, we continue with the statement outside the loop.</p></li>
+</ul>
+</li>
+<li><p><strong>Step 4 (only applicable if the condition was True):</strong> We excecute the <strong>body</strong> of the loop.</p></li>
+<li><p><strong>Step 5 (only applicable if the condition was True):</strong> We update the <strong>condition</strong> based on our logic.</p></li>
+<li><p><strong>Step 6 (only applicable if the condition was True):</strong> We check if the <strong>condition</strong> is still <code class="docutils literal notranslate"><span class="pre">True</span></code> after the update.</p>
+<ul>
+<li><p>You probably noticed that now we are back at <strong>step 3</strong>.</p></li>
+</ul>
+</li>
+<li><p><strong>Step 7 (only applicable if the condition was False):</strong> We continue with the statements outside the loop.</p></li>
+</ul>
+<img src="assets/loop.jpg" width=500 height=400></section>
+<section id="span-style-color-b22222-the-flow-of-execution-for-a-while-statement-span">
+<h3><span class="section-number">4.1.2. </span><span style="color:#B22222">The flow of execution for a while statement</span><a class="headerlink" href="#span-style-color-b22222-the-flow-of-execution-for-a-while-statement-span" title="Permalink to this heading">#</a></h3>
+<p>The flow of execution for a while statement is as follows:</p>
+<ol class="arabic simple">
+<li><p>Determine whether the termination condition is <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>;</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">False</span></code>, exit the while statement and continue with the next statement outside of the loop;</p></li>
+<li><p>If the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>, run the body and go back to step 1.</p></li>
+</ol>
+<p>This type of flow is called a loop because the third step loops back to the top. An animation could help us visualize the operation of a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
+<img src="assets/animation.gif" width=700 height=550><p>Let’s look at a Harry Potter-themed example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platform</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">platform</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are at Platform </span><span class="si">{platform_no}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">platform_no</span> <span class="o">=</span> <span class="n">platform</span><span class="p">))</span>
+    
+    <span class="n">platform</span> <span class="o">=</span> <span class="n">platform</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Be careful! Only 3/4 platforms to go.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You are at Platform 1.
+You are at Platform 2.
+You are at Platform 3.
+You are at Platform 4.
+You are at Platform 5.
+You are at Platform 6.
+You are at Platform 7.
+You are at Platform 8.
+You are at Platform 9.
+Be careful! Only 3/4 platforms to go.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">How could we simplify <code>platform = platform + 1 </code> ?</p>
+<p>We could use the <code> += </code>(Addition Assignment) operator, which does exactly the same as <code>platform = platform + 1 </code> but in 1 line.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For further explanation about <b>Addition Assignment</b>, visit <a href="https://python-reference.readthedocs.io/en/latest/docs/operators/addition_assignment.html">this website</a>.</p>
+</div>
+</section>
+</section>
+<section id="span-style-color-4169e1-the-break-statement-span">
+<h2><span class="section-number">4.2. </span><span style="color:#4169E1">The Break Statement</span><a class="headerlink" href="#span-style-color-4169e1-the-break-statement-span" title="Permalink to this heading">#</a></h2>
+<p>It’s possible to enforce the termination of a loop via the <a class="reference external" href="https://wiki.python.org/moin/WhileLoop"><strong>break statement</strong></a>. Once the break statement is reached within your program, none of the remaining code within the loop will be executed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Print once!&#39;</span><span class="p">)</span>
+    <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The rest won&#39;t be printed&quot;</span><span class="p">)</span>
+
+<span class="c1"># print(&#39;But will this be printed?&#39;)</span>
+</pre></div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">What will be the output of the above code snippet?</p>
+<p>The code would print the <code>Print once!</code> message but not the <code>The rest won’t be printed</code> message. It won’t print the second message owing to the <code>break</code> statement.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try it for yourself</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Print once!&#39;</span><span class="p">)</span>
+    <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The rest won&#39;t be printed&quot;</span><span class="p">)</span>
+
+<span class="c1"># print(&#39;But will this be printed?&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Print once!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">What would be the output of the above code snippet if we uncommented the last line?</p>
+<p>The code would print the <code>Print once!</code> message <b>plus the <code>But will this be printed?</code> message</b> since it is outside the loop (the <code>break</code>statement exits the loop, then the program executes the next line).<br>
+It would still not print the <code>The rest won’t be printed</code> message owing to the <code>break</code> statement.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try it for yourself</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Print once!&#39;</span><span class="p">)</span>
+    <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The rest won&#39;t be printed&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;But will this be printed?&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Print once!
+But will this be printed?
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-4169e1-the-continue-statement-span">
+<h2><span class="section-number">4.3. </span><span style="color:#4169E1">The Continue Statement</span><a class="headerlink" href="#span-style-color-4169e1-the-continue-statement-span" title="Permalink to this heading">#</a></h2>
+<p>Sometimes you want to finish the execution of the loop body for specific iterations. In that case, you want to stop the current iteration and continue with the next one. To do so, you can use the <a class="reference external" href="https://wiki.python.org/moin/WhileLoop"><strong>continue statement</strong></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iteration</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">iteration</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="n">iteration</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="c1"># Do not print anything in iteration 2</span>
+    <span class="k">if</span> <span class="n">iteration</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">continue</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skip this text!&#39;</span><span class="p">)</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Iteration </span><span class="si">{</span><span class="n">iteration</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-4169e1-infinite-loops-span">
+<h2><span class="section-number">4.4. </span><span style="color:#4169E1">Infinite Loops</span><a class="headerlink" href="#span-style-color-4169e1-infinite-loops-span" title="Permalink to this heading">#</a></h2>
+<p>When you start working with <code>while loops</code>, it is very likely that you will encounter an <strong>infinite loop</strong> sooner or later. Do not be scared if this happens, as getting stuck in an infinite loop is part of every begginer programmer’s journey!</p>
+<p>So what is an infinite loop?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- An infinite loop happens when a program keeps repeating forever without stopping. This usually happens if the condition for the loop never becomes false.
+</pre></div>
+</div>
+<p>To <strong>exit from an infinite loop</strong> just simply interrupt the kernel.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example of a code snippet that would create an infinite loop</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span> <span class="c1"># this condition will always be True</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This will run forever!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To avoid infinite loops, make sure:<br>
+<br>
+Your loop has a condition that will eventually stop. <br>
+You update variables inside the loop to break it. <br></p>
+</div>
+</section>
+<section id="span-style-color-3cb371-exercises-span">
+<h2><span class="section-number">4.5. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+<p>For each of the exercises, make sure to add <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
+<br></p>
+<section id="exercise-1">
+<h3><span class="section-number">4.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a Python program that uses a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop to count from 1 to 10, but only prints the even numbers <strong>without</strong> using the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement.</p>
+<img src="assets/even.jpg" width=300 height=200>
+<p><strong>Expected output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
+<span class="mi">4</span>
+<span class="mi">6</span>
+<span class="mi">8</span>
+<span class="mi">10</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Write a Python program that prints all even numbers from 1 to 20, excluding those divisible by 3 and the ones that are <a class="reference external" href="https://wiki.python.org/moin/WhileLoop">perfect squares</a>, using the <strong>continue</strong> statement.</p>
+<img src="assets/perfect.jpg" width=300 height=250>
+<p><strong>Expected output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
+<span class="mi">8</span>
+<span class="mi">10</span>
+<span class="mi">14</span>
+<span class="mi">16</span>
+<span class="mi">20</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Implement the same code as in <span style="color:darkorange;"><strong>Level 2</strong></span>, but this time do not use the modulo <code class="docutils literal notranslate"><span class="pre">(%)</span></code> operator.</p>
+<img src="assets/number.jpg" width=250 height=400>
+<p><strong>Expected output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
+<span class="mi">8</span>
+<span class="mi">10</span>
+<span class="mi">14</span>
+<span class="mi">16</span>
+<span class="mi">20</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2">
+<h3><span class="section-number">4.5.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> A well-known exercise to practice while loops is the <em>“99 Bottles of Beer”</em> song. Write a program using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop that prints the lyrics of the song, counting down from 99 bottles to 0. The program should include the final verse, handling the special case where there are no bottles left. Be sure to avoid repetitive code in your solution. The song starts with “99 bottles of beer on the wall” and decreases by one bottle each verse until there are no bottles remaining. Additionally, pay attention to the correct usage of singular and plural forms for “bottle” and “bottles”.</p>
+<img src="assets/beer.jpg" width=300 height=250>
+<p><strong>Expected output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">99</span> <span class="n">bottles</span> <span class="n">of</span> <span class="n">beer</span> <span class="n">on</span> <span class="n">the</span> <span class="n">wall</span><span class="p">,</span>
+<span class="mi">99</span> <span class="n">bottles</span> <span class="n">of</span> <span class="n">beer</span><span class="o">.</span>
+<span class="n">Take</span> <span class="n">one</span> <span class="n">down</span><span class="p">,</span> <span class="k">pass</span> <span class="n">it</span> <span class="n">around</span><span class="p">,</span>
+<span class="mi">98</span> <span class="n">bottles</span> <span class="n">of</span> <span class="n">beer</span> <span class="n">on</span> <span class="n">the</span> <span class="n">wall</span><span class="o">.</span>
+
+<span class="mi">98</span> <span class="n">bottles</span> <span class="n">of</span> <span class="n">beer</span> <span class="n">on</span> <span class="n">the</span> <span class="n">wall</span><span class="p">,</span>
+<span class="mi">98</span> <span class="n">bottles</span> <span class="n">of</span> <span class="n">beer</span><span class="o">.</span>
+<span class="n">Take</span> <span class="n">one</span> <span class="n">down</span><span class="p">,</span> <span class="k">pass</span> <span class="n">it</span> <span class="n">around</span><span class="p">,</span>
+<span class="mi">97</span> <span class="n">bottles</span> <span class="n">of</span> <span class="n">beer</span> <span class="n">on</span> <span class="n">the</span> <span class="n">wall</span><span class="o">.</span>
+
+<span class="o">...</span>
+
+<span class="mi">2</span> <span class="n">bottles</span> <span class="n">of</span> <span class="n">beer</span> <span class="n">on</span> <span class="n">the</span> <span class="n">wall</span><span class="p">,</span>
+<span class="mi">2</span> <span class="n">bottles</span> <span class="n">of</span> <span class="n">beer</span><span class="o">.</span>
+<span class="n">Take</span> <span class="n">one</span> <span class="n">down</span><span class="p">,</span> <span class="k">pass</span> <span class="n">it</span> <span class="n">around</span><span class="p">,</span>
+<span class="mi">1</span> <span class="n">bottle</span> <span class="n">of</span> <span class="n">beer</span> <span class="n">on</span> <span class="n">the</span> <span class="n">wall</span><span class="o">.</span>
+
+<span class="mi">1</span> <span class="n">bottle</span> <span class="n">of</span> <span class="n">beer</span> <span class="n">on</span> <span class="n">the</span> <span class="n">wall</span><span class="p">,</span>
+<span class="mi">1</span> <span class="n">bottle</span> <span class="n">of</span> <span class="n">beer</span><span class="o">.</span>
+<span class="n">Take</span> <span class="n">one</span> <span class="n">down</span><span class="p">,</span> <span class="k">pass</span> <span class="n">it</span> <span class="n">around</span><span class="p">,</span>
+<span class="n">No</span> <span class="n">more</span> <span class="n">bottles</span> <span class="n">of</span> <span class="n">beer</span> <span class="n">on</span> <span class="n">the</span> <span class="n">wall</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Modify the program to allow users to start with a custom number of bottles and choose their preferred liquid. This will replace every instance of “beer” with the user-provided input, such as “Coca Cola.</p>
+<img src="assets/juice.jpg" width=350 height=250><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Modify the program such that:<br></p>
+<p><b>1)</b> it adds a special verse for every 10th bottle (e.g., 90th, 80th, etc.) saying: <code>”Cheers! Take a break at bottle X!”</code> where X is the bottle number.<br>
+<b>2)</b> if the current bottle number is divisible by both 5 and 3, instead of the regular verse, print: <code>”FizzBuzz! Celebrate bottle X!”</code><br>
+<b>3)</b> skip printing verses for any prime number of bottles. (<b>hint:</b> use your function from the Conditionals Notebook - Exercise 1.3)</p>
+<img src="assets/buzz.png" width=400 height=300><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3">
+<h3><span class="section-number">4.5.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://www.youtube.com/watch?v=094y1Z2wpJg">Collatz sequence</a>, also known as the <strong>3x + 1 problem</strong>, is a well-known problem in mathematics. The sequence follows a specific set of rules: starting with any positive integer, if the number is even, you divide it by 2; if it’s odd, you multiply it by 3 and add 1. You continue applying these rules until the sequence reaches the number 1. Strangely, when you apply these rules, you always end up in the loop of 4, 2, and 1—at least, this has been the case for all numbers tested so far—something that mathematicians still don’t fully understand or have been able to prove for all possible starting numbers.</p>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> In this Python exercise, you will create a program to generate and display the Collatz sequence for a given starting number. You continue applying these rules until the sequence reaches the number 1. Your task is to implement a <strong>while loop</strong> to calculate the sequence and <strong>break</strong> the loop if it reaches 50 steps. This means that if the sequence does not reach 1 within 50 steps, the loop should terminate to prevent long-running computations and possible infinite loops (test this with the number 27 as this takes 111 steps to terminate). If you have to break add the print message:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Argh, it costs too much computation power!&quot;</span><span class="o">.</span>
+</pre></div>
+</div>
+<img src="assets/collatz.jpg" width=400 height=300>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">start_number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">7</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span>
+<span class="mi">22</span>
+<span class="mi">11</span>
+<span class="mi">34</span>
+<span class="mi">17</span>
+<span class="mi">52</span>
+<span class="mi">26</span>
+<span class="mi">13</span>
+<span class="mi">40</span>
+<span class="mi">20</span>
+<span class="mi">10</span>
+<span class="mi">5</span>
+<span class="mi">16</span>
+<span class="mi">8</span>
+<span class="mi">4</span>
+<span class="mi">2</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prompt the user to enter a positive integer as the starting number</span>
+<span class="n">start_number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a positive integer as the starting number: &quot;</span><span class="p">))</span>
+
+<span class="c1"># Initialize a count to keep track of the number of terms in the sequence</span>
+<span class="n">count</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+    <span class="n">count</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+          <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Speaking of sequences, in mathematics, we explore patterns, and these patterns can be great for practicing programming. One such <a class="reference external" href="https://wiki.python.org/moin/WhileLoop">beautiful</a> pattern is the <a class="reference external" href="https://www.mathsisfun.com/numbers/fibonacci-sequence.html">Fibonacci sequence</a>, which is perfect for practicing with <code class="docutils literal notranslate"><span class="pre">while</span></code> loops. In this sequence each number is the sum of the two numbers that came before it. It typically starts with 0 and 1, and continues indefinitely:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mf">55.</span><span class="o">..</span>
+</pre></div>
+</div>
+<p><strong>Task:</strong> You might already guess what we’re expecting from you. We want you to write a program that prints the Fibonacci numbers up to a certain limit. This limit is determined by prompting the user (using <code class="docutils literal notranslate"><span class="pre">input()</span></code>), so you won’t know it in advance. Make sure to use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop in your script.</p>
+<img src="assets/fibonacci.jpg" width=400 height=300 >
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">15</span>
+</pre></div>
+</div>
+<p><strong>Example Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">5</span>
+<span class="mi">8</span>
+<span class="mi">13</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Modify the program from <strong>Level 1</strong> to:</p>
+<p><strong>1)</strong> track and display the highest number encountered in the Collatz sequence<br>
+<strong>2)</strong> track and display the iteration number at which it occurs<br>
+<strong>3)</strong> calculate and display the average of all numbers in the sequence.</p>
+<img src="assets/tree.jpg" width=350 height=300>
+<p><strong>For testing purposes:</strong> for the starting number <strong>7</strong>, the maximum number encountered should be <strong>52 (at iteration 6)</strong>, and the average of all numbers in the sequence should be approximately <strong>16.94</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><em>Material for the VU Amsterdam course “Introduction to Python Programming” for BSc Artificial Intelligence students. These notebooks are created using the following sources:</em></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://programming-pybook.github.io/introProgramming/intro.html">Learning Python by Doing</a>: This book, developed by teachers of TU/e Eindhoven and VU Amsterdam, is the main source for the course materials. Code snippets or text explanations from the book may be used in the notebooks, sometimes with slight adjustments.</p></li>
+<li><p><a class="reference external" href="https://greenteapress.com/thinkpython2/html/">Think Python</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org">GeekForGeeks</a></p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "VU-IntroPython/TAs-Material",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/04-while-loop"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../03-conditionals/conditionals.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Conditionals</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-the-while-statement-span">4.1. <span style="color:#4169E1">The While Statement</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-structure-of-a-while-loop-span">4.1.1. <span style="color:#B22222">Structure of a while loop</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-flow-of-execution-for-a-while-statement-span">4.1.2. <span style="color:#B22222">The flow of execution for a while statement</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-the-break-statement-span">4.2. <span style="color:#4169E1">The Break Statement</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-the-continue-statement-span">4.3. <span style="color:#4169E1">The Continue Statement</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-infinite-loops-span">4.4. <span style="color:#4169E1">Infinite Loops</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">4.5. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">4.5.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">4.5.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">4.5.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Koen van der Pool, Mauricio Verano Merino & Márton Bodó
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024. Vrije Universiteit Amsterdam.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
