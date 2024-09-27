@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>For Loop &#8212; Workbook Intro Python</title>
+    <title>5. For Loop &#8212; Workbook Intro Python</title>
   
   
   
@@ -62,10 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/05-for-loop/for-loops';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/05-for-loop/for-loop';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="4. While Loop" href="../04-while-loop/while-loop.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,11 +168,12 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-functions/functions.html">2. Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-conditionals/conditionals.html">3. Conditionals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-while-loop/while-loop.html">4. While Loop</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. For Loop</a></li>
 </ul>
 
     </div>
@@ -226,7 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/VU-IntroPython/TAs-Material.git/master/v2/gh/VU-IntroPython/TAs-Material/master?urlpath=lab/tree/notebooks/notebooks/05-for-loop/for-loops.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/VU-IntroPython/TAs-Material.git/master/v2/gh/VU-IntroPython/TAs-Material/master?urlpath=lab/tree/notebooks/notebooks/05-for-loop/for-loop.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -292,7 +294,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/VU-IntroPython/TAs-Material/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05-for-loop/for-loops.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05-for-loop/for-loop.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -322,7 +324,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/notebooks/05-for-loop/for-loops.ipynb" target="_blank"
+      <li><a href="../../_sources/notebooks/05-for-loop/for-loop.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -416,19 +418,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-a-simple-loop-span"><span style="color:#4169E1">A Simple Loop</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-lists-with-for-loops-span"><span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">lists</span></code> with for loops</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-iterable-object-indexing-span"><span style="color:#B22222">Iterable object indexing</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-range-code-function-span"><span style="color:#B22222">The <code>range()</code> Function</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-combining-code-range-code-with-code-len-code-span"><span style="color:#B22222">Combining <code>range()</code> with <code>len()</code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-enumerate-code-function-span"><span style="color:#B22222">The <code>enumerate()</code> Function</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-a-simple-loop-span">5.1. <span style="color:#4169E1">A Simple Loop</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-lists-with-for-loops-span">5.1.1. <span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">lists</span></code> with for loops</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-iterable-object-indexing-span">5.1.2. <span style="color:#B22222">Iterable object indexing</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-range-code-function-span">5.1.3. <span style="color:#B22222">The <code>range()</code> Function</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-combining-code-range-code-with-code-len-code-span">5.1.4. <span style="color:#B22222">Combining <code>range()</code> with <code>len()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-enumerate-code-function-span">5.1.5. <span style="color:#B22222">The <code>enumerate()</code> Function</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-nested-loops-span"><span style="color:#4169E1">Nested Loops</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span"><span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-nested-loops-span">5.2. <span style="color:#4169E1">Nested Loops</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">5.3. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">5.3.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">5.3.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">5.3.3. Exercise 3</a></li>
 </ul>
 </li>
 </ul>
@@ -443,7 +445,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="for-loop">
-<h1>For Loop<a class="headerlink" href="#for-loop" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>For Loop<a class="headerlink" href="#for-loop" title="Permalink to this heading">#</a></h1>
 <p><strong>In this notebook, we cover the following subjects:</strong></p>
 <ul class="simple">
 <li><p>A Simple Loop;</p></li>
@@ -463,7 +465,7 @@ document.write(`
 </div>
 </div>
 <section id="span-style-color-4169e1-a-simple-loop-span">
-<h2><span style="color:#4169E1">A Simple Loop</span><a class="headerlink" href="#span-style-color-4169e1-a-simple-loop-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span><span style="color:#4169E1">A Simple Loop</span><a class="headerlink" href="#span-style-color-4169e1-a-simple-loop-span" title="Permalink to this heading">#</a></h2>
 <p>In Python, a <a class="reference external" href="https://wiki.python.org/moin/ForLoop"><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code></a> lets you iterate over a sequence, like a <a class="reference external" href="https://python101.pythonlibrary.org/chapter3_lists_dicts.html">list</a>, <a class="reference external" href="https://python101.pythonlibrary.org/chapter3_lists_dicts.html">tuple</a>, <a class="reference external" href="https://python101.pythonlibrary.org/chapter3_lists_dicts.html">dictionary</a>, <a class="reference external" href="https://www.learnpython.org/en/Sets">set</a>, or <a class="reference external" href="https://www.learnpython.org/en/Basic_String_Operations">string</a>. Use for loops when you know the number of iterations ahead of time, like when you need to repeat a process a set number of times or go through specific items in a list. The syntax looks like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="nb">object</span><span class="p">:</span>
     <span class="c1"># Code</span>
@@ -585,7 +587,7 @@ n
 </div>
 <p>OK, enough of strings and intigers for now, let’s check another concept that will utilize <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loops</span></code> better.</p>
 <section id="span-style-color-b22222-using-lists-with-for-loops-span">
-<h3><span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">lists</span></code> with for loops</span><a class="headerlink" href="#span-style-color-b22222-using-lists-with-for-loops-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.1. </span><span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">lists</span></code> with for loops</span><a class="headerlink" href="#span-style-color-b22222-using-lists-with-for-loops-span" title="Permalink to this heading">#</a></h3>
 <p>In order for you to clearly understand the following examples in this chapter, we must first talk a bit about <code class="docutils literal notranslate"><span class="pre">lists</span></code>.<br />
 We have already talked about a few data types in Python, such as, intigers, strings, floats or boolean values. Lists are another  usefull data type that you must put in your tool set in order to master programming in Python.</p>
 <p>So what is a <code class="docutils literal notranslate"><span class="pre">list</span></code>?</p>
@@ -614,7 +616,7 @@ You can think of a list like a shopping list, where each item is stored in a spe
 </div>
 </section>
 <section id="span-style-color-b22222-iterable-object-indexing-span">
-<h3><span style="color:#B22222">Iterable object indexing</span><a class="headerlink" href="#span-style-color-b22222-iterable-object-indexing-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.2. </span><span style="color:#B22222">Iterable object indexing</span><a class="headerlink" href="#span-style-color-b22222-iterable-object-indexing-span" title="Permalink to this heading">#</a></h3>
 <p>You might be wondering why were the words: <strong>specific order</strong> bold in the above text.</p>
 <p>The reason for that highlight is that lists elements (and any other iterables) can be indexed based on their <strong>index</strong>. You are probably very confused right now about what we mean by index, but do not worry, everything will make sense in a few lines.</p>
 <img src="assets/index.png" width=400 height=300><p>Indexing in Python refers to accessing individual elements of a list (or other sequences like strings) by their position. Each item in a list has an index, which is like an address that tells you where that item is in the list. Whenever you want to access an element in a sequence, you have two options. You can access an element starting from the front or starting by the end. What do we mean by that? Consider the bellow 2 options:</p>
@@ -648,7 +650,7 @@ You can think of a list like a shopping list, where each item is stored in a spe
 <p>So now we can loop over many things, which is great, but you might feel like there is something missing. If that is the case, then you are absolutely right! Let’s cover a few useful functions that you can neatly combine with for loops.</p>
 </section>
 <section id="span-style-color-b22222-the-code-range-code-function-span">
-<h3><span style="color:#B22222">The <code>range()</code> Function</span><a class="headerlink" href="#span-style-color-b22222-the-code-range-code-function-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.3. </span><span style="color:#B22222">The <code>range()</code> Function</span><a class="headerlink" href="#span-style-color-b22222-the-code-range-code-function-span" title="Permalink to this heading">#</a></h3>
 <p>If you want to iterate through a range of numbers, you can use the <a class="reference external" href="https://www.geeksforgeeks.org/python-range-function/"><code class="docutils literal notranslate"><span class="pre">range()</span></code></a> function. The syntax of this function is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
 </pre></div>
@@ -694,7 +696,7 @@ You can think of a list like a shopping list, where each item is stored in a spe
 </div>
 </section>
 <section id="span-style-color-b22222-combining-code-range-code-with-code-len-code-span">
-<h3><span style="color:#B22222">Combining <code>range()</code> with <code>len()</code></span><a class="headerlink" href="#span-style-color-b22222-combining-code-range-code-with-code-len-code-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.4. </span><span style="color:#B22222">Combining <code>range()</code> with <code>len()</code></span><a class="headerlink" href="#span-style-color-b22222-combining-code-range-code-with-code-len-code-span" title="Permalink to this heading">#</a></h3>
 <p>Combining <code class="docutils literal notranslate"><span class="pre">range()</span></code> with <code class="docutils literal notranslate"><span class="pre">len()</span></code> is useful when you want to loop through a list using the index of each element.<br />
 Instead of looping directly over the items in the list, you’re looping over the numbers that represent the positions of the items (their indices).<br />
 This is helpful when you need to know where each item is located or when you want to modify items in the list.</p>
@@ -720,7 +722,7 @@ I say let’s try combining looping over items and indices at the same time. Yes
 <p>To do so, we need to discuss a more advanced function, called <a class="reference external" href="https://www.geeksforgeeks.org/help-function-in-python/"><code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a>.</p>
 </section>
 <section id="span-style-color-b22222-the-code-enumerate-code-function-span">
-<h3><span style="color:#B22222">The <code>enumerate()</code> Function</span><a class="headerlink" href="#span-style-color-b22222-the-code-enumerate-code-function-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.1.5. </span><span style="color:#B22222">The <code>enumerate()</code> Function</span><a class="headerlink" href="#span-style-color-b22222-the-code-enumerate-code-function-span" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> is another built-in Python function that makes it easier to loop through a sequence and get <strong>both the index and the item</strong> at the same time.</p>
 <img src="assets/enumerate.gif" width=400 height=300><p>Normally, when you use a <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>, you just get the <strong>items</strong> in the list:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;cherry&#39;</span><span class="p">]</span>
@@ -759,7 +761,7 @@ I say let’s try combining looping over items and indices at the same time. Yes
 </section>
 </section>
 <section id="span-style-color-4169e1-nested-loops-span">
-<h2><span style="color:#4169E1">Nested Loops</span><a class="headerlink" href="#span-style-color-4169e1-nested-loops-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span><span style="color:#4169E1">Nested Loops</span><a class="headerlink" href="#span-style-color-4169e1-nested-loops-span" title="Permalink to this heading">#</a></h2>
 <p>As you might have guessed, loops can be nested within each other. This means that for each iteration in the outer loop, the inner loop is fully executed. As an example, if the outer loop consists of 3 iterations and the inner loop of 4 iterations, the total number of iterations in the nested loop is 3 x 4 = 12.</p>
 <img src="assets/nest.gif" width=450 height=350><p>Let’s see an interactive example:</p>
 <p>Let’s take a look at the following code, helping to check for poachers in different savannah areas. There are three zones in each of the ten areas. If an area contains poachers, each of its three zones will be cleared.</p>
@@ -785,12 +787,12 @@ I say let’s try combining looping over items and indices at the same time. Yes
 </div>
 </section>
 <section id="span-style-color-3cb371-exercises-span">
-<h2><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
 <p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
 <p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
 <br></p>
 <section id="exercise-1">
-<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.3.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p>Let’s practice with loops, starting off with a fun and simple exercise.</p>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Classic exercises with loops often involve counting, something we will do now as well. Your task is to write a simple program (not creating a function) that asks the user to enter a string and counts the number of vowels (a, e, i, o, u).<br />
 Use a <a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/strings.html?highlight=counting#looping-and-counting">counter</a> and a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to perform the counting. Make sure your program is case-insensitive, counting both lower and upper case vowels. Once the loop has terminated, <code class="docutils literal notranslate"><span class="pre">print</span></code> the result.</p>
@@ -876,7 +878,7 @@ Instead of replacing all vowels with a single symbol, you’ll cycle through a l
 </div>
 </section>
 <section id="exercise-2">
-<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.3.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p>Let’s continue with something more challenging, yet creative. In Python, we can ‘draw’ shapes made of special characters, such as brackets, dashes, asterisks or dots. For example, we can print a diamond using asterisks:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">*</span>
  <span class="o">***</span>
@@ -1035,7 +1037,7 @@ Instead of replacing all vowels with a single symbol, you’ll cycle through a l
 </div>
 </section>
 <section id="exercise-3">
-<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.3.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
 <p>Let’s dive into some TikTok-inspired coding challenges.</p>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> TikTok videos often have tons of comments! In this exercise, your goal is to write a program that counts how many of the comments contain a specific word.</p>
 <img src="assets/comment.png" width=350 height=250>
@@ -1182,6 +1184,15 @@ Is “DIY Crafts” still trending? - No</p>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../04-while-loop/while-loop.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>While Loop</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -1197,19 +1208,19 @@ Is “DIY Crafts” still trending? - No</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-a-simple-loop-span"><span style="color:#4169E1">A Simple Loop</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-lists-with-for-loops-span"><span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">lists</span></code> with for loops</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-iterable-object-indexing-span"><span style="color:#B22222">Iterable object indexing</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-range-code-function-span"><span style="color:#B22222">The <code>range()</code> Function</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-combining-code-range-code-with-code-len-code-span"><span style="color:#B22222">Combining <code>range()</code> with <code>len()</code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-enumerate-code-function-span"><span style="color:#B22222">The <code>enumerate()</code> Function</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-a-simple-loop-span">5.1. <span style="color:#4169E1">A Simple Loop</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-lists-with-for-loops-span">5.1.1. <span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">lists</span></code> with for loops</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-iterable-object-indexing-span">5.1.2. <span style="color:#B22222">Iterable object indexing</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-range-code-function-span">5.1.3. <span style="color:#B22222">The <code>range()</code> Function</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-combining-code-range-code-with-code-len-code-span">5.1.4. <span style="color:#B22222">Combining <code>range()</code> with <code>len()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-enumerate-code-function-span">5.1.5. <span style="color:#B22222">The <code>enumerate()</code> Function</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-nested-loops-span"><span style="color:#4169E1">Nested Loops</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span"><span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-nested-loops-span">5.2. <span style="color:#4169E1">Nested Loops</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">5.3. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">5.3.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">5.3.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">5.3.3. Exercise 3</a></li>
 </ul>
 </li>
 </ul>
