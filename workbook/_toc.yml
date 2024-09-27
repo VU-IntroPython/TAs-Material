@@ -10,4 +10,5 @@ chapters:
 - file: notebooks/02-functions/functions.ipynb
 - file: notebooks/03-conditionals/conditionals.ipynb
 - file: notebooks/04-while-loop/while-loop.ipynb
+- file: notebooks/05-for-loop/for-loop.ipynb
 
