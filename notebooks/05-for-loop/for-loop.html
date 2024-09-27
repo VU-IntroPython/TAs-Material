@@ -492,7 +492,7 @@ l
 </div>
 <p>In the example code above, the variable <code class="docutils literal notranslate"><span class="pre">letter</span></code> acts as the <strong>iteration variable</strong> (or loop variable). Each time the loop runs, the next character in the string is assigned to <code class="docutils literal notranslate"><span class="pre">letter</span></code>.  You can freely choose the name of the loop variable - use this to make your code clearer. The loop continues until no characters are left.</p>
 <p>You don’t need to define the variable in the <code>for</code> statement beforehand, and there’s no need for type hints. For readability, it’s best to use a clear and descriptive variable name.</p>
-<img src="assets/for.gif" width=400 height=300><div class="admonition note">
+<img src="assets/for.gif" width=450 height=250><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can’t use the variable from the <code>for</code> loop outside of it; its scope is exclusively within the <code>for</code> loop.</p>
 </div>
@@ -724,7 +724,7 @@ I say let’s try combining looping over items and indices at the same time. Yes
 <section id="span-style-color-b22222-the-code-enumerate-code-function-span">
 <h3><span class="section-number">5.1.5. </span><span style="color:#B22222">The <code>enumerate()</code> Function</span><a class="headerlink" href="#span-style-color-b22222-the-code-enumerate-code-function-span" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> is another built-in Python function that makes it easier to loop through a sequence and get <strong>both the index and the item</strong> at the same time.</p>
-<img src="assets/enumerate.gif" width=400 height=300><p>Normally, when you use a <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>, you just get the <strong>items</strong> in the list:</p>
+<img src="assets/enumerate.gif" width=500 height=200><p>Normally, when you use a <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>, you just get the <strong>items</strong> in the list:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;cherry&#39;</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
@@ -763,7 +763,7 @@ I say let’s try combining looping over items and indices at the same time. Yes
 <section id="span-style-color-4169e1-nested-loops-span">
 <h2><span class="section-number">5.2. </span><span style="color:#4169E1">Nested Loops</span><a class="headerlink" href="#span-style-color-4169e1-nested-loops-span" title="Permalink to this heading">#</a></h2>
 <p>As you might have guessed, loops can be nested within each other. This means that for each iteration in the outer loop, the inner loop is fully executed. As an example, if the outer loop consists of 3 iterations and the inner loop of 4 iterations, the total number of iterations in the nested loop is 3 x 4 = 12.</p>
-<img src="assets/nest.gif" width=450 height=350><p>Let’s see an interactive example:</p>
+<img src="assets/nest.gif" width=550 height=200><p>Let’s see an interactive example:</p>
 <p>Let’s take a look at the following code, helping to check for poachers in different savannah areas. There are three zones in each of the ten areas. If an area contains poachers, each of its three zones will be cleared.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1115,7 +1115,7 @@ Instead of replacing all vowels with a single symbol, you’ll cycle through a l
 </li>
 </ul>
 <p>After processing all videos, <strong>print</strong> out the final follower counts for each video.</p>
-<img src="assets/trend.jpg" width=350 height=250>
+<img src="assets/trend.jpg" width=400 height=250>
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="n">videos</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Dance Tutorial&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Prank Gone Wrong&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;DIY Crafts&quot;</span><span class="p">,</span> <span class="mi">750</span><span class="p">]]</span>
