@@ -1,0 +1,1269 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>For Loop &#8212; Workbook Intro Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/05-for-loop/for-loops';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Workbook Intro Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Workbook Intro Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Programming Workbook XB-0082
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-functions/functions.html">2. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-conditionals/conditionals.html">3. Conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-while-loop/while-loop.html">4. While Loop</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/VU-IntroPython/TAs-Material.git/master/v2/gh/VU-IntroPython/TAs-Material/master?urlpath=lab/tree/notebooks/notebooks/05-for-loop/for-loops.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material/issues/new?title=Issue%20on%20page%20%2Fnotebooks/05-for-loop/for-loops.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/05-for-loop/for-loops.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>For Loop</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-a-simple-loop-span"><span style="color:#4169E1">A Simple Loop</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-lists-with-for-loops-span"><span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">lists</span></code> with for loops</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-iterable-object-indexing-span"><span style="color:#B22222">Iterable object indexing</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-range-code-function-span"><span style="color:#B22222">The <code>range()</code> Function</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-combining-code-range-code-with-code-len-code-span"><span style="color:#B22222">Combining <code>range()</code> with <code>len()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-enumerate-code-function-span"><span style="color:#B22222">The <code>enumerate()</code> Function</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-nested-loops-span"><span style="color:#4169E1">Nested Loops</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span"><span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="for-loop">
+<h1>For Loop<a class="headerlink" href="#for-loop" title="Permalink to this heading">#</a></h1>
+<p><strong>In this notebook, we cover the following subjects:</strong></p>
+<ul class="simple">
+<li><p>A Simple Loop;</p></li>
+<li><p>Using lists with for loops</p></li>
+<li><p>Iterable object indexing</p></li>
+<li><p>range() function</p></li>
+<li><p>Combining range() with len()</p></li>
+<li><p>Nested Loops.</p></li>
+</ul>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To enable type hints for lists, we need to import the following:</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="span-style-color-4169e1-a-simple-loop-span">
+<h2><span style="color:#4169E1">A Simple Loop</span><a class="headerlink" href="#span-style-color-4169e1-a-simple-loop-span" title="Permalink to this heading">#</a></h2>
+<p>In Python, a <a class="reference external" href="https://wiki.python.org/moin/ForLoop"><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code></a> lets you iterate over a sequence, like a <a class="reference external" href="https://python101.pythonlibrary.org/chapter3_lists_dicts.html">list</a>, <a class="reference external" href="https://python101.pythonlibrary.org/chapter3_lists_dicts.html">tuple</a>, <a class="reference external" href="https://python101.pythonlibrary.org/chapter3_lists_dicts.html">dictionary</a>, <a class="reference external" href="https://www.learnpython.org/en/Sets">set</a>, or <a class="reference external" href="https://www.learnpython.org/en/Basic_String_Operations">string</a>. Use for loops when you know the number of iterations ahead of time, like when you need to repeat a process a set number of times or go through specific items in a list. The syntax looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="nb">object</span><span class="p">:</span>
+    <span class="c1"># Code</span>
+</pre></div>
+</div>
+<p>With a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, we can, for instance, print each letter of a string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s2">&quot;animal&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+n
+i
+m
+a
+l
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the example code above, the variable <code class="docutils literal notranslate"><span class="pre">letter</span></code> acts as the <strong>iteration variable</strong> (or loop variable). Each time the loop runs, the next character in the string is assigned to <code class="docutils literal notranslate"><span class="pre">letter</span></code>.  You can freely choose the name of the loop variable - use this to make your code clearer. The loop continues until no characters are left.</p>
+<p>You don’t need to define the variable in the <code>for</code> statement beforehand, and there’s no need for type hints. For readability, it’s best to use a clear and descriptive variable name.</p>
+<img src="assets/for.gif" width=400 height=300><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can’t use the variable from the <code>for</code> loop outside of it; its scope is exclusively within the <code>for</code> loop.</p>
+</div>
+<p>Now that we have seen more than enough lists, let’s iterate trough a few. Shall we?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iterable_string</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Thisismyfirsttimeiteratinganditissomuchfun!&#39;</span>
+
+<span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">iterable_string</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T
+h
+i
+s
+i
+s
+m
+y
+f
+i
+r
+s
+t
+t
+i
+m
+e
+i
+t
+e
+r
+a
+t
+i
+n
+g
+a
+n
+d
+i
+t
+i
+s
+s
+o
+m
+u
+c
+h
+f
+u
+n
+!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wow, long print huh? Let’s try something else:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Will this also work?</span>
+
+<span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="mi">12345</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Will this also work?</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="mi">12345</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: &#39;int&#39; object is not iterable
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Why do we get the above error message?</p>
+<p>We get the error message due to the fact that intigers are non-terable object. Takeaway from here, you can only loop over iterable data types.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Can you think of any other non-iterable data type (from the ones we already discussed)?</p>
+<p>Good job! I knew that you will say <b>float</b>.</p>
+</div>
+<p>OK, enough of strings and intigers for now, let’s check another concept that will utilize <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loops</span></code> better.</p>
+<section id="span-style-color-b22222-using-lists-with-for-loops-span">
+<h3><span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">lists</span></code> with for loops</span><a class="headerlink" href="#span-style-color-b22222-using-lists-with-for-loops-span" title="Permalink to this heading">#</a></h3>
+<p>In order for you to clearly understand the following examples in this chapter, we must first talk a bit about <code class="docutils literal notranslate"><span class="pre">lists</span></code>.<br />
+We have already talked about a few data types in Python, such as, intigers, strings, floats or boolean values. Lists are another  usefull data type that you must put in your tool set in order to master programming in Python.</p>
+<p>So what is a <code class="docutils literal notranslate"><span class="pre">list</span></code>?</p>
+<p>A list in Python is like a container that holds multiple items in a <strong>specific order</strong>.<br />
+These items can be numbers, words (strings), or anything else (other lists, booleans, dictionaries etc.).<br />
+You can think of a list like a shopping list, where each item is stored in a specific place.</p>
+<p>Bellow you can see multiple examples of lists:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">my_number_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">my_string_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;panda&#39;</span><span class="p">,</span> <span class="s1">&#39;parrot&#39;</span><span class="p">,</span> <span class="s1">&#39;penguin&#39;</span><span class="p">,</span> <span class="s1">&#39;panther&#39;</span><span class="p">,</span> <span class="s1">&#39;platypus&#39;</span><span class="p">]</span>
+
+<span class="n">my_boolean_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+
+<span class="n">my_list_of_lists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+
+<span class="n">my_mixed_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;polecat&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;pecarry&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="kc">False</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You probably noticed that we can store literally anything in a list. Fun, right?</p>
+<img src="assets/lst.jpg" width=400 height=300><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The typehint for a <code>list</code> is: <br>
+<code>variable: List[data type of values in the list]</code><br></p>
+<p>It is possible to store values in a list which has different data types. In that case, just use the <code>any</code> keyword.</p>
+</div>
+</section>
+<section id="span-style-color-b22222-iterable-object-indexing-span">
+<h3><span style="color:#B22222">Iterable object indexing</span><a class="headerlink" href="#span-style-color-b22222-iterable-object-indexing-span" title="Permalink to this heading">#</a></h3>
+<p>You might be wondering why were the words: <strong>specific order</strong> bold in the above text.</p>
+<p>The reason for that highlight is that lists elements (and any other iterables) can be indexed based on their <strong>index</strong>. You are probably very confused right now about what we mean by index, but do not worry, everything will make sense in a few lines.</p>
+<img src="assets/index.png" width=400 height=300><p>Indexing in Python refers to accessing individual elements of a list (or other sequences like strings) by their position. Each item in a list has an index, which is like an address that tells you where that item is in the list. Whenever you want to access an element in a sequence, you have two options. You can access an element starting from the front or starting by the end. What do we mean by that? Consider the bellow 2 options:</p>
+<p><strong>Index starts at 0:</strong> The first item in the list (or any other sequence) is at index 0, the second item is at index 1, and so on.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">my_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;cherry&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># This prints &#39;apple&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># This prints &#39;banana&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># This prints &#39;cherry&#39;</span>
+
+</pre></div>
+</div>
+<p><strong>Negative indexing:</strong> You can also use negative numbers to start counting from the end of the list. -1 refers to the last item, -2 to the second-to-last, and so on.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># This prints &#39;cherry&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># This prints &#39;banana&#39;</span>
+
+</pre></div>
+</div>
+<p>To put it bluntly, indexing is just how you grab a specific item from a sequence using its position! Now, it is high time that we iterate over a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greta_gerwig_films</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Lady Bird&quot;</span><span class="p">,</span> <span class="s2">&quot;Little Women&quot;</span><span class="p">,</span> <span class="s2">&quot;Barbie&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">film</span> <span class="ow">in</span> <span class="n">greta_gerwig_films</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">film</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So now we can loop over many things, which is great, but you might feel like there is something missing. If that is the case, then you are absolutely right! Let’s cover a few useful functions that you can neatly combine with for loops.</p>
+</section>
+<section id="span-style-color-b22222-the-code-range-code-function-span">
+<h3><span style="color:#B22222">The <code>range()</code> Function</span><a class="headerlink" href="#span-style-color-b22222-the-code-range-code-function-span" title="Permalink to this heading">#</a></h3>
+<p>If you want to iterate through a range of numbers, you can use the <a class="reference external" href="https://www.geeksforgeeks.org/python-range-function/"><code class="docutils literal notranslate"><span class="pre">range()</span></code></a> function. The syntax of this function is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Remember, we can use the <a class="reference external" href="https://www.geeksforgeeks.org/help-function-in-python/"><code class="docutils literal notranslate"><span class="pre">help</span></code></a> function to understand the usage of <code class="docutils literal notranslate"><span class="pre">range()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">range</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the documentation, we can interpret the parameters as follows:</p>
+<ul class="simple">
+<li><p><em>start</em> (optional): This is the number at which the sequence starts and is <strong>inclusive</strong>, the default is 0.</p></li>
+<li><p><em>stop</em> (required): This is the number at which the sequence ends and is <strong>exclusive</strong>.</p></li>
+<li><p><em>step</em> (optional): This is the stepsize between each number, with default 1.</p></li>
+</ul>
+<img src="assets/range.jpg" width=400 height=300><p>Let’s look at a few examples to demonstrate the use of range.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Printing numbers from 1 to 5: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------&#39;</span><span class="p">)</span> <span class="c1"># aesthetic print</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Odd number: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------&#39;</span><span class="p">)</span> <span class="c1"># aesthetic print</span>
+
+<span class="c1"># What happens when the stepsize is negative?</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">...&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Take-off!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>break</code> and <code>continue</code> statements also works with <code>for</code> loops, not solely with <code>while</code> loops.</p>
+</div>
+</section>
+<section id="span-style-color-b22222-combining-code-range-code-with-code-len-code-span">
+<h3><span style="color:#B22222">Combining <code>range()</code> with <code>len()</code></span><a class="headerlink" href="#span-style-color-b22222-combining-code-range-code-with-code-len-code-span" title="Permalink to this heading">#</a></h3>
+<p>Combining <code class="docutils literal notranslate"><span class="pre">range()</span></code> with <code class="docutils literal notranslate"><span class="pre">len()</span></code> is useful when you want to loop through a list using the index of each element.<br />
+Instead of looping directly over the items in the list, you’re looping over the numbers that represent the positions of the items (their indices).<br />
+This is helpful when you need to know where each item is located or when you want to modify items in the list.</p>
+<p>Let’s see an example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;cherry&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So what is happening there?</p>
+<p>As you can see, the above code only prints banana and cherry and skipps apple. Let’s try to answer the bellow question:</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Why is apple skipped?</p>
+<p>If you paid close attention, you probably noticed that we use <code>range(1, len(my_list))</code> in the code above. Meaning, we start printing from index 1 (skipping index 0 which stores the item apple) which is banana, and keep iterating over the list.</p>
+</div>
+<p>Great, now we saw how to loop over items and how to loop over indices separately.<br />
+I say let’s try combining looping over items and indices at the same time. Yes, this might sound surprising but it is possible!.</p>
+<p>To do so, we need to discuss a more advanced function, called <a class="reference external" href="https://www.geeksforgeeks.org/help-function-in-python/"><code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a>.</p>
+</section>
+<section id="span-style-color-b22222-the-code-enumerate-code-function-span">
+<h3><span style="color:#B22222">The <code>enumerate()</code> Function</span><a class="headerlink" href="#span-style-color-b22222-the-code-enumerate-code-function-span" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> is another built-in Python function that makes it easier to loop through a sequence and get <strong>both the index and the item</strong> at the same time.</p>
+<img src="assets/enumerate.gif" width=400 height=300><p>Normally, when you use a <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code>, you just get the <strong>items</strong> in the list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;cherry&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span>
+<span class="n">banana</span>
+<span class="n">cherry</span>
+</pre></div>
+</div>
+<p>But what if you also want to know <strong>the index</strong> (position) of each item? This is where <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> comes in. It gives you both the index and the item, so you don’t need to manage counting manually.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="n">apple</span>
+<span class="mi">1</span> <span class="n">banana</span>
+<span class="mi">2</span> <span class="n">cherry</span>
+</pre></div>
+</div>
+<p>Let’s try it for ourselves.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">letter</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s2">&quot;house&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;At index </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">, we have the letter: </span><span class="si">{</span><span class="n">letter</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="span-style-color-4169e1-nested-loops-span">
+<h2><span style="color:#4169E1">Nested Loops</span><a class="headerlink" href="#span-style-color-4169e1-nested-loops-span" title="Permalink to this heading">#</a></h2>
+<p>As you might have guessed, loops can be nested within each other. This means that for each iteration in the outer loop, the inner loop is fully executed. As an example, if the outer loop consists of 3 iterations and the inner loop of 4 iterations, the total number of iterations in the nested loop is 3 x 4 = 12.</p>
+<img src="assets/nest.gif" width=450 height=350><p>Let’s see an interactive example:</p>
+<p>Let’s take a look at the following code, helping to check for poachers in different savannah areas. There are three zones in each of the ten areas. If an area contains poachers, each of its three zones will be cleared.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_of_areas</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">no_of_zones</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">areas_with_poachers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">area</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">no_of_areas</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">area</span> <span class="ow">in</span> <span class="n">areas_with_poachers</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">zone</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">no_of_zones</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Zone </span><span class="si">{</span><span class="n">zone</span><span class="si">}</span><span class="s2"> of Area </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2"> has been cleared of poachers.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No poachers in area </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The inner loop only gets executed for certain iterations of the outer loop here, which we control through an if statement.</p>
+</div>
+</section>
+<section id="span-style-color-3cb371-exercises-span">
+<h2><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+<p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
+<br></p>
+<section id="exercise-1">
+<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<p>Let’s practice with loops, starting off with a fun and simple exercise.</p>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Classic exercises with loops often involve counting, something we will do now as well. Your task is to write a simple program (not creating a function) that asks the user to enter a string and counts the number of vowels (a, e, i, o, u).<br />
+Use a <a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/strings.html?highlight=counting#looping-and-counting">counter</a> and a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to perform the counting. Make sure your program is case-insensitive, counting both lower and upper case vowels. Once the loop has terminated, <code class="docutils literal notranslate"><span class="pre">print</span></code> the result.</p>
+<img src="assets/vowel.jpg" width=350 height=250>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Bye World!&quot;</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;The string contains 2 vowels.&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a string: &quot;</span><span class="p">)</span>
+
+<span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That was a great warm-up; now let’s really start sweating!</p>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Inspired by the previous exercise, you’re tasked to write a function called <code class="docutils literal notranslate"><span class="pre">filter_and_count_vowels()</span></code>. The function removes all the vowels (a, e, i, o, u) from a given string and <strong>returns</strong> the new string as well as the number of removed vowels.</p>
+<p>The function should be case-insensitive, meaning it should remove both lowercase and uppercase vowels. Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to iterate through the string and build a new string without the vowels. Make sure to use the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement. Additionally, <code class="docutils literal notranslate"><span class="pre">print</span></code> the result <strong>outside</strong> of the function.</p>
+<p>Define the input string at the top of your code, rather than taking it as user input, and then pass this string as an argument to your function.</p>
+<img src="assets/fun.jpg" width=250 height=350>
+<p><strong>Example input:</strong> you pass this in a function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">input_str</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Welcome to Amsterdam!&quot;</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Filtered</span> <span class="n">string</span><span class="p">:</span> <span class="s2">&quot;Wlcme t mstrdm!&quot;</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">removed</span><span class="p">:</span> <span class="mi">7</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:red;"><strong>Level 3</strong>:</span> Time to make this more interesting! You’re tasked with writing a function called <code class="docutils literal notranslate"><span class="pre">replace_vowels_with_symbols()</span></code>, but there’s a twist!<br />
+Instead of replacing all vowels with a single symbol, you’ll cycle through a list of symbols to make it more dynamic.</p>
+<p><strong>Here’s what the function needs to do:</strong></p>
+<ul class="simple">
+<li><p>Replace vowels (a, e, i, o, u) with symbols from a given list of symbols (like [‘*’, ‘&#64;’, ‘#’, ‘$’, ‘%’]). Each vowel will be replaced by the next symbol in the list, looping back to the start of the list if necessary.</p></li>
+</ul>
+<p>Return:</p>
+<ul class="simple">
+<li><p>The modified string (with vowels replaced by the symbols).</p></li>
+<li><p>The list of original indices where the vowels were replaced.</p></li>
+<li><p>The total count of replaced vowels.</p></li>
+</ul>
+<p>The function should be case-insensitive. Cycle through the symbols using their index in the list.</p>
+<p><strong>Hints:</strong></p>
+<ul class="simple">
+<li><p>If the symbol list runs out, start again from the beginning.</p></li>
+<li><p>Make sure to print the final results outside of the function!</p></li>
+<li><p>Think of which built in function would allow you to access multiple things at the same time ;)</p></li>
+</ul>
+<img src="assets/x3.jpg" width=350 height=250>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">input_str</span> <span class="o">=</span> <span class="s2">&quot;Fun with vowels!&quot;</span>
+<span class="n">symbols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s1">&#39;~&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Modified</span> <span class="n">string</span><span class="p">:</span> <span class="s2">&quot;F?n w!th v#w~ls!&quot;</span>
+<span class="n">List</span> <span class="n">of</span> <span class="n">vowel</span> <span class="n">indices</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">replaced</span> <span class="n">vowels</span><span class="p">:</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">symbols</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s1">&#39;~&#39;</span><span class="p">]</span>
+
+<span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2">
+<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<p>Let’s continue with something more challenging, yet creative. In Python, we can ‘draw’ shapes made of special characters, such as brackets, dashes, asterisks or dots. For example, we can print a diamond using asterisks:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">*</span>
+ <span class="o">***</span>
+<span class="o">*****</span>
+ <span class="o">***</span>
+  <span class="o">*</span>
+</pre></div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Now, write a function called <code class="docutils literal notranslate"><span class="pre">diamond()</span></code> that takes an <strong>uneven</strong> integer input from the user for the size of the diamond’s diagonals, which represents both its height and width (as they are equal in this case). The program should then <code class="docutils literal notranslate"><span class="pre">print</span></code> a diamond shape made of <code class="docutils literal notranslate"><span class="pre">*</span></code> characters, based on the size parameter. <strong>Note that your function should print the diamond directly and not return any values</strong>.</p>
+<p><em>Requirements</em>:</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">for</span></code> loops for this exercise;</p></li>
+<li><p>If the input is 0, uneven or negative, the code should print <code class="docutils literal notranslate"><span class="pre">&quot;Invalid</span> <span class="pre">Input&quot;</span></code>.</p></li>
+</ul>
+<p><em>Hint</em>:</p>
+<ul class="simple">
+<li><p>Use two separate <code class="docutils literal notranslate"><span class="pre">for</span></code> loops: one for the upper part of the diamond and one for the lower part. Include the middle line in only one of the loops.</p></li>
+</ul>
+<p><strong>Example input:</strong> you pass this in a function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">*</span>
+ <span class="o">***</span>
+<span class="o">*****</span>
+ <span class="o">***</span>
+  <span class="o">*</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Now, let’s use the <code class="docutils literal notranslate"><span class="pre">diamond()</span></code> function for a more complex task involving lists. Write a Python program that takes a list of people’s names as input instead of a specified size. For each name, <code class="docutils literal notranslate"><span class="pre">print</span></code> a diamond based on the length of the name, along with a nice message. <strong>Again, note that your function should print the diamond directly and not return any values</strong>.</p>
+<p><em>Requirements</em>:</p>
+<ul class="simple">
+<li><p>For each person, the size of the diamond’s diagonal should be the same as the number of characters in their name;</p></li>
+<li><p>If the length of a name is <strong>even</strong>, you have to substract 1 before creating the diamond;</p></li>
+<li><p>The list should be defined at the top of your code, <strong>not</strong> taken as user input.</p></li>
+</ul>
+<p><em>Hint</em>:</p>
+<ul class="simple">
+<li><p>Use two separate <code class="docutils literal notranslate"><span class="pre">for</span></code> loops: one for the upper part of the diamond and one for the lower part. Include the middle line in only one of the loops.</p></li>
+</ul>
+<p><strong>Example input</strong>: you pass this in a function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">people</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Adele&quot;</span><span class="p">,</span> <span class="s2">&quot;Bilbo Baggins&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Adele</span><span class="s1">&#39;s diamond:</span>
+  <span class="o">*</span>
+ <span class="o">***</span>
+<span class="o">*****</span>
+ <span class="o">***</span>
+  <span class="o">*</span>
+ 
+<span class="n">Bilbo</span> <span class="n">Baggins</span><span class="s1">&#39; diamond:</span>
+      
+     <span class="o">*</span>
+    <span class="o">***</span>
+   <span class="o">*****</span>
+  <span class="o">*******</span>
+ <span class="o">*********</span>
+<span class="o">***********</span>
+ <span class="o">*********</span>
+  <span class="o">*******</span>
+   <span class="o">*****</span>
+    <span class="o">***</span>
+     <span class="o">*</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re on a roll! Let’s get even more creative with the <code class="docutils literal notranslate"><span class="pre">diamond</span></code> function.</p>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Write a program that makes the <code class="docutils literal notranslate"><span class="pre">diamond()</span></code> function customizable with different characters for drawing the diamond. The user can select two characters: one for the <strong>main body</strong> of the diamond and another for the <strong>outline</strong>. The outline character is an <a class="reference external" href="https://www.geeksforgeeks.org/how-to-pass-optional-parameters-to-a-function-in-python/">optional parameter</a>; if this character is not specified, the program should default to using spaces.</p>
+<p>The function takes the following inputs, all defined at the top of your code, <strong>not</strong> taken as user input:</p>
+<ul class="simple">
+<li><p>A list of strings containing people’s names (<strong>required</strong>, parameter name: <code class="docutils literal notranslate"><span class="pre">names</span></code>);</p></li>
+<li><p>A character for the diamond’s body (<strong>required</strong>, parameter name: <code class="docutils literal notranslate"><span class="pre">main_char</span></code>);</p></li>
+<li><p>A character for the diamond’s outline (<strong>optional</strong>, parameter name: <code class="docutils literal notranslate"><span class="pre">outline_char</span></code>).</p></li>
+</ul>
+<p><em>Requirements</em>:</p>
+<ul class="simple">
+<li><p>For each person, the size of the diamond’s diagonal should be the same as the number of characters in their name;</p></li>
+<li><p>If the length of a name is <strong>even</strong>, you have to substract 1 before creating the diamond;</p></li>
+<li><p>The <strong>main character</strong> fills the body of the diamond, while the outline is drawn using the <strong>outline character</strong>;</p></li>
+<li><p>If the passed argument to <code class="docutils literal notranslate"><span class="pre">main_char</span></code> or <code class="docutils literal notranslate"><span class="pre">outline_char</span></code> is not a single character, print an error message: <code class="docutils literal notranslate"><span class="pre">&quot;Invalid</span> <span class="pre">Character&quot;</span></code>.</p></li>
+</ul>
+<p><em>Hint</em>:</p>
+<ul class="simple">
+<li><p>Use two separate <code class="docutils literal notranslate"><span class="pre">for</span></code> loops: one for the upper part of the diamond and one for the lower part. Include the middle line in only one of the loops.</p></li>
+</ul>
+<p>Instead of printing, as done in Level 1 and 2, <strong>the function should <code class="docutils literal notranslate"><span class="pre">return</span></code> a list of strings</strong>, where each string in the list represents a single line of a diamond, and the list includes all lines for each person. The return format should clearly indicate the name corresponding to each diamond shape.</p>
+<p>For this exercise, ensure you use <code class="docutils literal notranslate"><span class="pre">for</span></code> loops not only to construct the diamond within the function but also to print each line of the result outside the function. This means after receiving the returned list, you should use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to print each line of the diamonds.</p>
+<p><strong>Example input</strong>: you pass these arguments to the parameters in a function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">people</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Drake&quot;</span><span class="p">,</span> <span class="s2">&quot;Beyoncé&quot;</span><span class="p">]</span>
+<span class="n">main_character</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span>
+<span class="n">outline_character</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;@&#39;</span>
+</pre></div>
+</div>
+<p><strong>Example of return value</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="s2">&quot;Drake&#39;s diamond:&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;  @  &quot;</span><span class="p">,</span> 
+  <span class="s2">&quot; @#@ &quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;@###@&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot; @#@ &quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;  @  &quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;     &quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Beyoncé&#39;s diamond:&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;   @   &quot;</span><span class="p">,</span>
+  <span class="s2">&quot;  @#@  &quot;</span><span class="p">,</span>
+  <span class="s2">&quot; @###@ &quot;</span><span class="p">,</span>
+  <span class="s2">&quot;@#####@&quot;</span><span class="p">,</span>
+  <span class="s2">&quot; @###@ &quot;</span><span class="p">,</span>
+  <span class="s2">&quot;  @#@  &quot;</span><span class="p">,</span>
+  <span class="s2">&quot;   @   &quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Example of printed output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Drake</span><span class="s1">&#39;s diamond (5 characters):</span>
+  <span class="o">@</span>
+ <span class="o">@</span><span class="c1">#@</span>
+<span class="o">@</span><span class="c1">###@</span>
+ <span class="o">@</span><span class="c1">#@</span>
+  <span class="o">@</span>
+   
+<span class="n">Beyoncé</span><span class="s1">&#39;s diamond (7 characters):</span>
+   <span class="o">@</span>
+  <span class="o">@</span><span class="c1">#@</span>
+ <span class="o">@</span><span class="c1">###@</span>
+<span class="o">@</span><span class="c1">#####@</span>
+ <span class="o">@</span><span class="c1">###@</span>
+  <span class="o">@</span><span class="c1">#@</span>
+   <span class="o">@</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3">
+<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<p>Let’s dive into some TikTok-inspired coding challenges.</p>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> TikTok videos often have tons of comments! In this exercise, your goal is to write a program that counts how many of the comments contain a specific word.</p>
+<img src="assets/comment.png" width=350 height=250>
+<p><strong>Task:</strong></p>
+<ul class="simple">
+<li><p>Write a function called count_keyword_comments().</p></li>
+<li><p>The function takes a list of comments (strings) and a keyword (string) as input.</p></li>
+<li><p>It loops through the list of comments and counts how many times the keyword appears.</p></li>
+<li><p>The function should be case-insensitive, meaning “Dance” and “dance” count the same.</p></li>
+</ul>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">comments</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;I love this dance!&quot;</span><span class="p">,</span> <span class="s2">&quot;Such a great dance!&quot;</span><span class="p">,</span> <span class="s2">&quot;That was awesome&quot;</span><span class="p">,</span> <span class="s2">&quot;I can&#39;t stop dancing&quot;</span><span class="p">]</span>
+<span class="n">keyword</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;dance&quot;</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">keyword</span> <span class="s2">&quot;dance&quot;</span> <span class="n">appeared</span> <span class="ow">in</span> <span class="mi">3</span> <span class="n">comments</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Ever wonder how TikTokers keep track of their most popular videos? Now, you will write a program that tracks the likes on different TikTok videos and finds the most liked video!</p>
+<p><strong>Task:</strong></p>
+<ul class="simple">
+<li><p>Write a function called most_liked_video().</p></li>
+<li><p>The function should take two inputs:</p>
+<ul>
+<li><p>A list of TikTok video titles.</p></li>
+<li><p>A list of likes corresponding to each video (same order).</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Return</strong> the title of the most liked video and the number of likes it has.</p>
+<img src="assets/like.jpg" width=350 height=250>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">videos</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Dance Moves&quot;</span><span class="p">,</span> <span class="s2">&quot;Funny Cat&quot;</span><span class="p">,</span> <span class="s2">&quot;Lip Sync Battle&quot;</span><span class="p">,</span> <span class="s2">&quot;Vlog Day 1&quot;</span><span class="p">]</span>
+<span class="n">likes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">750</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">most</span> <span class="n">liked</span> <span class="n">video</span> <span class="ow">is</span> <span class="s2">&quot;Funny Cat&quot;</span> <span class="k">with</span> <span class="mi">1200</span> <span class="n">likes</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> TikTok trends spread like wildfire! Your challenge is to simulate a “trend chain” where each TikTok video has a follower count, and when a video trends, the follower count doubles until it stops trending.</p>
+<p><strong>Task:</strong></p>
+<ul class="simple">
+<li><p>Write a function called trend_chain_simulation().</p></li>
+<li><p>The function should take one input:</p>
+<ul>
+<li><p>A list of videos and their initial follower counts (use a list of lists where each sub-list contains the video name and its follower count).</p></li>
+</ul>
+</li>
+</ul>
+<p>Use a while loop to simulate the trend for each video:</p>
+<ul class="simple">
+<li><p>For each video, ask the user (via input) whether the video is “still trending” (Yes or No).</p>
+<ul>
+<li><p>If “Yes”, double the follower count.</p></li>
+<li><p>If “No”, stop doubling and move to the next video.</p></li>
+</ul>
+</li>
+</ul>
+<p>After processing all videos, <strong>print</strong> out the final follower counts for each video.</p>
+<img src="assets/trend.jpg" width=350 height=250>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">videos</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Dance Tutorial&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Prank Gone Wrong&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;DIY Crafts&quot;</span><span class="p">,</span> <span class="mi">750</span><span class="p">]]</span>
+
+</pre></div>
+</div>
+<p><strong>Example conversation:</strong></p>
+<p>Is “Dance Tutorial” still trending? - Yes<br />
+Is “Dance Tutorial” still trending? - No<br />
+Is “Prank Gone Wrong” still trending? - Yes<br />
+Is “Prank Gone Wrong” still trending? - Yes<br />
+Is “Prank Gone Wrong” still trending? - No<br />
+Is “DIY Crafts” still trending? - No</p>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Final</span> <span class="n">follower</span> <span class="n">counts</span><span class="p">:</span>
+<span class="s2">&quot;Dance Tutorial&quot;</span> <span class="n">now</span> <span class="n">has</span> <span class="mi">2000</span> <span class="n">followers</span><span class="o">.</span>
+<span class="s2">&quot;Prank Gone Wrong&quot;</span> <span class="n">now</span> <span class="n">has</span> <span class="mi">2000</span> <span class="n">followers</span><span class="o">.</span>
+<span class="s2">&quot;DIY Crafts&quot;</span> <span class="n">now</span> <span class="n">has</span> <span class="mi">750</span> <span class="n">followers</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><em>Material for the VU Amsterdam course “Introduction to Python Programming” for BSc Artificial Intelligence students. These notebooks are created using the following sources:</em></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://programming-pybook.github.io/introProgramming/intro.html">Learning Python by Doing</a>: This book, developed by teachers of TU/e Eindhoven and VU Amsterdam, is the main source for the course materials. Code snippets or text explanations from the book may be used in the notebooks, sometimes with slight adjustments.</p></li>
+<li><p><a class="reference external" href="https://greenteapress.com/thinkpython2/html/">Think Python</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org">GeekForGeeks</a></p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "VU-IntroPython/TAs-Material",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/05-for-loop"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-a-simple-loop-span"><span style="color:#4169E1">A Simple Loop</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-lists-with-for-loops-span"><span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">lists</span></code> with for loops</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-iterable-object-indexing-span"><span style="color:#B22222">Iterable object indexing</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-range-code-function-span"><span style="color:#B22222">The <code>range()</code> Function</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-combining-code-range-code-with-code-len-code-span"><span style="color:#B22222">Combining <code>range()</code> with <code>len()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-enumerate-code-function-span"><span style="color:#B22222">The <code>enumerate()</code> Function</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-nested-loops-span"><span style="color:#4169E1">Nested Loops</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span"><span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Koen van der Pool, Mauricio Verano Merino & Márton Bodó
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024. Vrije Universiteit Amsterdam.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
