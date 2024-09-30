@@ -482,7 +482,23 @@ document.write(`
 </li>
 <li><p><strong>Step 7 (only applicable if the condition was False):</strong> We continue with the statements outside the loop.</p></li>
 </ul>
-<img src="assets/loop.jpg" width=500 height=400></section>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># steps 1 and 2 and 3 (and 6)</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="c1"># body of the loop -&gt; step 4</span>
+    <span class="c1"># statements to be executed -&gt; step 4</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;even&#39;</span><span class="p">)</span>
+        
+     <span class="c1"># updation -&gt; step 5</span>
+     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c1"># step 7</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Structure of a while loop&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="span-style-color-b22222-the-flow-of-execution-for-a-while-statement-span">
 <h3><span class="section-number">4.1.2. </span><span style="color:#B22222">The flow of execution for a while statement</span><a class="headerlink" href="#span-style-color-b22222-the-flow-of-execution-for-a-while-statement-span" title="Permalink to this heading">#</a></h3>
 <p>The flow of execution for a while statement is as follows:</p>
@@ -674,7 +690,6 @@ You update variables inside the loop to break it. <br></p>
 <span class="mi">8</span>
 <span class="mi">10</span>
 <span class="mi">14</span>
-<span class="mi">16</span>
 <span class="mi">20</span>
 
 </pre></div>
@@ -693,7 +708,6 @@ You update variables inside the loop to break it. <br></p>
 <span class="mi">8</span>
 <span class="mi">10</span>
 <span class="mi">14</span>
-<span class="mi">16</span>
 <span class="mi">20</span>
 
 </pre></div>
