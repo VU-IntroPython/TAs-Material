@@ -11,4 +11,5 @@ chapters:
 - file: notebooks/03-conditionals/conditionals.ipynb
 - file: notebooks/04-while-loop/while-loop.ipynb
 - file: notebooks/05-for-loop/for-loop.ipynb
-
+#- file: notebooks/06-lists/lists.ipynb
+#- file: notebooks/07-dictionaries/dictionaries.ipynb
