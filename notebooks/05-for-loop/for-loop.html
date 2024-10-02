@@ -619,7 +619,50 @@ You can think of a list like a shopping list, where each item is stored in a spe
 <h3><span class="section-number">5.1.2. </span><span style="color:#B22222">Iterable object indexing</span><a class="headerlink" href="#span-style-color-b22222-iterable-object-indexing-span" title="Permalink to this heading">#</a></h3>
 <p>You might be wondering why were the words: <strong>specific order</strong> bold in the above text.</p>
 <p>The reason for that highlight is that lists elements (and any other iterables) can be indexed based on their <strong>index</strong>. You are probably very confused right now about what we mean by index, but do not worry, everything will make sense in a few lines.</p>
-<img src="assets/index.png" width=400 height=300><p>Indexing in Python refers to accessing individual elements of a list (or other sequences like strings) by their position. Each item in a list has an index, which is like an address that tells you where that item is in the list. Whenever you want to access an element in a sequence, you have two options. You can access an element starting from the front or starting by the end. What do we mean by that? Consider the bellow 2 options:</p>
+<p>Indexing in Python refers to accessing individual elements of a list (or other sequences like strings) by their position. Each item in a list has an index, which is like an address that tells you where that item is in the list. Whenever you want to access an element in a sequence, you have two options. You can access an element starting from the front or starting by the end. What do we mean by that? Consider the bellow 2 options:</p>
+<p><strong>Positive indexing:</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>r</p></td>
+<td><p>a</p></td>
+<td><p>g</p></td>
+<td><p>o</p></td>
+<td><p>n</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Negative indexing:</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>-6</p></th>
+<th class="head"><p>-5</p></th>
+<th class="head"><p>-4</p></th>
+<th class="head"><p>-3</p></th>
+<th class="head"><p>-2</p></th>
+<th class="head"><p>-1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>r</p></td>
+<td><p>a</p></td>
+<td><p>g</p></td>
+<td><p>o</p></td>
+<td><p>n</p></td>
+</tr>
+</tbody>
+</table>
+<p>Now let’s see some examples:</p>
 <p><strong>Index starts at 0:</strong> The first item in the list (or any other sequence) is at index 0, the second item is at index 1, and so on.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="n">my_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;cherry&#39;</span><span class="p">]</span>
@@ -796,7 +839,6 @@ I say let’s try combining looping over items and indices at the same time. Yes
 <p>Let’s practice with loops, starting off with a fun and simple exercise.</p>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Classic exercises with loops often involve counting, something we will do now as well. Your task is to write a simple program (not creating a function) that asks the user to enter a string and counts the number of vowels (a, e, i, o, u).<br />
 Use a <a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/strings.html?highlight=counting#looping-and-counting">counter</a> and a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to perform the counting. Make sure your program is case-insensitive, counting both lower and upper case vowels. Once the loop has terminated, <code class="docutils literal notranslate"><span class="pre">print</span></code> the result.</p>
-<img src="assets/vowel.jpg" width=350 height=250>
 <p><strong>Example input</strong>:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Bye World!&quot;</span>
 </pre></div>
@@ -818,7 +860,6 @@ Use a <a class="reference external" href="https://programming-pybook.github.io/i
 <p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Inspired by the previous exercise, you’re tasked to write a function called <code class="docutils literal notranslate"><span class="pre">filter_and_count_vowels()</span></code>. The function removes all the vowels (a, e, i, o, u) from a given string and <strong>returns</strong> the new string as well as the number of removed vowels.</p>
 <p>The function should be case-insensitive, meaning it should remove both lowercase and uppercase vowels. Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to iterate through the string and build a new string without the vowels. Make sure to use the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement. Additionally, <code class="docutils literal notranslate"><span class="pre">print</span></code> the result <strong>outside</strong> of the function.</p>
 <p>Define the input string at the top of your code, rather than taking it as user input, and then pass this string as an argument to your function.</p>
-<img src="assets/fun.jpg" width=250 height=350>
 <p><strong>Example input:</strong> you pass this in a function call.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">input_str</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Welcome to Amsterdam!&quot;</span>
 </pre></div>
@@ -854,7 +895,6 @@ Instead of replacing all vowels with a single symbol, you’ll cycle through a l
 <li><p>Make sure to print the final results outside of the function!</p></li>
 <li><p>Think of which built in function would allow you to access multiple things at the same time ;)</p></li>
 </ul>
-<img src="assets/x3.jpg" width=350 height=250>
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="n">input_str</span> <span class="o">=</span> <span class="s2">&quot;Fun with vowels!&quot;</span>
@@ -863,8 +903,8 @@ Instead of replacing all vowels with a single symbol, you’ll cycle through a l
 </div>
 <p><strong>Example output:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Modified</span> <span class="n">string</span><span class="p">:</span> <span class="s2">&quot;F?n w!th v#w~ls!&quot;</span>
-<span class="n">List</span> <span class="n">of</span> <span class="n">vowel</span> <span class="n">indices</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span>
-<span class="n">Number</span> <span class="n">of</span> <span class="n">replaced</span> <span class="n">vowels</span><span class="p">:</span> <span class="mi">5</span>
+<span class="n">List</span> <span class="n">of</span> <span class="n">vowel</span> <span class="n">indices</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">replaced</span> <span class="n">vowels</span><span class="p">:</span> <span class="mi">4</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
@@ -1040,7 +1080,6 @@ Instead of replacing all vowels with a single symbol, you’ll cycle through a l
 <h3><span class="section-number">5.3.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
 <p>Let’s dive into some TikTok-inspired coding challenges.</p>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> TikTok videos often have tons of comments! In this exercise, your goal is to write a program that counts how many of the comments contain a specific word.</p>
-<img src="assets/comment.png" width=350 height=250>
 <p><strong>Task:</strong></p>
 <ul class="simple">
 <li><p>Write a function called count_keyword_comments().</p></li>
@@ -1077,7 +1116,6 @@ Instead of replacing all vowels with a single symbol, you’ll cycle through a l
 </li>
 </ul>
 <p><strong>Return</strong> the title of the most liked video and the number of likes it has.</p>
-<img src="assets/like.jpg" width=350 height=250>
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="n">videos</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Dance Moves&quot;</span><span class="p">,</span> <span class="s2">&quot;Funny Cat&quot;</span><span class="p">,</span> <span class="s2">&quot;Lip Sync Battle&quot;</span><span class="p">,</span> <span class="s2">&quot;Vlog Day 1&quot;</span><span class="p">]</span>
@@ -1115,7 +1153,6 @@ Instead of replacing all vowels with a single symbol, you’ll cycle through a l
 </li>
 </ul>
 <p>After processing all videos, <strong>print</strong> out the final follower counts for each video.</p>
-<img src="assets/trend.jpg" width=400 height=250>
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="n">videos</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Dance Tutorial&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Prank Gone Wrong&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;DIY Crafts&quot;</span><span class="p">,</span> <span class="mi">750</span><span class="p">]]</span>
