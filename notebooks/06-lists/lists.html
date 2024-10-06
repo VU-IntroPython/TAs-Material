@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Lists &#8212; Workbook Intro Python</title>
+    <title>6. Lists &#8212; Workbook Intro Python</title>
   
   
   
@@ -66,6 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7. Dictionaries" href="../07-dictionaries/dictionaries.html" />
+    <link rel="prev" title="5. For Loop" href="../05-for-loop/for-loop.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,12 +169,14 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-functions/functions.html">2. Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-conditionals/conditionals.html">3. Conditionals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-while-loop/while-loop.html">4. While Loop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../05-for-loop/for-loop.html">5. For Loop</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-dictionaries/dictionaries.html">7. Dictionaries</a></li>
 </ul>
 
     </div>
@@ -417,9 +421,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-iterable-objects-span">6.1. <span style="color:#4169E1">Iterable Objects</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-an-example-strings-span">6.1.1. <span style="color:#B22222">An Example: Strings</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-list-indexing-and-slicing-span">6.2. <span style="color:#4169E1">List Indexing and Slicing</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-mutability-span">6.3. <span style="color:#4169E1">Mutability</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-in-code-operator-span">6.3.1. <span style="color:#B22222">The <code>in</code> Operator</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-operations-span">6.4. <span style="color:#4169E1">Operations</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-list-methods-span">6.5. <span style="color:#4169E1">List Methods</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-dir-code-function-span">6.5.1. <span style="color:#B22222">The <code>dir()</code> Function</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-help-code-function-span">6.5.2. <span style="color:#B22222">The <code>help()</code> Function</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-some-methods-span">6.5.3. <span style="color:#B22222">Some Methods</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-list-functions-span">6.6. <span style="color:#4169E1">List Functions</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-list-and-strings-span">6.7. <span style="color:#4169E1">List and Strings</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">6.8. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">6.8.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">6.8.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">6.8.3. Exercise 3</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -432,7 +457,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lists">
-<h1>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h1>
 <p><strong>In this notebook, we cover the following subjects:</strong></p>
 <ul class="simple">
 <li><p>Iterable Objects;</p></li>
@@ -453,7 +478,8 @@ document.write(`
 </div>
 </div>
 <p>In this notebook, we will deepen our knowledge about <strong>lists</strong>. It is possible that you will see some of the concepts that were explained in notebook 5 (for loop), but it is always good to revisit these ideas for reinforcement.</p>
-<h2 style="color:#4169E1">Iterable Objects</h2>
+<section id="span-style-color-4169e1-iterable-objects-span">
+<h2><span class="section-number">6.1. </span><span style="color:#4169E1">Iterable Objects</span><a class="headerlink" href="#span-style-color-4169e1-iterable-objects-span" title="Permalink to this heading">#</a></h2>
 <p>When you can loop over (i.e., iterate through) an object, accessing each element of this object, we speak of an <strong>iterable</strong>. You can think of an iterable object as a container that holds multiple items, and you have the ability to inspect each item in a systematic way.</p>
 <p>So far, we have explored various data types, and it’s important to note that while some of these data types are iterable, others are not:</p>
 <table class="table">
@@ -496,7 +522,8 @@ document.write(`
 </tbody>
 </table>
 <p>If some of these data types are new to you, don’t worry; these will be explained in other notebooks.</p>
-<h4 style="color:#B22222">An Example: Strings</h4>
+<section id="span-style-color-b22222-an-example-strings-span">
+<h3><span class="section-number">6.1.1. </span><span style="color:#B22222">An Example: Strings</span><a class="headerlink" href="#span-style-color-b22222-an-example-strings-span" title="Permalink to this heading">#</a></h3>
 <p>As the table suggests, <a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/strings.html">strings</a> are iterable. However, you might be wondering how. If you look closely at a string, it is simply a collection of characters. To come back to our previous analogy, the string can be viewed as a container, with each character being an item within that container. Let’s look at an example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -707,7 +734,10 @@ document.write(`
 </div>
 </div>
 </div>
-<h2 style="color:#4169E1">List Indexing and Slicing</h2>
+</section>
+</section>
+<section id="span-style-color-4169e1-list-indexing-and-slicing-span">
+<h2><span class="section-number">6.2. </span><span style="color:#4169E1">List Indexing and Slicing</span><a class="headerlink" href="#span-style-color-4169e1-list-indexing-and-slicing-span" title="Permalink to this heading">#</a></h2>
 <p><strong>Lists</strong> are a data type that hold a collection of elements or items, where the elements can be of <strong>any data type</strong> (even other lists). Lists can also contain <strong>duplicate</strong> elements.</p>
 <p>Lists can be recognized by their square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>, and the syntax is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list_name</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="n">element1</span><span class="p">,</span> <span class="n">element2</span><span class="p">,</span> <span class="n">element3</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
@@ -741,8 +771,8 @@ Voldemort
 </div>
 </div>
 <div class="tip dropdown admonition">
-<p class="admonition-title">What would be the output if I print <code>print(question_list[-1 :-1])</code> for this variable: <code>question_list: List[int] = [1,2]</code></p>
-<p>The output would be <code>[]</code> (an empty list) because we slice the question_list list starting from -1 (the last element) until -1. But remember that the “stop” parameter for slicing is excluded. Therefore, we start from the last element and go until the last element, but that element  is actually excluded. That is why ultimately we get an empty list.</p>
+<p class="admonition-title">What would be the output if I print <code>characters[-1:-1]&lt;)/code&gt;?</p>
+<p>The output would be <code>[]</code> (an empty list) because we slice the characters list starting from -1 (the last element) until -1. But remember that the “stop” parameter for slicing is excluded. Therefore, we start from the last element and go until the last element, but that element  is actually excluded. That is why ultimately we get an empty list.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -750,7 +780,9 @@ Voldemort
 <code>variable: List[data type of values in the list]</code><br></p>
 <p>It is possible to store values in a list which has different data types. In that case, just use the <code>any</code> keyword.</p>
 </div>
-<h2 style="color:#4169E1">Mutability</h2>
+</section>
+<section id="span-style-color-4169e1-mutability-span">
+<h2><span class="section-number">6.3. </span><span style="color:#4169E1">Mutability</span><a class="headerlink" href="#span-style-color-4169e1-mutability-span" title="Permalink to this heading">#</a></h2>
 <p>Unlike strings, lists are <a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/lists.html#lists-are-mutable">mutable</a>, meaning you can modify an existing list. The syntax we use for this is very similar to indexing and slicing.</p>
 <p>First, we define an initial list.</p>
 <div class="cell docutils container">
@@ -816,7 +848,9 @@ Voldemort
 </div>
 </div>
 </div>
-<h4 style="color:#B22222">The <code>in</code> Operator</h4><p>In addition to modifying the list, we can also use the <code class="docutils literal notranslate"><span class="pre">in</span></code> operator to check if certain elements are in the list. The result is a boolean value, which is handy, especially when dealing with longer lists.</p>
+<section id="span-style-color-b22222-the-code-in-code-operator-span">
+<h3><span class="section-number">6.3.1. </span><span style="color:#B22222">The <code>in</code> Operator</span><a class="headerlink" href="#span-style-color-b22222-the-code-in-code-operator-span" title="Permalink to this heading">#</a></h3>
+<p>In addition to modifying the list, we can also use the <code class="docutils literal notranslate"><span class="pre">in</span></code> operator to check if certain elements are in the list. The result is a boolean value, which is handy, especially when dealing with longer lists.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Snake&quot;</span> <span class="ow">in</span> <span class="n">pets</span><span class="p">)</span>
@@ -863,7 +897,10 @@ Voldemort
 </div>
 </div>
 </div>
-<h2 style="color:#4169E1">Operations</h2>
+</section>
+</section>
+<section id="span-style-color-4169e1-operations-span">
+<h2><span class="section-number">6.4. </span><span style="color:#4169E1">Operations</span><a class="headerlink" href="#span-style-color-4169e1-operations-span" title="Permalink to this heading">#</a></h2>
 <p>Remember, operators can also be used on non-numeric data types, such as lists.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -899,9 +936,13 @@ Voldemort
 </div>
 </div>
 </div>
-<h2 style="color:#4169E1">List Methods</h2>
+</section>
+<section id="span-style-color-4169e1-list-methods-span">
+<h2><span class="section-number">6.5. </span><span style="color:#4169E1">List Methods</span><a class="headerlink" href="#span-style-color-4169e1-list-methods-span" title="Permalink to this heading">#</a></h2>
 <p>In Python, there are many methods that operate on lists. However, it might take some time to learn these methods by heart but luckily the <code class="docutils literal notranslate"><span class="pre">dir()</span></code> function makes this process a lot easier.</p>
-<h4 style="color:#B22222">The <code>dir()</code> Function</h4><p>The <a class="reference external" href="https://www.w3schools.com/python/ref_func_dir.asp"><code class="docutils literal notranslate"><span class="pre">dir()</span></code></a> function returns all the attributes and methods that you can use on an object. For example:</p>
+<section id="span-style-color-b22222-the-code-dir-code-function-span">
+<h3><span class="section-number">6.5.1. </span><span style="color:#B22222">The <code>dir()</code> Function</span><a class="headerlink" href="#span-style-color-b22222-the-code-dir-code-function-span" title="Permalink to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://www.w3schools.com/python/ref_func_dir.asp"><code class="docutils literal notranslate"><span class="pre">dir()</span></code></a> function returns all the attributes and methods that you can use on an object. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -929,7 +970,9 @@ Voldemort
 </div>
 </div>
 </div>
-<h4 style="color:#B22222">The <code>help()</code> Function</h4>
+</section>
+<section id="span-style-color-b22222-the-code-help-code-function-span">
+<h3><span class="section-number">6.5.2. </span><span style="color:#B22222">The <code>help()</code> Function</span><a class="headerlink" href="#span-style-color-b22222-the-code-help-code-function-span" title="Permalink to this heading">#</a></h3>
 <p>It might still be a bit unclear what you can do with the output of the <a class="reference external" href="https://www.w3schools.com/python/ref_func_dir.asp"><code class="docutils literal notranslate"><span class="pre">dir()</span></code></a> function. Thankfully, the methods in Python are often clearly named, suggesting their functionality. To understand the usage of the methods, the <a class="reference external" href="https://www.w3schools.com/python/ref_func_dir.asp"><code class="docutils literal notranslate"><span class="pre">help()</span></code></a> funtion can be used. Let’s use the <a class="reference external" href="https://www.w3schools.com/python/ref_list_append.asp"><code class="docutils literal notranslate"><span class="pre">.append()</span></code></a> method as an example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -958,7 +1001,9 @@ append(self, object, /)
 </pre></div>
 </div>
 </div>
-<h4 style="color:#B22222">Some Methods</h4>
+</section>
+<section id="span-style-color-b22222-some-methods-span">
+<h3><span class="section-number">6.5.3. </span><span style="color:#B22222">Some Methods</span><a class="headerlink" href="#span-style-color-b22222-some-methods-span" title="Permalink to this heading">#</a></h3>
 <p>Let’s look at some list methods.</p>
 <ol class="arabic simple">
 <li><p><strong>The <code>.append</code> Method</strong></p></li>
@@ -1037,7 +1082,13 @@ append(self, object, /)
 <li><p><strong>Deleting: <code>.remove()</code> and <code>pop</code></strong></p></li>
 </ol>
 <p>There are several ways to remove elements from a list, but the most common are <a class="reference external" href="https://www.w3schools.com/python/python_lists_remove.asp"><code class="docutils literal notranslate"><span class="pre">.remove()</span></code></a> and <a class="reference external" href="https://www.w3schools.com/python/ref_list_pop.asp"><code class="docutils literal notranslate"><span class="pre">.pop()</span></code></a>.</p>
-<p>The <a class="reference external" href="https://www.w3schools.com/python/python_lists_remove.asp"><code class="docutils literal notranslate"><span class="pre">.remove()</span></code></a> method deletes an element by its value.</p>
+<p>The <a class="reference external" href="https://www.w3schools.com/python/python_lists_remove.asp"><code class="docutils literal notranslate"><span class="pre">.remove()</span></code></a> method:</p>
+<ul class="simple">
+<li><p>Removes the <strong>first</strong> occurrence of a specific value from the list.</p></li>
+<li><p>It does not return the removed element, only removes it.</p></li>
+<li><p>If the value does not exist in the list, it raises a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
+</ul>
+<p><strong>Use case:</strong> When you want to remove an item by its value rather than by its index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sports</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;tennis&quot;</span><span class="p">)</span>
@@ -1071,17 +1122,25 @@ append(self, object, /)
 </div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">.pop()</span></code> method removes an element at a certain index.</p>
+<p>As mentioned above, the <code class="docutils literal notranslate"><span class="pre">.remove()</span></code> method will only remove the <strong>first</strong> occurence of a specific value from a list. If you would like to remove <strong>all</strong> occurences, consider using a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">loop</span></code> combined with the <code class="docutils literal notranslate"><span class="pre">.remove()</span></code> method. Alternatively, you can check out the <a class="reference external" href="https://www.geeksforgeeks.org/filter-in-python/"><code class="docutils literal notranslate"><span class="pre">filter()</span></code> method</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.pop()</span></code> method:</p>
+<ul class="simple">
+<li><p>Removes and returns an element from the list based on its index. (default is the last element if no index is provided)</p></li>
+<li><p>If the index is out of range, it raises an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>.</p></li>
+</ul>
+<p><strong>Use case:</strong> When you want to remove an item by its index and you might want to use the removed value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sports</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popped_element</span> <span class="o">=</span> <span class="n">sports</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">sports</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">popped_element</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hockey&#39;, &#39;swimming&#39;, &#39;baseball&#39;, &#39;skating&#39;]
+football
 </pre></div>
 </div>
 </div>
@@ -1101,6 +1160,7 @@ append(self, object, /)
 </div>
 </div>
 </div>
+<p>Remember, if no index is provided, the defualts is to pop the last element.</p>
 <ol class="arabic simple" start="4">
 <li><p><strong>Copying: <code>.copy()</code> and <code>=</code></strong></p></li>
 </ol>
@@ -1260,7 +1320,10 @@ Then we have an aesthetic print :)<br>
 </div>
 </div>
 </div>
-<h2 style="color:#4169E1">List Functions</h2>
+</section>
+</section>
+<section id="span-style-color-4169e1-list-functions-span">
+<h2><span class="section-number">6.6. </span><span style="color:#4169E1">List Functions</span><a class="headerlink" href="#span-style-color-4169e1-list-functions-span" title="Permalink to this heading">#</a></h2>
 <p>Now, we’ll explore some functions you can use on lists. We start with a list of numbers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1333,7 +1396,9 @@ Then we have an aesthetic print :)<br>
 </div>
 </div>
 </div>
-<h2 style="color:#4169E1">List and Strings</h2>
+</section>
+<section id="span-style-color-4169e1-list-and-strings-span">
+<h2><span class="section-number">6.7. </span><span style="color:#4169E1">List and Strings</span><a class="headerlink" href="#span-style-color-4169e1-list-and-strings-span" title="Permalink to this heading">#</a></h2>
 <p>Although they may seem similar, a list of characters is not the same as a string.</p>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">list()</span></code> to convert a string to a list. This will result in a list of individual characters as its elements.</p>
 <div class="cell docutils container">
@@ -1418,11 +1483,14 @@ Then we have an aesthetic print :)<br>
 </div>
 </div>
 </div>
-<h2 style="color:#3CB371">Exercises</h2><p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+</section>
+<section id="span-style-color-3cb371-exercises-span">
+<h2><span class="section-number">6.8. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
 <p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
 <br></p>
 <section id="exercise-1">
-<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">6.8.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a Python function called <code class="docutils literal notranslate"><span class="pre">reverse_string()</span></code> that takes a string as input and returns the reverse of the string. Make sure to use the return statement. Additionally, print the result outside of the function.</p>
 <p><strong>Input example:</strong> you pass this in a function call.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">input_string</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
@@ -1478,7 +1546,7 @@ Then we have an aesthetic print :)<br>
 </div>
 </section>
 <section id="exercise-2">
-<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">6.8.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a Python function named <code class="docutils literal notranslate"><span class="pre">find_longest_word()</span></code> that accepts a sentence as input and <strong>returns</strong> the longest word within that sentence. Use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop (or a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop if that’s more familiar to you). In case there are several words of the same maximum length, return the first one that appears. Remember to use the return statement to provide the result. Additionally, print the result outside of the function. Assume that words are separated by spaces, and there are no punctuation marks.</p>
 <p><strong>Example input</strong>: you pass this in a function call.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">input_sentence</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;The quick brown fox jumps over the lazy dog&quot;</span>
@@ -1547,7 +1615,7 @@ Then we have an aesthetic print :)<br>
 </div>
 </section>
 <section id="exercise-3">
-<h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">6.8.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a Python function called <code class="docutils literal notranslate"><span class="pre">find_median()</span></code> that takes a list of <strong>sorted</strong> numbers as input and returns the median value.</p>
 <p>The median is the middle value in a <strong>sorted</strong> list of numbers. If the list has an even number of elements, return the average of the two middle values. Make sure to use the return statement. Additionally, print the result outside of the function.</p>
 <p><strong>Example input</strong>: you pass this in a function call.</p>
@@ -1599,6 +1667,7 @@ Then we have an aesthetic print :)<br>
 </ol>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1630,6 +1699,24 @@ Then we have an aesthetic print :)<br>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../05-for-loop/for-loop.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>For Loop</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../07-dictionaries/dictionaries.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Dictionaries</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1645,9 +1732,30 @@ Then we have an aesthetic print :)<br>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-iterable-objects-span">6.1. <span style="color:#4169E1">Iterable Objects</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-an-example-strings-span">6.1.1. <span style="color:#B22222">An Example: Strings</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-list-indexing-and-slicing-span">6.2. <span style="color:#4169E1">List Indexing and Slicing</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-mutability-span">6.3. <span style="color:#4169E1">Mutability</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-in-code-operator-span">6.3.1. <span style="color:#B22222">The <code>in</code> Operator</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-operations-span">6.4. <span style="color:#4169E1">Operations</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-list-methods-span">6.5. <span style="color:#4169E1">List Methods</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-dir-code-function-span">6.5.1. <span style="color:#B22222">The <code>dir()</code> Function</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-help-code-function-span">6.5.2. <span style="color:#B22222">The <code>help()</code> Function</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-some-methods-span">6.5.3. <span style="color:#B22222">Some Methods</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-list-functions-span">6.6. <span style="color:#4169E1">List Functions</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-list-and-strings-span">6.7. <span style="color:#4169E1">List and Strings</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">6.8. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">6.8.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">6.8.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">6.8.3. Exercise 3</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

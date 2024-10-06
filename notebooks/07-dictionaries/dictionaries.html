@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Dictionaries &#8212; Workbook Intro Python</title>
+    <title>7. Dictionaries &#8212; Workbook Intro Python</title>
   
   
   
@@ -66,6 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="6. Lists" href="../06-lists/lists.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,12 +168,14 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02-functions/functions.html">2. Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03-conditionals/conditionals.html">3. Conditionals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../04-while-loop/while-loop.html">4. While Loop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../05-for-loop/for-loop.html">5. For Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-lists/lists.html">6. Lists</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Dictionaries</a></li>
 </ul>
 
     </div>
@@ -417,9 +420,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-defining-a-dictionary-span">7.1. <span style="color:#4169E1">Defining a Dictionary</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-accessing-key-value-pairs-span">7.2. <span style="color:#4169E1">Accessing Key-Value Pairs</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-let-s-think-span">7.2.1. <span style="color:#B22222">Let’s think!</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-modifying-a-dictionary-span">7.3. <span style="color:#4169E1">Modifying a Dictionary</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-adding-span">7.3.1. <span style="color:#B22222">Adding</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-deleting-span">7.3.2. <span style="color:#B22222">Deleting</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-copying-span">7.3.3. <span style="color:#B22222">Copying</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-iterating-through-a-dictionary-span">7.4. <span style="color:#4169E1">Iterating Through a Dictionary</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-the-methods-code-keys-code-and-code-values-code-span">7.4.1. <span style="color:#B22222">Using the Methods <code>.keys()</code> and <code>.values()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-the-method-code-items-code-span">7.4.2. <span style="color:#B22222">Using the Method <code>.items()</code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-nested-dictionaries-span">7.5. <span style="color:#4169E1">Nested Dictionaries</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">7.6. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">7.6.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">7.6.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">7.6.3. Exercise 3</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -432,7 +455,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="dictionaries">
-<h1>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">7. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h1>
 <p><strong>In this notebook, we cover the following subjects:</strong></p>
 <ul class="simple">
 <li><p>Defining a Dictionary;</p></li>
@@ -450,7 +473,8 @@ document.write(`
 </div>
 </div>
 </div>
-<h2 style="color:#4169E1">Defining a Dictionary</h2>
+<section id="span-style-color-4169e1-defining-a-dictionary-span">
+<h2><span class="section-number">7.1. </span><span style="color:#4169E1">Defining a Dictionary</span><a class="headerlink" href="#span-style-color-4169e1-defining-a-dictionary-span" title="Permalink to this heading">#</a></h2>
 <p>In Python, a <a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/dictionaries.html">dictionary</a>, shortened as <code class="docutils literal notranslate"><span class="pre">dict</span></code>, is a data type that stores collections of <strong>mappings</strong> between <strong>keys</strong> and <strong>values</strong>. Each key is associated with a single value, forming a <strong>key-value pair</strong> or <strong>item</strong>.</p>
 <p>A dictionary uses curly brackets <code class="docutils literal notranslate"><span class="pre">{}</span></code> and defines each entry with a <code class="docutils literal notranslate"><span class="pre">key:value</span></code> pair, separated by commas. The syntax looks as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span>
@@ -550,7 +574,9 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<h2 style="color:#4169E1">Accessing Key-Value Pairs</h2>
+</section>
+<section id="span-style-color-4169e1-accessing-key-value-pairs-span">
+<h2><span class="section-number">7.2. </span><span style="color:#4169E1">Accessing Key-Value Pairs</span><a class="headerlink" href="#span-style-color-4169e1-accessing-key-value-pairs-span" title="Permalink to this heading">#</a></h2>
 <p>Now, how do we access values inside a dictionary? Well, that’s what keys are for. You can find a specific value by its key, the same way in which you can access list elements by their index. Let’s look at an example, but first, we initialise a dict.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -598,7 +624,9 @@ document.write(`
 </div>
 </div>
 </div>
-<h4 style="color:#B22222">Let's think!</h4><p>Can we still use indices to access elements? Each key-value pair is placed at a certain position, and dictionaries are ordered, so why not? What do you think will happen?</p>
+<section id="span-style-color-b22222-let-s-think-span">
+<h3><span class="section-number">7.2.1. </span><span style="color:#B22222">Let’s think!</span><a class="headerlink" href="#span-style-color-b22222-let-s-think-span" title="Permalink to this heading">#</a></h3>
+<p>Can we still use indices to access elements? Each key-value pair is placed at a certain position, and dictionaries are ordered, so why not? What do you think will happen?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What happens?</span>
@@ -652,9 +680,12 @@ document.write(`
 </div>
 </div>
 </div>
-<h2 style="color:#4169E1">Modifying a Dictionary
-</h2>
-<h4 style="color:#B22222">Adding</h4>
+</section>
+</section>
+<section id="span-style-color-4169e1-modifying-a-dictionary-span">
+<h2><span class="section-number">7.3. </span><span style="color:#4169E1">Modifying a Dictionary</span><a class="headerlink" href="#span-style-color-4169e1-modifying-a-dictionary-span" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-b22222-adding-span">
+<h3><span class="section-number">7.3.1. </span><span style="color:#B22222">Adding</span><a class="headerlink" href="#span-style-color-b22222-adding-span" title="Permalink to this heading">#</a></h3>
 <p>You already know quite a lot about lists and how you use <code class="docutils literal notranslate"><span class="pre">.append()</span></code> to add new elements. Do you think you can use <code class="docutils literal notranslate"><span class="pre">.append()</span></code> to insert a new entry into a dictionary?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -697,7 +728,10 @@ document.write(`
 </div>
 </div>
 </div>
-<h4 style="color:#B22222">Deleting</h4><p>Just as we can insert elements into a dictionary, we should also be able to delete elements. How can we do that? There are multiple ways:</p>
+</section>
+<section id="span-style-color-b22222-deleting-span">
+<h3><span class="section-number">7.3.2. </span><span style="color:#B22222">Deleting</span><a class="headerlink" href="#span-style-color-b22222-deleting-span" title="Permalink to this heading">#</a></h3>
+<p>Just as we can insert elements into a dictionary, we should also be able to delete elements. How can we do that? There are multiple ways:</p>
 <ol class="arabic simple">
 <li><p>Use the <a class="reference external" href="https://www.w3schools.com/python/gloss_python_remove_dictionary_items.asp"><code class="docutils literal notranslate"><span class="pre">del</span></code></a> keyword (also works for lists).</p></li>
 <li><p>Use the <a class="reference external" href="https://www.w3schools.com/python/gloss_python_remove_dictionary_items.asp"><code class="docutils literal notranslate"><span class="pre">.pop()</span></code></a> method to delete an element by its key (also works for lists).</p></li>
@@ -756,7 +790,10 @@ document.write(`
 </div>
 </div>
 </div>
-<h4 style="color:#B22222">Copying</h4><p>Just like with lists, we can use either the <a class="reference external" href="https://www.w3schools.com/python/python_dictionaries_copy.asp"><code class="docutils literal notranslate"><span class="pre">.copy()</span></code></a> method or the <code class="docutils literal notranslate"><span class="pre">=</span></code> operator to copy a dictionary. However, you may remember that there’s a difference between these two approaches.</p>
+</section>
+<section id="span-style-color-b22222-copying-span">
+<h3><span class="section-number">7.3.3. </span><span style="color:#B22222">Copying</span><a class="headerlink" href="#span-style-color-b22222-copying-span" title="Permalink to this heading">#</a></h3>
+<p>Just like with lists, we can use either the <a class="reference external" href="https://www.w3schools.com/python/python_dictionaries_copy.asp"><code class="docutils literal notranslate"><span class="pre">.copy()</span></code></a> method or the <code class="docutils literal notranslate"><span class="pre">=</span></code> operator to copy a dictionary. However, you may remember that there’s a difference between these two approaches.</p>
 <p><strong>Let’s think!</strong> Here is a piece of code that aims to start off with one dictionary but save it in two separate variables to make different changes to each, to then print the two different dictionaries. However, something is not quite right. What’s going on? How can we fix it?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -781,7 +818,10 @@ document.write(`
 </div>
 </div>
 </div>
-<h2 style="color:#4169E1">Iterating Through a Dictionary</h2>
+</section>
+</section>
+<section id="span-style-color-4169e1-iterating-through-a-dictionary-span">
+<h2><span class="section-number">7.4. </span><span style="color:#4169E1">Iterating Through a Dictionary</span><a class="headerlink" href="#span-style-color-4169e1-iterating-through-a-dictionary-span" title="Permalink to this heading">#</a></h2>
 <p>Just like we can iterate through lists, we can also iterate through dictionaries. Let’s look at an example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -805,7 +845,9 @@ document.write(`
 </div>
 </div>
 <p>You probably noticed that the output only shows the keys and not the values. How can we print both?</p>
-<h4 style="color:#B22222">Using the Methods <code>.keys()</code> and <code>.values()</code></h4><p>First, as aforementioned, you can access the keys or values separately using the <code class="docutils literal notranslate"><span class="pre">.keys()</span></code> and <code class="docutils literal notranslate"><span class="pre">.values()</span></code> methods, respectively:</p>
+<section id="span-style-color-b22222-using-the-methods-code-keys-code-and-code-values-code-span">
+<h3><span class="section-number">7.4.1. </span><span style="color:#B22222">Using the Methods <code>.keys()</code> and <code>.values()</code></span><a class="headerlink" href="#span-style-color-b22222-using-the-methods-code-keys-code-and-code-values-code-span" title="Permalink to this heading">#</a></h3>
+<p>First, as aforementioned, you can access the keys or values separately using the <code class="docutils literal notranslate"><span class="pre">.keys()</span></code> and <code class="docutils literal notranslate"><span class="pre">.values()</span></code> methods, respectively:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access keys</span>
@@ -819,7 +861,10 @@ document.write(`
 </div>
 </div>
 </div>
-<h4 style="color:#B22222">Using the Method <code>.items()</code></h4><p>If you want to access both keys and values simultaneously in a loop, you use the <code class="docutils literal notranslate"><span class="pre">.items()</span></code> method:</p>
+</section>
+<section id="span-style-color-b22222-using-the-method-code-items-code-span">
+<h3><span class="section-number">7.4.2. </span><span style="color:#B22222">Using the Method <code>.items()</code></span><a class="headerlink" href="#span-style-color-b22222-using-the-method-code-items-code-span" title="Permalink to this heading">#</a></h3>
+<p>If you want to access both keys and values simultaneously in a loop, you use the <code class="docutils literal notranslate"><span class="pre">.items()</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">movie</span><span class="p">,</span> <span class="n">release_year</span> <span class="ow">in</span> <span class="n">florence_pugh_movies</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -832,7 +877,10 @@ document.write(`
 <p class="admonition-title">Can you think of another built in function that requires 2 variables to loop with ?</p>
 <p>Good job! Indeed, <code>enumerate()</code> requires 2 variables (index, value) as we discussed when we talked about <code>for loops</code> and <code> while loops</code>.</p>
 </div>
-<h2 style="color:#4169E1">Nested Dictionaries</h2>
+</section>
+</section>
+<section id="span-style-color-4169e1-nested-dictionaries-span">
+<h2><span class="section-number">7.5. </span><span style="color:#4169E1">Nested Dictionaries</span><a class="headerlink" href="#span-style-color-4169e1-nested-dictionaries-span" title="Permalink to this heading">#</a></h2>
 <p>The great thing about dictionaries in Python is that you can create complex data structures using <strong>nested dictionaries</strong>. This allows you to add layers to your data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -883,11 +931,14 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>Since dictionary values can be of any type, it’s possible for a value within a dictionary to be another dictionary. Just remember, keys have to be immutable, so you can’t use a dictionary as a key.</p>
 </div>
-<h2 style="color:#3CB371">Exercises</h2><p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+</section>
+<section id="span-style-color-3cb371-exercises-span">
+<h2><span class="section-number">7.6. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
 <p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
 <br></p>
 <section id="exercise-1">
-<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">7.6.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p>You have a list of dictionaries, each representing a student. Each dictionary contains the student’s full name, year, and a list of seven grades.</p>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Use a <code class="docutils literal notranslate"><span class="pre">for</span></code>loop to calculate the average grade for each student and <strong>print</strong> the student’s information in the following format. Note that you only need to print the student’s first name, and that the average should be formatted to two digits only:</p>
 <p><strong>Format output</strong>:</p>
@@ -1003,7 +1054,7 @@ Percentiles show the grade distribution.</p>
 </div>
 </section>
 <section id="exercise-2">
-<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">7.6.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p>A classic, well-known exercise with dictionaries is to implement a word frequency counter.</p>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Your task is to create a Python function called <code class="docutils literal notranslate"><span class="pre">word_frequency()</span></code> that takes a string as input (use <code class="docutils literal notranslate"><span class="pre">sentence</span></code> as the argument in the function call). The function should count the frequency of each word and return a dictionary where the keys are words and the values are their corresponding frequencies.</p>
 <p><strong>Print</strong> the dictionary <strong>outside</strong> the function in a clear and readable format. For this Level, you do not need to worry about uppercase and lowercase variations or punctuation marks.</p>
@@ -1102,8 +1153,8 @@ Percentiles show the grade distribution.</p>
 </div>
 </section>
 <section id="exercise-3">
-<h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h2>
-<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a list of book dictionaries called <code class="docutils literal notranslate"><span class="pre">my_books</span></code> with the following information: title, year published, and number of pages. <strong>Add them yourself, do not simply copy/paste the example provided.</strong> Then, write a function called <code class="docutils literal notranslate"><span class="pre">find_books_by_year()</span></code> that takes two arguments: a list of book dictionaries and a year. The function should <strong>return</strong> a list of book titles published in that year. If no books were published in that year, the function should <strong>return</strong> “No books found”.</p>
+<h3><span class="section-number">7.6.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a list of book dictionaries called <code class="docutils literal notranslate"><span class="pre">my_books</span></code> with the following information: title, year published, and number of pages. Then, write a function called <code class="docutils literal notranslate"><span class="pre">find_books_by_year()</span></code> that takes two arguments: a list of book dictionaries and a year. The function should <strong>return</strong> a list of book titles published in that year. If no books were published in that year, the function should <strong>return</strong> “No books found”.</p>
 <p><strong>Print</strong> the result <strong>outside</strong> the function in a clear and readable format.</p>
 <p><strong>Example input:</strong> you pass these arguments to the parameters in the function call.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_books</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
@@ -1226,6 +1277,7 @@ Percentiles show the grade distribution.</p>
 </ol>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1257,6 +1309,15 @@ Percentiles show the grade distribution.</p>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../06-lists/lists.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Lists</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -1272,9 +1333,29 @@ Percentiles show the grade distribution.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-defining-a-dictionary-span">7.1. <span style="color:#4169E1">Defining a Dictionary</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-accessing-key-value-pairs-span">7.2. <span style="color:#4169E1">Accessing Key-Value Pairs</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-let-s-think-span">7.2.1. <span style="color:#B22222">Let’s think!</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-modifying-a-dictionary-span">7.3. <span style="color:#4169E1">Modifying a Dictionary</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-adding-span">7.3.1. <span style="color:#B22222">Adding</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-deleting-span">7.3.2. <span style="color:#B22222">Deleting</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-copying-span">7.3.3. <span style="color:#B22222">Copying</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-iterating-through-a-dictionary-span">7.4. <span style="color:#4169E1">Iterating Through a Dictionary</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-the-methods-code-keys-code-and-code-values-code-span">7.4.1. <span style="color:#B22222">Using the Methods <code>.keys()</code> and <code>.values()</code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-the-method-code-items-code-span">7.4.2. <span style="color:#B22222">Using the Method <code>.items()</code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-nested-dictionaries-span">7.5. <span style="color:#4169E1">Nested Dictionaries</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">7.6. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">7.6.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">7.6.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">7.6.3. Exercise 3</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
