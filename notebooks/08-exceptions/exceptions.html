@@ -614,7 +614,7 @@ In Python, we can manage exceptions using the <a class="reference external" href
 When an exception occurs, it is caught by the <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">block</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <code>except block</code><b>cannot</b> be used without the<code>try block</code>.</p>
+<p>The <code>except block </code><b>cannot</b> be used without the<code>try block</code>.</p>
 </div>
 <p>Now let’s check a real example:</p>
 <div class="cell docutils container">
@@ -692,7 +692,6 @@ When the <code class="docutils literal notranslate"><span class="pre">IndexError
 <p>In some situations, we might want to run a certain block of code if the code block inside <code class="docutils literal notranslate"><span class="pre">try</span></code> runs without any errors. For these cases, you can use the optional <code class="docutils literal notranslate"><span class="pre">else</span></code> keyword with the <code class="docutils literal notranslate"><span class="pre">try</span></code> statement.<br />
 Let’s look at an example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Program to divide two numbers</span>
-
 <span class="k">try</span><span class="p">:</span>
     <span class="n">numerator</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the numerator: &quot;</span><span class="p">))</span>
     <span class="n">denominator</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the denominator: &quot;</span><span class="p">))</span>
@@ -889,15 +888,11 @@ If the user enters zero, print a spooky message: <code class="docutils literal n
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">a</span> <span class="n">number</span><span class="p">:</span> <span class="mi">25</span>
 <span class="n">Enter</span> <span class="n">a</span> <span class="n">number</span><span class="p">:</span> <span class="mi">0</span>
-
 </pre></div>
 </div>
 <p><strong>Example output:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>&#39;The ghost says: 100 divided by 25 is 4.0!&#39;
 &#39;Ghosts can&#39;t divide by zero!&#39;
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <div class="cell docutils container">
@@ -979,7 +974,6 @@ Handle invalid inputs accordingly.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">attempts</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">5</span><span class="p">):</span> <span class="mi">3</span>
 
 <span class="n">Enter</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">attempts</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">5</span><span class="p">):</span> <span class="mi">7</span>
-
 </pre></div>
 </div>
 <p><strong>Example output:</strong></p>
@@ -1034,13 +1028,11 @@ After all attempts:</p>
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">an</span> <span class="n">exotic</span> <span class="n">animal</span><span class="p">:</span> <span class="n">Jaguar</span>
 <span class="n">Enter</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">an</span> <span class="n">exotic</span> <span class="n">animal</span><span class="p">:</span> <span class="mi">123</span>
-
 </pre></div>
 </div>
 <p><strong>Example output:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;You encountered a wild Jaguar in the jungle!&#39;</span>
 <span class="s1">&#39;The animal name must be a string.&#39;</span>
-
 </pre></div>
 </div>
 <div class="cell docutils container">
