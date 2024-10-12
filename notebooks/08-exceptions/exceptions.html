@@ -515,15 +515,15 @@ If we don’t handle it properly, Python shows a <strong>traceback</strong>, whi
 <p><strong>This is an error:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number_1</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="n">text_1</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;This is an exceptional error&quot;</span>
-<span class="n">result_1</span><span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c1"># Error: unsupported operand types</span>
+<span class="n">result_1</span><span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="n">number_1</span> <span class="o">+</span> <span class="n">text_1</span>  <span class="c1"># Error: unsupported operand types</span>
 </pre></div>
 </div>
 <p><strong>This is an exception:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number_2</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">text_2</span><span class="p">:</span> <span class="n">strb</span> <span class="o">=</span> <span class="s2">&quot;This is an exceptional error&quot;</span>
+<span class="n">text_2</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;This is an exceptional error&quot;</span>
 
 <span class="k">try</span><span class="p">:</span>
-<span class="n">result_2</span><span class="p">:</span> <span class="nb">any</span>   <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="n">result_2</span><span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="n">number_2</span> <span class="o">+</span> <span class="n">text_2</span>
 <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TypeError: This will throw an error!&quot;</span><span class="p">)</span>
 </pre></div>
