@@ -432,7 +432,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-exception-handling-span">8.3. <span style="color:#4169E1">Exception Handling</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-catching-specific-exceptions-span">8.3.1. <span style="color:#B22222">Catching Specific Exceptions</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-try-with-except-and-else-clauses-span">8.3.2. <span style="color:#B22222"><code class="docutils literal notranslate"><span class="pre">try</span></code> with <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> clauses</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-try-with-except-and-finally-clauses-span">8.3.3. <span style="color:#B22222"><code class="docutils literal notranslate"><span class="pre">try</span></code> with <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">finally</span></code> clauses</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-raise-keyword-span">8.3.3. <span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">raise</span></code> keyword</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-try-with-except-and-finally-clauses-span">8.3.4. <span style="color:#B22222"><code class="docutils literal notranslate"><span class="pre">try</span></code> with <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">finally</span></code> clauses</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-custom-exceptions-optional-span">8.4. <span style="color:#4169E1">Custom Exceptions (Optional)</span></a><ul class="nav section-nav flex-column">
@@ -695,82 +696,144 @@ When the <code class="docutils literal notranslate"><span class="pre">IndexError
 <p>In some situations, we might want to run a certain block of code if the code block inside <code class="docutils literal notranslate"><span class="pre">try</span></code> runs without any errors. For these cases, you can use the optional <code class="docutils literal notranslate"><span class="pre">else</span></code> keyword with the <code class="docutils literal notranslate"><span class="pre">try</span></code> statement.<br />
 Let’s look at an example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Program to divide two numbers</span>
+
 <span class="k">try</span><span class="p">:</span>
     <span class="n">numerator</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the numerator: &quot;</span><span class="p">))</span>
     <span class="n">denominator</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the denominator: &quot;</span><span class="p">))</span>
-    <span class="k">assert</span> <span class="n">denominator</span> <span class="o">!=</span> <span class="mi">0</span>
-<span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Denominator cannot be zero!&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Result of division: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>So what is happening here?<br />
-The code inside the <code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">block</span></code> attempts to get two numbers from the user and checks that the denominator is not zero using the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement. Then we have two options:</p>
-<ul class="simple">
-<li><p>If the denominator is zero, an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> is raised, and the message <code class="docutils literal notranslate"><span class="pre">&quot;Denominator</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">zero!&quot;</span></code> is printed.</p></li>
-<li><p>If no error occurs, the <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">block</span></code> is executed, and the result of the division is printed.</p></li>
-</ul>
-<p>The <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">block</span></code> ensures that the division is performed only when no exception has been raised.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code>assert</code> statement is used to test if a condition is <code>True</code>. If the condition evaluates to <code>True</code>, the program continues executing normally.<br><br />
-If the condition is <code>False</code>, an <code>AssertionError</code> is raised, and the program will stop unless the exception is handled.</p>
-</div>
-<p>Let’s look at one more example! The program bellow tries to print the reciprocal of even numbers.<br />
-Remeber, the reciprocal of a number is simply 1 divided by that number, e.g. reciprocal(x) = 1/x.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">num</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number: &quot;</span><span class="p">))</span>
-    <span class="k">assert</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not an even number!&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">reciprocal</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">num</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">reciprocal</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we have 3 options:</p>
-<ul class="simple">
-<li><p>we pass an odd number</p></li>
-<li><p>we pass an even number</p></li>
-<li><p>or?</p></li>
-</ul>
-<div class="tip dropdown admonition">
-<p class="admonition-title">What is the third option?</p>
-<p>Maybe a bit tricky, but remember that we can also pass <b>0</b>.</p>
-</div>
-<p>If we pass an <strong>odd</strong> number:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">a</span> <span class="n">number</span><span class="p">:</span> <span class="mi">1</span>
-<span class="n">Not</span> <span class="n">an</span> <span class="n">even</span> <span class="n">number</span>
-</pre></div>
-</div>
-<p>If we pass an <strong>even number</strong>, the reciprocal is computed and displayed.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">a</span> <span class="n">number</span><span class="p">:</span> <span class="mi">4</span>
-<span class="mf">0.2</span>
-</pre></div>
-</div>
-<p>However, if we pass <strong>0</strong>, we get <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code> as the code block inside else is not handled by preceding except.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">a</span> <span class="n">number</span><span class="p">:</span> <span class="mi">0</span>
+    
+    <span class="n">result</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span>
 
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;string&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">7</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-    <span class="n">reciprocal</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">num</span>
-<span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> 
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid input! Please enter numeric values.&quot;</span><span class="p">)</span> <span class="c1"># custom exception message</span>
+
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">::</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You cannot divide by zero!&quot;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Result of division: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
 </pre></div>
 </div>
-<p>Here, the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement in the code checks that <code class="docutils literal notranslate"><span class="pre">num</span></code> is an even number; if <code class="docutils literal notranslate"><span class="pre">num</span></code> is odd, it raises an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code>, triggering the except block!</p>
+<p>So what is happening here?</p>
+<p>The code inside the <code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">block</span></code> attempts to get two numbers from the user and then divide the first number by the second one. There are two things that can go wrong, or in other words: <strong>there are two possible exceptions being handled</strong>:</p>
+<ul class="simple">
+<li><p>If the user enters non-numeric values, a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised, and the message <code class="docutils literal notranslate"><span class="pre">&quot;Invalid</span> <span class="pre">input!</span> <span class="pre">Please</span> <span class="pre">enter</span> <span class="pre">numeric</span> <span class="pre">values.&quot;</span></code> is printed.</p></li>
+<li><p>If the denominator is zero, a <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code> is raised, and the message <code class="docutils literal notranslate"><span class="pre">&quot;You</span> <span class="pre">cannot</span> <span class="pre">divide</span> <span class="pre">by</span> <span class="pre">zero!&quot;</span></code> is printed.</p></li>
+</ul>
+<p>If <strong>no error occurs</strong>, the <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">block</span></code> is executed, and the result of the division is printed.</p>
+<p><strong>The <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">block</span></code> ensures that the division is performed only when no exception has been raised, allowing the program to safely handle errors before performing any calculations.</strong></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Exceptions in the <code>else clause</code> are <b>not</b> handled by the preceding <code>except clauses</code>.</p>
 </div>
+<p>I believe you are starting to grasp how exceptions work, however, it is a bit annoying that we always have to know the names of the exceptions we might encounter. Well good news, to deal with this fact, we can use the <code class="docutils literal notranslate"><span class="pre">raise</span></code> keyword.</p>
+</section>
+<section id="span-style-color-b22222-the-raise-keyword-span">
+<h3><span class="section-number">8.3.3. </span><span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">raise</span></code> keyword</span><a class="headerlink" href="#span-style-color-b22222-the-raise-keyword-span" title="Permalink to this heading">#</a></h3>
+<p>We can use the <a class="reference external" href="https://www.w3schools.com/python/gloss_python_raise.asp"><code class="docutils literal notranslate"><span class="pre">raise</span></code></a> keyword to <strong>trigger an exception intentionally</strong>. This is helpful when you want to indicate that something unexpected has occurred in your program. By raising exceptions, you can:</p>
+<ul class="simple">
+<li><p>Stop the program at a certain point if it encounters a situation it can’t handle.</p></li>
+<li><p>Provide a clear error message to help you understand what went wrong.</p></li>
+</ul>
+<p>Basic structure of <code class="docutils literal notranslate"><span class="pre">raise</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;This is an error message.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this example, we are creating a general exception with the message “This is an error message.”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try it for yourself</span>
+<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;This is an error message.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So let’s see how the <code class="docutils literal notranslate"><span class="pre">raise</span></code> keyword can be utilized!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>  <span class="c1"># An example of invalid input</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Age cannot be negative.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; I am </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1"> years old&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Very similar to what we have seen right? Of course, if we want to be more precise, we could have said that this is a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>. Let’s see how that would look like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>  <span class="c1"># An example of invalid input</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Age cannot be negative.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s look at something more complex. This code bellow calculates the reciprocal of the inputted number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remeber, the reciprocal of a number is simply 1 divided by that number, e.g. reciprocal(x) = 1/x.</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">num</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number: &quot;</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Check if the number is odd</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Not an even number!&quot;</span><span class="p">)</span> <span class="c1"># custom error message</span>
+    
+    <span class="c1"># If the number is even, calculate the reciprocal</span>
+    <span class="n">reciprocal</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">num</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reciprocal of </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s2"> is: </span><span class="si">{</span><span class="n">reciprocal</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">other_error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">other_error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This above code is probably more powerful than you think! Let’s think about the possible things the user can input:</p>
+<ul class="simple">
+<li><p>the user can pass an odd number</p></li>
+<li><p>the user can pass an even number</p></li>
+<li><p>or?</p></li>
+<li><p>or?</p></li>
+</ul>
+<div class="tip dropdown admonition">
+<p class="admonition-title">What are the third and fourth options?</p>
+<p>Maybe a bit tricky, but remember that we can also pass <b>0</b> or a <b>string<b>.</p>
+</div>
+<p>Let’s cover each case one-by-one:</p>
+<p>If we pass an <strong>odd</strong> number:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>Enter a number:  1
+Error: Not an even number!
+</pre></div>
+</div>
+<p>If we pass an <strong>even number</strong>, the reciprocal is computed and displayed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">a</span> <span class="n">number</span><span class="p">:</span>  <span class="mi">4</span>
+<span class="n">Reciprocal</span> <span class="n">of</span> <span class="mi">4</span> <span class="ow">is</span><span class="p">:</span> <span class="mf">0.25</span>
+</pre></div>
+</div>
+<p>If we pass <strong>0</strong>, we get:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">division</span> <span class="pre">by</span> <span class="pre">zero</span></code></p>
+<p>but wait a minute, we did not even create a case to catch a <code class="docutils literal notranslate"><span class="pre">ZeroDivision</span></code> error. Or did we?</p>
+<p>Let’s revisit this part:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">other_error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">other_error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This <code class="docutils literal notranslate"><span class="pre">except</span></code> block is actually covering most of the errors that can occur while we run the code. Since we used the <code class="docutils literal notranslate"><span class="pre">Exception</span></code> keyword we account for almost all (all exceptions that are derived from the Exception class) possible exceptions that can arise.</p>
+<p>Lastly, if we pass a <strong>string</strong> we get:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">invalid</span> <span class="pre">literal</span> <span class="pre">for</span> <span class="pre">int()</span> <span class="pre">with</span> <span class="pre">base</span> <span class="pre">10:</span> <span class="pre">'apple'</span></code>.</p>
+<p>Cool, huh? Time for one last thing…</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>raise</code> isn’t just about throwing exceptions; it’s about communicating problems effectively.```</p>
+</div>
 </section>
 <section id="span-style-color-b22222-try-with-except-and-finally-clauses-span">
-<h3><span class="section-number">8.3.3. </span><span style="color:#B22222"><code class="docutils literal notranslate"><span class="pre">try</span></code> with <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">finally</span></code> clauses</span><a class="headerlink" href="#span-style-color-b22222-try-with-except-and-finally-clauses-span" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.3.4. </span><span style="color:#B22222"><code class="docutils literal notranslate"><span class="pre">try</span></code> with <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">finally</span></code> clauses</span><a class="headerlink" href="#span-style-color-b22222-try-with-except-and-finally-clauses-span" title="Permalink to this heading">#</a></h3>
 <p>There is one more noteworthy thing, we can also add a <code class="docutils literal notranslate"><span class="pre">finally</span></code> clause instead of the <code class="docutils literal notranslate"><span class="pre">else</span></code> clause.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">finally</span> <span class="pre">block</span></code> is <strong>always</strong> executed no matter whether there is an exception or not. This makes it useful for tasks like cleaning up resources (e.g., closing files, releasing memory, etc.), which must be done regardless of success or failure.<br />
 The <code class="docutils literal notranslate"><span class="pre">finally</span> <span class="pre">block</span></code> is <strong>optional</strong>.
@@ -803,7 +866,7 @@ For <strong>each</strong> <code class="docutils literal notranslate"><span class
 <span class="k">try</span><span class="p">:</span>
     <span class="n">number</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a positive number: &quot;</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Number must be positive!&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Number must be positive!&quot;</span><span class="p">)</span> <span class="c1"># custom error message</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
@@ -1189,7 +1252,8 @@ Enter the name of an exotic animal (or &#39;stop&#39; to finish): stop
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-exception-handling-span">8.3. <span style="color:#4169E1">Exception Handling</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-catching-specific-exceptions-span">8.3.1. <span style="color:#B22222">Catching Specific Exceptions</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-try-with-except-and-else-clauses-span">8.3.2. <span style="color:#B22222"><code class="docutils literal notranslate"><span class="pre">try</span></code> with <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> clauses</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-try-with-except-and-finally-clauses-span">8.3.3. <span style="color:#B22222"><code class="docutils literal notranslate"><span class="pre">try</span></code> with <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">finally</span></code> clauses</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-raise-keyword-span">8.3.3. <span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">raise</span></code> keyword</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-try-with-except-and-finally-clauses-span">8.3.4. <span style="color:#B22222"><code class="docutils literal notranslate"><span class="pre">try</span></code> with <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">finally</span></code> clauses</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-custom-exceptions-optional-span">8.4. <span style="color:#4169E1">Custom Exceptions (Optional)</span></a><ul class="nav section-nav flex-column">
