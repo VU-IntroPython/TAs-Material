@@ -1,0 +1,10 @@
+Halloween costume inventory:
+Ghost
+Zombie
+Witch
+Pumpkin
+
+Candy inventory:
+Snickers 15
+Jawbreakers 32
+Tony's 8

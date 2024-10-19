@@ -14,3 +14,4 @@ chapters:
 - file: notebooks/06-lists/lists.ipynb
 - file: notebooks/07-dictionaries/dictionaries.ipynb
 - file: notebooks/08-exceptions/exceptions.ipynb
+- file: notebooks/10-files/files.ipynb
