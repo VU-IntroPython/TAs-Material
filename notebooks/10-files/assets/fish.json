@@ -1,0 +1,8 @@
+[
+    {"Species": "Clownfish", "Color": "Orange and white", "Habitat": "Coral reefs"},
+    {"Species": "Guppy", "Color": "Varied", "Habitat": "Freshwater streams"},
+    {"Species": "Angelfish", "Color": "Black, white, and yellow", "Habitat": "Freshwater rivers"},
+    {"Species": "Betta", "Color": "Varied", "Habitat": "Freshwater ponds"},
+    {"Species": "Tetra", "Color": "Blue, red, and yellow", "Habitat": "Freshwater rivers"},
+    {"Species": "Discus", "Color": "Blue, green, and brown", "Habitat": "Amazon River"}
+]

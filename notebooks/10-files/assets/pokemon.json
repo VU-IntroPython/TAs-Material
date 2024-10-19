@@ -1,0 +1,14 @@
+[
+    {"name": "Pikachu", "type": "Electric"},
+    {"name": "Charmander", "type": "Fire"},
+    {"name": "Bulbasaur", "type": "Grass"},
+    {"name": "Squirtle", "type": "Water"},
+    {"name": "Raichu", "type": "Electric"},
+    {"name": "Vulpix", "type": "Fire"},
+    {"name": "Jolteon", "type": "Electric"},
+    {"name": "Oddish", "type": "Grass"},
+    {"name": "Poliwag", "type": "Water"},
+    {"name": "Growlithe", "type": "Fire"},
+    {"name": "Electabuzz", "type": "Electric"},
+    {"name": "Tentacool", "type": "Water"}
+]

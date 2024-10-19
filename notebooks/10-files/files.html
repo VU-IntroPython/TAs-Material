@@ -1,0 +1,1279 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>9. Files &#8212; Workbook Intro Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/10-files/files';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="8. Exceptions" href="../08-exceptions/exceptions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Workbook Intro Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Workbook Intro Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Programming Workbook XB-0082
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-functions/functions.html">2. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-conditionals/conditionals.html">3. Conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-while-loop/while-loop.html">4. While Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-for-loop/for-loop.html">5. For Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-lists/lists.html">6. Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-dictionaries/dictionaries.html">7. Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-exceptions/exceptions.html">8. Exceptions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Files</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/VU-IntroPython/TAs-Material.git/master/v2/gh/VU-IntroPython/TAs-Material/master?urlpath=lab/tree/notebooks/notebooks/10-files/files.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material/issues/new?title=Issue%20on%20page%20%2Fnotebooks/10-files/files.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/10-files/files.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Files</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-opening-files-span">9.1. <span style="color:#4169E1">Opening Files</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-file-names-and-paths-span">9.1.1. <span style="color:#B22222">File Names and Paths</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-open-code-function-span">9.1.2. <span style="color:#B22222">The <code>open()</code> Function</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-reading-files-span">9.2. <span style="color:#4169E1">Reading Files</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-read-code-method-span">9.2.1. <span style="color:#B22222">The <code>.read()</code> Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-readlines-code-method-span">9.2.2. <span style="color:#B22222">The <code>.readlines()</code> Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-readline-code-method-span">9.2.3. <span style="color:#B22222">The <code>.readline()</code> Method</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-a-context-manager-span">9.3. <span style="color:#4169E1">A Context Manager</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-optional-parameters-of-the-open-function-span">9.3.1. <span style="color:#B22222">Optional parameters of the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-writing-files-span">9.4. <span style="color:#4169E1">Writing Files</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-write-code-method-span">9.4.1. <span style="color:#B22222">The <code>.write()</code> Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-append-code-method-span">9.4.2. <span style="color:#B22222">The <code>.append()</code> Method</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-working-with-csv-files-span">9.5. <span style="color:#4169E1">Working with <code class="docutils literal notranslate"><span class="pre">csv</span></code> files</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-what-is-csv-dictreader-span">9.5.1. <span style="color:#B22222">What is <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code>?</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-key-features-of-csv-dictreader-span">9.5.2. <span style="color:#B22222">Key Features of <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-how-to-use-csv-dictreader-span">9.5.3. <span style="color:#B22222">How to Use <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-working-with-json-files-span">9.6. <span style="color:#4169E1">Working with <code class="docutils literal notranslate"><span class="pre">json</span></code> files</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-why-use-json-span">9.6.1. <span style="color:#B22222">Why use <code class="docutils literal notranslate"><span class="pre">json</span></code>?</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-getting-started-with-the-json-module-span">9.6.2. <span style="color:#B22222">Getting started with the <code class="docutils literal notranslate"><span class="pre">json</span></code> module</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">9.7. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">9.7.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">9.7.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">9.7.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="files">
+<h1><span class="section-number">9. </span>Files<a class="headerlink" href="#files" title="Permalink to this heading">#</a></h1>
+<p><strong>In this notebook, we cover the following subjects:</strong></p>
+<ul class="simple">
+<li><p>Opening Files;</p></li>
+<li><p>Reading Files;</p></li>
+<li><p>A Context Manager;</p></li>
+<li><p>Writing Files,</p></li>
+<li><p>Working with <code class="docutils literal notranslate"><span class="pre">csv</span></code> files,</p></li>
+<li><p>Working with <code class="docutils literal notranslate"><span class="pre">json</span></code> files</p></li>
+</ul>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To enable type hints for lists, dicts, tuples, and sets we need to import the following:</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Set</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="span-style-color-4169e1-opening-files-span">
+<h2><span class="section-number">9.1. </span><span style="color:#4169E1">Opening Files</span><a class="headerlink" href="#span-style-color-4169e1-opening-files-span" title="Permalink to this heading">#</a></h2>
+<p>So far, we have worked with data that was stored and created directly in our notebooks. For example, we created a dictionary of word frequencies from a string of text. However, most of the data we use in real-world applications is stored in <strong>files</strong>, often due to its sheer size or because it needs to be kept for future use. Therefore, it’s essential to learn how to retrieve this data so we can perform operations on it.</p>
+<p>First things first. How do we find a file?</p>
+<section id="span-style-color-b22222-file-names-and-paths-span">
+<h3><span class="section-number">9.1.1. </span><span style="color:#B22222">File Names and Paths</span><a class="headerlink" href="#span-style-color-b22222-file-names-and-paths-span" title="Permalink to this heading">#</a></h3>
+<p>Files are organized into directories (also called “folders”). Every running program has a current directory, which is the default directory for most operations. For example, when you open a file for reading, Python looks for it in the current directory.</p>
+<p>A string like <code class="docutils literal notranslate"><span class="pre">&quot;/Users/mvdbrand/Documents/GitLab/course-material-jbi010/202122/Lectures/week3&quot;</span></code> that identifies a file or directory is called a <strong>path</strong>. Often we assign this path to a variable, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;assets/halloween.txt&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">assets</span></code> is a folder located in the same directory as this notebook. We want to access the file <code class="docutils literal notranslate"><span class="pre">halloween.txt</span></code> from this folder.</p>
+</section>
+<section id="span-style-color-b22222-the-code-open-code-function-span">
+<h3><span class="section-number">9.1.2. </span><span style="color:#B22222">The <code>open()</code> Function</span><a class="headerlink" href="#span-style-color-b22222-the-code-open-code-function-span" title="Permalink to this heading">#</a></h3>
+<p>Now that we know how to locate our file, the next step is to open it. As the title of this section suggests, we’ll use the <a class="reference external" href="https://www.w3schools.com/python/ref_func_open.asp"><code class="docutils literal notranslate"><span class="pre">open()</span></code></a> function for this purpose. Your first instinct might be to write something like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">halloween_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Type of the open file object is: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">halloween_file</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Content of our file is:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">halloween_file</span><span class="p">)</span>
+
+<span class="c1"># Does it work like expected?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Type of the open file object is: &lt;class &#39;_io.TextIOWrapper&#39;&gt;
+
+Content of our file is:
+
+&lt;_io.TextIOWrapper name=&#39;assets/halloween.txt&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This isn’t quite what we expected, is it? The function seems to return something called a <code class="docutils literal notranslate"><span class="pre">_io.TextIOWrapper</span></code> object. This happens because when we try to open a file, we’re really asking the <strong>operating system (OS)</strong> to locate the file by its name and ensure it exists. We use Python’s built-in <code class="docutils literal notranslate"><span class="pre">open()</span></code> function to do this. If the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function is successful, the operating system returns a <strong>file handle</strong>, which in this case is the <code class="docutils literal notranslate"><span class="pre">_io.TextIOWrapper</span></code> object. The file handle isn’t the actual data, but rather an intermediary that allows us to read from or write to the file.</p>
+<p>So, while we might have expected the content of the data to be displayed when we printed the file, the first step was successful; the file was located, and a file handle was returned. Now, let’s move on to the next step: how do we actually read a file?</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Programs that store their data are <b>persistent</b></p>
+</div>
+</section>
+</section>
+<section id="span-style-color-4169e1-reading-files-span">
+<h2><span class="section-number">9.2. </span><span style="color:#4169E1">Reading Files</span><a class="headerlink" href="#span-style-color-4169e1-reading-files-span" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-b22222-the-code-read-code-method-span">
+<h3><span class="section-number">9.2.1. </span><span style="color:#B22222">The <code>.read()</code> Method</span><a class="headerlink" href="#span-style-color-b22222-the-code-read-code-method-span" title="Permalink to this heading">#</a></h3>
+<p>So, in the previous section, we figured out how to locate a file successfully. Now, we want to see what’s inside. If you know the file is small compared to your main memory, you can use the <a class="reference external" href="https://www.w3schools.com/python/ref_file_read.asp"><code class="docutils literal notranslate"><span class="pre">read()</span></code></a> method on the file handle. This method pulls the entire content of the file into a single string, including all line breaks.</p>
+<p>It’s smart to store the result of the <code class="docutils literal notranslate"><span class="pre">read()</span></code> method in a variable, given that it <strong>exhausts resources</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">halloween_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;assets/halloween.txt&quot;</span><span class="p">)</span>  <span class="c1"># You can also pass the string immediately in the function call</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">halloween_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Content of our file is:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+<span class="n">halloween_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Content of our file is:
+
+Halloween costume inventory:
+Ghost
+Zombie
+Witch
+Pumpkin
+
+Candy inventory:
+Snickers 15
+Jawbreakers 32
+Tony&#39;s 8
+</pre></div>
+</div>
+</div>
+</div>
+<p>You might be wondering, what’s the deal with this <code class="docutils literal notranslate"><span class="pre">.close()</span></code> at the end? Even though we’re only reading the file in this section and not writing to it, it’s still important to close it. When writing to a file, closing is crucial because, until you do, the data might not actually be saved or stored properly. By getting into the habit of closing files, even when just reading, you ensure consistent behavior across different Python environments, making your code more reliable. But don’t worry, you won’t have to always open and close files by hand. We will learn how to do it using a specific command later on.</p>
+</section>
+<section id="span-style-color-b22222-the-code-readlines-code-method-span">
+<h3><span class="section-number">9.2.2. </span><span style="color:#B22222">The <code>.readlines()</code> Method</span><a class="headerlink" href="#span-style-color-b22222-the-code-readlines-code-method-span" title="Permalink to this heading">#</a></h3>
+<p>Sometimes, you don’t need to read the entire content of a file at once; instead, you may want to process it line by line. The <a class="reference external" href="https://www.w3schools.com/python/ref_file_readlines.asp"><code class="docutils literal notranslate"><span class="pre">.readlines()</span></code></a> method is ideal for this because it returns the content as a list of strings, with each line split at the newline character (<code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">halloween_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;assets/halloween.txt&quot;</span><span class="p">)</span>  <span class="c1"># You can also pass the string immediately in the function call</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">halloween_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Content of our file is:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+<span class="n">halloween_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Content of our file is:
+
+[&#39;Halloween costume inventory:\n&#39;, &#39;Ghost\n&#39;, &#39;Zombie\n&#39;, &#39;Witch\n&#39;, &#39;Pumpkin\n&#39;, &#39;\n&#39;, &#39;Candy inventory:\n&#39;, &#39;Snickers 15\n&#39;, &#39;Jawbreakers 32\n&#39;, &quot;Tony&#39;s 8&quot;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To access the content line by line, you can simply use a for loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Halloween costume inventory:
+
+Ghost
+
+Zombie
+
+Witch
+
+Pumpkin
+
+
+
+Candy inventory:
+
+Snickers 15
+
+Jawbreakers 32
+
+Tony&#39;s 8
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-b22222-the-code-readline-code-method-span">
+<h3><span class="section-number">9.2.3. </span><span style="color:#B22222">The <code>.readline()</code> Method</span><a class="headerlink" href="#span-style-color-b22222-the-code-readline-code-method-span" title="Permalink to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://www.w3schools.com/python/ref_file_readline.asp"><code class="docutils literal notranslate"><span class="pre">.readline()</span></code></a> method might feel a bit unintuitive. It reads the content one line at a time, returning the next line each time you call it. It’s easier to understand when you see it in action.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">halloween_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;assets/halloween.txt&quot;</span><span class="p">)</span>  <span class="c1"># You can also pass the string immediately in the function call</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">halloween_file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Halloween costume inventory:
+</pre></div>
+</div>
+</div>
+</div>
+<p>And what happens when we call the method again?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="n">halloween_file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ghost
+</pre></div>
+</div>
+</div>
+</div>
+<p>And again?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="n">halloween_file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="n">halloween_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zombie
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="span-style-color-4169e1-a-context-manager-span">
+<h2><span class="section-number">9.3. </span><span style="color:#4169E1">A Context Manager</span><a class="headerlink" href="#span-style-color-4169e1-a-context-manager-span" title="Permalink to this heading">#</a></h2>
+<p>Manually opening and closing files is quite prone to errors, especially when writing files, which can lead to problems. To prevent this, before we start writing files, we’ll introduce a <a class="reference external" href="https://www.geeksforgeeks.org/context-manager-in-python/"><strong>context manager</strong></a>; a tool that automatically handles opening/closing for you. We do this by using a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement, as the file is automatically closed once you exit the scope of this statement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;assets/halloween.txt&quot;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">halloween_file</span><span class="p">:</span>  <span class="c1"># The &quot;r&quot; parameters indicates we read a file </span>
+    <span class="c1"># The file is only open in this scope</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">halloween_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="c1"># Once you&#39;re out, the file is closed again</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Halloween costume inventory:
+Ghost
+Zombie
+Witch
+Pumpkin
+
+Candy inventory:
+Snickers 15
+Jawbreakers 32
+Tony&#39;s 8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using a <b>context manager</b> is best practice because it reduces errors, so it’s expected that you use it in future programs.</p>
+</div>
+<section id="span-style-color-b22222-optional-parameters-of-the-open-function-span">
+<h3><span class="section-number">9.3.1. </span><span style="color:#B22222">Optional parameters of the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function</span><a class="headerlink" href="#span-style-color-b22222-optional-parameters-of-the-open-function-span" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">open()</span></code> function can take many optional parameters. These parameters can help you control how the file is opened and interacted with.</p>
+<p>Let’s check an <code class="docutils literal notranslate"><span class="pre">open()</span></code> function with the most common optional parameters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;example.txt&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So what do these parameters do?</p>
+<p><strong>mode:</strong></p>
+<ul class="simple">
+<li><p>we are already familiar with this</p></li>
+<li><p>‘w’: Write mode (creates a new file or truncates an existing file).</p></li>
+<li><p>Other modes include ‘r’ (read), ‘a’ (append), ‘x’ (exclusive creation), ‘b’ (binary), and ‘t’ (text).</p></li>
+</ul>
+<p><strong>encoding:</strong></p>
+<ul class="simple">
+<li><p>Specifies the encoding to use for the file (e.g., ‘utf-8’, ‘ascii’).</p></li>
+</ul>
+<p><strong>delimiter:</strong></p>
+<ul class="simple">
+<li><p>Used in CSV files to specify the character that separates fields (e.g., ‘,’ for comma, ‘\t’ for tab).</p></li>
+</ul>
+</section>
+</section>
+<section id="span-style-color-4169e1-writing-files-span">
+<h2><span class="section-number">9.4. </span><span style="color:#4169E1">Writing Files</span><a class="headerlink" href="#span-style-color-4169e1-writing-files-span" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-b22222-the-code-write-code-method-span">
+<h3><span class="section-number">9.4.1. </span><span style="color:#B22222">The <code>.write()</code> Method</span><a class="headerlink" href="#span-style-color-b22222-the-code-write-code-method-span" title="Permalink to this heading">#</a></h3>
+<p>To <a class="reference external" href="https://www.w3schools.com/python/python_file_write.asp"><strong>write</strong></a> a file you should open it with mode <code>w</code> (from write) as second parameter. If the file already exists, opening it in write mode removes the current content from the file, so be <b>careful</b>! If the file does not exist, a new one is created.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;assets/output.txt&quot;</span>
+
+<span class="n">a_string</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;This is my first line written to a file!&quot;</span>
+    
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>    
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">a_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Open the file in the text editor, did we succeed?</p>
+</section>
+<section id="span-style-color-b22222-the-code-append-code-method-span">
+<h3><span class="section-number">9.4.2. </span><span style="color:#B22222">The <code>.append()</code> Method</span><a class="headerlink" href="#span-style-color-b22222-the-code-append-code-method-span" title="Permalink to this heading">#</a></h3>
+<p>If we want to add to an already existing file, we can use the <a class="reference external" href="https://www.geeksforgeeks.org/python-append-to-a-file/"><code>.append()</code></a> method, opening with mode <code>a</code>. However, with append, we can only add to the end of the file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;assets/output.txt&quot;</span>
+
+<span class="c1"># Note how we add a new character line to make sure it it on a new line in the file</span>
+<span class="n">a_second_string</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">This is my second line written to a file!&quot;</span> 
+    
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>    
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">a_second_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="span-style-color-4169e1-working-with-csv-files-span">
+<h2><span class="section-number">9.5. </span><span style="color:#4169E1">Working with <code class="docutils literal notranslate"><span class="pre">csv</span></code> files</span><a class="headerlink" href="#span-style-color-4169e1-working-with-csv-files-span" title="Permalink to this heading">#</a></h2>
+<p>Welcome you to the world of <code class="docutils literal notranslate"><span class="pre">CSV</span></code> <strong>(Comma-Separated Values)</strong> files! These files are incredibly popular for storing tabular data in a straightforward text format that’s easy to read and write. In this section, we’ll delve into how to use <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code>, a superb tool that allows you to work with CSV files in a more intuitive way.</p>
+<section id="span-style-color-b22222-what-is-csv-dictreader-span">
+<h3><span class="section-number">9.5.1. </span><span style="color:#B22222">What is <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code>?</span><a class="headerlink" href="#span-style-color-b22222-what-is-csv-dictreader-span" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code> reads <strong>each row</strong> of a <a class="reference external" href="https://www.geeksforgeeks.org/working-csv-files-python/"><code class="docutils literal notranslate"><span class="pre">CSV</span></code></a> file and converts it into a <strong>dictionary</strong>, where the <strong>keys</strong> are drawn from the first row (<strong>the header</strong>) of the file. This means you can <strong>access your data by column names</strong> instead of numerical indices, making your code <strong>cleaner and easier to understand</strong>.</p>
+</section>
+<section id="span-style-color-b22222-key-features-of-csv-dictreader-span">
+<h3><span class="section-number">9.5.2. </span><span style="color:#B22222">Key Features of <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code></span><a class="headerlink" href="#span-style-color-b22222-key-features-of-csv-dictreader-span" title="Permalink to this heading">#</a></h3>
+<p>Here are some important features that make <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code> so useful:</p>
+<ul class="simple">
+<li><p><strong>Header Row:</strong> The first row of the CSV file serves as the keys for the dictionaries created from each subsequent row.</p></li>
+<li><p><strong>Customizable Delimiters:</strong> You can specify different delimiters (like semicolons) and quote characters, accommodating various CSV formats.</p></li>
+<li><p><strong>Case Sensitivity:</strong> Be mindful that dictionary keys are case-sensitive. For instance, “Name” and “name” are distinct keys.</p></li>
+<li><p><strong>Handling Missing Values:</strong> If a value is missing in a row, the corresponding key in the dictionary will simply be an empty string.</p></li>
+</ul>
+</section>
+<section id="span-style-color-b22222-how-to-use-csv-dictreader-span">
+<h3><span class="section-number">9.5.3. </span><span style="color:#B22222">How to Use <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code></span><a class="headerlink" href="#span-style-color-b22222-how-to-use-csv-dictreader-span" title="Permalink to this heading">#</a></h3>
+<p>Enough theory, right? Let’s see how the <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code> works in action. Here is the plan how we gonna read the <strong>csv</strong> file:</p>
+<p>( Use the <code class="docutils literal notranslate"><span class="pre">employees.csv</span></code> file located in the <code class="docutils literal notranslate"><span class="pre">assets</span></code> folder for testing)</p>
+<ol class="arabic simple">
+<li><p>First, let’s <strong>import the csv module</strong></p></li>
+<li><p>Second, <strong>open the CSV file:</strong> Use the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function to read your CSV file, ensuring you specify the correct mode (‘r’ for reading).</p></li>
+<li><p>Third, <strong>create a DictReader Object:</strong> Pass the opened file object to <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code></p></li>
+<li><p>Lastly, <strong>iterate over the rows:</strong> Loop through the <code class="docutils literal notranslate"><span class="pre">DictReader</span></code> object to access each row as a dictionary</p></li>
+</ol>
+<p>Ok, let’s see the code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the csv module</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="c1"># open the CSV file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;assets/employees.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">employees_file</span><span class="p">:</span>
+
+    <span class="c1"># create a DictReader Object</span>
+    <span class="n">reader</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">employees_file</span><span class="p">)</span>
+
+    <span class="c1"># iterate over the rows</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>  <span class="c1"># Each row is a dictionary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Name&#39;: &#39;Alice&#39;, &#39;Age&#39;: &#39;30&#39;, &#39;Department&#39;: &#39;HR&#39;}
+{&#39;Name&#39;: &#39;Bob&#39;, &#39;Age&#39;: &#39;25&#39;, &#39;Department&#39;: &#39;Engineering&#39;}
+{&#39;Name&#39;: &#39;Charlie&#39;, &#39;Age&#39;: &#39;28&#39;, &#39;Department&#39;: &#39;Marketing&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">If your CSV file uses semicolons instead of commas, how would you handle that in your code?</p>
+<p>To handle a CSV file that uses semicolons instead of commas, you can specify the <b>delimiter</b> as <code>’;’</code> in the <code>open()</code> function.</p>
+</div>
+<p>See, we just have dictionaries!</p>
+<p>Now what can we do with this? Let’s say I wanna know the names of all of my employees. How could we get their names?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s initialize a list to store employee names</span>
+<span class="n">employee_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Read the &#39;employees.csv&#39; file and extract names</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;assets/employees.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">employees_file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">employees_file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">employee_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span>
+
+<span class="n">employee_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Alice&#39;, &#39;Bob&#39;, &#39;Charlie&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Easy, right? Now there is one more thing we need to cover in this chapter…</p>
+</section>
+</section>
+<section id="span-style-color-4169e1-working-with-json-files-span">
+<h2><span class="section-number">9.6. </span><span style="color:#4169E1">Working with <code class="docutils literal notranslate"><span class="pre">json</span></code> files</span><a class="headerlink" href="#span-style-color-4169e1-working-with-json-files-span" title="Permalink to this heading">#</a></h2>
+<p>If you’re new to programming or Python, you might be wondering what <code class="docutils literal notranslate"><span class="pre">JSON</span></code> is and why it’s important. Simply put, <code class="docutils literal notranslate"><span class="pre">JSON</span></code> is a popular format for storing and exchanging data. It’s widely used in web applications and APIs because it’s easy to read and write for both humans and machines.</p>
+<p>In the following, we’ll explore how to work with <code class="docutils literal notranslate"><span class="pre">JSON</span></code> files in Python using the built-in <a class="reference external" href="https://www.w3schools.com/python/python_json.asp"><code class="docutils literal notranslate"><span class="pre">json</span></code></a> module.</p>
+<section id="span-style-color-b22222-why-use-json-span">
+<h3><span class="section-number">9.6.1. </span><span style="color:#B22222">Why use <code class="docutils literal notranslate"><span class="pre">json</span></code>?</span><a class="headerlink" href="#span-style-color-b22222-why-use-json-span" title="Permalink to this heading">#</a></h3>
+<p>Ok so we’ve already seen the csv dictreader, so why do we even bother understanding something new? Well, consider the bellow points:</p>
+<ul class="simple">
+<li><p><strong>Easy to Read:</strong> JSON is text-based and looks similar to Python dictionaries, making it simple to understand.</p></li>
+<li><p><strong>Language Independent:</strong> JSON can be used with many programming languages, not just Python, which makes it a versatile choice for data interchange.</p></li>
+<li><p><strong>Supports Complex Structures:</strong> JSON can handle nested data structures, such as lists and dictionaries, allowing you to represent more complex data easily.</p></li>
+</ul>
+<p>Convinced? Me neither! Let me share the fact that turned me into a <strong>JSON</strong> believer:</p>
+<p><em><strong>JSON</strong> is the standard format for <strong>data exchange</strong> on the web. Understanding JSON empowers you to interact with <strong>APIs</strong> and <strong>web services</strong>, allowing you to <strong>build dynamic applications</strong> that can communicate with other platforms seamlessly! It’s like learning the secret language of the internet!</em></p>
+</section>
+<section id="span-style-color-b22222-getting-started-with-the-json-module-span">
+<h3><span class="section-number">9.6.2. </span><span style="color:#B22222">Getting started with the <code class="docutils literal notranslate"><span class="pre">json</span></code> module</span><a class="headerlink" href="#span-style-color-b22222-getting-started-with-the-json-module-span" title="Permalink to this heading">#</a></h3>
+<p>The json module in Python provides simple methods for working with <code class="docutils literal notranslate"><span class="pre">JSON</span></code> data. Here’s what you’ll need to know:</p>
+<ul class="simple">
+<li><p><strong>Importing the JSON Module:</strong> Before we use the <code class="docutils literal notranslate"><span class="pre">json</span></code> module, we need to import it into our Python script.</p></li>
+<li><p><strong>Reading JSON Files:</strong> We can read data from a <code class="docutils literal notranslate"><span class="pre">JSON</span></code> file and convert it into Python objects using the <code class="docutils literal notranslate"><span class="pre">json.load()</span></code> function.</p></li>
+<li><p><strong>Extracting Information:</strong> Once the data is loaded into Python, we can easily <strong>access</strong> and <strong>manipulate</strong> it.</p></li>
+</ul>
+<p>Let’s look at an example. We will be working with the <code class="docutils literal notranslate"><span class="pre">fish.json</span></code> file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing the json module</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;assets/fish.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fish_file</span><span class="p">:</span>
+    <span class="n">fishes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fish_file</span><span class="p">)</span>  <span class="c1"># load the json data into a Python list</span>
+    <span class="k">for</span> <span class="n">fish_dict</span> <span class="ow">in</span> <span class="n">fishes</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">fish_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Species&#39;: &#39;Clownfish&#39;, &#39;Color&#39;: &#39;Orange and white&#39;, &#39;Habitat&#39;: &#39;Coral reefs&#39;}
+{&#39;Species&#39;: &#39;Guppy&#39;, &#39;Color&#39;: &#39;Varied&#39;, &#39;Habitat&#39;: &#39;Freshwater streams&#39;}
+{&#39;Species&#39;: &#39;Angelfish&#39;, &#39;Color&#39;: &#39;Black, white, and yellow&#39;, &#39;Habitat&#39;: &#39;Freshwater rivers&#39;}
+{&#39;Species&#39;: &#39;Betta&#39;, &#39;Color&#39;: &#39;Varied&#39;, &#39;Habitat&#39;: &#39;Freshwater ponds&#39;}
+{&#39;Species&#39;: &#39;Tetra&#39;, &#39;Color&#39;: &#39;Blue, red, and yellow&#39;, &#39;Habitat&#39;: &#39;Freshwater rivers&#39;}
+{&#39;Species&#39;: &#39;Discus&#39;, &#39;Color&#39;: &#39;Blue, green, and brown&#39;, &#39;Habitat&#39;: &#39;Amazon River&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>See, we have dictionaries again!</p>
+</section>
+</section>
+<section id="span-style-color-3cb371-exercises-span">
+<h2><span class="section-number">9.7. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+<p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
+<br></p>
+<section id="exercise-1">
+<h3><span class="section-number">9.7.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Let’s practice what we’ve just learned. For this exercise, you are tasked with writing a function called <code class="docutils literal notranslate"><span class="pre">add_to_shopping_list()</span></code> that takes a list of strings as input, where each string represents a shopping item. You need to add these items, one by one, onto a new line in a text file called <code class="docutils literal notranslate"><span class="pre">shopping_list.txt</span></code>, which should be saved in the <code class="docutils literal notranslate"><span class="pre">assets</span></code> folder. Each time a new list of items is added to the file, the function should also <strong>print</strong> the entire content of the file to the terminal.</p>
+<p><strong>Example input</strong>: you pass this argument to the parameter in the function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items_to_add</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Apples&quot;</span><span class="p">,</span> <span class="s2">&quot;Bananas&quot;</span><span class="p">,</span> <span class="s2">&quot;Bread&quot;</span><span class="p">]</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>: as well as in termin as the text file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apples</span>
+<span class="n">Bananas</span>
+<span class="n">Bread</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Modify the <code class="docutils literal notranslate"><span class="pre">add_to_shopping_list()</span></code> function so that it has an extra parameter, append. If append is set to <strong>False</strong>, the function should <strong>overwrite the existing shopping_list.txt</strong> file instead of appending to it. Consequently, if it is <strong>True</strong>, it should <strong>append</strong> to the file.</p>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shopping_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;monkey&#39;</span><span class="p">]</span>
+<span class="n">append</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;cat&#39;</span>
+<span class="s1">&#39;dog&#39;</span>
+<span class="s1">&#39;monkey&#39;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Further enhance the <code class="docutils literal notranslate"><span class="pre">add_to_shopping_list()</span></code> function to include <strong>error handling</strong>. If an <strong>invalid input</strong> is provided (e.g., a non-list type), the function should <strong>raise</strong> a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> with an appropriate message. Additionally, <strong>print a confirmation message</strong> every time items are successfully added.</p>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shopping_list</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Apples, Bananas, Bread&quot;</span><span class="p">)</span>
+<span class="n">append</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span><span class="p">:</span> <span class="n">Input</span> <span class="n">must</span> <span class="n">be</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">strings</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2">
+<h3><span class="section-number">9.7.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> For this exercise, you are provided with a CSV file called flowers.csv stored in the assets folder. The file contains information about different types of flowers, with columns “Name” and “Color”. Write a function called read_flowers_from_csv() that reads the CSV file and returns its content as a list of dictionaries.</p>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Rose&quot;</span><span class="p">,</span> <span class="s2">&quot;Color&quot;</span><span class="p">:</span> <span class="s2">&quot;Red&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sunflower&quot;</span><span class="p">,</span> <span class="s2">&quot;Color&quot;</span><span class="p">:</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Tulip&quot;</span><span class="p">,</span> <span class="s2">&quot;Color&quot;</span><span class="p">:</span> <span class="s2">&quot;Pink&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Modify the <code class="docutils literal notranslate"><span class="pre">read_flowers_from_csv()</span></code> function to return the list only if the CSV file contains data. If it’s empty, return an empty list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Enhance the <code class="docutils literal notranslate"><span class="pre">read_flowers_from_csv()</span></code> function to allow filtering by color. The function should take a parameter, <code class="docutils literal notranslate"><span class="pre">filter_color</span></code>, and only return the flowers that match the given color.</p>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Yellow&#39;</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sunflower&quot;</span><span class="p">,</span> <span class="s2">&quot;Color&quot;</span><span class="p">:</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3">
+<h3><span class="section-number">9.7.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> You are provided with a JSON file called <code class="docutils literal notranslate"><span class="pre">pokemons.json</span></code> stored in the assets folder. The file contains a list of Pokémon, with each Pokémon having a <code class="docutils literal notranslate"><span class="pre">&quot;name&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;</span></code>. Write a function called <code class="docutils literal notranslate"><span class="pre">read_pokemons_from_json()</span></code> that reads the JSON file and <strong>returns</strong> its content as a <strong>list of dictionaries</strong>.</p>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Pikachu&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Charmander&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Fire&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bulbasaur&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Grass&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Squirtle&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Water&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Raichu&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Vulpix&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Fire&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jolteon&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Oddish&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Grass&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Poliwag&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Water&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Growlithe&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Fire&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Electabuzz&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Tentacool&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Water&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Modify the <code class="docutils literal notranslate"><span class="pre">read_pokemons_from_json()</span></code> function to add another feature. If a Pokémon’s <strong>type</strong> appears <strong>more than once</strong> in the list (i.e., multiple Pokémon of the same type exist), <strong>group the Pokémon by their type</strong>. The function should <strong>return a dictionary</strong> where the <strong>keys are the types</strong>, and the <strong>values are lists of Pokémon with that type</strong>.</p>
+<p><strong>Expected output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;Electric&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Pikachu&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Raichu&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jolteon&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Electabuzz&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;Fire&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Charmander&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Fire&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Vulpix&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Fire&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Growlithe&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Fire&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;Grass&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bulbasaur&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Grass&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Oddish&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Grass&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;Water&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Squirtle&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Water&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Poliwag&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Water&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Tentacool&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Water&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Enhance the <code class="docutils literal notranslate"><span class="pre">read_pokemons_from_json()</span></code> function to include an additional parameter, <code class="docutils literal notranslate"><span class="pre">sort_by_name</span></code>. If <code class="docutils literal notranslate"><span class="pre">sort_by_name=True</span></code>, the function should return the Pokémon grouped by type, but also sorted alphabetically by their name within each type group.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sort_by_name</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;Electric&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Electabuzz&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jolteon&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Pikachu&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Raichu&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;Fire&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Charmander&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Fire&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Growlithe&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Fire&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Vulpix&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Fire&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;Grass&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bulbasaur&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Grass&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Oddish&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Grass&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;Water&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Poliwag&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Water&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Squirtle&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Water&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Tentacool&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Water&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><em>Material for the VU Amsterdam course “Introduction to Python Programming” for BSc Artificial Intelligence students. These notebooks are created using the following sources:</em></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://programming-pybook.github.io/introProgramming/intro.html">Learning Python by Doing</a>: This book, developed by teachers of TU/e Eindhoven and VU Amsterdam, is the main source for the course materials. Code snippets or text explanations from the book may be used in the notebooks, sometimes with slight adjustments.</p></li>
+<li><p><a class="reference external" href="https://greenteapress.com/thinkpython2/html/">Think Python</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org">GeekForGeeks</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cltl/python-for-text-analysis/blob/master/Chapters/Chapter%2014%20-%20Reading%20and%20writing%20text%20files.ipynb">Python for Text Analysis</a>: For this particular notebook on working with files, we’ve drawn inspiration from the VU Master’s course Python for Text Analysis offered by the Humanities department.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "VU-IntroPython/TAs-Material",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/10-files"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../08-exceptions/exceptions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Exceptions</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-opening-files-span">9.1. <span style="color:#4169E1">Opening Files</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-file-names-and-paths-span">9.1.1. <span style="color:#B22222">File Names and Paths</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-open-code-function-span">9.1.2. <span style="color:#B22222">The <code>open()</code> Function</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-reading-files-span">9.2. <span style="color:#4169E1">Reading Files</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-read-code-method-span">9.2.1. <span style="color:#B22222">The <code>.read()</code> Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-readlines-code-method-span">9.2.2. <span style="color:#B22222">The <code>.readlines()</code> Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-readline-code-method-span">9.2.3. <span style="color:#B22222">The <code>.readline()</code> Method</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-a-context-manager-span">9.3. <span style="color:#4169E1">A Context Manager</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-optional-parameters-of-the-open-function-span">9.3.1. <span style="color:#B22222">Optional parameters of the <code class="docutils literal notranslate"><span class="pre">open()</span></code> function</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-writing-files-span">9.4. <span style="color:#4169E1">Writing Files</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-write-code-method-span">9.4.1. <span style="color:#B22222">The <code>.write()</code> Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-append-code-method-span">9.4.2. <span style="color:#B22222">The <code>.append()</code> Method</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-working-with-csv-files-span">9.5. <span style="color:#4169E1">Working with <code class="docutils literal notranslate"><span class="pre">csv</span></code> files</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-what-is-csv-dictreader-span">9.5.1. <span style="color:#B22222">What is <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code>?</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-key-features-of-csv-dictreader-span">9.5.2. <span style="color:#B22222">Key Features of <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-how-to-use-csv-dictreader-span">9.5.3. <span style="color:#B22222">How to Use <code class="docutils literal notranslate"><span class="pre">csv.DictReader</span></code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-working-with-json-files-span">9.6. <span style="color:#4169E1">Working with <code class="docutils literal notranslate"><span class="pre">json</span></code> files</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-why-use-json-span">9.6.1. <span style="color:#B22222">Why use <code class="docutils literal notranslate"><span class="pre">json</span></code>?</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-getting-started-with-the-json-module-span">9.6.2. <span style="color:#B22222">Getting started with the <code class="docutils literal notranslate"><span class="pre">json</span></code> module</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">9.7. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">9.7.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">9.7.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">9.7.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Koen van der Pool, Mauricio Verano Merino & Márton Bodó
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024. Vrije Universiteit Amsterdam.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
