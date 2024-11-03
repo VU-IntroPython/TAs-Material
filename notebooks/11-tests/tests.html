@@ -1,0 +1,1260 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>10. Tests &#8212; Workbook Intro Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/11-tests/tests';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="9. Files" href="../10-files/files.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Workbook Intro Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Workbook Intro Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Programming Workbook XB-0082
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-functions/functions.html">2. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-conditionals/conditionals.html">3. Conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-while-loop/while-loop.html">4. While Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-for-loop/for-loop.html">5. For Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-lists/lists.html">6. Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-dictionaries/dictionaries.html">7. Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-exceptions/exceptions.html">8. Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-files/files.html">9. Files</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Tests</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/VU-IntroPython/TAs-Material.git/master/v2/gh/VU-IntroPython/TAs-Material/master?urlpath=lab/tree/notebooks/notebooks/11-tests/tests.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material/issues/new?title=Issue%20on%20page%20%2Fnotebooks/11-tests/tests.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/11-tests/tests.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tests</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-part-1-using-assert-for-basic-testing-span">10.1. <span style="color:#4169E1"> Part 1 - Using <code class="docutils literal notranslate"><span class="pre">assert</span></code> for Basic Testing</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-syntax-of-assert-span">10.1.1. <span style="color:#B22222">Syntax of <code class="docutils literal notranslate"><span class="pre">assert</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-common-keywords-used-with-assert-span">10.1.2. <span style="color:#B22222">Common keywords used with <code class="docutils literal notranslate"><span class="pre">assert</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-when-to-use-assert-span">10.1.3. <span style="color:#B22222">When to Use <code class="docutils literal notranslate"><span class="pre">assert</span></code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-part-2-writing-your-first-pytest-span">10.2. <span style="color:#4169E1"> Part 2 - Writing Your First <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-error-handling-optional-span">10.2.1. <span style="color:#B22222">Error handling (optional)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-writing-more-tests-span">10.2.2. <span style="color:#B22222">Writing more tests</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-handling-failing-tests-span">10.2.3. <span style="color:#B22222">Handling Failing Tests</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-more-assert-statements-with-pytest-span">10.2.4. <span style="color:#B22222">More <code class="docutils literal notranslate"><span class="pre">assert</span></code> Statements with <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-pytest-raises-to-check-for-exceptions-span">10.2.5. <span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> to Check for Exceptions</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">10.2.6. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">10.2.7. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">10.2.8. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tests">
+<h1><span class="section-number">10. </span>Tests<a class="headerlink" href="#tests" title="Permalink to this heading">#</a></h1>
+<p><strong>In this notebook, we cover the following subjects:</strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement,</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">pytest</span></code> module.</p></li>
+</ul>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To enable type hints for lists, dicts, tuples, and sets we need to import the following:</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Set</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Testing is an essential skill in any programmer’s toolkit. It ensures our code runs as expected, catches bugs early, and gives us confidence in the software we create. In this notebook, we’re going to dive into two powerful tools in Python’s testing arsenal:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assert</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pytest</span></code></p></li>
+</ul>
+<p>You’ve already worked with <code class="docutils literal notranslate"><span class="pre">exceptions</span></code>(Notebook 8), learning how to handle errors smoothly when they arise. Now, we’ll explore how to prevent them from happening in the first place by actively testing our code. By the end of this chapter, you’ll be comfortable writing, running, and understanding tests in Python.</p>
+<p>One last thing before we start… This notebook will be special because it is split into 2 parts. In <strong>Part 1</strong> we will be learning about the <code class="docutils literal notranslate"><span class="pre">assert</span></code> keyword in our usual, Jupyter Notebook environment. However, for <strong>Part 2</strong>, you will be required to follow along the tutorial about <code class="docutils literal notranslate"><span class="pre">pytests</span></code> (explained in this notebook) and practice in a seperate <strong>py</strong> file. Meaning, you will have to work in your choice of code editor (VS Code, Pycharm etc.) in a py file. We will get back to that in due course.</p>
+<p>Ok, now all is set. Let’s dive in!</p>
+<section id="span-style-color-4169e1-part-1-using-assert-for-basic-testing-span">
+<h2><span class="section-number">10.1. </span><span style="color:#4169E1"> Part 1 - Using <code class="docutils literal notranslate"><span class="pre">assert</span></code> for Basic Testing</span><a class="headerlink" href="#span-style-color-4169e1-part-1-using-assert-for-basic-testing-span" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement in Python is a simple yet powerful way to verify that a condition holds <strong>True</strong>. It’s commonly used for quick checks or to validate assumptions in code. If the condition you’re testing is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the program continues as expected. However, if the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>, an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> is raised, and the program stops. This is particularly useful when you want to catch potential bugs early on.</p>
+<section id="span-style-color-b22222-syntax-of-assert-span">
+<h3><span class="section-number">10.1.1. </span><span style="color:#B22222">Syntax of <code class="docutils literal notranslate"><span class="pre">assert</span></code></span><a class="headerlink" href="#span-style-color-b22222-syntax-of-assert-span" title="Permalink to this heading">#</a></h3>
+<p>The basic syntax of an <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">optional</span> <span class="n">error</span> <span class="n">message</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;condition&gt;</span></code>: This is the expression you want to test. If it evaluates to <strong>True</strong>, the program continues running. If it’s <strong>False</strong>, Python <strong>raises</strong> an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;optional</span> <span class="pre">error</span> <span class="pre">message&gt;</span></code>: This is an optional message that will display if the assertion fails, helping you understand what went wrong.</p></li>
+</ul>
+<p>Now that we know the theory behind the syntax, let’s look at a few examples!</p>
+<p>Let’s say we have a function that expects <strong>positive numbers only</strong>. We can use an <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement to ensure this requirement:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_number</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Number must be positive&quot;</span>
+    <span class="k">return</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">process_number</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>    <span class="c1"># works fine</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">process_number</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span>   <span class="c1"># raises AssertionError: &quot;Number must be positive&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">process_number</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>    <span class="c1"># works fine</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">process_number</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span>   <span class="c1"># raises AssertionError: &quot;Number must be positive&quot;</span>
+
+<span class="nn">Cell In[2], line 2,</span> in <span class="ni">process_number</span><span class="nt">(number)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">process_number</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">assert</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Number must be positive&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="ne">AssertionError</span>: Number must be positive
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above example, if <code class="docutils literal notranslate"><span class="pre">n</span></code> is <strong>positive</strong>, the function continues and <strong>returns the result</strong>. However, if <code class="docutils literal notranslate"><span class="pre">n</span></code> is <strong>negative</strong>, it <strong>raises</strong> an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> with a helpful message.</p>
+</section>
+<section id="span-style-color-b22222-common-keywords-used-with-assert-span">
+<h3><span class="section-number">10.1.2. </span><span style="color:#B22222">Common keywords used with <code class="docutils literal notranslate"><span class="pre">assert</span></code></span><a class="headerlink" href="#span-style-color-b22222-common-keywords-used-with-assert-span" title="Permalink to this heading">#</a></h3>
+<p>Bellow is a table of the most common keywords and expressions used with <code class="docutils literal notranslate"><span class="pre">assert</span></code>, along with brief explanations for each.<br />
+These keywords make it easier to perform specific checks, such as verifying types, values, and membership, which can help you catch issues early.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyword</p></th>
+<th class="head"><p>Explanation</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">is</span></code></p></td>
+<td><p>Checks if two objects are the same instance (identity).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">a</span> <span class="pre">is</span> <span class="pre">b</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td><p>Checks if two values are equal.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">result</span> <span class="pre">==</span> <span class="pre">expected_value</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">in</span></code></p></td>
+<td><p>Checks if an element exists within a container (e.g., list, tuple, set, dictionary).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">my_list</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code></p></td>
+<td><p>Checks if an element does not exist within a container.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">item</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">forbidden_list</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">isinstance</span></code></p></td>
+<td><p>Checks if an object is an instance of a specific class or tuple of classes.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">isinstance(x,</span> <span class="pre">int)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">issubclass</span></code></p></td>
+<td><p>Checks if a class is a subclass of another class.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">issubclass(Dog,</span> <span class="pre">Animal)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">issubset</span></code></p></td>
+<td><p>Checks if all elements of one set are present in another set.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">subset.issubset(superset)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> / <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td><p>Checks if a value is greater than or equal to, or less than or equal to, another value.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">score</span> <span class="pre">&gt;=</span> <span class="pre">passing_score</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> / <code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p>Checks if a value is strictly greater than or less than another value.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">age</span> <span class="pre">&gt;</span> <span class="pre">18</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">len</span></code></p></td>
+<td><p>Verifies the length of a collection, often used with <code class="docutils literal notranslate"><span class="pre">==</span></code> to assert an expected length.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">len(my_list)</span> <span class="pre">==</span> <span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>Checks if an object is exactly a specific type, useful when <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> isn’t precise enough.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">type(x)</span> <span class="pre">is</span> <span class="pre">float</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">any</span></code></p></td>
+<td><p>Verifies that at least one element in an iterable is true (used with a condition).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">any(x</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">nums)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">all</span></code></p></td>
+<td><p>Verifies that all elements in an iterable are true (used with a condition).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">all(x</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">nums)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Let’s look at one more example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Validates user information for sign-up.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        user (Dict[str, any]): A dictionary containing user data with required keys:</span>
+<span class="sd">                     - &#39;username&#39;: a string with at least 3 characters</span>
+<span class="sd">                     - &#39;age&#39;: an integer greater than 12</span>
+<span class="sd">                     - &#39;email&#39;: a string containing an &#39;@&#39; symbol</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: A success message if all validation checks pass.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        AssertionError: If any validation check fails, with a message describing the error.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># check if user is a dictionary</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="nb">dict</span><span class="p">),</span> <span class="s2">&quot;User information must be a dictionary.&quot;</span>
+    
+    <span class="c1"># check for required keys</span>
+    <span class="n">required_keys</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">}</span>
+    <span class="k">assert</span> <span class="n">required_keys</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="sa">f</span><span class="s2">&quot;User data must include </span><span class="si">{</span><span class="n">required_keys</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="c1"># check if username is a string with at least 3 characters</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Username must be a string with at least 3 characters.&quot;</span>
+    
+    <span class="c1"># check if age is an integer greater than 12</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">],</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">user</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;Age must be an integer greater than 12.&quot;</span>
+    
+    <span class="c1"># check if email contains an &#39;@&#39; symbol</span>
+    <span class="k">assert</span> <span class="s2">&quot;@&quot;</span> <span class="ow">in</span> <span class="n">user</span><span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">],</span> <span class="s2">&quot;Email must contain an &#39;@&#39; symbol.&quot;</span>
+    
+    <span class="c1"># iff all assertions pass, return a success message</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;User </span><span class="si">{</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> is successfully validated.&quot;</span>
+
+<span class="c1"># test with valid user data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">validate_user</span><span class="p">({</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;alice@example.com&quot;</span><span class="p">}))</span>
+
+<span class="c1"># test with invalid user data</span>
+<span class="c1"># print(validate_user({&quot;username&quot;: &quot;Al&quot;, &quot;age&quot;: 10, &quot;email&quot;: &quot;aliceexample.com&quot;}))  # Raises AssertionError: &quot;Username must be a string with at least 3 characters.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above function (<code class="docutils literal notranslate"><span class="pre">validate_user</span></code>) checks if a user’s information meets certain requirements during sign-up.</p>
+<ul class="simple">
+<li><p>It takes a <strong>dictionary</strong> with the user’s details and verifies that it includes the necessary <strong>keys: ‘username’, ‘age’, and ‘email’</strong>.</p></li>
+<li><p>The function ensures the <strong>username</strong> is at least <strong>three characters</strong> long,</p></li>
+<li><p>the <strong>age</strong> is an <strong>integer</strong>, greater than <strong>12</strong></p></li>
+<li><p>and that the <strong>email</strong> contains an <strong>‘&#64;’</strong> symbol.</p></li>
+</ul>
+<p>If any of these checks <strong>fail</strong>, it raises an <code class="docutils literal notranslate"><span class="pre">assertion</span> <span class="pre">error</span></code> with a message explaining what went wrong. If everything is <strong>correct</strong>, it <code class="docutils literal notranslate"><span class="pre">returns</span> <span class="pre">a</span> <span class="pre">success</span> <span class="pre">message</span></code> confirming the user has been validated.</p>
+</section>
+<section id="span-style-color-b22222-when-to-use-assert-span">
+<h3><span class="section-number">10.1.3. </span><span style="color:#B22222">When to Use <code class="docutils literal notranslate"><span class="pre">assert</span></code></span><a class="headerlink" href="#span-style-color-b22222-when-to-use-assert-span" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement is great for situations where you need <strong>quick, in-line checks</strong>. However, it’s generally used in scenarios where you’re confident the conditions should hold under normal circumstances. If you’re unsure whether a condition might fail in a production environment, consider handling the error with a <code class="docutils literal notranslate"><span class="pre">try-except</span></code> block instead.</p>
+<p>Let’s look at an example:</p>
+<p><strong>Example with <code class="docutils literal notranslate"><span class="pre">assert</span></code></strong>:</p>
+<p>Let’s say we are working on a function to calculate the square root of a number. Normally, you expect that the number provided is positive. In such a case, you can use <code class="docutils literal notranslate"><span class="pre">assert</span></code> to make a quick, in-line check:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_square_root</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="c1"># sssert that the input should be positive</span>
+    <span class="k">assert</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Input must be a non-negative number&quot;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+<span class="c1"># example usage:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_square_root</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>   <span class="c1"># works fine</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_square_root</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">))</span>  <span class="c1"># raises AssertionError with message &quot;Input must be a non-negative number&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">assert</span></code> is ideal because, under normal circumstances, you expect the input to be positive.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">What will happen if you change an assertion from <code>assert x &gt; 0</code> to <code> assert x &gt;= 0</code> in your code?</p>
+<p>Changing the assertion to <code>assert x &gt;= 0</code> allows the value <code>0</code> to pass without raising an error, whereas <code>assert x &gt; 0</code> would fail if <code>x</code> were <code>0</code>. This change could lead to unexpected behavior in your program if you rely on <code>x</code> being strictly greater than <code>0</code> for correct functionality. It’s essential to understand the specific requirements of your code to ensure it behaves as intended.</p>
+</div>
+<p><strong>Example with <code class="docutils literal notranslate"><span class="pre">try-except</span></code></strong>:</p>
+<p>If the input is coming from an unpredictable source (e.g., user input in a production environment), it’s better to handle it with try-except so the program doesn’t crash. For instance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_square_root</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input must be a non-negative number&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mf">0.5</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="c1"># example usage:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_square_root</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>   <span class="c1"># outputs 3.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_square_root</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">))</span>  <span class="c1"># outputs &quot;Error: Input must be a non-negative number&quot; and returns None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this version, if a negative number is entered, it smoothly handles the error without crashing, which is more suitable for production scenarios where unexpected input is possible.</p>
+<p><strong>Note:</strong> This is the <strong>END of Part 1</strong>. Before we begin with <strong>Part 2</strong>, please open the code editor of your choice and create a new <strong>.py</strong> file called <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code>. This will be where you write your tests as you follow along.</p>
+</section>
+</section>
+<section id="span-style-color-4169e1-part-2-writing-your-first-pytest-span">
+<h2><span class="section-number">10.2. </span><span style="color:#4169E1"> Part 2 - Writing Your First <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span><a class="headerlink" href="#span-style-color-4169e1-part-2-writing-your-first-pytest-span" title="Permalink to this heading">#</a></h2>
+<p>In your <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> file, let’s start with a basic test. Pytest recognizes functions that start with <code class="docutils literal notranslate"><span class="pre">test_</span></code> as test functions.</p>
+<ol class="arabic simple">
+<li><p>Open your <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> file.</p></li>
+<li><p>Write the following code in it:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># test_example.py</span>
+
+<span class="k">def</span> <span class="nf">test_addition</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">test_addition()</span></code> function is our first test. The <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement checks if 1 + 1 equals 2. If it does, the test <strong>passes</strong>. Otherwise, pytest will <code class="docutils literal notranslate"><span class="pre">raise</span></code> an <strong>error</strong>, and the test will fail.<br />
+To <strong>run the tests</strong>, open your terminal (or command prompt), navigate to the directory containing <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code>, and type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
+</pre></div>
+</div>
+<p>If everything works as intended, you should see the following message:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================================================</span>
+platform<span class="w"> </span>win32<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.11,<span class="w"> </span>pytest-8.3.3,<span class="w"> </span>pluggy-1.5.0
+rootdir:<span class="w"> </span>&lt;your<span class="w"> </span>directory<span class="w"> </span>name&gt;
+plugins:<span class="w"> </span>anyio-4.0.0,<span class="w"> </span>typeguard-4.3.0
+collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item<span class="w">                                                                                                                            </span>
+
+test_example.py<span class="w"> </span>.<span class="w">                                                                                                                    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>
+
+<span class="o">============================================================</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.02s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>In case you run into any errors, check the next section (Error handling), otherwise skip the next section (Writing more tests).</p>
+<section id="span-style-color-b22222-error-handling-optional-span">
+<h3><span class="section-number">10.2.1. </span><span style="color:#B22222">Error handling (optional)</span><a class="headerlink" href="#span-style-color-b22222-error-handling-optional-span" title="Permalink to this heading">#</a></h3>
+<p>In case you run into the following error:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>:<span class="w"> </span>The<span class="w"> </span>term<span class="w"> </span><span class="s1">&#39;pytest&#39;</span><span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>recognized<span class="w"> </span>as<span class="w"> </span>the<span class="w"> </span>name<span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span>cmdlet,<span class="w"> </span><span class="k">function</span>,<span class="w"> </span>script<span class="w"> </span>file,<span class="w"> </span>or<span class="w"> </span>operable<span class="w"> </span>program.<span class="w"> </span>Check<span class="w"> </span>the<span class="w"> </span>spelling<span class="w"> </span>of<span class="w"> </span>
+the<span class="w"> </span>name,<span class="w"> </span>or<span class="w"> </span><span class="k">if</span><span class="w"> </span>a<span class="w"> </span>path<span class="w"> </span>was<span class="w"> </span>included,<span class="w"> </span>verify<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>path<span class="w"> </span>is<span class="w"> </span>correct<span class="w"> </span>and<span class="w"> </span>try<span class="w"> </span>again.
+At<span class="w"> </span>line:1<span class="w"> </span>char:1
++<span class="w"> </span>pytest
++<span class="w"> </span>~~~~~~
+<span class="w">    </span>+<span class="w"> </span>CategoryInfo<span class="w">          </span>:<span class="w"> </span>ObjectNotFound:<span class="w"> </span><span class="o">(</span>pytest:String<span class="o">)</span><span class="w"> </span><span class="o">[]</span>,<span class="w"> </span>CommandNotFoundException
+<span class="w">    </span>+<span class="w"> </span>FullyQualifiedErrorId<span class="w"> </span>:<span class="w"> </span>CommandNotFoundException
+</pre></div>
+</div>
+<p>Check if <code class="docutils literal notranslate"><span class="pre">pytest</span></code> is downloaded or not by writing this into your terminal: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">show</span> <span class="pre">pytest</span></code><br />
+If pytest is not found, use this command: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pytest</span></code></p>
+<p>If <code class="docutils literal notranslate"><span class="pre">pytest</span></code> is indeed installed and you still have the same error, try this command: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pytest</span></code></p>
+<p>Hopefully now all is good and you should see the following message:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================================================</span>
+platform<span class="w"> </span>win32<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.11,<span class="w"> </span>pytest-8.3.3,<span class="w"> </span>pluggy-1.5.0
+rootdir:<span class="w"> </span>&lt;your<span class="w"> </span>directory<span class="w"> </span>name&gt;
+plugins:<span class="w"> </span>anyio-4.0.0,<span class="w"> </span>typeguard-4.3.0
+collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item<span class="w">                                                                                                                            </span>
+
+test_example.py<span class="w"> </span>.<span class="w">                                                                                                                    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>
+
+<span class="o">============================================================</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.02s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-b22222-writing-more-tests-span">
+<h3><span class="section-number">10.2.2. </span><span style="color:#B22222">Writing more tests</span><a class="headerlink" href="#span-style-color-b22222-writing-more-tests-span" title="Permalink to this heading">#</a></h3>
+<p>I hope I can congratule you on your first <code class="docutils literal notranslate"><span class="pre">pytest</span></code> and you did not just give up fixing the error :). Anyways, let’s extend our py file:</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code>, add the following tests:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_subtraction</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">test_multiplication</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">6</span>
+
+<span class="k">def</span> <span class="nf">test_division</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>As you can see, each function begins with <code class="docutils literal notranslate"><span class="pre">test_</span></code> and contains a <strong>different</strong> <code class="docutils literal notranslate"><span class="pre">assertion</span></code> to verify basic mathematical operations. Pytest will automatically detect these tests when you run pytest again in the terminal.<br />
+Run pytest in the terminal to verify that all tests pass.</p>
+<p>If all went well, you should see:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================================================</span>
+platform<span class="w"> </span>win32<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.11,<span class="w"> </span>pytest-8.3.3,<span class="w"> </span>pluggy-1.5.0
+rootdir:<span class="w"> </span>&lt;your<span class="w"> </span>directory<span class="w"> </span>name&gt;
+plugins:<span class="w"> </span>anyio-4.0.0,<span class="w"> </span>typeguard-4.3.0
+collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item<span class="w">                                                                                                                            </span>
+
+test_example.py<span class="w"> </span>.<span class="w">                                                                                                                    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>
+
+<span class="o">============================================================</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.02s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>Notice that now we passed 4 tests in contrats to the previous 1.</p>
+<p><strong>Hint</strong>: If you still only passed one test, try saving the py file you are working in, and then run the test again. Usually that does the trick.</p>
+</section>
+<section id="span-style-color-b22222-handling-failing-tests-span">
+<h3><span class="section-number">10.2.3. </span><span style="color:#B22222">Handling Failing Tests</span><a class="headerlink" href="#span-style-color-b22222-handling-failing-tests-span" title="Permalink to this heading">#</a></h3>
+<p>Sometimes, tests fail, and <code class="docutils literal notranslate"><span class="pre">pytest</span></code> makes it easy to see what went wrong. Let’s intentionally add a failing test to see what the output looks like.</p>
+<p>Add the following test to <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_division_error</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">0</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>And run the test again.</p>
+<p>You should see something like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>test_example.py<span class="w"> </span>....F<span class="w">                                                                                                                                                      </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span>
+
+<span class="o">===================================================================================</span><span class="w"> </span><span class="nv">FAILURES</span><span class="w"> </span><span class="o">====================================================================================</span><span class="w"> </span>
+______________________________________________________________________________<span class="w"> </span>test_division_error<span class="w"> </span>______________________________________________________________________________<span class="w"> </span>
+
+<span class="w">    </span>def<span class="w"> </span>test_division_error<span class="o">()</span>:
+&gt;<span class="w">       </span>assert<span class="w"> </span><span class="m">6</span><span class="w"> </span>/<span class="w"> </span><span class="nv">0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span>
+E<span class="w">       </span>ZeroDivisionError:<span class="w"> </span>division<span class="w"> </span>by<span class="w"> </span>zero
+
+test_example.py:14:<span class="w"> </span><span class="nv">ZeroDivisionError</span>
+<span class="o">============================================================================</span><span class="w"> </span>short<span class="w"> </span><span class="nb">test</span><span class="w"> </span>summary<span class="w"> </span><span class="nv">info</span><span class="w"> </span><span class="o">============================================================================</span><span class="w"> </span>
+FAILED<span class="w"> </span>test_example.py::test_division_error<span class="w"> </span>-<span class="w"> </span>ZeroDivisionError:<span class="w"> </span>division<span class="w"> </span>by<span class="w"> </span><span class="nv">zero</span>
+<span class="o">==========================================================================</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>failed,<span class="w"> </span><span class="m">4</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.27s<span class="w"> </span><span class="o">==========================================================================</span>
+</pre></div>
+</div>
+<p>Pytest shows which test failed and provides the exact line and error message. This helps you debug and fix issues in your code. So for this case, we can see that the <code class="docutils literal notranslate"><span class="pre">test_division_error</span></code> function failed and it threw a <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>.</p>
+<p>Now that we have covered this , lets’s delete that function se we don’t keep getting that error.</p>
+<p>At this point your <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> should look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#############################</span>
+
+<span class="c1"># Writing Your First pytest #</span>
+
+<span class="c1">#############################</span>
+
+<span class="k">def</span> <span class="nf">test_addition</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
+
+
+<span class="c1">#############################</span>
+
+<span class="c1"># Writing more tests        #</span>
+
+<span class="c1">#############################</span>
+
+<span class="k">def</span> <span class="nf">test_subtraction</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">test_multiplication</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">6</span>
+
+<span class="k">def</span> <span class="nf">test_division</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span>
+
+
+<span class="c1">#############################</span>
+
+<span class="c1"># Handling Failing Tests    #</span>
+
+<span class="c1">#############################</span>
+
+<span class="c1">#def test_division_error():</span>
+<span class="c1">#    assert 6 / 0 == 0</span>
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-b22222-more-assert-statements-with-pytest-span">
+<h3><span class="section-number">10.2.4. </span><span style="color:#B22222">More <code class="docutils literal notranslate"><span class="pre">assert</span></code> Statements with <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span><a class="headerlink" href="#span-style-color-b22222-more-assert-statements-with-pytest-span" title="Permalink to this heading">#</a></h3>
+<p>We can use assert statements to compare different data types and objects. Here are a few examples (add these to your py file):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_string</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="s2">&quot;hello&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;HELLO&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_list</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">test_dictionary</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>You should get something like this when your run the test:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================================================</span>
+platform<span class="w"> </span>win32<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.11,<span class="w"> </span>pytest-8.3.3,<span class="w"> </span>pluggy-1.5.0
+rootdir:<span class="w"> </span>&lt;your<span class="w"> </span>directory<span class="w"> </span>name&gt;
+plugins:<span class="w"> </span>anyio-4.0.0,<span class="w"> </span>typeguard-4.3.0
+collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item<span class="w">                                                                                                                            </span>
+
+test_example.py<span class="w"> </span>.<span class="w">                                                                                                                    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>
+
+<span class="o">============================================================</span><span class="w"> </span><span class="m">7</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.03s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>As we have seen in <strong>Part 1</strong>, <code class="docutils literal notranslate"><span class="pre">assertions</span></code> can be used to check string manipulations, list contents, dictionary key-value pairs and much more. Don’t be afraid to combine your knowledge about the<code class="docutils literal notranslate"><span class="pre">assert</span></code> keyword in your <code class="docutils literal notranslate"><span class="pre">pytest</span></code> experiments.</p>
+<p>Let’s practice a bit more by creating a function and writing tests for it:</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code>, define the following function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p><strong>Note</strong>: This function is not the same as the first function we defined in (Part 2 - Writing Your First pytest), since it has a different name.</p>
+<p>Moreover, write these tests for the new function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_add</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
+    <span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>So what did we do here? We’ve defined an <code class="docutils literal notranslate"><span class="pre">add()</span></code> function and written a <strong>test</strong>, <code class="docutils literal notranslate"><span class="pre">test_add()</span></code>, with <strong>multiple</strong> <code class="docutils literal notranslate"><span class="pre">assertions</span></code> to check different cases.</p>
+<p>If you did everything correct, you should see something like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================================================</span>
+platform<span class="w"> </span>win32<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.11,<span class="w"> </span>pytest-8.3.3,<span class="w"> </span>pluggy-1.5.0
+rootdir:<span class="w"> </span>&lt;your<span class="w"> </span>directory<span class="w"> </span>name&gt;
+plugins:<span class="w"> </span>anyio-4.0.0,<span class="w"> </span>typeguard-4.3.0
+collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item<span class="w">                                                                                                                            </span>
+
+test_example.py<span class="w"> </span>.<span class="w">                                                                                                                    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>
+
+<span class="o">============================================================</span><span class="w"> </span><span class="m">8</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.04s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-b22222-using-pytest-raises-to-check-for-exceptions-span">
+<h3><span class="section-number">10.2.5. </span><span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> to Check for Exceptions</span><a class="headerlink" href="#span-style-color-b22222-using-pytest-raises-to-check-for-exceptions-span" title="Permalink to this heading">#</a></h3>
+<p>Sometimes, you’ll want to ensure that <strong>specific errors</strong> are raised under certain conditions. Pytest provides a helpful feature called <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> for this purpose. This lets us test that code raises the expected exception</p>
+<p>Let’s test a function that raises an error if a number is divided by zero.</p>
+<p>Add this function to your <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Now, write a test that uses <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> to check for the <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> (<strong>Note</strong>: For this to work, we will have to import <code class="docutils literal notranslate"><span class="pre">pytest</span></code> into our py file):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="k">def</span> <span class="nf">test_divide_by_zero</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">):</span>
+        <span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If all went well, you should see something like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================================================</span>
+platform<span class="w"> </span>win32<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.11,<span class="w"> </span>pytest-8.3.3,<span class="w"> </span>pluggy-1.5.0
+rootdir:<span class="w"> </span>&lt;your<span class="w"> </span>directory<span class="w"> </span>name&gt;
+plugins:<span class="w"> </span>anyio-4.0.0,<span class="w"> </span>typeguard-4.3.0
+collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item<span class="w">                                                                                                                            </span>
+
+test_example.py<span class="w"> </span>.<span class="w">                                                                                                                    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>
+
+<span class="o">============================================================</span><span class="w"> </span><span class="m">9</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.04s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>So what is happening here? The <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> context manager checks if a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised with the message <code class="docutils literal notranslate"><span class="pre">&quot;Cannot</span> <span class="pre">divide</span> <span class="pre">by</span> <span class="pre">zero&quot;</span></code>. If <code class="docutils literal notranslate"><span class="pre">divide(10,</span> <span class="pre">0)</span></code> does not raise this error, the test will fail.</p>
+<p>That’s it for testing. Let’s start practicing!</p>
+<h2 style="color:#3CB371">Exercises</h2><p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+<p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
+<br></p>
+<p><strong>Note</strong>: To get the most out of these exercises, it is recommended that you create a new py file, called <code class="docutils literal notranslate"><span class="pre">pytest_exercises.py</span></code>, and solve the exercises bellow in that file.</p>
+</section>
+<section id="exercise-1">
+<h3><span class="section-number">10.2.6. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a function <code class="docutils literal notranslate"><span class="pre">celsius_to_fahrenheit(celsius)</span></code> that converts a temperature from Celsius to Fahrenheit. Create tests to verify that this function works for common values.</p>
+<p><strong>Hint</strong>: 0 Celsius equals 32 Fahrenheit.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">celsius_to_fahrenheit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">celsius_to_fahrenheit</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">celsius_to_fahrenheit</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">32</span>
+<span class="mi">212</span>
+<span class="o">-</span><span class="mi">40</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Modify <code class="docutils literal notranslate"><span class="pre">celsius_to_fahrenheit()</span></code> to handle a list of Celsius values and return a list of Fahrenheit conversions. Write tests for this new functionality.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">celsius_to_fahrenheit</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">])</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">212</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Expand <code class="docutils literal notranslate"><span class="pre">celsius_to_fahrenheit()</span></code> to accept either a single value or a list of values. It should return a single Fahrenheit value if given a single Celsius input, or a list of values if given a list input. Write tests for both types of inputs.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">celsius_to_fahrenheit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">celsius_to_fahrenheit</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">])</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">32</span>
+<span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">212</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2">
+<h3><span class="section-number">10.2.7. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a function <code class="docutils literal notranslate"><span class="pre">sum_even_numbers(lst)</span></code> that returns the sum of all even numbers in a list. Write tests to verify the function with lists containing both even and odd numbers.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sum_even_numbers</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">sum_even_numbers</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">])</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>
+<span class="mi">30</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Write a function <code class="docutils literal notranslate"><span class="pre">count_primes(lst)</span></code> that returns the count of prime numbers in a list. Write tests to verify the function works for lists with different values.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count_primes</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">count_primes</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span>
+<span class="mi">2</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Write a <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">find_divisors(n)</span></code> that returns a list of all divisors of a given number <code class="docutils literal notranslate"><span class="pre">n</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">find_divisors(6)</span></code> should return <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">6]</span></code>. Write tests for numbers with different divisor structures.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">find_divisors</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">find_divisors</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3">
+<h3><span class="section-number">10.2.8. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a function <code class="docutils literal notranslate"><span class="pre">count_vowels(s)</span></code> that returns the count of vowels <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">e,</span> <span class="pre">i,</span> <span class="pre">o,</span> <span class="pre">u)</span></code> in a given string. Write tests to verify the function on different strings.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;pytest&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Write a function <code class="docutils literal notranslate"><span class="pre">capitalize_words(s)</span></code> that capitalizes the first letter of each word in a sentence. Write tests to verify correct capitalization for sentences with varying structures.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">capitalize_words</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="n">capitalize_words</span><span class="p">(</span><span class="s2">&quot;testing with pytest&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello World&quot;</span>
+<span class="s2">&quot;Testing With Pytest&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Write a function <code class="docutils literal notranslate"><span class="pre">longest_word(s)</span></code> that returns the longest word in a sentence. In case of a tie, return the first longest word encountered. Write tests to verify the function with sentences of varying word lengths.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">longest_word</span><span class="p">(</span><span class="s2">&quot;find the longest word here&quot;</span><span class="p">)</span>
+<span class="n">longest_word</span><span class="p">(</span><span class="s2">&quot;multiple words with same length&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;longest&quot;</span>
+<span class="s2">&quot;multiple&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><em>Material for the VU Amsterdam course “Introduction to Python Programming” for BSc Artificial Intelligence students. These notebooks are created using the following sources:</em></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://programming-pybook.github.io/introProgramming/intro.html">Learning Python by Doing</a>: This book, developed by teachers of TU/e Eindhoven and VU Amsterdam, is the main source for the course materials. Code snippets or text explanations from the book may be used in the notebooks, sometimes with slight adjustments.</p></li>
+<li><p><a class="reference external" href="https://greenteapress.com/thinkpython2/html/">Think Python</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org">GeekForGeeks</a></p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "VU-IntroPython/TAs-Material",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/11-tests"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../10-files/files.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Files</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-part-1-using-assert-for-basic-testing-span">10.1. <span style="color:#4169E1"> Part 1 - Using <code class="docutils literal notranslate"><span class="pre">assert</span></code> for Basic Testing</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-syntax-of-assert-span">10.1.1. <span style="color:#B22222">Syntax of <code class="docutils literal notranslate"><span class="pre">assert</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-common-keywords-used-with-assert-span">10.1.2. <span style="color:#B22222">Common keywords used with <code class="docutils literal notranslate"><span class="pre">assert</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-when-to-use-assert-span">10.1.3. <span style="color:#B22222">When to Use <code class="docutils literal notranslate"><span class="pre">assert</span></code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-part-2-writing-your-first-pytest-span">10.2. <span style="color:#4169E1"> Part 2 - Writing Your First <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-error-handling-optional-span">10.2.1. <span style="color:#B22222">Error handling (optional)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-writing-more-tests-span">10.2.2. <span style="color:#B22222">Writing more tests</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-handling-failing-tests-span">10.2.3. <span style="color:#B22222">Handling Failing Tests</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-more-assert-statements-with-pytest-span">10.2.4. <span style="color:#B22222">More <code class="docutils literal notranslate"><span class="pre">assert</span></code> Statements with <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-pytest-raises-to-check-for-exceptions-span">10.2.5. <span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> to Check for Exceptions</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">10.2.6. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">10.2.7. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">10.2.8. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Koen van der Pool, Mauricio Verano Merino & Márton Bodó
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024. Vrije Universiteit Amsterdam.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
