@@ -431,9 +431,12 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-part-2-writing-your-first-pytest-span">10.2. <span style="color:#4169E1"> Part 2 - Writing Your First <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-error-handling-optional-span">10.2.1. <span style="color:#B22222">Error handling (optional)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">10.2.2. Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">10.2.3. Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">10.2.4. Exercise 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-writing-more-tests-span">10.2.2. <span style="color:#B22222">Writing more tests</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-more-assert-statements-with-pytest-span">10.2.3. <span style="color:#B22222">More <code class="docutils literal notranslate"><span class="pre">assert</span></code> Statements with <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-pytest-raises-to-check-for-exceptions-span">10.2.4. <span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> to Check for Exceptions</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">10.2.5. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">10.2.6. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">10.2.7. Exercise 3</a></li>
 </ul>
 </li>
 </ul>
@@ -451,8 +454,8 @@ document.write(`
 <h1><span class="section-number">10. </span>Tests<a class="headerlink" href="#tests" title="Permalink to this heading">#</a></h1>
 <p><strong>In this notebook, we cover the following subjects:</strong></p>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement,</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">pytest</span></code> module.</p></li>
+<li><p>The <a class="reference external" href="https://www.w3schools.com/python/ref_keyword_assert.asp"><code class="docutils literal notranslate"><span class="pre">assert</span></code></a> statement,</p></li>
+<li><p>The <a class="reference external" href="https://www.w3schools.com/python/ref_keyword_assert.asp"><code class="docutils literal notranslate"><span class="pre">pytest</span></code></a> module.</p></li>
 </ul>
 <hr class="docutils" />
 <div class="cell docutils container">
@@ -465,18 +468,18 @@ document.write(`
 </div>
 <p>Testing is an essential skill in any programmer’s toolkit. It ensures our code runs as expected, catches bugs early, and gives us confidence in the software we create. In this notebook, we’re going to dive into two powerful tools in Python’s testing arsenal:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">assert</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pytest</span></code></p></li>
+<li><p><a class="reference external" href="https://www.w3schools.com/python/ref_keyword_assert.asp"><code class="docutils literal notranslate"><span class="pre">assert</span></code></a></p></li>
+<li><p><a class="reference external" href="https://www.w3schools.com/python/ref_keyword_assert.asp"><code class="docutils literal notranslate"><span class="pre">pytest</span></code></a></p></li>
 </ul>
 <p>You’ve already worked with <code class="docutils literal notranslate"><span class="pre">exceptions</span></code>(Notebook 8), learning how to handle errors smoothly when they arise. Now, we’ll explore how to prevent them from happening in the first place by actively testing our code. By the end of this chapter, you’ll be comfortable writing, running, and understanding tests in Python.</p>
-<p>One last thing before we start… This notebook will be special because it is split into 2 parts. In <strong>Part 1</strong> we will be learning about the <code class="docutils literal notranslate"><span class="pre">assert</span></code> keyword in our usual, Jupyter Notebook environment. However, for <strong>Part 2</strong>, you will be required to follow along the tutorial about <code class="docutils literal notranslate"><span class="pre">pytests</span></code> (explained in this notebook) and practice in a seperate <strong>py</strong> file. Meaning, you will have to work in your choice of code editor (VS Code, Pycharm etc.) in a py file. We will get back to that in due course.</p>
+<p>One last thing before we start… This notebook will be special because it is split into 2 parts. In <strong>Part 1</strong> we will be learning about the <code class="docutils literal notranslate"><span class="pre">assert</span></code> keyword in our usual, Jupyter Notebook environment. However, for <strong>Part 2</strong>, you will be required to follow along the tutorial about <a class="reference external" href="https://www.w3schools.com/python/ref_keyword_assert.asp"><code class="docutils literal notranslate"><span class="pre">pytests</span></code></a> (explained in this notebook) and practice in a seperate <strong>py</strong> files. Meaning, you will have to work in your choice of code editor (VS Code, Pycharm etc.) in multiple py files. We will get back to that in due course.</p>
 <p>Ok, now all is set. Let’s dive in!</p>
 <section id="span-style-color-4169e1-part-1-using-assert-for-basic-testing-span">
 <h2><span class="section-number">10.1. </span><span style="color:#4169E1"> Part 1 - Using <code class="docutils literal notranslate"><span class="pre">assert</span></code> for Basic Testing</span><a class="headerlink" href="#span-style-color-4169e1-part-1-using-assert-for-basic-testing-span" title="Permalink to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement in Python is a simple yet powerful way to verify that a condition holds <strong>True</strong>. It’s commonly used for quick checks or to validate assumptions in code. If the condition you’re testing is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the program continues as expected. However, if the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>, an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> is raised, and the program stops. This is particularly useful when you want to catch potential bugs early on.</p>
+<p>The <a class="reference external" href="https://www.w3schools.com/python/ref_keyword_assert.asp"><code class="docutils literal notranslate"><span class="pre">assert</span></code></a> statement in Python is a simple yet powerful way to verify that a condition holds <strong>True</strong>. It’s commonly used for quick checks or to validate assumptions in code. If the condition you’re testing is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the program continues as expected. However, if the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>, an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> is raised, and the program stops. This is particularly useful when you want to catch potential bugs early on.</p>
 <section id="span-style-color-b22222-syntax-of-assert-span">
 <h3><span class="section-number">10.1.1. </span><span style="color:#B22222">Syntax of <code class="docutils literal notranslate"><span class="pre">assert</span></code></span><a class="headerlink" href="#span-style-color-b22222-syntax-of-assert-span" title="Permalink to this heading">#</a></h3>
-<p>The basic syntax of an <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement is as follows:</p>
+<p>The basic syntax of an <a class="reference external" href="https://www.w3schools.com/python/ref_keyword_assert.asp"><code class="docutils literal notranslate"><span class="pre">assert</span></code></a> statement is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">optional</span> <span class="n">error</span> <span class="n">message</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -693,7 +696,7 @@ These keywords make it easier to perform specific checks, such as verifying type
 </section>
 </section>
 <section id="span-style-color-4169e1-part-2-writing-your-first-pytest-span">
-<h2><span class="section-number">10.2. </span><span style="color:#4169E1"> Part 2 - Writing Your First <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span><a class="headerlink" href="#span-style-color-4169e1-part-2-writing-your-first-pytest-span" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">10.2. </span><span style="color:#4169E1"> Part 2 - Writing Your First <a class="reference external" href="https://www.w3schools.com/python/ref_keyword_assert.asp"><code class="docutils literal notranslate"><span class="pre">pytest</span></code></a></span><a class="headerlink" href="#span-style-color-4169e1-part-2-writing-your-first-pytest-span" title="Permalink to this heading">#</a></h2>
 <p>In your <code class="docutils literal notranslate"><span class="pre">example.py</span></code> file, let’s start with a basic function.</p>
 <ol class="arabic simple">
 <li><p>Open your <code class="docutils literal notranslate"><span class="pre">example.py</span></code> file.</p></li>
@@ -710,7 +713,7 @@ These keywords make it easier to perform specific checks, such as verifying type
 <span class="sd">    num_2: int -&gt; the second number</span>
 
 <span class="sd">    Return:</span>
-<span class="sd">    An intiger wich is the result of adding num_1 and num_2 together.</span>
+<span class="sd">    An integer which is the result of adding num_1 and num_2 together.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="n">num_1</span> <span class="o">+</span> <span class="n">num_2</span>
 </pre></div>
@@ -783,14 +786,352 @@ test_example.py<span class="w"> </span>.<span class="w">                        
 <span class="o">============================================================</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.02s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
 </pre></div>
 </div>
+</section>
+<section id="span-style-color-b22222-writing-more-tests-span">
+<h3><span class="section-number">10.2.2. </span><span style="color:#B22222">Writing more tests</span><a class="headerlink" href="#span-style-color-b22222-writing-more-tests-span" title="Permalink to this heading">#</a></h3>
+<p>I hope I can congratule you on your first <a class="reference external" href="https://www.w3schools.com/python/ref_keyword_assert.asp"><code class="docutils literal notranslate"><span class="pre">pytest</span></code></a> and you did not just give up fixing the error :). Anyways, let’s extend our py file:</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">example.py</span></code>, add the following functions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">subtraction</span><span class="p">(</span><span class="n">num_1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Subtracts the second integer from the first.</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">        num_1 (int): The integer from which to subtract.</span>
+<span class="sd">        num_2 (int): The integer to subtract.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The result of the subtraction.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">num_1</span> <span class="o">-</span> <span class="n">num_2</span>
+
+<span class="k">def</span> <span class="nf">multiplication</span><span class="p">(</span><span class="n">num_1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multiplies two integers.</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">        num_1 (int): The first integer to multiply.</span>
+<span class="sd">        num_2 (int): The second integer to multiply.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The result of the multiplication.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">num_1</span> <span class="o">*</span> <span class="n">num_2</span>
+
+<span class="k">def</span> <span class="nf">division</span><span class="p">(</span><span class="n">num_1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Divides the first integer by the second.</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">        num_1 (int): The integer to be divided.</span>
+<span class="sd">        num_2 (int): The integer to divide by.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The result of the division as a float.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">num_1</span> <span class="o">/</span> <span class="n">num_2</span>
+
+</pre></div>
+</div>
+<p>Moreover, to test these functions, lets write into `<a class="reference external" href="http://example.py">example.py</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_subtraction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests the subtraction function with various cases.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">subtraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Expected subtraction(2, 3) to be -1&quot;</span>
+    <span class="k">assert</span> <span class="n">subtraction</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Expected subtraction(5, 5) to be 0&quot;</span>
+    <span class="k">assert</span> <span class="n">subtraction</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;Expected subtraction(10, 4) to be 6&quot;</span>
+    <span class="k">assert</span> <span class="n">subtraction</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Expected subtraction(-3, -7) to be 4&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_multiplication</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests the multiplication function with various cases.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">multiplication</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;Expected multiplication(2, 3) to be 6&quot;</span>
+    <span class="k">assert</span> <span class="n">multiplication</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;Expected multiplication(-2, 3) to be -6&quot;</span>
+    <span class="k">assert</span> <span class="n">multiplication</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Expected multiplication(0, 5) to be 0&quot;</span>
+    <span class="k">assert</span> <span class="n">multiplication</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Expected multiplication(4, -1) to be -4&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_division</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests the division function with various cases.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">division</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s2">&quot;Expected division(6, 3) to be 2.0&quot;</span>
+    <span class="k">assert</span> <span class="n">division</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;Expected division(5, 2) to be 2.5&quot;</span>
+    <span class="k">assert</span> <span class="n">division</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="s2">&quot;Expected division(-8, 4) to be -2.0&quot;</span>
+    <span class="k">assert</span> <span class="n">division</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;Expected division(0, 1) to be 0.0&quot;</span>
+</pre></div>
+</div>
+<p>As you can see, each function begins with <code class="docutils literal notranslate"><span class="pre">test_</span></code> and contains a <strong>different</strong> <code class="docutils literal notranslate"><span class="pre">assertion</span></code> to verify basic mathematical operations. Pytest will automatically detect these tests when you run pytest again in the terminal.</p>
+<p>Run pytest in the terminal to verify that all tests pass.</p>
+<p>If all went well, you should see:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================================================</span>
+platform<span class="w"> </span>win32<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.11,<span class="w"> </span>pytest-8.3.3,<span class="w"> </span>pluggy-1.5.0
+rootdir:<span class="w"> </span>&lt;your<span class="w"> </span>directory<span class="w"> </span>name&gt;
+plugins:<span class="w"> </span>anyio-4.0.0,<span class="w"> </span>typeguard-4.3.0
+collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item<span class="w">                                                                                                                            </span>
+
+test_example.py<span class="w"> </span>.<span class="w">                                                                                                                    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>
+
+<span class="o">============================================================</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.02s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>Notice that now we passed 4 tests in contrats to the previous 1.</p>
+<p><strong>Hint</strong>: If you still only passed one test, try saving the py file you are working in, and then run the test again. Usually that does the trick.</p>
+<p>At this point your <code class="docutils literal notranslate"><span class="pre">example.py</span></code> should look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#############################</span>
+
+<span class="c1"># Writing Your First pytest #</span>
+
+<span class="c1">#############################</span>
+
+
+<span class="k">def</span> <span class="nf">addition</span><span class="p">(</span><span class="n">num_1</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">num_2</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function adds 2 numbers together.</span>
+<span class="sd">    </span>
+<span class="sd">    Params:</span>
+<span class="sd">    num_1:int -&gt; the first number</span>
+<span class="sd">    num_2: int -&gt; the second number</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">    An integer which is the result of adding num_1 and num_2 together.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">num_1</span> <span class="o">+</span> <span class="n">num_2</span>
+
+<span class="c1">#############################</span>
+
+<span class="c1"># Writing more tests        #</span>
+
+<span class="c1">#############################</span>
+
+<span class="k">def</span> <span class="nf">subtraction</span><span class="p">(</span><span class="n">num_1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Subtracts the second integer from the first.</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">        num_1 (int): The integer from which to subtract.</span>
+<span class="sd">        num_2 (int): The integer to subtract.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The result of the subtraction.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">num_1</span> <span class="o">-</span> <span class="n">num_2</span>
+
+<span class="k">def</span> <span class="nf">multiplication</span><span class="p">(</span><span class="n">num_1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multiplies two integers.</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">        num_1 (int): The first integer to multiply.</span>
+<span class="sd">        num_2 (int): The second integer to multiply.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: The result of the multiplication.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">num_1</span> <span class="o">*</span> <span class="n">num_2</span>
+
+<span class="k">def</span> <span class="nf">division</span><span class="p">(</span><span class="n">num_1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Divides the first integer by the second.</span>
+
+<span class="sd">    Params:</span>
+<span class="sd">        num_1 (int): The integer to be divided.</span>
+<span class="sd">        num_2 (int): The integer to divide by.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The result of the division as a float.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">num_1</span> <span class="o">/</span> <span class="n">num_2</span>
+</pre></div>
+</div>
+<p>Whilst your <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> should look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">example</span> <span class="kn">import</span> <span class="n">addition</span><span class="p">,</span> <span class="n">subtraction</span><span class="p">,</span> <span class="n">multiplication</span><span class="p">,</span> <span class="n">division</span>
+
+<span class="k">def</span> <span class="nf">test_addition</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function tests if the addition() function works as expected.</span>
+<span class="sd">    </span>
+<span class="sd">    Params: None</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">    A boolean (True) if the function works correctly or a string with an appropriate error message.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="n">addition</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;The function does not work correctly&#39;</span>
+    <span class="k">assert</span> <span class="n">addition</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;The function does not work correctly&#39;</span>
+    <span class="k">assert</span> <span class="n">addition</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;The function does not work correctly&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">test_subtraction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests the subtraction function with various cases.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">subtraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Expected subtraction(2, 3) to be -1&quot;</span>
+    <span class="k">assert</span> <span class="n">subtraction</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Expected subtraction(5, 5) to be 0&quot;</span>
+    <span class="k">assert</span> <span class="n">subtraction</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;Expected subtraction(10, 4) to be 6&quot;</span>
+    <span class="k">assert</span> <span class="n">subtraction</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Expected subtraction(-3, -7) to be 4&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_multiplication</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests the multiplication function with various cases.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">multiplication</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;Expected multiplication(2, 3) to be 6&quot;</span>
+    <span class="k">assert</span> <span class="n">multiplication</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;Expected multiplication(-2, 3) to be -6&quot;</span>
+    <span class="k">assert</span> <span class="n">multiplication</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Expected multiplication(0, 5) to be 0&quot;</span>
+    <span class="k">assert</span> <span class="n">multiplication</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Expected multiplication(4, -1) to be -4&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_division</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests the division function with various cases.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">division</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s2">&quot;Expected division(6, 3) to be 2.0&quot;</span>
+    <span class="k">assert</span> <span class="n">division</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.5</span><span class="p">,</span> <span class="s2">&quot;Expected division(5, 2) to be 2.5&quot;</span>
+    <span class="k">assert</span> <span class="n">division</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="s2">&quot;Expected division(-8, 4) to be -2.0&quot;</span>
+    <span class="k">assert</span> <span class="n">division</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;Expected division(0, 1) to be 0.0&quot;</span>
+    
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-b22222-more-assert-statements-with-pytest-span">
+<h3><span class="section-number">10.2.3. </span><span style="color:#B22222">More <code class="docutils literal notranslate"><span class="pre">assert</span></code> Statements with <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span><a class="headerlink" href="#span-style-color-b22222-more-assert-statements-with-pytest-span" title="Permalink to this heading">#</a></h3>
+<p>We can use <strong>assert</strong> statements to compare different data types and objects. Here are a few examples (add these to your <code class="docutils literal notranslate"><span class="pre">example.py</span></code> file):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">string_to_upper</span><span class="p">(</span><span class="n">example_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts the input string to uppercase.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        example_string (str): The string to convert to uppercase.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: The input string in uppercase.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">example_string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">list_contains_elements</span><span class="p">(</span><span class="n">example_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">elements</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks if all elements in the `elements` list are contained within `example_list`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        example_list (list): The list to check within.</span>
+<span class="sd">        elements (list): The list of elements to check for.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: True if all elements are found in `example_list`, otherwise False.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">element</span> <span class="ow">in</span> <span class="n">example_list</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">dictionary_has_key_value</span><span class="p">(</span><span class="n">example_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks if the dictionary contains a specific key-value pair.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        example_dict (dict): The dictionary to check.</span>
+<span class="sd">        key (str): The key to look for in the dictionary.</span>
+<span class="sd">        value (any): The value to match with the specified key.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: True if the dictionary contains the specified key-value pair, otherwise False.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">example_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">==</span> <span class="n">value</span>
+
+</pre></div>
+</div>
+<p>Moreover, add these tests to your <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">test_string_to_upper</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests the string_to_upper function with various cases.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">string_to_upper</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;HELLO&quot;</span><span class="p">,</span> <span class="s2">&quot;Expected string_to_upper(&#39;hello&#39;) to be &#39;HELLO&#39;&quot;</span>
+    <span class="k">assert</span> <span class="n">string_to_upper</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;TEST&quot;</span><span class="p">,</span> <span class="s2">&quot;Expected string_to_upper(&#39;Test&#39;) to be &#39;TEST&#39;&quot;</span>
+    <span class="k">assert</span> <span class="n">string_to_upper</span><span class="p">(</span><span class="s2">&quot;123abc&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;123ABC&quot;</span><span class="p">,</span> <span class="s2">&quot;Expected string_to_upper(&#39;123abc&#39;) to be &#39;123ABC&#39;&quot;</span>
+    <span class="k">assert</span> <span class="n">string_to_upper</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Expected string_to_upper(&#39;&#39;) to be &#39;&#39;&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_list_contains_elements</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests the list_contains_elements function with various cases.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">list_contains_elements</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Expected list_contains_elements([1, 2, 3, 4], [1, 3]) to be True&quot;</span>
+    <span class="k">assert</span> <span class="n">list_contains_elements</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">])</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Expected list_contains_elements([1, 2, 3], [4]) to be False&quot;</span>
+    <span class="k">assert</span> <span class="n">list_contains_elements</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[])</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Expected list_contains_elements([1, 2, 3], []) to be True&quot;</span>
+    <span class="k">assert</span> <span class="n">list_contains_elements</span><span class="p">([],</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Expected list_contains_elements([], [1]) to be False&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_dictionary_has_key_value</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests the dictionary_has_key_value function with various cases.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">dictionary_has_key_value</span><span class="p">({</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">},</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Expected dictionary_has_key_value({&#39;key&#39;: &#39;value&#39;}, &#39;key&#39;, &#39;value&#39;) to be True&quot;</span>
+    <span class="k">assert</span> <span class="n">dictionary_has_key_value</span><span class="p">({</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;other_value&quot;</span><span class="p">},</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Expected dictionary_has_key_value({&#39;key&#39;: &#39;other_value&#39;}, &#39;key&#39;, &#39;value&#39;) to be False&quot;</span>
+    <span class="k">assert</span> <span class="n">dictionary_has_key_value</span><span class="p">({</span><span class="s2">&quot;another_key&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">},</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Expected dictionary_has_key_value({&#39;another_key&#39;: &#39;value&#39;}, &#39;key&#39;, &#39;value&#39;) to be False&quot;</span>
+    <span class="k">assert</span> <span class="n">dictionary_has_key_value</span><span class="p">({},</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Expected dictionary_has_key_value(</span><span class="si">{}</span><span class="s2">, &#39;key&#39;, &#39;value&#39;) to be False&quot;</span>
+</pre></div>
+</div>
+<p>You should get something like this when your run the test:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================================================</span>
+platform<span class="w"> </span>win32<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.11,<span class="w"> </span>pytest-8.3.3,<span class="w"> </span>pluggy-1.5.0
+rootdir:<span class="w"> </span>&lt;your<span class="w"> </span>directory<span class="w"> </span>name&gt;
+plugins:<span class="w"> </span>anyio-4.0.0,<span class="w"> </span>typeguard-4.3.0
+collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item<span class="w">                                                                                                                            </span>
+
+test_example.py<span class="w"> </span>.<span class="w">                                                                                                                    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>
+
+<span class="o">============================================================</span><span class="w"> </span><span class="m">7</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.03s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>As we have seen in <strong>Part 1</strong>, <code class="docutils literal notranslate"><span class="pre">assertions</span></code> can be used to check string manipulations, list contents, dictionary key-value pairs and much more. Don’t be afraid to combine your knowledge about the<code class="docutils literal notranslate"><span class="pre">assert</span></code> keyword in your <code class="docutils literal notranslate"><span class="pre">pytest</span></code> experiments.</p>
+</section>
+<section id="span-style-color-b22222-using-pytest-raises-to-check-for-exceptions-span">
+<h3><span class="section-number">10.2.4. </span><span style="color:#B22222">Using <a class="reference external" href="https://docs.pytest.org/en/7.1.x/how-to/assert.html"><code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code></a> to Check for Exceptions</span><a class="headerlink" href="#span-style-color-b22222-using-pytest-raises-to-check-for-exceptions-span" title="Permalink to this heading">#</a></h3>
+<p>One last thing, sometimes, you’ll want to ensure that <strong>specific errors</strong> are raised under certain conditions. Pytest provides a helpful feature called <a class="reference external" href="https://docs.pytest.org/en/7.1.x/how-to/assert.html"><code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code></a> for this purpose. This lets us test that code raises the expected exception.</p>
+<p>Let’s test a function that raises an error if a number is divided by zero.</p>
+<p>Add this function to your <code class="docutils literal notranslate"><span class="pre">example.py</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divide_by_zero</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Divides x by y, raising a ValueError if y is zero.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (int): The numerator.</span>
+<span class="sd">        y (int): The denominator.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The result of the division.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If y is zero.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Also, add this test into the <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="k">def</span> <span class="nf">test_divide_by_zero</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests that dividing by zero raises a ValueError with the correct message.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">):</span>
+        <span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So what is happening here? The <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> context manager checks if a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised with the message <code class="docutils literal notranslate"><span class="pre">&quot;Cannot</span> <span class="pre">divide</span> <span class="pre">by</span> <span class="pre">zero&quot;</span></code>. If <code class="docutils literal notranslate"><span class="pre">divide_by_zero(10,</span> <span class="pre">0)</span></code> does not raise this error, the test will fail.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pytest.raises(ValueError)</span></code> ensures that a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised when <code class="docutils literal notranslate"><span class="pre">divide_by_zero(10,</span> <span class="pre">0)</span></code> is called.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">match=&quot;Cannot</span> <span class="pre">divide</span> <span class="pre">by</span> <span class="pre">zero&quot;</span></code> further checks that the error message matches the provided string.</p></li>
+</ul>
+<p>If the <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> with the expected message is raised, the test <strong>passes</strong>. If no exception is raised or if a different message appears, the test fails.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This approach eliminates the need for an <code>assert</code> statement, as <code class="docutils literal notranslate"><span class="pre">pytest.raises()</span></code> handles the verification directly.</p>
+</div>
 <p>That’s it for testing. Let’s start practicing!</p>
 <h2 style="color:#3CB371">Exercises</h2><p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
 <p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
 <br></p>
-<p><strong>Note</strong>: To get the most out of these exercises, it is recommended that you create a new py file, called <code class="docutils literal notranslate"><span class="pre">pytest_exercises.py</span></code>, and solve the exercises bellow in that file.</p>
+<p><strong>Note</strong>: To get the most out of these exercises, it is recommended that you create 2 new py files (just as we did for the tutorial), called <code class="docutils literal notranslate"><span class="pre">pytest_exercises.py</span></code> and <code class="docutils literal notranslate"><span class="pre">test_pytest_exercises.py</span></code>, and solve the exercises bellow in these files.</p>
 </section>
 <section id="exercise-1">
-<h3><span class="section-number">10.2.2. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.5. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a function <code class="docutils literal notranslate"><span class="pre">celsius_to_fahrenheit(celsius)</span></code> that converts a temperature from Celsius to Fahrenheit. Create tests to verify that this function works for common values.</p>
 <p><strong>Hint</strong>: 0 Celsius equals 32 Fahrenheit.</p>
 <p><strong>Example input</strong>:</p>
@@ -851,7 +1192,7 @@ test_example.py<span class="w"> </span>.<span class="w">                        
 </div>
 </section>
 <section id="exercise-2">
-<h3><span class="section-number">10.2.3. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.6. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a function <code class="docutils literal notranslate"><span class="pre">sum_even_numbers(lst)</span></code> that returns the sum of all even numbers in a list. Write tests to verify the function with lists containing both even and odd numbers.</p>
 <p><strong>Example input</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sum_even_numbers</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
@@ -910,7 +1251,7 @@ test_example.py<span class="w"> </span>.<span class="w">                        
 </div>
 </section>
 <section id="exercise-3">
-<h3><span class="section-number">10.2.4. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.7. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a function <code class="docutils literal notranslate"><span class="pre">count_vowels(s)</span></code> that returns the count of vowels <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">e,</span> <span class="pre">i,</span> <span class="pre">o,</span> <span class="pre">u)</span></code> in a given string. Write tests to verify the function on different strings.</p>
 <p><strong>Example input</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
@@ -1040,9 +1381,12 @@ test_example.py<span class="w"> </span>.<span class="w">                        
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-part-2-writing-your-first-pytest-span">10.2. <span style="color:#4169E1"> Part 2 - Writing Your First <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-error-handling-optional-span">10.2.1. <span style="color:#B22222">Error handling (optional)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">10.2.2. Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">10.2.3. Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">10.2.4. Exercise 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-writing-more-tests-span">10.2.2. <span style="color:#B22222">Writing more tests</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-more-assert-statements-with-pytest-span">10.2.3. <span style="color:#B22222">More <code class="docutils literal notranslate"><span class="pre">assert</span></code> Statements with <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-pytest-raises-to-check-for-exceptions-span">10.2.4. <span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> to Check for Exceptions</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">10.2.5. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">10.2.6. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">10.2.7. Exercise 3</a></li>
 </ul>
 </li>
 </ul>
