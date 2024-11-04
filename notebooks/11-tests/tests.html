@@ -431,13 +431,9 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-part-2-writing-your-first-pytest-span">10.2. <span style="color:#4169E1"> Part 2 - Writing Your First <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-error-handling-optional-span">10.2.1. <span style="color:#B22222">Error handling (optional)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-writing-more-tests-span">10.2.2. <span style="color:#B22222">Writing more tests</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-handling-failing-tests-span">10.2.3. <span style="color:#B22222">Handling Failing Tests</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-more-assert-statements-with-pytest-span">10.2.4. <span style="color:#B22222">More <code class="docutils literal notranslate"><span class="pre">assert</span></code> Statements with <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-pytest-raises-to-check-for-exceptions-span">10.2.5. <span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> to Check for Exceptions</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">10.2.6. Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">10.2.7. Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">10.2.8. Exercise 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">10.2.2. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">10.2.3. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">10.2.4. Exercise 3</a></li>
 </ul>
 </li>
 </ul>
@@ -693,23 +689,56 @@ These keywords make it easier to perform specific checks, such as verifying type
 </div>
 </div>
 <p>In this version, if a negative number is entered, it smoothly handles the error without crashing, which is more suitable for production scenarios where unexpected input is possible.</p>
-<p><strong>Note:</strong> This is the <strong>END of Part 1</strong>. Before we begin with <strong>Part 2</strong>, please open the code editor of your choice and create a new <strong>.py</strong> file called <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code>. This will be where you write your tests as you follow along.</p>
+<p><strong>Note:</strong> This is the <strong>END of Part 1</strong>. Before we begin with <strong>Part 2</strong>, please open the code editor of your choice and create two new <strong>.py</strong> files called <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> and <code class="docutils literal notranslate"><span class="pre">example.py</span></code>. This will be where you write your tests as you follow along.</p>
 </section>
 </section>
 <section id="span-style-color-4169e1-part-2-writing-your-first-pytest-span">
 <h2><span class="section-number">10.2. </span><span style="color:#4169E1"> Part 2 - Writing Your First <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span><a class="headerlink" href="#span-style-color-4169e1-part-2-writing-your-first-pytest-span" title="Permalink to this heading">#</a></h2>
-<p>In your <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> file, let’s start with a basic test. Pytest recognizes functions that start with <code class="docutils literal notranslate"><span class="pre">test_</span></code> as test functions.</p>
+<p>In your <code class="docutils literal notranslate"><span class="pre">example.py</span></code> file, let’s start with a basic function.</p>
 <ol class="arabic simple">
-<li><p>Open your <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> file.</p></li>
+<li><p>Open your <code class="docutils literal notranslate"><span class="pre">example.py</span></code> file.</p></li>
 <li><p>Write the following code in it:</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># test_example.py</span>
 
-<span class="k">def</span> <span class="nf">test_addition</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="k">def</span> <span class="nf">addition</span><span class="p">(</span><span class="n">num_1</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">num_2</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function adds 2 numbers together.</span>
+<span class="sd">    </span>
+<span class="sd">    Params:</span>
+<span class="sd">    num_1:int -&gt; the first number</span>
+<span class="sd">    num_2: int -&gt; the second number</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">    An intiger wich is the result of adding num_1 and num_2 together.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">num_1</span> <span class="o">+</span> <span class="n">num_2</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">test_addition()</span></code> function is our first test. The <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement checks if 1 + 1 equals 2. If it does, the test <strong>passes</strong>. Otherwise, pytest will <code class="docutils literal notranslate"><span class="pre">raise</span></code> an <strong>error</strong>, and the test will fail.<br />
+<p>In general its good practice if we create functions that start with <code class="docutils literal notranslate"><span class="pre">test_</span></code> as test functions.</p>
+<p>In your <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> file, let’s start with a few basic tests.</p>
+<ol class="arabic simple">
+<li><p>Open your <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> file.</p></li>
+<li><p>Write the following code in it:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># so we can use the function we created</span>
+<span class="kn">from</span> <span class="nn">example</span> <span class="kn">import</span> <span class="n">addition</span>
+
+<span class="k">def</span> <span class="nf">test_addition</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This function tests if the addition() function works as expected.</span>
+<span class="sd">    </span>
+<span class="sd">    Params: None</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">    A boolean (True) if the function works correctly or a string with an appropriate error message.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="n">addition</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;The function does not work correctly&#39;</span>
+    <span class="k">assert</span> <span class="n">addition</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;The function does not work correctly&#39;</span>
+    <span class="k">assert</span> <span class="n">addition</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;The function does not work correctly&#39;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">test_addition()</span></code> function is our first test. The <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement checks if 1 + 2 equals 3, 3+4 equals 7 and so on. If it does, the test <strong>passes</strong>. Otherwise, pytest will <code class="docutils literal notranslate"><span class="pre">raise</span></code> an <strong>error</strong>, and the test will fail.<br />
 To <strong>run the tests</strong>, open your terminal (or command prompt), navigate to the directory containing <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code>, and type:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
 </pre></div>
@@ -754,189 +783,6 @@ test_example.py<span class="w"> </span>.<span class="w">                        
 <span class="o">============================================================</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.02s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
 </pre></div>
 </div>
-</section>
-<section id="span-style-color-b22222-writing-more-tests-span">
-<h3><span class="section-number">10.2.2. </span><span style="color:#B22222">Writing more tests</span><a class="headerlink" href="#span-style-color-b22222-writing-more-tests-span" title="Permalink to this heading">#</a></h3>
-<p>I hope I can congratule you on your first <code class="docutils literal notranslate"><span class="pre">pytest</span></code> and you did not just give up fixing the error :). Anyways, let’s extend our py file:</p>
-<p>In <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code>, add the following tests:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_subtraction</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
-
-<span class="k">def</span> <span class="nf">test_multiplication</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">6</span>
-
-<span class="k">def</span> <span class="nf">test_division</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span>
-</pre></div>
-</div>
-<p>As you can see, each function begins with <code class="docutils literal notranslate"><span class="pre">test_</span></code> and contains a <strong>different</strong> <code class="docutils literal notranslate"><span class="pre">assertion</span></code> to verify basic mathematical operations. Pytest will automatically detect these tests when you run pytest again in the terminal.<br />
-Run pytest in the terminal to verify that all tests pass.</p>
-<p>If all went well, you should see:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================================================</span>
-platform<span class="w"> </span>win32<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.11,<span class="w"> </span>pytest-8.3.3,<span class="w"> </span>pluggy-1.5.0
-rootdir:<span class="w"> </span>&lt;your<span class="w"> </span>directory<span class="w"> </span>name&gt;
-plugins:<span class="w"> </span>anyio-4.0.0,<span class="w"> </span>typeguard-4.3.0
-collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item<span class="w">                                                                                                                            </span>
-
-test_example.py<span class="w"> </span>.<span class="w">                                                                                                                    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>
-
-<span class="o">============================================================</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.02s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
-</pre></div>
-</div>
-<p>Notice that now we passed 4 tests in contrats to the previous 1.</p>
-<p><strong>Hint</strong>: If you still only passed one test, try saving the py file you are working in, and then run the test again. Usually that does the trick.</p>
-</section>
-<section id="span-style-color-b22222-handling-failing-tests-span">
-<h3><span class="section-number">10.2.3. </span><span style="color:#B22222">Handling Failing Tests</span><a class="headerlink" href="#span-style-color-b22222-handling-failing-tests-span" title="Permalink to this heading">#</a></h3>
-<p>Sometimes, tests fail, and <code class="docutils literal notranslate"><span class="pre">pytest</span></code> makes it easy to see what went wrong. Let’s intentionally add a failing test to see what the output looks like.</p>
-<p>Add the following test to <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_division_error</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">0</span> <span class="o">==</span> <span class="mi">0</span>
-</pre></div>
-</div>
-<p>And run the test again.</p>
-<p>You should see something like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>test_example.py<span class="w"> </span>....F<span class="w">                                                                                                                                                      </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span>
-
-<span class="o">===================================================================================</span><span class="w"> </span><span class="nv">FAILURES</span><span class="w"> </span><span class="o">====================================================================================</span><span class="w"> </span>
-______________________________________________________________________________<span class="w"> </span>test_division_error<span class="w"> </span>______________________________________________________________________________<span class="w"> </span>
-
-<span class="w">    </span>def<span class="w"> </span>test_division_error<span class="o">()</span>:
-&gt;<span class="w">       </span>assert<span class="w"> </span><span class="m">6</span><span class="w"> </span>/<span class="w"> </span><span class="nv">0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span>
-E<span class="w">       </span>ZeroDivisionError:<span class="w"> </span>division<span class="w"> </span>by<span class="w"> </span>zero
-
-test_example.py:14:<span class="w"> </span><span class="nv">ZeroDivisionError</span>
-<span class="o">============================================================================</span><span class="w"> </span>short<span class="w"> </span><span class="nb">test</span><span class="w"> </span>summary<span class="w"> </span><span class="nv">info</span><span class="w"> </span><span class="o">============================================================================</span><span class="w"> </span>
-FAILED<span class="w"> </span>test_example.py::test_division_error<span class="w"> </span>-<span class="w"> </span>ZeroDivisionError:<span class="w"> </span>division<span class="w"> </span>by<span class="w"> </span><span class="nv">zero</span>
-<span class="o">==========================================================================</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>failed,<span class="w"> </span><span class="m">4</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.27s<span class="w"> </span><span class="o">==========================================================================</span>
-</pre></div>
-</div>
-<p>Pytest shows which test failed and provides the exact line and error message. This helps you debug and fix issues in your code. So for this case, we can see that the <code class="docutils literal notranslate"><span class="pre">test_division_error</span></code> function failed and it threw a <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>.</p>
-<p>Now that we have covered this , lets’s delete that function se we don’t keep getting that error.</p>
-<p>At this point your <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> should look like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#############################</span>
-
-<span class="c1"># Writing Your First pytest #</span>
-
-<span class="c1">#############################</span>
-
-<span class="k">def</span> <span class="nf">test_addition</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
-
-
-<span class="c1">#############################</span>
-
-<span class="c1"># Writing more tests        #</span>
-
-<span class="c1">#############################</span>
-
-<span class="k">def</span> <span class="nf">test_subtraction</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
-
-<span class="k">def</span> <span class="nf">test_multiplication</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">6</span>
-
-<span class="k">def</span> <span class="nf">test_division</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">2</span>
-
-
-<span class="c1">#############################</span>
-
-<span class="c1"># Handling Failing Tests    #</span>
-
-<span class="c1">#############################</span>
-
-<span class="c1">#def test_division_error():</span>
-<span class="c1">#    assert 6 / 0 == 0</span>
-</pre></div>
-</div>
-</section>
-<section id="span-style-color-b22222-more-assert-statements-with-pytest-span">
-<h3><span class="section-number">10.2.4. </span><span style="color:#B22222">More <code class="docutils literal notranslate"><span class="pre">assert</span></code> Statements with <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span><a class="headerlink" href="#span-style-color-b22222-more-assert-statements-with-pytest-span" title="Permalink to this heading">#</a></h3>
-<p>We can use assert statements to compare different data types and objects. Here are a few examples (add these to your py file):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_string</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="s2">&quot;hello&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;HELLO&quot;</span>
-
-<span class="k">def</span> <span class="nf">test_list</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">test_dictionary</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>You should get something like this when your run the test:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================================================</span>
-platform<span class="w"> </span>win32<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.11,<span class="w"> </span>pytest-8.3.3,<span class="w"> </span>pluggy-1.5.0
-rootdir:<span class="w"> </span>&lt;your<span class="w"> </span>directory<span class="w"> </span>name&gt;
-plugins:<span class="w"> </span>anyio-4.0.0,<span class="w"> </span>typeguard-4.3.0
-collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item<span class="w">                                                                                                                            </span>
-
-test_example.py<span class="w"> </span>.<span class="w">                                                                                                                    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>
-
-<span class="o">============================================================</span><span class="w"> </span><span class="m">7</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.03s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
-</pre></div>
-</div>
-<p>As we have seen in <strong>Part 1</strong>, <code class="docutils literal notranslate"><span class="pre">assertions</span></code> can be used to check string manipulations, list contents, dictionary key-value pairs and much more. Don’t be afraid to combine your knowledge about the<code class="docutils literal notranslate"><span class="pre">assert</span></code> keyword in your <code class="docutils literal notranslate"><span class="pre">pytest</span></code> experiments.</p>
-<p>Let’s practice a bit more by creating a function and writing tests for it:</p>
-<p>In <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code>, define the following function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-</pre></div>
-</div>
-<p><strong>Note</strong>: This function is not the same as the first function we defined in (Part 2 - Writing Your First pytest), since it has a different name.</p>
-<p>Moreover, write these tests for the new function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_add</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
-    <span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="k">assert</span> <span class="n">add</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
-</pre></div>
-</div>
-<p>So what did we do here? We’ve defined an <code class="docutils literal notranslate"><span class="pre">add()</span></code> function and written a <strong>test</strong>, <code class="docutils literal notranslate"><span class="pre">test_add()</span></code>, with <strong>multiple</strong> <code class="docutils literal notranslate"><span class="pre">assertions</span></code> to check different cases.</p>
-<p>If you did everything correct, you should see something like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================================================</span>
-platform<span class="w"> </span>win32<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.11,<span class="w"> </span>pytest-8.3.3,<span class="w"> </span>pluggy-1.5.0
-rootdir:<span class="w"> </span>&lt;your<span class="w"> </span>directory<span class="w"> </span>name&gt;
-plugins:<span class="w"> </span>anyio-4.0.0,<span class="w"> </span>typeguard-4.3.0
-collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item<span class="w">                                                                                                                            </span>
-
-test_example.py<span class="w"> </span>.<span class="w">                                                                                                                    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>
-
-<span class="o">============================================================</span><span class="w"> </span><span class="m">8</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.04s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
-</pre></div>
-</div>
-</section>
-<section id="span-style-color-b22222-using-pytest-raises-to-check-for-exceptions-span">
-<h3><span class="section-number">10.2.5. </span><span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> to Check for Exceptions</span><a class="headerlink" href="#span-style-color-b22222-using-pytest-raises-to-check-for-exceptions-span" title="Permalink to this heading">#</a></h3>
-<p>Sometimes, you’ll want to ensure that <strong>specific errors</strong> are raised under certain conditions. Pytest provides a helpful feature called <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> for this purpose. This lets us test that code raises the expected exception</p>
-<p>Let’s test a function that raises an error if a number is divided by zero.</p>
-<p>Add this function to your <code class="docutils literal notranslate"><span class="pre">test_example.py</span></code> file:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
-</pre></div>
-</div>
-<p>Now, write a test that uses <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> to check for the <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> (<strong>Note</strong>: For this to work, we will have to import <code class="docutils literal notranslate"><span class="pre">pytest</span></code> into our py file):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
-
-<span class="k">def</span> <span class="nf">test_divide_by_zero</span><span class="p">():</span>
-    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">):</span>
-        <span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>If all went well, you should see something like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================================================</span>
-platform<span class="w"> </span>win32<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.11,<span class="w"> </span>pytest-8.3.3,<span class="w"> </span>pluggy-1.5.0
-rootdir:<span class="w"> </span>&lt;your<span class="w"> </span>directory<span class="w"> </span>name&gt;
-plugins:<span class="w"> </span>anyio-4.0.0,<span class="w"> </span>typeguard-4.3.0
-collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item<span class="w">                                                                                                                            </span>
-
-test_example.py<span class="w"> </span>.<span class="w">                                                                                                                    </span><span class="o">[</span><span class="m">100</span>%<span class="o">]</span><span class="w"> </span>
-
-<span class="o">============================================================</span><span class="w"> </span><span class="m">9</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.04s<span class="w"> </span><span class="o">============================================================</span><span class="w"> </span>
-</pre></div>
-</div>
-<p>So what is happening here? The <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> context manager checks if a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised with the message <code class="docutils literal notranslate"><span class="pre">&quot;Cannot</span> <span class="pre">divide</span> <span class="pre">by</span> <span class="pre">zero&quot;</span></code>. If <code class="docutils literal notranslate"><span class="pre">divide(10,</span> <span class="pre">0)</span></code> does not raise this error, the test will fail.</p>
 <p>That’s it for testing. Let’s start practicing!</p>
 <h2 style="color:#3CB371">Exercises</h2><p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
 <p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
@@ -944,7 +790,7 @@ test_example.py<span class="w"> </span>.<span class="w">                        
 <p><strong>Note</strong>: To get the most out of these exercises, it is recommended that you create a new py file, called <code class="docutils literal notranslate"><span class="pre">pytest_exercises.py</span></code>, and solve the exercises bellow in that file.</p>
 </section>
 <section id="exercise-1">
-<h3><span class="section-number">10.2.6. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.2. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a function <code class="docutils literal notranslate"><span class="pre">celsius_to_fahrenheit(celsius)</span></code> that converts a temperature from Celsius to Fahrenheit. Create tests to verify that this function works for common values.</p>
 <p><strong>Hint</strong>: 0 Celsius equals 32 Fahrenheit.</p>
 <p><strong>Example input</strong>:</p>
@@ -1005,7 +851,7 @@ test_example.py<span class="w"> </span>.<span class="w">                        
 </div>
 </section>
 <section id="exercise-2">
-<h3><span class="section-number">10.2.7. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.3. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a function <code class="docutils literal notranslate"><span class="pre">sum_even_numbers(lst)</span></code> that returns the sum of all even numbers in a list. Write tests to verify the function with lists containing both even and odd numbers.</p>
 <p><strong>Example input</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sum_even_numbers</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
@@ -1064,7 +910,7 @@ test_example.py<span class="w"> </span>.<span class="w">                        
 </div>
 </section>
 <section id="exercise-3">
-<h3><span class="section-number">10.2.8. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">10.2.4. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
 <p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a function <code class="docutils literal notranslate"><span class="pre">count_vowels(s)</span></code> that returns the count of vowels <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">e,</span> <span class="pre">i,</span> <span class="pre">o,</span> <span class="pre">u)</span></code> in a given string. Write tests to verify the function on different strings.</p>
 <p><strong>Example input</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
@@ -1194,13 +1040,9 @@ test_example.py<span class="w"> </span>.<span class="w">                        
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-part-2-writing-your-first-pytest-span">10.2. <span style="color:#4169E1"> Part 2 - Writing Your First <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-error-handling-optional-span">10.2.1. <span style="color:#B22222">Error handling (optional)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-writing-more-tests-span">10.2.2. <span style="color:#B22222">Writing more tests</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-handling-failing-tests-span">10.2.3. <span style="color:#B22222">Handling Failing Tests</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-more-assert-statements-with-pytest-span">10.2.4. <span style="color:#B22222">More <code class="docutils literal notranslate"><span class="pre">assert</span></code> Statements with <code class="docutils literal notranslate"><span class="pre">pytest</span></code></span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-using-pytest-raises-to-check-for-exceptions-span">10.2.5. <span style="color:#B22222">Using <code class="docutils literal notranslate"><span class="pre">pytest.raises</span></code> to Check for Exceptions</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">10.2.6. Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">10.2.7. Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">10.2.8. Exercise 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">10.2.2. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">10.2.3. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">10.2.4. Exercise 3</a></li>
 </ul>
 </li>
 </ul>
