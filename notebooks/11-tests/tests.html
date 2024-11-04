@@ -832,7 +832,7 @@ test_example.py<span class="w"> </span>.<span class="w">                        
 
 </pre></div>
 </div>
-<p>Moreover, to test these functions, lets write into `<a class="reference external" href="http://example.py">example.py</a>:</p>
+<p>Moreover, to test these functions, lets write into <code class="docutils literal notranslate"><span class="pre">example.py</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_subtraction</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Tests the subtraction function with various cases.</span>
@@ -1119,7 +1119,7 @@ test_example.py<span class="w"> </span>.<span class="w">                        
 <li><p><code class="docutils literal notranslate"><span class="pre">pytest.raises(ValueError)</span></code> ensures that a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> is raised when <code class="docutils literal notranslate"><span class="pre">divide_by_zero(10,</span> <span class="pre">0)</span></code> is called.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">match=&quot;Cannot</span> <span class="pre">divide</span> <span class="pre">by</span> <span class="pre">zero&quot;</span></code> further checks that the error message matches the provided string.</p></li>
 </ul>
-<p>If the <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> with the expected message is raised, the test <strong>passes</strong>. If no exception is raised or if a different message appears, the test fails.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> with the expected message is raised, the test <strong>passes</strong>. If no exception is raised or if a different message appears, the test <strong>fails</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This approach eliminates the need for an <code>assert</code> statement, as <code class="docutils literal notranslate"><span class="pre">pytest.raises()</span></code> handles the verification directly.</p>
