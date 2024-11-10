@@ -16,3 +16,5 @@ chapters:
 - file: notebooks/08-exceptions/exceptions.ipynb
 - file: notebooks/10-files/files.ipynb
 - file: notebooks/11-tests/tests.ipynb
+- file: notebooks/12-tuples/tuples.ipynb
+- file: notebooks/13-intro-to-classes/intro-to-classes.ipynb
