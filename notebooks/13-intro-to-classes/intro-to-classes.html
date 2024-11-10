@@ -1,0 +1,1052 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>12. Intro to Classes &#8212; Workbook Intro Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/13-intro-to-classes/intro-to-classes';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="11. Tuples" href="../12-tuples/tuples.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Workbook Intro Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Workbook Intro Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Programming Workbook XB-0082
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-functions/functions.html">2. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-conditionals/conditionals.html">3. Conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-while-loop/while-loop.html">4. While Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-for-loop/for-loop.html">5. For Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-lists/lists.html">6. Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-dictionaries/dictionaries.html">7. Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-exceptions/exceptions.html">8. Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-files/files.html">9. Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11-tests/tests.html">10. Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12-tuples/tuples.html">11. Tuples</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Intro to Classes</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/VU-IntroPython/TAs-Material.git/master/v2/gh/VU-IntroPython/TAs-Material/master?urlpath=lab/tree/notebooks/notebooks/13-intro-to-classes/intro-to-classes.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material/issues/new?title=Issue%20on%20page%20%2Fnotebooks/13-intro-to-classes/intro-to-classes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/13-intro-to-classes/intro-to-classes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Intro to Classes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-what-is-a-class-span">12.1. <span style="color:#4169E1">What is a <code class="docutils literal notranslate"><span class="pre">class</span></code></span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-defining-a-class-span">12.1.1. <span style="color:#B22222">Defining a <code class="docutils literal notranslate"><span class="pre">class</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-init-method-span">12.1.2. <span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-str-method-span">12.1.3. <span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-a-few-more-example-classes-span">12.1.4. <span style="color:#B22222">A few more example <code class="docutils literal notranslate"><span class="pre">classes</span></code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">12.2. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">12.2.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">12.2.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">12.2.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-classes">
+<h1><span class="section-number">12. </span>Intro to Classes<a class="headerlink" href="#intro-to-classes" title="Permalink to this heading">#</a></h1>
+<p><strong>In this notebook, we cover the following subjects:</strong></p>
+<ul class="simple">
+<li><p>What is a <code class="docutils literal notranslate"><span class="pre">class</span></code>,</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method,</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method</p></li>
+</ul>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To enable type hints for lists, dicts, and tuples, we need to import the following:</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this notebook, we’re diving into something that will take your programming skills to the next level: <strong><a class="reference external" href="https://www.geeksforgeeks.org/python-oops-concepts/">Object-Oriented Programming (OOP)</a> with <a class="reference external" href="https://www.geeksforgeeks.org/python-classes-and-objects/">classes</a></strong>!</p>
+<p>Object-Oriented Programming (OOP) is a programming paradigm that helps you structure your code by grouping related properties and behaviors into individual objects. OOP makes it easier to model real-world things in code, reuse components, and manage complexity. In Python, <code class="docutils literal notranslate"><span class="pre">classes</span></code> are the foundation of OOP, allowing you to create your own custom objects that have both data (attributes) and behaviors (methods).</p>
+<p>You’ve already learned so much about Python—functions, variables, loops, and data structures. Now, we’re going to bring all of that knowledge together in a new and exciting way. <strong>Classes</strong> are a fundamental part of Object-Oriented Programming (OOP) and will help you organize your code, making it easier to work with and more powerful. Think of classes as blueprints. Just like how a blueprint of a house lets you create many houses, a class in Python lets you create many similar objects.</p>
+<p>Let’s start by understanding what a class is.</p>
+<section id="span-style-color-4169e1-what-is-a-class-span">
+<h2><span class="section-number">12.1. </span><span style="color:#4169E1">What is a <code class="docutils literal notranslate"><span class="pre">class</span></code></span><a class="headerlink" href="#span-style-color-4169e1-what-is-a-class-span" title="Permalink to this heading">#</a></h2>
+<p>A <strong>class</strong> is like a template or a recipe for creating things in Python. These “things” are called <strong>objects</strong>. Imagine you want to describe a cat. You could describe it by its color, age, name, and personality. Instead of describing each cat over and over again, you can create a class called <code class="docutils literal notranslate"><span class="pre">Cat</span></code> that defines these attributes, and then use it to make individual cats. Let’s see this in action!</p>
+<section id="span-style-color-b22222-defining-a-class-span">
+<h3><span class="section-number">12.1.1. </span><span style="color:#B22222">Defining a <code class="docutils literal notranslate"><span class="pre">class</span></code></span><a class="headerlink" href="#span-style-color-b22222-defining-a-class-span" title="Permalink to this heading">#</a></h3>
+<p>Here, we’ll define a class called <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>This is the most basic form of a class. The keyword <code class="docutils literal notranslate"><span class="pre">class</span></code> is used to create it, and <code class="docutils literal notranslate"><span class="pre">Cat</span></code> is the name we chose. The keyword <code class="docutils literal notranslate"><span class="pre">pass</span></code> just means “do nothing” for now. This is a placeholder.</p>
+<p>But… a class without any features isn’t very interesting, right? Let’s make it more useful!</p>
+</section>
+<section id="span-style-color-b22222-the-init-method-span">
+<h3><span class="section-number">12.1.2. </span><span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> Method</span><a class="headerlink" href="#span-style-color-b22222-the-init-method-span" title="Permalink to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>  <span class="c1"># This assigns the name to the cat (attribute)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>    <span class="c1"># This assigns the age to the cat (attribute)</span>
+</pre></div>
+</div>
+<p>Here’s what’s happening:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org/__init__-in-python/"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a> is a special method called a <strong>constructor</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code> is like the cat itself. It’s a reference to the object we are creating.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> are the things we want to store about each cat (attributes of a cat).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">self.name</span> <span class="pre">=</span> <span class="pre">name</span></code> stores the <code class="docutils literal notranslate"><span class="pre">name</span></code> given to the <code class="docutils literal notranslate"><span class="pre">Cat</span></code> object (same with the age).</p></li>
+</ul>
+<p>Let’s make our first cat!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+
+<span class="n">my_cat</span><span class="p">:</span> <span class="n">Cat</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="s2">&quot;Whiskers&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_cat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Cat object at 0x7f70b03605b0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This looks a bit weird, right? That’s because Python doesn’t know how to nicely print out your <code class="docutils literal notranslate"><span class="pre">Cat</span></code> object yet. By default, it just shows you the class name (Cat) and where it’s stored in memory (0x000002630A190A10).</p>
+<p>Let’s check out two ways to print it nicely. For instance, we could do something like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My cat&#39;s name is </span><span class="si">{</span><span class="n">my_cat</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> and it is </span><span class="si">{</span><span class="n">my_cat</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My cat&#39;s name is Whiskers and it is 3 years old.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Way better right? But what’s happening here?</p>
+<p>Instead of printing the whole object (my_cat) directly, we used its <strong>attributes</strong> (name and age) to create a friendly sentence.</p>
+<p><code class="docutils literal notranslate"><span class="pre">my_cat.name</span></code> is accessing the name we gave our cat (which is “Whiskers”).
+<code class="docutils literal notranslate"><span class="pre">my_cat.age</span></code> is getting the age we set (which is 3).</p>
+<p>But why does this work?</p>
+<p>In Python, every time we use the dot (<code class="docutils literal notranslate"><span class="pre">'.'</span></code>) (like my_cat.name), you’re telling Python to reach into your Cat object and get a specific piece of information. <strong>This is called accessing an attribute.</strong></p>
+<p>So, while printing the object (my_cat) by itself looks weird because Python doesn’t know how to display it nicely, using its attributes gives you more control over what gets printed.</p>
+<p>Remember I told you will will check 2 different ways to print our cat nicely? Well, I do! So here is the 2nd option.</p>
+</section>
+<section id="span-style-color-b22222-the-str-method-span">
+<h3><span class="section-number">12.1.3. </span><span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> Method</span><a class="headerlink" href="#span-style-color-b22222-the-str-method-span" title="Permalink to this heading">#</a></h3>
+<p>Instead of printing the attributes manually every time, we can “teach” Python how to print our Cat objects automatically by adding a <a class="reference external" href="https://www.digitalocean.com/community/tutorials/python-str-repr-functions"><code class="docutils literal notranslate"><span class="pre">__str__()</span></code></a> method. The <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method is a special method that tells Python how to represent an object as a string. By default, if you print an object without defining <code class="docutils literal notranslate"><span class="pre">__str__()</span></code>, you get a message like <code class="docutils literal notranslate"><span class="pre">&lt;__main__.Cat</span> <span class="pre">object</span> <span class="pre">at</span> <span class="pre">0x000002&gt;</span></code>, which is not very informative (as we have seen). The <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method allows you to define a meaningful, human-readable string that describes the object in a clear way.</p>
+<p>Here’s how it works:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__str__()</span></code> is called automatically when you use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function on an object that has a <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> defined, or when you try to convert an object to a string using <code class="docutils literal notranslate"><span class="pre">str()</span></code>.</p></li>
+<li><p>Inside the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method, you need to return a string that represents the object in the way you want it to appear.</p></li>
+</ul>
+<p>Let’s add it to our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class to see how it improves the output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to represent a cat.    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        name : str -&gt;The name of the cat.</span>
+<span class="sd">        age : int -&gt; The age of the cat.</span>
+<span class="sd">    Methods:</span>
+<span class="sd">        __str__() -&gt; Returns a string representation of the cat.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Cat named </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> who is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, when we print <code class="docutils literal notranslate"><span class="pre">my_cat</span></code>, it will look much nicer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_cat</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="s2">&quot;Whiskers&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_cat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cat named Whiskers who is 3 years old.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember, you need to add <b>typehints</b> and <b>docstrings</b> to classes as well.</p>
+</div>
+</section>
+<section id="span-style-color-b22222-a-few-more-example-classes-span">
+<h3><span class="section-number">12.1.4. </span><span style="color:#B22222">A few more example <code class="docutils literal notranslate"><span class="pre">classes</span></code></span><a class="headerlink" href="#span-style-color-b22222-a-few-more-example-classes-span" title="Permalink to this heading">#</a></h3>
+<p>In this example, we’ll define a <code class="docutils literal notranslate"><span class="pre">Panda</span> <span class="pre">class</span></code>. We’ll use the<code class="docutils literal notranslate"> <span class="pre">__str__()</span></code> method to format a readable message about the panda, including its favorite food and activity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Panda</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to represent a panda.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the panda.</span>
+<span class="sd">        age (int): The age of the panda.</span>
+<span class="sd">        favorite_food (str): The panda&#39;s favorite food.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">favorite_food</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">favorite_food</span> <span class="o">=</span> <span class="n">favorite_food</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">-year-old panda who loves eating </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">favorite_food</span><span class="si">}</span><span class="s2">.&quot;</span>
+
+<span class="c1"># Creating an instance of Panda</span>
+<span class="n">panda1</span> <span class="o">=</span> <span class="n">Panda</span><span class="p">(</span><span class="s2">&quot;Bao Bao&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;bamboo shoots&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">panda1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bao Bao is a 5-year-old panda who loves eating bamboo shoots.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Explanation:</p>
+<p>We created a Panda class with <strong>attributes</strong>:</p>
+<ul class="simple">
+<li><p>name</p></li>
+<li><p>age</p></li>
+<li><p>and favorite_food.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method returns a sentence that includes all these details.</p>
+<p>Let’s see one more example:</p>
+<p>Now let’s create a <code class="docutils literal notranslate"><span class="pre">Jungle</span> <span class="pre">class</span></code>. This one will be a bit different: it will describe the jungle by listing the types of animals and the number of trees in it. We’ll use the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to format this information in a more structured way.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Jungle</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to represent a jungle.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the jungle.</span>
+<span class="sd">        animals (list[str]): A list of animal species found in the jungle.</span>
+<span class="sd">        tree_count (int): The number of trees in the jungle.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">animals</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">tree_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">animals</span> <span class="o">=</span> <span class="n">animals</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tree_count</span> <span class="o">=</span> <span class="n">tree_count</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">animal_list</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">animals</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Welcome to the </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> Jungle!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Animals here: </span><span class="si">{</span><span class="n">animal_list</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Number of trees: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tree_count</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+<span class="n">jungle1</span> <span class="o">=</span> <span class="n">Jungle</span><span class="p">(</span><span class="s2">&quot;Amazon&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;tigers&quot;</span><span class="p">,</span> <span class="s2">&quot;monkeys&quot;</span><span class="p">,</span> <span class="s2">&quot;parrots&quot;</span><span class="p">],</span> <span class="mi">15000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jungle1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Welcome to the Amazon Jungle!
+Animals here: tigers, monkeys, parrots.
+Number of trees: 15000.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Explanation:</p>
+<p>This Jungle class includes <strong>attributes</strong>:</p>
+<ul class="simple">
+<li><p>name</p></li>
+<li><p>animals (a list)</p></li>
+<li><p>and tree_count</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method combines the attributes into a multi-line string for a nice, clear description.</p>
+<p>That’s it about classes for now. Let’s Practice!</p>
+</section>
+</section>
+<section id="span-style-color-3cb371-exercises-span">
+<h2><span class="section-number">12.2. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+<p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
+<br></p>
+<section id="exercise-1">
+<h3><span class="section-number">12.2.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a <code class="docutils literal notranslate"><span class="pre">Book</span> <span class="pre">class</span></code> with attributes for <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">author</span></code>, and <code class="docutils literal notranslate"><span class="pre">year</span></code>. Implement the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to print the book details in a readable format.
+<strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">book1</span><span class="p">:</span> <span class="n">Book</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;To Kill a Mockingbird&quot;</span><span class="p">,</span> <span class="s2">&quot;Harper Lee&quot;</span><span class="p">,</span> <span class="mi">1960</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;To Kill a Mockingbird&quot;</span> <span class="n">by</span> <span class="n">Harper</span> <span class="n">Lee</span> <span class="p">(</span><span class="mi">1960</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Extend your class to handle a <strong>list of books</strong>. Create a list of <code class="docutils literal notranslate"><span class="pre">Book</span> <span class="pre">objects</span></code> and write a loop that prints out the details of each book.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">books</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Book</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;1984&quot;</span><span class="p">,</span> <span class="s2">&quot;George Orwell&quot;</span><span class="p">,</span> <span class="mi">1949</span><span class="p">),</span>
+    <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;Pride and Prejudice&quot;</span><span class="p">,</span> <span class="s2">&quot;Jane Austen&quot;</span><span class="p">,</span> <span class="mi">1813</span><span class="p">),</span>
+    <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;The Great Gatsby&quot;</span><span class="p">,</span> <span class="s2">&quot;F. Scott Fitzgerald&quot;</span><span class="p">,</span> <span class="mi">1925</span><span class="p">)</span>
+<span class="p">]</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;1984&quot;</span> <span class="n">by</span> <span class="n">George</span> <span class="n">Orwell</span> <span class="p">(</span><span class="mi">1949</span><span class="p">)</span>
+<span class="s2">&quot;Pride and Prejudice&quot;</span> <span class="n">by</span> <span class="n">Jane</span> <span class="n">Austen</span> <span class="p">(</span><span class="mi">1813</span><span class="p">)</span>
+<span class="s2">&quot;The Great Gatsby&quot;</span> <span class="n">by</span> <span class="n">F</span><span class="o">.</span> <span class="n">Scott</span> <span class="n">Fitzgerald</span> <span class="p">(</span><span class="mi">1925</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span>  Add a feature to your <code class="docutils literal notranslate"><span class="pre">Book</span> <span class="pre">class</span></code> to store a <strong>list of keywords</strong> for each book. Modify the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to include these keywords <strong>if</strong> they are available.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">book2</span><span class="p">:</span> <span class="n">Book</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;Brave New World&quot;</span><span class="p">,</span> <span class="s2">&quot;Aldous Huxley&quot;</span><span class="p">,</span> <span class="mi">1932</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;dystopia&quot;</span><span class="p">,</span> <span class="s2">&quot;science fiction&quot;</span><span class="p">,</span> <span class="s2">&quot;totalitarianism&quot;</span><span class="p">])</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Brave New World&quot;</span> <span class="n">by</span> <span class="n">Aldous</span> <span class="n">Huxley</span> <span class="p">(</span><span class="mi">1932</span><span class="p">)</span> <span class="o">-</span> <span class="n">Keywords</span><span class="p">:</span> <span class="n">dystopia</span><span class="p">,</span> <span class="n">science</span> <span class="n">fiction</span><span class="p">,</span> <span class="n">totalitarianism</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2">
+<h3><span class="section-number">12.2.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a <code class="docutils literal notranslate"><span class="pre">Recipe</span> <span class="pre">class</span></code> with attributes for <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">ngredients</span></code> (a list), and <code class="docutils literal notranslate"><span class="pre">time</span></code> (in minutes). Implement the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to print the recipe details in a readable format.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipe1</span><span class="p">:</span> <span class="n">Recipe</span> <span class="o">=</span> <span class="n">Recipe</span><span class="p">(</span><span class="s2">&quot;Pasta Carbonara&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;pasta&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;cheese&quot;</span><span class="p">,</span> <span class="s2">&quot;bacon&quot;</span><span class="p">],</span> <span class="mi">20</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Pasta</span> <span class="n">Carbonara</span> <span class="p">(</span><span class="mi">20</span> <span class="n">mins</span><span class="p">)</span> <span class="o">-</span> <span class="n">Ingredients</span><span class="p">:</span> <span class="n">pasta</span><span class="p">,</span> <span class="n">eggs</span><span class="p">,</span> <span class="n">cheese</span><span class="p">,</span> <span class="n">bacon</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Write a program that takes a <strong>list</strong> of <code class="docutils literal notranslate"><span class="pre">Recipe</span> <span class="pre">objects</span></code> and prints only the recipes that can be prepared in <strong>less than 30</strong> minutes.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Recipe</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Recipe</span><span class="p">(</span><span class="s2">&quot;Salad&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;lettuce&quot;</span><span class="p">,</span> <span class="s2">&quot;tomatoes&quot;</span><span class="p">,</span> <span class="s2">&quot;cucumber&quot;</span><span class="p">],</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="n">Recipe</span><span class="p">(</span><span class="s2">&quot;Lasagna&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;pasta&quot;</span><span class="p">,</span> <span class="s2">&quot;cheese&quot;</span><span class="p">,</span> <span class="s2">&quot;tomato sauce&quot;</span><span class="p">,</span> <span class="s2">&quot;ground beef&quot;</span><span class="p">],</span> <span class="mi">60</span><span class="p">),</span>
+    <span class="n">Recipe</span><span class="p">(</span><span class="s2">&quot;Omelette&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;cheese&quot;</span><span class="p">,</span> <span class="s2">&quot;ham&quot;</span><span class="p">],</span> <span class="mi">15</span><span class="p">)</span>
+<span class="p">]</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Salad</span> <span class="p">(</span><span class="mi">10</span> <span class="n">mins</span><span class="p">)</span> <span class="o">-</span> <span class="n">Ingredients</span><span class="p">:</span> <span class="n">lettuce</span><span class="p">,</span> <span class="n">tomatoes</span><span class="p">,</span> <span class="n">cucumber</span>
+<span class="n">Omelette</span> <span class="p">(</span><span class="mi">15</span> <span class="n">mins</span><span class="p">)</span> <span class="o">-</span> <span class="n">Ingredients</span><span class="p">:</span> <span class="n">eggs</span><span class="p">,</span> <span class="n">cheese</span><span class="p">,</span> <span class="n">ham</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Enhance the <code class="docutils literal notranslate"><span class="pre">Recipe</span> <span class="pre">class</span></code> to include a <strong>difficulty level</strong> (“Easy”, “Medium”, “Hard”) based on the <strong>number of ingredients</strong>:</p>
+<ul class="simple">
+<li><p>less than 4 ingredients is “Easy”</p></li>
+<li><p>4-6 is “Medium”</p></li>
+<li><p>and more than 6 is “Hard”.</p></li>
+</ul>
+<p>Update the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to include this information.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipe2</span><span class="p">:</span> <span class="n">Recipe</span> <span class="o">=</span> <span class="n">Recipe</span><span class="p">(</span><span class="s2">&quot;Chocolate Cake&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;flour&quot;</span><span class="p">,</span> <span class="s2">&quot;sugar&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;chocolate&quot;</span><span class="p">,</span> <span class="s2">&quot;butter&quot;</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">],</span> <span class="mi">45</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Chocolate</span> <span class="n">Cake</span> <span class="p">(</span><span class="mi">45</span> <span class="n">mins</span><span class="p">)</span> <span class="o">-</span> <span class="n">Ingredients</span><span class="p">:</span> <span class="n">flour</span><span class="p">,</span> <span class="n">sugar</span><span class="p">,</span> <span class="n">eggs</span><span class="p">,</span> <span class="n">chocolate</span><span class="p">,</span> <span class="n">butter</span><span class="p">,</span> <span class="n">milk</span> <span class="p">(</span><span class="n">Difficulty</span><span class="p">:</span> <span class="n">Medium</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3">
+<h3><span class="section-number">12.2.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a <code class="docutils literal notranslate"><span class="pre">Movie</span> <span class="pre">class</span></code> with attributes for <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">director</span></code>, and <code class="docutils literal notranslate"><span class="pre">actors</span></code> (a list). Implement the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to print the movie details in a readable format.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">movie1</span><span class="p">:</span> <span class="n">Movie</span> <span class="o">=</span> <span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;Inception&quot;</span><span class="p">,</span> <span class="s2">&quot;Christopher Nolan&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Leonardo DiCaprio&quot;</span><span class="p">,</span> <span class="s2">&quot;Joseph Gordon-Levitt&quot;</span><span class="p">])</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Inception&quot;</span> <span class="n">directed</span> <span class="n">by</span> <span class="n">Christopher</span> <span class="n">Nolan</span><span class="o">.</span> <span class="n">Starring</span><span class="p">:</span> <span class="n">Leonardo</span> <span class="n">DiCaprio</span><span class="p">,</span> <span class="n">Joseph</span> <span class="n">Gordon</span><span class="o">-</span><span class="n">Levitt</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Create a list of <code class="docutils literal notranslate"><span class="pre">Movie</span> <span class="pre">objects</span></code> and make a function called <code class="docutils literal notranslate"><span class="pre">filter_by_director()</span></code> that takes as input a <code class="docutils literal notranslate"><span class="pre">director</span></code> (str) and filters out only the movies directed by a that director. Print the filtered movies.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Movie</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;Interstellar&quot;</span><span class="p">,</span> <span class="s2">&quot;Christopher Nolan&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Matthew McConaughey&quot;</span><span class="p">,</span> <span class="s2">&quot;Anne Hathaway&quot;</span><span class="p">]),</span>
+    <span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;Pulp Fiction&quot;</span><span class="p">,</span> <span class="s2">&quot;Quentin Tarantino&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;John Travolta&quot;</span><span class="p">,</span> <span class="s2">&quot;Uma Thurman&quot;</span><span class="p">]),</span>
+    <span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;The Dark Knight&quot;</span><span class="p">,</span> <span class="s2">&quot;Christopher Nolan&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Christian Bale&quot;</span><span class="p">,</span> <span class="s2">&quot;Heath Ledger&quot;</span><span class="p">])</span>
+<span class="p">]</span>
+
+<span class="n">director</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Christopher Nolan&#39;</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Interstellar directed by Christopher Nolan. Starring: Matthew McConaughey, Anne Hathaway</span>
+<span class="s2">&quot;The Dark Knight&quot;</span> <span class="n">directed</span> <span class="n">by</span> <span class="n">Christopher</span> <span class="n">Nolan</span><span class="o">.</span> <span class="n">Starring</span><span class="p">:</span> <span class="n">Christian</span> <span class="n">Bale</span><span class="p">,</span> <span class="n">Heath</span> <span class="n">Ledge</span><span class="s2">&quot;r</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Expand your <code class="docutils literal notranslate"><span class="pre">Movie</span> <span class="pre">class</span></code> to include more attributes and functionality. You’ll be handling multiple movies and performing advanced filtering and grouping operations.</p>
+<p>Expand the Movie class to include the following <strong>attributes</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code> (str): The name of the movie.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">director</span></code> (str): The director of the movie.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actors</span></code> (list of str): A list of the main actors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">release_year</span></code> (int): The year the movie was released.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">genre</span></code> (str): The genre of the movie.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ratings</span></code> (list of float): A list of ratings from different critics (values between 1 and 10).</p></li>
+</ul>
+<p>Implement a <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to return a formatted description of the movie, including the <strong>average rating</strong> (rounded to <strong>2 decimal</strong> places).</p>
+<p>Then create a list of <code class="docutils literal notranslate"><span class="pre">Movie</span> <span class="pre">objects</span></code> and perform the <strong>following tasks</strong> (make functions for all):</p>
+<ul class="simple">
+<li><p>Filter movies based on <strong>genre and average rating</strong> (greater than a given threshold).</p></li>
+<li><p>Group the movies by director, and print out each director’s filmography. (think of an appropriate data type)</p></li>
+<li><p>Find the <strong>highest-rated</strong> movie for a <strong>given genre</strong> (based on average rating).</p></li>
+<li><p>Calculate the <strong>average rating</strong> of all movies released in a <strong>specific decade</strong> (e.g., 1990s, 2000s).</p></li>
+</ul>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Movies</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;Inception&quot;</span><span class="p">,</span> <span class="s2">&quot;Christopher Nolan&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Leonardo DiCaprio&quot;</span><span class="p">,</span> <span class="s2">&quot;Joseph Gordon-Levitt&quot;</span><span class="p">],</span> <span class="mi">2010</span><span class="p">,</span> <span class="s2">&quot;Sci-Fi&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">9.2</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">]),</span>
+    <span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;Pulp Fiction&quot;</span><span class="p">,</span> <span class="s2">&quot;Quentin Tarantino&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;John Travolta&quot;</span><span class="p">,</span> <span class="s2">&quot;Uma Thurman&quot;</span><span class="p">],</span> <span class="mi">1994</span><span class="p">,</span> <span class="s2">&quot;Crime&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">9.0</span><span class="p">,</span> <span class="mf">8.8</span><span class="p">,</span> <span class="mf">9.3</span><span class="p">]),</span>
+    <span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;The Dark Knight&quot;</span><span class="p">,</span> <span class="s2">&quot;Christopher Nolan&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Christian Bale&quot;</span><span class="p">,</span> <span class="s2">&quot;Heath Ledger&quot;</span><span class="p">],</span> <span class="mi">2008</span><span class="p">,</span> <span class="s2">&quot;Action&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">9.7</span><span class="p">,</span> <span class="mf">9.4</span><span class="p">,</span> <span class="mf">9.8</span><span class="p">]),</span>
+    <span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;The Matrix&quot;</span><span class="p">,</span> <span class="s2">&quot;The Wachowskis&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Keanu Reeves&quot;</span><span class="p">,</span> <span class="s2">&quot;Laurence Fishburne&quot;</span><span class="p">],</span> <span class="mi">1999</span><span class="p">,</span> <span class="s2">&quot;Sci-Fi&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">8.7</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">]),</span>
+    <span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;Interstellar&quot;</span><span class="p">,</span> <span class="s2">&quot;Christopher Nolan&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Matthew McConaughey&quot;</span><span class="p">,</span> <span class="s2">&quot;Anne Hathaway&quot;</span><span class="p">],</span> <span class="mi">2014</span><span class="p">,</span> <span class="s2">&quot;Sci-Fi&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">9.1</span><span class="p">,</span> <span class="mf">9.3</span><span class="p">,</span> <span class="mf">9.2</span><span class="p">]),</span>
+    <span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;Kill Bill&quot;</span><span class="p">,</span> <span class="s2">&quot;Quentin Tarantino&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Uma Thurman&quot;</span><span class="p">],</span> <span class="mi">2003</span><span class="p">,</span> <span class="s2">&quot;Action&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">8.3</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">])</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Expected Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the average rating for each movie:</span>
+<span class="s2">&quot;Inception (2010) directed by Christopher Nolan. Avg. Rating: 9.2&quot;</span>
+<span class="s2">&quot;Pulp Fiction (1994) directed by Quentin Tarantino. Avg. Rating: 9.03&quot;</span>
+<span class="s2">&quot;The Dark Knight (2008) directed by Christopher Nolan. Avg. Rating: 9.63&quot;</span>
+<span class="s2">&quot;The Matrix (1999) directed by The Wachowskis. Avg. Rating: 8.7&quot;</span>
+<span class="s2">&quot;Interstellar (2014) directed by Christopher Nolan. Avg. Rating: 9.2&quot;</span>
+<span class="s2">&quot;Kill Bill (2003) directed by Quentin Tarantino. Avg. Rating: 8.27&quot;</span>
+
+
+<span class="c1"># Filter Sci-Fi movies with an average rating &gt; 9.0:</span>
+<span class="s2">&quot;Interstellar (2014) directed by Christopher Nolan. Starring: Matthew McConaughey, Anne Hathaway (Genre: Sci-Fi) - Avg. Rating: 9.20&quot;</span>
+
+<span class="c1"># Group movies by director:</span>
+<span class="p">{</span>
+    <span class="s1">&#39;Christopher Nolan&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;Inception&#39;</span><span class="p">,</span> <span class="mi">2010</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;The Dark Knight&#39;</span><span class="p">,</span> <span class="mi">2008</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Interstellar&#39;</span><span class="p">,</span> <span class="mi">2014</span><span class="p">)]</span>
+    <span class="s1">&#39;Quentin Tarantino&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Pulp Fiction&#39;</span><span class="p">,</span> <span class="mi">1994</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Kill Bill&#39;</span><span class="p">,</span> <span class="mi">2003</span><span class="p">)]</span>
+    <span class="s1">&#39;The Wachowskis&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;The Matrix&#39;</span><span class="p">,</span> <span class="mi">1999</span><span class="p">)]</span>
+<span class="p">}</span>
+
+<span class="c1"># Find the highest-rated movie in the &quot;Sci-Fi&quot; genre:</span>
+<span class="s2">&quot;Highest-rated Sci-Fi movie: Interstellar with an average rating of 9.20&quot;</span>
+
+<span class="c1"># Average rating of movies released in the 2000s:</span>
+<span class="s2">&quot;Average rating for movies in the 2000s: 8.93&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "VU-IntroPython/TAs-Material",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/13-intro-to-classes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../12-tuples/tuples.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Tuples</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-what-is-a-class-span">12.1. <span style="color:#4169E1">What is a <code class="docutils literal notranslate"><span class="pre">class</span></code></span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-defining-a-class-span">12.1.1. <span style="color:#B22222">Defining a <code class="docutils literal notranslate"><span class="pre">class</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-init-method-span">12.1.2. <span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-str-method-span">12.1.3. <span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-a-few-more-example-classes-span">12.1.4. <span style="color:#B22222">A few more example <code class="docutils literal notranslate"><span class="pre">classes</span></code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">12.2. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">12.2.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">12.2.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">12.2.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Koen van der Pool, Mauricio Verano Merino & Márton Bodó
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024. Vrije Universiteit Amsterdam.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
