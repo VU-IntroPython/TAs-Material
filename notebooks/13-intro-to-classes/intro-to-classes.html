@@ -513,7 +513,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Cat object at 0x7f70b03605b0&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Cat object at 0x7f67e0ad27f0&gt;
 </pre></div>
 </div>
 </div>
@@ -540,6 +540,10 @@ document.write(`
 <p>In Python, every time we use the dot (<code class="docutils literal notranslate"><span class="pre">'.'</span></code>) (like my_cat.name), you’re telling Python to reach into your Cat object and get a specific piece of information. <strong>This is called accessing an attribute.</strong></p>
 <p>So, while printing the object (my_cat) by itself looks weird because Python doesn’t know how to display it nicely, using its attributes gives you more control over what gets printed.</p>
 <p>Remember I told you will will check 2 different ways to print our cat nicely? Well, I do! So here is the 2nd option.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you define a new <code>class&lt;\code&gt;, make sure that the name of the class (like Cat) starts with a <b>capital letter&lt;\b&gt; (C in this case).</p>
+</div>
 </section>
 <section id="span-style-color-b22222-the-str-method-span">
 <h3><span class="section-number">12.1.3. </span><span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> Method</span><a class="headerlink" href="#span-style-color-b22222-the-str-method-span" title="Permalink to this heading">#</a></h3>
@@ -588,7 +592,7 @@ document.write(`
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Remember, you need to add <b>typehints</b> and <b>docstrings</b> to classes as well.</p>
+<p>Remember, you need to add <b>typehints</b> and <b>docstrings</b> to classes as well. This means that bellow the class definition there should be a docstring (see code above) and all other methods inside the class must only have typehints.</p>
 </div>
 </section>
 <section id="span-style-color-b22222-a-few-more-example-classes-span">
@@ -705,7 +709,7 @@ Number of trees: 15000.
 </div>
 </div>
 </div>
-<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Extend your class to handle a <strong>list of books</strong>. Create a list of <code class="docutils literal notranslate"><span class="pre">Book</span> <span class="pre">objects</span></code> and write a loop that prints out the details of each book.</p>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Extend your class to handle a <strong>list of books</strong>. Create a list of <code class="docutils literal notranslate"><span class="pre">Book</span> <span class="pre">objects</span></code> and write a function that loops over theese objects and prints out the details of each book.</p>
 <p><strong>Example input</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">books</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Book</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;1984&quot;</span><span class="p">,</span> <span class="s2">&quot;George Orwell&quot;</span><span class="p">,</span> <span class="mi">1949</span><span class="p">),</span>
@@ -729,7 +733,7 @@ Number of trees: 15000.
 </div>
 </div>
 </div>
-<p><span style="color:darkorange;"><strong>Level 3</strong>:</span>  Add a feature to your <code class="docutils literal notranslate"><span class="pre">Book</span> <span class="pre">class</span></code> to store a <strong>list of keywords</strong> for each book. Modify the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to include these keywords <strong>if</strong> they are available.</p>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span>  Add a feature to your <code class="docutils literal notranslate"><span class="pre">Book</span> <span class="pre">class</span></code> to store a <strong>list of keywords</strong> for each book. Modify the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to include these keywords <strong>if</strong> they are available. If no keyword is available, add <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <p><strong>Example input</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">book2</span><span class="p">:</span> <span class="n">Book</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;Brave New World&quot;</span><span class="p">,</span> <span class="s2">&quot;Aldous Huxley&quot;</span><span class="p">,</span> <span class="mi">1932</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;dystopia&quot;</span><span class="p">,</span> <span class="s2">&quot;science fiction&quot;</span><span class="p">,</span> <span class="s2">&quot;totalitarianism&quot;</span><span class="p">])</span>
 
@@ -750,7 +754,7 @@ Number of trees: 15000.
 </section>
 <section id="exercise-2">
 <h3><span class="section-number">12.2.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
-<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a <code class="docutils literal notranslate"><span class="pre">Recipe</span> <span class="pre">class</span></code> with attributes for <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">ngredients</span></code> (a list), and <code class="docutils literal notranslate"><span class="pre">time</span></code> (in minutes). Implement the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to print the recipe details in a readable format.</p>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a <code class="docutils literal notranslate"><span class="pre">Recipe</span> <span class="pre">class</span></code> with attributes for <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">ingredients</span></code> (a list), and <code class="docutils literal notranslate"><span class="pre">time</span></code> (in minutes). Implement the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to print the recipe details in a readable format.</p>
 <p><strong>Example input</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">recipe1</span><span class="p">:</span> <span class="n">Recipe</span> <span class="o">=</span> <span class="n">Recipe</span><span class="p">(</span><span class="s2">&quot;Pasta Carbonara&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;pasta&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;cheese&quot;</span><span class="p">,</span> <span class="s2">&quot;bacon&quot;</span><span class="p">],</span> <span class="mi">20</span><span class="p">)</span>
 
@@ -837,7 +841,7 @@ Number of trees: 15000.
 </div>
 </div>
 </div>
-<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Create a list of <code class="docutils literal notranslate"><span class="pre">Movie</span> <span class="pre">objects</span></code> and make a function called <code class="docutils literal notranslate"><span class="pre">filter_by_director()</span></code> that takes as input a <code class="docutils literal notranslate"><span class="pre">director</span></code> (str) and filters out only the movies directed by a that director. Print the filtered movies.</p>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Create a list of <code class="docutils literal notranslate"><span class="pre">Movie</span> <span class="pre">objects</span></code> and make a function called <code class="docutils literal notranslate"><span class="pre">filter_by_director()</span></code> that takes as input a <code class="docutils literal notranslate"><span class="pre">director</span></code> (str) and filters out only the movies which were directed by that director. Print the filtered movies.</p>
 <p><strong>Example input</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">movies</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Movie</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;Interstellar&quot;</span><span class="p">,</span> <span class="s2">&quot;Christopher Nolan&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Matthew McConaughey&quot;</span><span class="p">,</span> <span class="s2">&quot;Anne Hathaway&quot;</span><span class="p">]),</span>
@@ -849,8 +853,8 @@ Number of trees: 15000.
 </pre></div>
 </div>
 <p><strong>Example output</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Interstellar directed by Christopher Nolan. Starring: Matthew McConaughey, Anne Hathaway</span>
-<span class="s2">&quot;The Dark Knight&quot;</span> <span class="n">directed</span> <span class="n">by</span> <span class="n">Christopher</span> <span class="n">Nolan</span><span class="o">.</span> <span class="n">Starring</span><span class="p">:</span> <span class="n">Christian</span> <span class="n">Bale</span><span class="p">,</span> <span class="n">Heath</span> <span class="n">Ledge</span><span class="s2">&quot;r</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Interstellar directed by Christopher Nolan. Starring: Matthew McConaughey, Anne Hathaway&quot;</span>
+<span class="s2">&quot;The Dark Knight&quot;</span> <span class="n">directed</span> <span class="n">by</span> <span class="n">Christopher</span> <span class="n">Nolan</span><span class="o">.</span> <span class="n">Starring</span><span class="p">:</span> <span class="n">Christian</span> <span class="n">Bale</span><span class="p">,</span> <span class="n">Heath</span> <span class="n">Ledger</span><span class="s2">&quot;</span>
 
 </pre></div>
 </div>
