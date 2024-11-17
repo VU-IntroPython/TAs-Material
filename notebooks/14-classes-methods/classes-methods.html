@@ -1002,7 +1002,7 @@ Liv ate the Antarctic silverfish and is now full. 🍽️
 </div>
 <p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Create a <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Pet</span> <span class="pre">with</span></code> an <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method that takes a <code class="docutils literal notranslate"><span class="pre">name</span></code> (string) and an optional <code class="docutils literal notranslate"><span class="pre">species</span></code> (default value “Dog”). Implement a <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to provide a string representation of the pet in the format: <code class="docutils literal notranslate"><span class="pre">&quot;Pet(name=[name],</span> <span class="pre">species=[species])&quot;</span></code>.</p>
 <p>Additionally, add a <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">change_species()</span></code> that allows updating the species <strong>but</strong> restricts it to a list of allowed species (“Dog”, “Cat”, “Rabbit”, “Parrot”).<br />
-If the user tries to set an unsupported species, raise a ValueError.</p>
+If the user tries to set an unsupported species, raise a ValueError. (e.g. <code class="docutils literal notranslate"><span class="pre">Invalid</span> <span class="pre">species:</span> <span class="pre">Tiger</span></code>)</p>
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pet1</span><span class="p">:</span> <span class="n">Pet</span> <span class="o">=</span> <span class="n">Pet</span><span class="p">(</span><span class="s2">&quot;Buddy&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pet1</span><span class="p">)</span>
@@ -1019,7 +1019,7 @@ If the user tries to set an unsupported species, raise a ValueError.</p>
 <p><strong>Example output:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Pet(name=Buddy, species=Dog)&quot;</span>
 <span class="s2">&quot;Pet(name=Buddy, species=Cat)&quot;</span>
-<span class="s2">&quot;Invalid species: Tiger&quot;</span>
+<span class="n">Invalid</span> <span class="n">species</span><span class="p">:</span> <span class="n">Tiger</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
