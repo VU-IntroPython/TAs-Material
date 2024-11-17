@@ -1,0 +1,1422 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>13. Classes and Methods &#8212; Workbook Intro Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/14-classes-methods/classes-methods';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="12. Intro to Classes" href="../13-intro-to-classes/intro-to-classes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Workbook Intro Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Workbook Intro Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Programming Workbook XB-0082
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-functions/functions.html">2. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-conditionals/conditionals.html">3. Conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-while-loop/while-loop.html">4. While Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-for-loop/for-loop.html">5. For Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-lists/lists.html">6. Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-dictionaries/dictionaries.html">7. Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-exceptions/exceptions.html">8. Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-files/files.html">9. Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11-tests/tests.html">10. Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12-tuples/tuples.html">11. Tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13-intro-to-classes/intro-to-classes.html">12. Intro to Classes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Classes and Methods</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/VU-IntroPython/TAs-Material.git/master/v2/gh/VU-IntroPython/TAs-Material/master?urlpath=lab/tree/notebooks/notebooks/14-classes-methods/classes-methods.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material/issues/new?title=Issue%20on%20page%20%2Fnotebooks/14-classes-methods/classes-methods.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/14-classes-methods/classes-methods.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Classes and Methods</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-classes-recap-span">13.1. <span style="color:#4169E1">Classes Recap</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-defining-a-class-span">13.1.1. <span style="color:#B22222">Defining a Class</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-attributes-span">13.1.2. <span style="color:#B22222">Attributes</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-init-code-method-span">13.1.3. <span style="color:#B22222">The <code><strong>init</strong></code> Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-self-code-keyword-span">13.1.4. <span style="color:#B22222">The <code>self</code> keyword</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-class-instance-span">13.1.5. <span style="color:#B22222">Class Instance</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-accessing-an-attribute-span">13.1.6. <span style="color:#B22222">Accessing an Attribute</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-default-values-span">13.1.7. <span style="color:#B22222">Default Values</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-class-methods-span">13.2. <span style="color:#4169E1">Class methods</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-functions-vs-methods-span">13.2.1. <span style="color:#B22222">Functions vs. Methods</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">13.3. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">13.3.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">13.3.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">13.3.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="classes-and-methods">
+<h1><span class="section-number">13. </span>Classes and Methods<a class="headerlink" href="#classes-and-methods" title="Permalink to this heading">#</a></h1>
+<p><strong>In this notebook, we cover the following subjects:</strong></p>
+<ul class="simple">
+<li><p>Classes Recap</p></li>
+<li><p>Class Methods</p></li>
+</ul>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To enable type hints for lists, dicts, tuples, and sets we need to import the following:</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Set</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you’ve been following along, we’ve already dipped our toes into the world of Python <code class="docutils literal notranslate"><span class="pre">classes</span></code>. So far, we’ve covered what a <code class="docutils literal notranslate"><span class="pre">class</span></code> is, how to set up our trusty <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method, customized our object representations with <code class="docutils literal notranslate"><span class="pre">__str__()</span></code>, and explored how to create <code class="docutils literal notranslate"><span class="pre">objects</span></code> and access their <code class="docutils literal notranslate"><span class="pre">attributes</span></code>.This notebook will begin with a brief recap about these basics, then we will learn a key concept in <strong>OOP</strong> called <code class="docutils literal notranslate"><span class="pre">methods</span></code></p>
+<section id="span-style-color-4169e1-classes-recap-span">
+<h2><span class="section-number">13.1. </span><span style="color:#4169E1">Classes Recap</span><a class="headerlink" href="#span-style-color-4169e1-classes-recap-span" title="Permalink to this heading">#</a></h2>
+<p>As we have already discussed, <code class="docutils literal notranslate"><span class="pre">classes</span></code> are a core concept in programming, often viewed as <strong>blueprints</strong> or <strong>templates</strong> for <code class="docutils literal notranslate"><span class="pre">creating</span> <span class="pre">objects</span></code>. This is important because, in Python, everything is an object—whether it’s an integer, a float, a list, or a string. Classes help you organize your code by bundling related data (<strong>attributes</strong>) with the functions (<strong>methods</strong>) that work with that data, making everything more logical and easier to manage.</p>
+<p>So, we’ve actually been working with classes all along, probably without you even realizing it. Take the <code class="docutils literal notranslate"><span class="pre">str</span></code> type, for example—it’s actually a class that handles strings of characters. Remember all those <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">methods</a> you’ve used to manipulate string objects?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating an instance of the str class</span>
+<span class="n">my_string</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Introduction to Python Programming&quot;</span>  <span class="c1"># &#39;my_string&#39; is an instance of the str class</span>
+
+<span class="c1"># Using the split method to break the string into a list of words</span>
+<span class="n">output</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">my_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+<span class="c1"># Printing the result of the split method</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Split string into words: </span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Demonstrating that methods can be used directly on string objects</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You can also use the methods directly on string objects (i.e., not stored in variables).&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Split example: </span><span class="si">{</span><span class="s2">&quot;Python Programming&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Split string into words: [&#39;Introduction&#39;, &#39;to&#39;, &#39;Python&#39;, &#39;Programming&#39;]
+
+You can also use the methods directly on string objects (i.e., not stored in variables).
+Split example: [&#39;Python&#39;, &#39;Programming&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">str</span></code> class is built into Python, so it’s ready to use without any setup. You’ve already used its methods to work with strings, and you didn’t have to think about what’s happening behind the scenes.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Can you think of any other classes that we have worked with?</p>
+<p>Exactly, <code>Lists</code>, <code>Dictionaries</code>, <code>Intigers</code> and so on are all classes.</p>
+</div>
+<section id="span-style-color-b22222-defining-a-class-span">
+<h3><span class="section-number">13.1.1. </span><span style="color:#B22222">Defining a Class</span><a class="headerlink" href="#span-style-color-b22222-defining-a-class-span" title="Permalink to this heading">#</a></h3>
+<p>We learnt to create a class with the <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword, and we know that everything inside it becomes part of that class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Book</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">author</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets up a new Book instance.</span>
+
+<span class="sd">        :param title: The book&#39;s title.</span>
+<span class="sd">        :param author: The book&#39;s author.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># The __init__ method is the constructor that initializes the object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">title</span> <span class="c1"># This is an attribute of the class</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">author</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">author</span> <span class="c1"># This is another attribute of the class</span>
+
+
+<span class="c1"># Creating an instance (object) of Book</span>
+<span class="n">my_book</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;Little Women&quot;</span><span class="p">,</span> <span class="s2">&quot;Louisa May Alcott&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A bit unintuitive, as we use <b>snake_case</b> in this course, but the name of a class should be written in <b>CamelCase</b>.</p>
+</div>
+</section>
+<section id="span-style-color-b22222-attributes-span">
+<h3><span class="section-number">13.1.2. </span><span style="color:#B22222">Attributes</span><a class="headerlink" href="#span-style-color-b22222-attributes-span" title="Permalink to this heading">#</a></h3>
+<p>We have seen that <strong>attributes</strong> are the characteristics or properties of an object. In a class, we define attributes to store data unique to each object created from that class. For example, the following class <code class="docutils literal notranslate"><span class="pre">Book</span></code> has two attributes, namely <code class="docutils literal notranslate"><span class="pre">title</span></code> and <code class="docutils literal notranslate"><span class="pre">author</span></code>. This means that every object we create from this class, representing a book, will have a title and an author.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ... (class definition)</span>
+    <span class="c1"># ... (__init__ definition)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">title</span>  <span class="c1"># This is an attribute of the class</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">author</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">author</span>  <span class="c1"># This is another attribute of the class</span>
+</pre></div>
+</div>
+</section>
+<section id="span-style-color-b22222-the-code-init-code-method-span">
+<h3><span class="section-number">13.1.3. </span><span style="color:#B22222">The <code><strong>init</strong></code> Method</span><a class="headerlink" href="#span-style-color-b22222-the-code-init-code-method-span" title="Permalink to this heading">#</a></h3>
+<p>These attributes are set up in a special method called <code class="docutils literal notranslate"><span class="pre">__init__</span></code>. This method, known as a <strong>constructor</strong>, is essential in Python classes because it initializes everything when you create a new object. As soon as you make an instance of a class, <code class="docutils literal notranslate"><span class="pre">__init__</span></code> runs automatically to set up the attributes and other initial details for that object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ... (class definition)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">):</span>
+        <span class="c1"># The __init__ method is the constructor that initializes the object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">title</span> <span class="c1"># This is an attribute of the class</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">author</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">author</span> <span class="c1"># This is another attribute of the class</span>
+</pre></div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">What is still missing from the class definition?</p>
+<p>The class definition is missing type hints for the attributes (<code>title</code>, <code>author</code>) and docstrings.</p>
+</div>
+</section>
+<section id="span-style-color-b22222-the-code-self-code-keyword-span">
+<h3><span class="section-number">13.1.4. </span><span style="color:#B22222">The <code>self</code> keyword</span><a class="headerlink" href="#span-style-color-b22222-the-code-self-code-keyword-span" title="Permalink to this heading">#</a></h3>
+<p>We’ve covered almost all the components of a class, but we’ve somewhat awkwardly avoided discussing <code class="docutils literal notranslate"><span class="pre">self</span></code>, which appears everywhere: in attribute definitions and as the first parameter of each method.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">self</span></code> keyword is crucial in classes because it allows an instance of a class to refer to itself. When we create an object from a class, <code class="docutils literal notranslate"><span class="pre">self</span></code> enables that object to access its own attributes and methods. For example, when you use <code class="docutils literal notranslate"><span class="pre">self.title</span> <span class="pre">=</span> <span class="pre">title</span></code>, you’re specifying, “For this particular instance (<code class="docutils literal notranslate"><span class="pre">self</span></code>), the <code class="docutils literal notranslate"><span class="pre">title</span></code> attribute should be set to the value provided during object creation.”</p>
+</section>
+<section id="span-style-color-b22222-class-instance-span">
+<h3><span class="section-number">13.1.5. </span><span style="color:#B22222">Class Instance</span><a class="headerlink" href="#span-style-color-b22222-class-instance-span" title="Permalink to this heading">#</a></h3>
+<p>You should know this by hearth by now, but creating a new object is known as <strong>instantiation</strong>, and the object itself is called an <strong>instance</strong> of the class. Essentially, we use the blueprint provided by the class to create the object, and you can use this blueprint to create as many instances as you need.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ... (class definition)</span>
+
+<span class="c1"># Creating an instance (object) of Book</span>
+<span class="n">my_book</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;Little Women&quot;</span><span class="p">,</span> <span class="s2">&quot;Louisa May Alcott&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This code snippet, <code class="docutils literal notranslate"><span class="pre">Book(&quot;Little</span> <span class="pre">Women&quot;,</span> <span class="pre">&quot;Louisa</span> <span class="pre">May</span> <span class="pre">Alcott&quot;)</span></code>, calls the <code class="docutils literal notranslate"><span class="pre">Book</span></code> class constructor (the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method) with two arguments: <code class="docutils literal notranslate"><span class="pre">&quot;Little</span> <span class="pre">Women&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;Louisa</span> <span class="pre">May</span> <span class="pre">Alcott&quot;</span></code>. A new object is created using these arguments and assigned to the variable <code class="docutils literal notranslate"><span class="pre">my_book</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since every object is an instance of some class, “object” and “instance” are interchangeable terms.</p>
+</div>
+</section>
+<section id="span-style-color-b22222-accessing-an-attribute-span">
+<h3><span class="section-number">13.1.6. </span><span style="color:#B22222">Accessing an Attribute</span><a class="headerlink" href="#span-style-color-b22222-accessing-an-attribute-span" title="Permalink to this heading">#</a></h3>
+<p>Lastly, let’s recap how we can access an attribute of an object. As we have seen, objects have stored attributes that are unique to each instance. To access these attributes, we use the following syntax (dot notation <code class="docutils literal notranslate"><span class="pre">.</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span><span class="o">.</span><span class="n">attribute</span>
+</pre></div>
+</div>
+<p>In practise, this looks as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accessing attributes</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Book title: </span><span class="si">{</span><span class="n">my_book</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Book author: €</span><span class="si">{</span><span class="n">my_book</span><span class="o">.</span><span class="n">author</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Book title: Little Women
+Book author: €Louisa May Alcott
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is one last thing that we need to touch upon before we can start talking about <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">methods</span></code> and that thing is called <strong>default values</strong>.</p>
+</section>
+<section id="span-style-color-b22222-default-values-span">
+<h3><span class="section-number">13.1.7. </span><span style="color:#B22222">Default Values</span><a class="headerlink" href="#span-style-color-b22222-default-values-span" title="Permalink to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.geeksforgeeks.org/default-arguments-in-python/"><code class="docutils literal notranslate"><span class="pre">Default</span> <span class="pre">values</span></code></a> are like the secret ingredient that can make your functions and classes much more user-friendly and flexible. Imagine having functions or methods that can handle different situations <strong>without</strong> requiring you to provide a value for every single parameter—sounds convenient, right?</p>
+<p>With <a class="reference external" href="https://www.geeksforgeeks.org/default-arguments-in-python/"><code class="docutils literal notranslate"><span class="pre">default</span> <span class="pre">values</span></code></a>, you can specify a <strong>“fallback”</strong> that Python will use if <strong>no argument</strong> is provided for a parameter. It’s a great way to keep your code simple and reduce the chance of errors!</p>
+<p>Let’s explore how you can use default values, not just in regular functions but also in classes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span><span class="s2">&quot;there&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">()</span>
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, there!
+Hello, Alice!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, the <code class="docutils literal notranslate"><span class="pre">name</span></code> parameter has a <strong>default</strong> value of <code class="docutils literal notranslate"><span class="pre">&quot;there&quot;</span></code>, so if we call <code class="docutils literal notranslate"><span class="pre">greet()</span></code> <strong>without an argument</strong>, it uses that <code class="docutils literal notranslate"><span class="pre">default</span></code>. But if we pass a name, it uses that instead without any problems.</p>
+<p>Default values are super useful in <code class="docutils literal notranslate"><span class="pre">classes</span> <span class="pre">too</span></code>! One of the most common places to use them is in the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method when initializing objects. Let’s take a look at an example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breed</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;Mixed Breed&quot;</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My name is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, I&#39;m a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breed</span><span class="si">}</span><span class="s2"> and I&#39;m </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Creating instances with and without specifying all arguments</span>
+<span class="n">dog1</span><span class="p">:</span> <span class="n">Dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Buddy&quot;</span><span class="p">)</span>
+<span class="n">dog2</span><span class="p">:</span> <span class="n">Dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Luna&quot;</span><span class="p">,</span> <span class="s2">&quot;Golden Retriever&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dog1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dog2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My name is Buddy, I&#39;m a Mixed Breed and I&#39;m 1 years old!
+------------------------------------------------------------
+My name is Luna, I&#39;m a Golden Retriever and I&#39;m 3 years old!
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example:</p>
+<ul class="simple">
+<li><p>If you don’t specify a <code class="docutils literal notranslate"><span class="pre">breed</span></code>, it <strong>defaults to</strong> “Mixed Breed”.</p></li>
+<li><p>If you don’t specify an <code class="docutils literal notranslate"><span class="pre">age</span></code>, it <strong>defaults to</strong> 1.</p></li>
+<li></li>
+</ul>
+<p>By using default values in the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method, we make it easier to create Dog objects without needing to provide every detail.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using <code>default values</code>, remember: <b>parameters with default values must come after parameters without default values</b>. This is because Python needs to know which values are <b>required</b> and which are <b>optional.</b></p>
+</div>
+<p>For example, this works:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>But this will cause an error:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="c1"># ❌ SyntaxError: non-default argument follows default argument</span>
+</pre></div>
+</div>
+<p>Now that we covered this as well, let’s dive into <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">methods</span></code>.</p>
+</section>
+</section>
+<section id="span-style-color-4169e1-class-methods-span">
+<h2><span class="section-number">13.2. </span><span style="color:#4169E1">Class methods</span><a class="headerlink" href="#span-style-color-4169e1-class-methods-span" title="Permalink to this heading">#</a></h2>
+<p>You might be wondering, <em>“Aren’t we already using methods inside our classes?”</em> And you’re absolutely right! However, so far, the <code class="docutils literal notranslate"><span class="pre">methods</span></code> we’ve been using are tied to instances of a class. That means they work with individual objects we create, using their attributes and properties.</p>
+<p>But what if we want to do something that’s related to the class as a <strong>whole</strong> rather than any specific object? This is where <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">methods</span></code> come in handy. Instead of focusing on a single instance, these methods can work at the <strong>class level</strong>, letting us access and modify the class itself.</p>
+<p>Before we dive deeper into <a class="reference external" href="https://www.geeksforgeeks.org/classmethod-in-python/"><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">methods</span></code></a>, let’s take a step back and think about how we’ve been using <strong>functions</strong> in Python. Functions are great because they allow us to encapsulate logic, reuse code, and make our programs more modular. But what happens when we use functions inside a class?</p>
+<section id="span-style-color-b22222-functions-vs-methods-span">
+<h3><span class="section-number">13.2.1. </span><span style="color:#B22222">Functions vs. Methods</span><a class="headerlink" href="#span-style-color-b22222-functions-vs-methods-span" title="Permalink to this heading">#</a></h3>
+<p>When we define a <strong>function inside a class</strong>, it’s called a <code class="docutils literal notranslate"><span class="pre">method</span></code>. However, it’s still essentially a function — the difference is that it now <strong>belongs to the class</strong> and operates on the data (attributes) of the objects created from that class.</p>
+<p>Let’s see an example to refresh our understanding:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">calculate_hypotenuse</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the length of the hypotenuse of a right triangle given the lengths </span>
+<span class="sd">    of the other two sides using the Pythagorean theorem.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        a (float): The length of one side of the triangle.</span>
+<span class="sd">        b (float): The length of the other side of the triangle.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The length of the hypotenuse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">side1</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">side2</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">4.0</span>
+<span class="n">hypotenuse</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">calculate_hypotenuse</span><span class="p">(</span><span class="n">side1</span><span class="p">,</span> <span class="n">side2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The length of the hypotenuse is: </span><span class="si">{</span><span class="n">hypotenuse</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The length of the hypotenuse is: 5.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">calculate_hypotenuse()</span></code> takes two arguments, a and b, representing the lengths of the two shorter sides of a right triangle. It uses the Pythagorean theorem (a^2 + b^2 = c^2) to calculate the hypotenuse (c) and returns its value. Easy enough, right?</p>
+<p>Now, let’s take this concept into the context of a <code class="docutils literal notranslate"><span class="pre">class</span></code>. First things first, let’s define a <code class="docutils literal notranslate"><span class="pre">Cube</span></code> class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cube</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to represent a cube with additional attributes.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        side_length (float): The length of a side of the cube.</span>
+<span class="sd">        color (str): The color of the cube.</span>
+<span class="sd">        material (str): The material of which the cube is made.</span>
+<span class="sd">        is_solid (bool): Indicates whether the cube is solid or hollow.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side_length</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">material</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">is_solid</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">side_length</span> <span class="o">=</span> <span class="n">side_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">material</span> <span class="o">=</span> <span class="n">material</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_solid</span> <span class="o">=</span> <span class="n">is_solid</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cube with side length: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">side_length</span><span class="si">}</span><span class="s2">, color: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;material: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">material</span><span class="si">}</span><span class="s2">, solid: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">is_solid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="n">my_cube</span> <span class="o">=</span> <span class="n">Cube</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;plastic&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_cube</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cube with side length: 4, color: blue, material: plastic, solid: True
+</pre></div>
+</div>
+</div>
+</div>
+<p>So far nothing new. Now, let’s add two <strong>methods</strong> to our class:</p>
+<ul class="simple">
+<li><p>The first <strong>method</strong> will calculate the <code class="docutils literal notranslate"><span class="pre">volume</span></code> of the cube</p></li>
+<li><p>While the second <strong>method</strong> will <code class="docutils literal notranslate"><span class="pre">calculate_surface_area</span></code> of the cube</p></li>
+</ul>
+<p>these will help us explore more of the capabilities of classes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cube</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to represent a cube with additional attributes.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        side_length (float): The length of a side of the cube.</span>
+<span class="sd">        color (str): The color of the cube.</span>
+<span class="sd">        material (str): The material of which the cube is made.</span>
+<span class="sd">        is_solid (bool): Indicates whether the cube is solid or hollow.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side_length</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">material</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">is_solid</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">side_length</span> <span class="o">=</span> <span class="n">side_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">material</span> <span class="o">=</span> <span class="n">material</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_solid</span> <span class="o">=</span> <span class="n">is_solid</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cube with side length: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">side_length</span><span class="si">}</span><span class="s2">, color: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;material: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">material</span><span class="si">}</span><span class="s2">, solid: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">is_solid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># class method</span>
+    <span class="k">def</span> <span class="nf">calculate_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">side_length</span> <span class="o">**</span> <span class="mi">3</span>
+
+    <span class="c1"># class method</span>
+    <span class="k">def</span> <span class="nf">calculate_surface_area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">6</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">side_length</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So what did we do here?</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">calculate_volume()</span></code> <strong>method</strong> calculates the volume of the cube. The volume of a cube is the amount of space it occupies, measured in cubic units. The formula to calculate the volume of a cube is: volume = side_length^3</p>
+<p>In this method, <code class="docutils literal notranslate"><span class="pre">self.side_length</span></code> refers to the <code class="docutils literal notranslate"><span class="pre">side_length</span></code> attribute of the specific cube on which the method is called.</p>
+<ul class="simple">
+<li><p>If we call <code class="docutils literal notranslate"><span class="pre">cube1.calculate_volume()</span></code>, self refers to <strong>cube1</strong>, so it will <strong>use cube1’s side_length</strong>.</p></li>
+<li><p>If we call <code class="docutils literal notranslate"><span class="pre">cube2.calculate_volume()</span></code>, self will <strong>refer to cube2</strong> and use <strong>cube2’s side_length</strong>.</p></li>
+</ul>
+<p>Let’s see it in action:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cube1</span><span class="p">:</span> <span class="n">Cube</span> <span class="o">=</span> <span class="n">Cube</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;wood&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">cube2</span><span class="p">:</span> <span class="n">Cube</span> <span class="o">=</span> <span class="n">Cube</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;plastic&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; The side length of cube1 is </span><span class="si">{</span><span class="n">cube1</span><span class="o">.</span><span class="n">side_length</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; The side length of cube1 is </span><span class="si">{</span><span class="n">cube2</span><span class="o">.</span><span class="n">side_length</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;--&#39;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; The surface area of cube1 is </span><span class="si">{</span><span class="n">cube1</span><span class="o">.</span><span class="n">calculate_surface_area</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; The surface area of cube1 is </span><span class="si">{</span><span class="n">cube2</span><span class="o">.</span><span class="n">calculate_surface_area</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> The side length of cube1 is 4
+ The side length of cube1 is 3
+----------------------------------------
+ The surface area of cube1 is 96
+ The surface area of cube1 is 54
+</pre></div>
+</div>
+</div>
+</div>
+<h4 style="color:#B22222">Let's Think!</h4><div class="tip dropdown admonition">
+<p class="admonition-title">What will be the output of the cell bellow?</p>
+<p>The message: <code>”Cube 1 has a larger surface area”</code> will be printed.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">cube1</span><span class="o">.</span><span class="n">calculate_surface_area</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">cube2</span><span class="o">.</span><span class="n">calculate_surface_area</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cube 1 has a larger surface area&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;:(&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cube 1 has a larger surface area
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s look at one last example…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Penguin</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to represent a penguin.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the penguin.</span>
+<span class="sd">        age (int): The age of the penguin in years.</span>
+<span class="sd">        species (str): The species of the penguin.</span>
+<span class="sd">        weight (float): The weight of the penguin in kilograms.</span>
+<span class="sd">        is_hungry (bool): Indicates if the penguin is hungry.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">species</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">is_hungry</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="n">species</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_hungry</span> <span class="o">=</span> <span class="n">is_hungry</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Penguin </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (Species: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="si">}</span><span class="s2">) - Age: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Weight: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="si">}</span><span class="s2"> kg, Hungry: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">is_hungry</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">swim</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is happily swimming in the cold water! 🏊‍♂️❄️&quot;</span>
+
+    <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">food</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_hungry</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">is_hungry</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> ate the </span><span class="si">{</span><span class="n">food</span><span class="si">}</span><span class="s2"> and is now full. 🍽️&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not hungry right now.&quot;</span>
+
+    <span class="k">def</span> <span class="nf">grow_older</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> has turned </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old! 🎂&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s break down each method one by one:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">swim()</span></code> method simulates the penguin swimming. This method simply returns a message indicating that the penguin is happily swimming.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">eat()</span></code> method feeds the penguin <strong>if</strong> it’s hungry. This method checks if the <code class="docutils literal notranslate"><span class="pre">is_hungry</span></code> attribute is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<ul>
+<li><p>If the penguin is hungry, it changes <code class="docutils literal notranslate"><span class="pre">is_hungry</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code> and returns a message that the penguin ate the given food.</p></li>
+<li><p>If the penguin is not hungry, it returns a different message.</p></li>
+</ul>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">grow_older()</span></code> method increases the <code class="docutils literal notranslate"><span class="pre">age</span></code> of the penguin by one year. This method <strong>adds 1</strong> to the <code class="docutils literal notranslate"><span class="pre">age</span></code> attribute of the penguin. It also returns a message to indicate the penguin’s new age.</p></li>
+</ul>
+<p>Let’s see some example code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguin_1</span> <span class="o">=</span> <span class="n">Penguin</span><span class="p">(</span><span class="s1">&#39;Liv&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Emperor penguin&#39;</span><span class="p">,</span> <span class="mf">30.21</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">penguin_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---&#39;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">penguin_1</span><span class="o">.</span><span class="n">swim</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---&#39;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">penguin_1</span><span class="o">.</span><span class="n">eat</span><span class="p">(</span><span class="s1">&#39;Antarctic silverfish&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---&#39;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Penguin Liv (Species: Emperor penguin) - Age: 2 years, Weight: 30.21 kg, Hungry: True
+------------------------------------------------------------
+Liv is happily swimming in the cold water! 🏊‍♂️❄️
+------------------------------------------------------------
+Liv ate the Antarctic silverfish and is now full. 🍽️
+------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice, that now the <code class="docutils literal notranslate"><span class="pre">is_hungry</span></code> attribute is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">penguin_1</span><span class="o">.</span><span class="n">is_hungry</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lastly, let’s increase our penguin’s age.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">current_age</span> <span class="o">=</span> <span class="n">penguin_1</span><span class="o">.</span><span class="n">age</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">penguin_1</span><span class="o">.</span><span class="n">grow_older</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Liv has turned 3 years old! 🎂
+</pre></div>
+</div>
+</div>
+</div>
+<p>Throughout this notebook, we used <code class="docutils literal notranslate"><span class="pre">self</span></code> to refer to the <strong>current instance</strong> of the class. It allowed us to <strong>access</strong> and <strong>modify</strong> the <strong>attributes</strong> and call <strong>methods</strong> specific to each object we created. For example, in our Penguin class, self was used to store each penguin’s name, age, and species, making each penguin object unique.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember: self is what connects an object’s data with its behavior, allowing each instance of a class to maintain its own state while sharing the same methods.</p>
+</div>
+</section>
+</section>
+<section id="span-style-color-3cb371-exercises-span">
+<h2><span class="section-number">13.3. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+<p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
+<br></p>
+<section id="exercise-1">
+<h3><span class="section-number">13.3.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<p>First, let’s practice using default values in functions and classes! In this exercise, you will work with both functions and classes to get comfortable using default parameters.</p>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Define a function <code class="docutils literal notranslate"><span class="pre">describe_pet()</span></code> that takes a <code class="docutils literal notranslate"><span class="pre">name</span></code> (a string) and an <code class="docutils literal notranslate"><span class="pre">optional</span> <span class="pre">species</span></code> (a string) with a <strong>default value</strong> of <code class="docutils literal notranslate"><span class="pre">&quot;Dog&quot;</span></code>. The function should <strong>return</strong> a description of the pet in the format: <code class="docutils literal notranslate"><span class="pre">&quot;This</span> <span class="pre">is</span> <span class="pre">[name],</span> <span class="pre">the</span> <span class="pre">[species].&quot;</span></code></p>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">describe_pet</span><span class="p">(</span><span class="s2">&quot;Buddy&quot;</span><span class="p">)</span>
+<span class="n">describe_pet</span><span class="p">(</span><span class="s2">&quot;Whiskers&quot;</span><span class="p">,</span> <span class="s2">&quot;Cat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;This is Buddy, the Dog.&quot;</span>
+<span class="s2">&quot;This is Whiskers, the Cat.&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Create a <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Pet</span> <span class="pre">with</span></code> an <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method that takes a <code class="docutils literal notranslate"><span class="pre">name</span></code> (string) and an optional <code class="docutils literal notranslate"><span class="pre">species</span></code> (default value “Dog”). Implement a <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to provide a string representation of the pet in the format: <code class="docutils literal notranslate"><span class="pre">&quot;Pet(name=[name],</span> <span class="pre">species=[species])&quot;</span></code>.</p>
+<p>Additionally, add a <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">change_species()</span></code> that allows updating the species <strong>but</strong> restricts it to a list of allowed species (“Dog”, “Cat”, “Rabbit”, “Parrot”).<br />
+If the user tries to set an unsupported species, raise a ValueError.</p>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pet1</span><span class="p">:</span> <span class="n">Pet</span> <span class="o">=</span> <span class="n">Pet</span><span class="p">(</span><span class="s2">&quot;Buddy&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pet1</span><span class="p">)</span>
+
+<span class="n">pet1</span><span class="o">.</span><span class="n">change_species</span><span class="p">(</span><span class="s2">&quot;Cat&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pet1</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">pet1</span><span class="o">.</span><span class="n">change_species</span><span class="p">(</span><span class="s2">&quot;Tiger&quot;</span><span class="p">)</span>  
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Pet(name=Buddy, species=Dog)&quot;</span>
+<span class="s2">&quot;Pet(name=Buddy, species=Cat)&quot;</span>
+<span class="s2">&quot;Invalid species: Tiger&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Extend the <code class="docutils literal notranslate"><span class="pre">Pet</span> <span class="pre">class</span></code> to include an optional <code class="docutils literal notranslate"><span class="pre">age</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method with a <code class="docutils literal notranslate"><span class="pre">default</span></code> value of 1. Update the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method so that it returns a full description of the pet including its age in the format: “This is [name], a [species] who is [age] years old.”.</p>
+<p>Additionally, add a <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">birthday()</span></code> that increases the pet’s age by <strong>1</strong> each time it’s called. <strong>However</strong>, if the pet’s age <strong>exceeds 20</strong>, the method should raise an <strong>exception</strong>: <code class="docutils literal notranslate"><span class="pre">&quot;Age</span> <span class="pre">limit</span> <span class="pre">reached&quot;</span></code>.</p>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pet1</span><span class="p">:</span> <span class="n">Pet</span> <span class="o">=</span> <span class="n">Pet</span><span class="p">(</span><span class="s2">&quot;Buddy&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pet1</span><span class="p">)</span>
+
+<span class="n">pet1</span><span class="o">.</span><span class="n">birthday</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pet1</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+        <span class="n">pet1</span><span class="o">.</span><span class="n">birthday</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;This is Buddy, a Dog who is 1 years old.&quot;</span>
+<span class="s2">&quot;This is Buddy, a Dog who is 2 years old.&quot;</span>
+<span class="s2">&quot;Age limit reached&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="exercise-2">
+<h3><span class="section-number">13.3.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<p>Let’s take it up a notch! In this exercise, we’ll create a more complex class and combine multiple methods to manage data effectively.</p>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Write a <strong>function</strong> <code class="docutils literal notranslate"><span class="pre">calculate_price()</span></code> that takes <code class="docutils literal notranslate"><span class="pre">base_price</span></code> (float) and an <code class="docutils literal notranslate"><span class="pre">optional</span> <span class="pre">tax_rate</span></code> (float) with a default value of <strong>0.05</strong>. The function should <strong>return</strong> the total price <strong>including tax</strong>.</p>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">calculate_price</span><span class="p">(</span><span class="mf">100.0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_price</span><span class="p">(</span><span class="mf">200.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">105.0</span>
+<span class="mf">220.0</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Create a class <code class="docutils literal notranslate"><span class="pre">Product</span></code> with an<code class="docutils literal notranslate"> <span class="pre">__init__()</span></code> method that takes a <code class="docutils literal notranslate"><span class="pre">name</span></code> (string), <code class="docutils literal notranslate"><span class="pre">price</span></code> (float), and an optional <code class="docutils literal notranslate"><span class="pre">discount</span></code> (float, default is 0.1). Implement a <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method for a string representation.</p>
+<p>Add methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">final_price()</span></code>: Calculates the price <strong>after</strong> applying the discount.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bulk_discount(quantity:</span> <span class="pre">int)</span></code>: If quantity is <strong>more than 10</strong>, apply an <strong>additional 5%</strong> discount. If more than <strong>50</strong>, apply additional <strong>15% discount</strong> (not chainable).</p></li>
+</ul>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">product1</span><span class="p">:</span> <span class="n">Product</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="s2">&quot;Laptop&quot;</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">product1</span><span class="o">.</span><span class="n">final_price</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">product1</span><span class="o">.</span><span class="n">bulk_discount</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">product1</span><span class="o">.</span><span class="n">bulk_discount</span><span class="p">(</span><span class="mi">60</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;The product&#39;s final price is $900.0&quot;</span>
+<span class="s2">&quot;The product&#39;s price after the bulk discount is $855.0&quot;</span>
+<span class="s2">&quot;The product&#39;s price after the bulk discount is $765.0&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Extend the <code class="docutils literal notranslate"><span class="pre">Product</span></code> class by adding a <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">apply_tax()</span></code> that takes an optional <code class="docutils literal notranslate"><span class="pre">tax_rate</span></code> (float, default is 0.05) and <strong>returns</strong> the final price after applying <strong>both</strong> the discount and tax.</p>
+<p>Add a method <code class="docutils literal notranslate"><span class="pre">adjust_price()</span></code> which:</p>
+<ul class="simple">
+<li><p>takes one parameter: <code class="docutils literal notranslate"><span class="pre">percentage</span></code> (a float), which can be positive (for a price increase) or negative (for a price decrease).</p></li>
+<li><p>the function should update the product’s price based on this percentage:</p>
+<ul>
+<li><p>If the percentage is positive, it increases the price.</p></li>
+<li><p>If the percentage is negative, it decreases the price.</p></li>
+</ul>
+</li>
+<li><p>Moreover, ensure that the price <strong>never drops below</strong> a certain minimum threshold, such as <strong>50.0</strong>:</p>
+<ul>
+<li><p>If an adjustment would cause the price to go below this minimum, raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> with a message (<code class="docutils literal notranslate"><span class="pre">&quot;Price</span> <span class="pre">cannot</span> <span class="pre">go</span> <span class="pre">below</span> <span class="pre">50.0&quot;</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">product2</span><span class="p">:</span> <span class="n">Product</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="s2">&quot;Phone&quot;</span><span class="p">,</span> <span class="mf">500.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">product2</span><span class="o">.</span><span class="n">apply_tax</span><span class="p">())</span>
+
+<span class="n">product2</span><span class="o">.</span><span class="n">adjust_price</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">product2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;The product&#39;s final price after tax is $420.0&quot;</span>
+<span class="s2">&quot;The product&#39;s price after price adjustion is $450.0&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3">
+<h3><span class="section-number">13.3.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<p>In this exercise, you’ll create a system to manage a shopping cart filled with different LEGO pieces, each with limited stock.</p>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a class <code class="docutils literal notranslate"><span class="pre">LegoBrick</span></code> to represent a LEGO piece. This class should include:</p>
+<ul class="simple">
+<li><p>an <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method that takes:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> (str): The name of the LEGO piece (e.g., “2x4 Brick”, “Round Plate”).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code> (str): The color of the LEGO piece (e.g., “Red”, “Blue”).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code> (float): The price of a single piece.</p></li>
+<li><p>An optional <code class="docutils literal notranslate"><span class="pre">quantity</span></code> (int) with a default value of 1.</p></li>
+</ul>
+</li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method that returns a string representation of the LEGO piece in the format:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;LEGOBrick(name=[name],</span> <span class="pre">color=[color],</span> <span class="pre">price=[price],</span> <span class="pre">quantity=[quantity])&quot;</span></code></p></li>
+</ul>
+</li>
+<li><p>A method <code class="docutils literal notranslate"><span class="pre">total_price()</span></code> that returns the total cost of the piece <strong>based on its quantity</strong>.</p></li>
+</ul>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">brick1</span><span class="p">:</span> <span class="n">LegoBrick</span> <span class="o">=</span> <span class="n">LegoBrick</span><span class="p">(</span><span class="s2">&quot;2x4 Brick&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">brick1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">brick1</span><span class="o">.</span><span class="n">total_price</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;This Lego Brick is called 2x4 Brick, has color Red, costs $0.3/piece and has a total quantity of 10 pieces&quot;</span>
+<span class="s2">&quot;The total price of the Red 2x4 Brick is $3.0&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Create a class <code class="docutils literal notranslate"><span class="pre">LegoInventory</span></code> to manage the stock of different <code class="docutils literal notranslate"><span class="pre">LEGO</span></code> parts. Make:</p>
+<ul class="simple">
+<li><p>an <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method initializes an <code class="docutils literal notranslate"><span class="pre">empty</span> <span class="pre">dictionary</span></code> inventory to store <code class="docutils literal notranslate"><span class="pre">LegoBrick</span> <span class="pre">objects</span></code>.</p></li>
+</ul>
+<p>Add a method <code class="docutils literal notranslate"><span class="pre">add_brick()</span></code> that takes a <code class="docutils literal notranslate"><span class="pre">LegoBrick</span> <span class="pre">object</span></code> and adds it to the inventory.</p>
+<ul class="simple">
+<li><p>If the brick already exists <strong>(same name and color)</strong>, increase its quantity.</p></li>
+</ul>
+<p>Add a method <code class="docutils literal notranslate"><span class="pre">check_stock()</span></code> that returns the current stock of a specific part <strong>(by name and color)</strong>.</p>
+<p>Add a method <code class="docutils literal notranslate"><span class="pre">remove_brick()</span></code> that <strong>decrease</strong> the quantity of a specific brick when an order is placed.</p>
+<ul class="simple">
+<li><p>If the stock is <strong>insufficient</strong>, raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>. (e.g. <code class="docutils literal notranslate"><span class="pre">Insufficient</span> <span class="pre">stock</span> <span class="pre">for</span> <span class="pre">1x1</span> <span class="pre">Blue</span> <span class="pre">Round</span> <span class="pre">Plate</span></code>)</p></li>
+</ul>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inventory</span><span class="p">:</span> <span class="n">LegoInventory</span> <span class="o">=</span> <span class="n">LegoInventory</span><span class="p">()</span>
+
+<span class="n">brick1</span><span class="p">:</span> <span class="n">LegoBrick</span> <span class="o">=</span> <span class="n">LegoBrick</span><span class="p">(</span><span class="s2">&quot;2x4 Brick&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">brick2</span><span class="p">:</span> <span class="n">LegoBrick</span> <span class="o">=</span> <span class="n">LegoBrick</span><span class="p">(</span><span class="s2">&quot;1x1 Round Plate&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="n">inventory</span><span class="o">.</span><span class="n">add_brick</span><span class="p">(</span><span class="n">brick1</span><span class="p">)</span>
+<span class="n">inventory</span><span class="o">.</span><span class="n">add_brick</span><span class="p">(</span><span class="n">brick2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">inventory</span><span class="o">.</span><span class="n">check_stock</span><span class="p">(</span><span class="s2">&quot;2x4 Brick&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">))</span>
+
+<span class="n">inventory</span><span class="o">.</span><span class="n">remove_brick</span><span class="p">(</span><span class="s2">&quot;2x4 Brick&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inventory</span><span class="o">.</span><span class="n">check_stock</span><span class="p">(</span><span class="s2">&quot;2x4 Brick&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">))</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">inventory</span><span class="o">.</span><span class="n">remove_brick</span><span class="p">(</span><span class="s2">&quot;1x1 Round Plate&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Currently in our stock, we have 20 Red 2x4 Brick&quot;</span>
+<span class="s2">&quot;Currently in our stock, we have 15 Red 2x4 Brick&quot;</span>
+<span class="n">Insufficient</span> <span class="n">stock</span> <span class="k">for</span> <span class="mi">1</span><span class="n">x1</span> <span class="n">Blue</span> <span class="n">Round</span> <span class="n">Plate</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Create a class <code class="docutils literal notranslate"><span class="pre">ShoppingCart</span></code> that allows customers to add LEGO parts to their cart and manage orders:</p>
+<ul class="simple">
+<li><p>make an <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method initializes an <strong>empty dictionary</strong> cart where:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">keys</span></code> are tuples of (name, color)</p></li>
+<li><p>and <code class="docutils literal notranslate"><span class="pre">values</span></code> are dictionaries with quantity and price.</p></li>
+</ul>
+</li>
+</ul>
+<p>Add a method <code class="docutils literal notranslate"><span class="pre">add_to_cart()</span></code> that adds a specified quantity of a LEGO part to the cart. Ensure the quantity does not exceed the stock in the inventory. If the quantity would exceed the inventory, raise a <code class="docutils literal notranslate"><span class="pre">Valuerror</span></code>. (e.g. <code class="docutils literal notranslate"><span class="pre">Cannot</span> <span class="pre">add</span> <span class="pre">100</span> <span class="pre">pieces</span> <span class="pre">of</span> <span class="pre">Red</span> <span class="pre">2x4</span> <span class="pre">Brick</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">cart.</span> <span class="pre">Only</span> <span class="pre">50</span> <span class="pre">available</span> <span class="pre">in</span> <span class="pre">stock.</span></code>)</p>
+<p>Add a method <code class="docutils literal notranslate"><span class="pre">calculate_total()</span></code> that calculates the total cost of <strong>all</strong> items in the cart.
+Add a method <code class="docutils literal notranslate"><span class="pre">apply_discount()</span></code> that takes an <strong>optional</strong> discount (default is 0.1) <strong>if</strong> the total is <strong>above 100.0</strong>.
+Add a method <code class="docutils literal notranslate"><span class="pre">checkout()</span> </code>that finalizes the purchase, <strong>updates</strong> the inventory, and <strong>clears</strong> the cart.</p>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inventory</span><span class="p">:</span> <span class="n">LegoInventory</span> <span class="o">=</span> <span class="n">LegoInventory</span><span class="p">()</span>
+<span class="n">cart</span><span class="p">:</span> <span class="n">ShoppingCart</span> <span class="o">=</span> <span class="n">ShoppingCart</span><span class="p">(</span><span class="n">inventory</span><span class="p">)</span>
+
+<span class="c1"># Add items to the inventory</span>
+<span class="n">inventory</span><span class="o">.</span><span class="n">add_brick</span><span class="p">(</span><span class="n">LegoBrick</span><span class="p">(</span><span class="s2">&quot;2x4 Brick&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+<span class="n">inventory</span><span class="o">.</span><span class="n">add_brick</span><span class="p">(</span><span class="n">LegoBrick</span><span class="p">(</span><span class="s2">&quot;1x1 Round Plate&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+
+<span class="c1"># Add items to the cart (within stock limits)</span>
+<span class="n">cart</span><span class="o">.</span><span class="n">add_to_cart</span><span class="p">(</span><span class="s2">&quot;2x4 Brick&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">cart</span><span class="o">.</span><span class="n">add_to_cart</span><span class="p">(</span><span class="s2">&quot;1x1 Round Plate&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cart</span><span class="o">.</span><span class="n">calculate_total</span><span class="p">())</span>
+
+<span class="c1"># Apply a discount if applicable</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cart</span><span class="o">.</span><span class="n">apply_discount</span><span class="p">())</span>   <span class="c1"># (no discount applied)</span>
+
+<span class="c1"># Attempt to add more than available stock (will raise ValueError)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cart</span><span class="o">.</span><span class="n">add_to_cart</span><span class="p">(</span><span class="s2">&quot;2x4 Brick&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Exceeds stock</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Checkout and update the inventory</span>
+<span class="n">cart</span><span class="o">.</span><span class="n">checkout</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inventory</span><span class="o">.</span><span class="n">check_stock</span><span class="p">(</span><span class="s2">&quot;2x4 Brick&quot;</span><span class="p">,</span> <span class="s2">&quot;Red&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inventory</span><span class="o">.</span><span class="n">check_stock</span><span class="p">(</span><span class="s2">&quot;1x1 Round Plate&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">))</span>
+
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;The total cost of the items in the shopping cart is $6.0 at the moment.&quot;</span>
+<span class="s2">&quot;The total cost of the items in the shopping cart is $6.0 after discount.&quot;</span><span class="p">:</span> <span class="n">Cannot</span> <span class="n">add</span> <span class="mi">100</span> <span class="n">pieces</span> <span class="n">of</span> <span class="n">Red</span> <span class="mi">2</span><span class="n">x4</span> <span class="n">Brick</span> <span class="n">to</span> <span class="n">the</span> <span class="n">cart</span><span class="o">.</span> <span class="n">Only</span> <span class="mi">50</span> <span class="n">available</span> <span class="ow">in</span> <span class="n">stock</span><span class="o">.</span>
+<span class="s2">&quot;The current stock of the Red 2x4 Brick is 40 pieces.&quot;</span>
+<span class="s2">&quot;The current stock of the Blue 1x1 Round Plate is 80 pieces.&quot;</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><em>Material for the VU Amsterdam course “Introduction to Python Programming” for BSc Artificial Intelligence students. These notebooks are created using the following sources:</em></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://programming-pybook.github.io/introProgramming/intro.html">Learning Python by Doing</a>: This book, developed by teachers of TU/e Eindhoven and VU Amsterdam, is the main source for the course materials. Code snippets or text explanations from the book may be used in the notebooks, sometimes with slight adjustments.</p></li>
+<li><p><a class="reference external" href="https://greenteapress.com/thinkpython2/html/">Think Python</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org">GeekForGeeks</a></p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "VU-IntroPython/TAs-Material",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/14-classes-methods"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../13-intro-to-classes/intro-to-classes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Intro to Classes</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-classes-recap-span">13.1. <span style="color:#4169E1">Classes Recap</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-defining-a-class-span">13.1.1. <span style="color:#B22222">Defining a Class</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-attributes-span">13.1.2. <span style="color:#B22222">Attributes</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-init-code-method-span">13.1.3. <span style="color:#B22222">The <code><strong>init</strong></code> Method</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-code-self-code-keyword-span">13.1.4. <span style="color:#B22222">The <code>self</code> keyword</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-class-instance-span">13.1.5. <span style="color:#B22222">Class Instance</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-accessing-an-attribute-span">13.1.6. <span style="color:#B22222">Accessing an Attribute</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-default-values-span">13.1.7. <span style="color:#B22222">Default Values</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-class-methods-span">13.2. <span style="color:#4169E1">Class methods</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-functions-vs-methods-span">13.2.1. <span style="color:#B22222">Functions vs. Methods</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">13.3. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">13.3.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">13.3.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">13.3.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Koen van der Pool, Mauricio Verano Merino & Márton Bodó
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024. Vrije Universiteit Amsterdam.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
