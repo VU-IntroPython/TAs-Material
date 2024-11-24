@@ -19,3 +19,4 @@ chapters:
 - file: notebooks/12-tuples/tuples.ipynb
 - file: notebooks/13-intro-to-classes/intro-to-classes.ipynb
 - file: notebooks/14-classes-methods/classes-methods.ipynb
+- file: notebooks/15-inheritance/inheritance.ipynb
