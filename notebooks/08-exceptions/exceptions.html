@@ -905,10 +905,18 @@ The <b>finally block</b> will still execute, printing <code>”Execution complet
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_book</span><span class="p">(</span><span class="n">books</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="n">book_title</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Searches for a book in the books dictionary by its title.</span>
-<span class="sd">    If the book is not found, raises an exception.</span>
+<span class="sd">    Searches for a book in a collection by its title.</span>
 
 <span class="sd">    Args:</span>
+<span class="sd">        books (Dict[str, Dict[str, Any]]): A dictionary where keys are book titles (str)</span>
+<span class="sd">                                           and values are dictionaries containing book details.</span>
+<span class="sd">        book_title (str): The title of the book to search for.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dict[str, Any]: A dictionary containing the details of the book if found.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception: If the book with the specified title is not found in the collection.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">details</span> <span class="ow">in</span> <span class="n">books</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">title</span> <span class="o">==</span> <span class="n">book_title</span><span class="p">:</span>
