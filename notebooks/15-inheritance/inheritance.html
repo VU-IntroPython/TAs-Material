@@ -1,0 +1,1428 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>14. Inheritance &#8212; Workbook Intro Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/15-inheritance/inheritance';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="13. Classes and Methods" href="../14-classes-methods/classes-methods.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Workbook Intro Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Workbook Intro Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Programming Workbook XB-0082
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-functions/functions.html">2. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-conditionals/conditionals.html">3. Conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-while-loop/while-loop.html">4. While Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-for-loop/for-loop.html">5. For Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-lists/lists.html">6. Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-dictionaries/dictionaries.html">7. Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-exceptions/exceptions.html">8. Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-files/files.html">9. Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11-tests/tests.html">10. Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12-tuples/tuples.html">11. Tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13-intro-to-classes/intro-to-classes.html">12. Intro to Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14-classes-methods/classes-methods.html">13. Classes and Methods</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Inheritance</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/VU-IntroPython/TAs-Material.git/master/v2/gh/VU-IntroPython/TAs-Material/master?urlpath=lab/tree/notebooks/notebooks/15-inheritance/inheritance.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material/issues/new?title=Issue%20on%20page%20%2Fnotebooks/15-inheritance/inheritance.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/15-inheritance/inheritance.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Inheritance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-what-is-class-inheritance-span">14.1. <span style="color:#4169E1">What is <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">inheritance</span></code>?</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-syntax-of-class-inheritance-span">14.1.1. <span style="color:#B22222">Syntax of <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">inheritance</span></code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-single-inheritance-span">14.2. <span style="color:#4169E1">Single Inheritance</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-creating-a-child-class-span">14.2.1. <span style="color:#B22222">Creating a <code class="docutils literal notranslate"><span class="pre">child</span> <span class="pre">class</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-constructor-and-super-span">14.2.2. <span style="color:#B22222">Constructor and <code class="docutils literal notranslate"><span class="pre">super()</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-customizing-code-init-code-in-subclasses-span">14.2.3. <span style="color:#B22222">Customizing <code><strong>init</strong>()</code> in subclasses</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-overwriting-class-methods-span">14.3. <span style="color:#4169E1">Overwriting class methods</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-other-forms-of-inheritance-span">14.4. <span style="color:#4169E1">Other Forms of Inheritance</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-multiple-inheritance-span">14.4.1. <span style="color:#B22222">Multiple Inheritance</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">14.5. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">14.5.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">14.5.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">14.5.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="inheritance">
+<h1><span class="section-number">14. </span>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this heading">#</a></h1>
+<p><strong>In this notebook, we cover the following subjects:</strong></p>
+<ul class="simple">
+<li><p>Understanding Inheritance;</p></li>
+<li><p>Single Inheritance;</p></li>
+<li><p>Method Overriding;</p></li>
+<li><p>Other Forms of Inheritance.</p></li>
+</ul>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To enable type hints for lists, dicts, tuples, and sets we need to import the following:</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Set</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Up until now, we’ve covered a lot of ground in our Python journey. We’ve explored various <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">types</span></code>, looped through data with <code class="docutils literal notranslate"><span class="pre">for-loops</span></code> and <code class="docutils literal notranslate"><span class="pre">while-loops</span></code>, crafted <code class="docutils literal notranslate"><span class="pre">functions</span></code> to perform specific tasks and much more. But most excitingly, we’ve dived into the world of <code class="docutils literal notranslate"><span class="pre">classes</span></code>—our very own blueprint for creating objects.</p>
+<p>Remember how we defined <code class="docutils literal notranslate"><span class="pre">classes</span></code> to encapsulate data and functions together, making our code cleaner and more modular? Today, we’re going to build on that foundation by introducing a new concept in object-oriented programming (OOP) called <a class="reference external" href="https://www.geeksforgeeks.org/inheritance-in-python/"><code class="docutils literal notranslate"><span class="pre">Class</span> <span class="pre">Inheritance</span></code></a>.</p>
+<section id="span-style-color-4169e1-what-is-class-inheritance-span">
+<h2><span class="section-number">14.1. </span><span style="color:#4169E1">What is <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">inheritance</span></code>?</span><a class="headerlink" href="#span-style-color-4169e1-what-is-class-inheritance-span" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.geeksforgeeks.org/inheritance-in-python/"><code class="docutils literal notranslate"><span class="pre">Class</span> <span class="pre">Inheritance</span></code></a> is one of the core concepts of OOP that allows us to establish a type of <code class="docutils literal notranslate"><span class="pre">&quot;is-a&quot;</span></code> relationship <strong>between classes</strong>. It enables us to create a <strong>new class</strong>, known as the <code class="docutils literal notranslate"><span class="pre">derived</span> <span class="pre">class</span></code> or <code class="docutils literal notranslate"><span class="pre">child</span> <span class="pre">class</span></code>, that inherits attributes and methods from an existing class, known as the <code class="docutils literal notranslate"><span class="pre">base</span> <span class="pre">class</span></code> or <code class="docutils literal notranslate"><span class="pre">parent</span> <span class="pre">class</span></code>. Think of it as a <strong>family tree</strong> where the child (derived class) <strong>inherits traits (attributes or methods)</strong> from their parent (base class), <strong>but can also have its own unique characteristics</strong>.</p>
+<p>Why is Class Inheritance Useful?</p>
+<ol class="arabic simple">
+<li><p><strong>Real-world Relationships:</strong> Inheritance mirrors real-life relationships and hierarchies, making our programs intuitively easier to design and understand.</p></li>
+<li><p><strong>Code Reusability:</strong> With inheritance, we can write a class once and then extend it in other classes. This reduces duplication and errors, making our codebase more robust and maintainable.</p></li>
+<li><p><strong>Transitivity:</strong> Just like in a family tree, if a class B inherits from class A, all subclasses of B will automatically inherit from A as well. This chain can continue, forming a multi-level hierarchy.</p></li>
+<li><p><strong>Simple and Understandable Model:</strong> Inheritance helps organize complex systems into hierarchies that are simpler to manage and extend.</p></li>
+<li><p><strong>Cost Efficiency:</strong> By reusing code and simplifying extensions, inheritance can significantly cut down on development and maintenance costs.</p></li>
+</ol>
+<p>Sounds fun, righ? Let’s see how we can implement <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">inheritance</span></code> in Python.</p>
+<section id="span-style-color-b22222-syntax-of-class-inheritance-span">
+<h3><span class="section-number">14.1.1. </span><span style="color:#B22222">Syntax of <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">inheritance</span></code></span><a class="headerlink" href="#span-style-color-b22222-syntax-of-class-inheritance-span" title="Permalink to this heading">#</a></h3>
+<p>Let’s see a high level example of high <code class="docutils literal notranslate"><span class="pre">class</span></code> inheritance will work:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parent Class</span>
+<span class="k">class</span> <span class="nc">ParentClass</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">common_attribute1</span><span class="p">,</span> <span class="n">common_attribute2</span><span class="p">):</span>
+        <span class="c1"># Initialize common attributes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">common_attribute1</span> <span class="o">=</span> <span class="n">common_attribute1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">common_attribute2</span> <span class="o">=</span> <span class="n">common_attribute2</span>
+
+    <span class="k">def</span> <span class="nf">common_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Define a method that can be shared with child classes</span>
+        <span class="k">return</span> <span class="s2">&quot;This is a method in the Parent Class&quot;</span>
+
+<span class="c1"># Child Class</span>
+<span class="k">class</span> <span class="nc">ChildClass</span><span class="p">(</span><span class="n">ParentClass</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">common_attribute1</span><span class="p">,</span> <span class="n">common_attribute2</span><span class="p">,</span> <span class="n">specific_attribute</span><span class="p">):</span>
+        <span class="c1"># Call the ParentClass constructor using super()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">common_attribute1</span><span class="p">,</span> <span class="n">common_attribute2</span><span class="p">)</span>
+        <span class="c1"># Initialize child-specific attribute</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">specific_attribute</span> <span class="o">=</span> <span class="n">specific_attribute</span>
+
+    <span class="k">def</span> <span class="nf">specific_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Define a method specific to the ChildClass</span>
+        <span class="k">return</span> <span class="s2">&quot;This is a method specific to the Child Class&quot;</span>
+</pre></div>
+</div>
+<p>So what is happening here? As you can see, we defined 2 classes:</p>
+<p><strong>ParentClass</strong><br />
+This is like the blueprint for other classes. It has some <strong>common features</strong> (common_attribute1 and common_attribute2) that <strong>any</strong> class based on it will inherit. It also has a method called common_method() that just lets you know it’s from the ParentClass.</p>
+<p><strong>ChildClass</strong><br />
+Think of this as a <strong>specialized version</strong> of the ParentClass. It gets all the goodies from <code class="docutils literal notranslate"><span class="pre">ParentClass</span></code> through a special call, <code class="docutils literal notranslate"><span class="pre">super()</span></code>, which means it doesn’t miss out on any features. Plus, it has its <strong>own</strong> unique feature (specific_attribute) and its <strong>own</strong> special method (specific_method()), making it a bit more tailored.</p>
+<p>In a nutshell: The ChildClass gets everything the ParentClass has, plus a little extra to make it special. It’s like inheriting a family recipe and then adding your own twist to it!</p>
+</section>
+</section>
+<section id="span-style-color-4169e1-single-inheritance-span">
+<h2><span class="section-number">14.2. </span><span style="color:#4169E1">Single Inheritance</span><a class="headerlink" href="#span-style-color-4169e1-single-inheritance-span" title="Permalink to this heading">#</a></h2>
+<p>Now let’s see a proper implementation of <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">inheritance</span></code>:</p>
+<p>First, we define our <code class="docutils literal notranslate"><span class="pre">parent</span> <span class="pre">class</span></code>, <strong>Mammal</strong>, which includes <strong>basic properties</strong> and <strong>methods</strong> that <strong>all</strong> mammals would have.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mammal</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">habitat</span> <span class="o">=</span> <span class="n">habitat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">warm_blooded</span> <span class="o">=</span> <span class="n">warm_blooded</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">warm_blooded</span><span class="p">:</span>
+            <span class="n">warm_blood_status</span> <span class="o">=</span> <span class="s1">&#39;warm-blooded&#39;</span> 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">warm_blood_status</span> <span class="o">=</span> <span class="s1">&#39;cold-blooded&#39;</span>
+        
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">-year-old </span><span class="si">{</span><span class="n">warm_blood_status</span><span class="si">}</span><span class="s2"> mammal that lives in the </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">habitat</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nothing new so far. Let’s create an instance of the <code class="docutils literal notranslate"><span class="pre">Mammal</span> <span class="pre">class</span></code> to ensure everything is working as expected.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mammal_1</span><span class="p">:</span> <span class="n">Mammal</span> <span class="o">=</span> <span class="n">Mammal</span><span class="p">(</span><span class="s1">&#39;Lopez&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Jungle&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mammal_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lopez is a 4-year-old warm-blooded mammal that lives in the Jungle
+</pre></div>
+</div>
+</div>
+</div>
+<section id="span-style-color-b22222-creating-a-child-class-span">
+<h3><span class="section-number">14.2.1. </span><span style="color:#B22222">Creating a <code class="docutils literal notranslate"><span class="pre">child</span> <span class="pre">class</span></code></span><a class="headerlink" href="#span-style-color-b22222-creating-a-child-class-span" title="Permalink to this heading">#</a></h3>
+<p>All right, all is good! Now, to define a <code class="docutils literal notranslate"><span class="pre">child</span> <span class="pre">class</span></code>, we declare a new class and specify the <code class="docutils literal notranslate"><span class="pre">parent</span> <span class="pre">class</span></code> in <strong>parentheses</strong>. Here’s how we define our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class that <strong>inherits</strong> from <code class="docutils literal notranslate"><span class="pre">Mammal</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">Mammal</span><span class="p">):</span> <span class="c1"># so this class inherits from the Mammal class</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">)</span> <span class="c1">#  Call the constructor of the parent class</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So what’s going on here?</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Cat</span> <span class="pre">class</span></code> starts off by declaring its ancestry— it extends the <code class="docutils literal notranslate"><span class="pre">Mammal</span></code> class. We know this becuase of the <code class="docutils literal notranslate"><span class="pre">Cat(Mammal)</span></code> <strong>Mammal</strong> word in the parenthesis after the <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class definition. This relationship means that <code class="docutils literal notranslate"><span class="pre">Cat</span></code> inherits <strong>all</strong> the <code class="docutils literal notranslate"><span class="pre">properties</span></code> and <code class="docutils literal notranslate"><span class="pre">methods</span></code> from <code class="docutils literal notranslate"><span class="pre">Mammal</span></code>. Essentially, anything that a <code class="docutils literal notranslate"><span class="pre">Mammal</span></code> can do or describe about itself, a <code class="docutils literal notranslate"><span class="pre">Cat</span></code> can do too.</p>
+</section>
+<section id="span-style-color-b22222-constructor-and-super-span">
+<h3><span class="section-number">14.2.2. </span><span style="color:#B22222">Constructor and <code class="docutils literal notranslate"><span class="pre">super()</span></code></span><a class="headerlink" href="#span-style-color-b22222-constructor-and-super-span" title="Permalink to this heading">#</a></h3>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">constructor</span></code> of the <code class="docutils literal notranslate"><span class="pre">Cat</span> <span class="pre">class</span></code>, something new happens with a simple call to <code class="docutils literal notranslate"><span class="pre">super().__init__(name,</span> <span class="pre">age,</span> <span class="pre">habitat,</span> <span class="pre">warm_blooded)</span></code>. This isn’t just any function; it’s the golden bridge to the parent <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Mammal</span></code>. By calling <code class="docutils literal notranslate"><span class="pre">super()</span></code>, <code class="docutils literal notranslate"><span class="pre">Cat</span></code> ensures that it starts its “life” equipped with <strong>all</strong> the <code class="docutils literal notranslate"><span class="pre">attributes</span></code> and <code class="docutils literal notranslate"><span class="pre">methods</span></code> that define a <code class="docutils literal notranslate"><span class="pre">Mammal</span></code>. It’s like saying, “Hey, I may be a cat, but I’m a mammal first!” This way, all the essential characteristics like <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code>, and <code class="docutils literal notranslate"><span class="pre">habitat</span></code> are initialized just as they are for any mammal, making sure that our Cat isn’t missing out on any family traits.</p>
+<p>But why does this matter?</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">super()</span></code> is a great move because it means we <strong>write less code</strong> and <strong>minimize</strong> the chances of errors in setting up common properties. It ensures <strong>consistency</strong> across <code class="docutils literal notranslate"><span class="pre">subclasses</span></code> and keeps the initializations in one place. Plus, it <strong>leaves room</strong> for adding more <code class="docutils literal notranslate"><span class="pre">cat-specific</span></code> features (methods or attributes) later on, like a <code class="docutils literal notranslate"><span class="pre">method</span></code> to purr or chase a laser pointer!</p>
+<p>This approach not only saves time but also keeps our code clean and maintainable. Who knew learning about Cat could be so enlightening? :)</p>
+</section>
+<section id="span-style-color-b22222-customizing-code-init-code-in-subclasses-span">
+<h3><span class="section-number">14.2.3. </span><span style="color:#B22222">Customizing <code><strong>init</strong>()</code> in subclasses</span><a class="headerlink" href="#span-style-color-b22222-customizing-code-init-code-in-subclasses-span" title="Permalink to this heading">#</a></h3>
+<p>When venturing into the world of <code class="docutils literal notranslate"><span class="pre">subclasses</span></code> like our <code class="docutils literal notranslate"><span class="pre">Cat</span> <span class="pre">class</span></code>, one of the first things you might want to do is <code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">new</span> <span class="pre">attributes</span></code> that make these subclasses <strong>special</strong>, while still <strong>retaining</strong> all the great setup provided by the <code class="docutils literal notranslate"><span class="pre">parent</span> <span class="pre">class</span></code>. Let’s explore how to do this effectively by both customizing and extending the constructor method,<code class="docutils literal notranslate"> <span class="pre">__init__()</span></code>, in our <code class="docutils literal notranslate"><span class="pre">Cat</span> <span class="pre">subclass</span></code>.</p>
+<p>now, imagine we want to give our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> some <strong>unique characteristics</strong> that <strong>aren’t defined</strong> in the <code class="docutils literal notranslate"><span class="pre">Mammal</span> <span class="pre">class</span></code>, like <code class="docutils literal notranslate"><span class="pre">breed</span></code>. Here’s how we can add this new attribute:</p>
+<ol class="arabic simple">
+<li><p><strong>Declare the Attribute:</strong> You decide what new properties your subclass should have, such as breed for cats.</p></li>
+<li><p><strong>Initialize in <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>:</strong> When you write the constructor for the <code class="docutils literal notranslate"><span class="pre">Cat</span> <span class="pre">class</span></code>, you add <code class="docutils literal notranslate"><span class="pre">breed</span></code> as a parameter, and set it just like any other attribute.</p></li>
+</ol>
+<p>Here’s a look at how it’s done:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">Mammal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breed</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">)</span>  <span class="c1"># First, call the parent class constructor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>  <span class="c1"># Now, add the new attribute specific to cats</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You might be wondering, why call <code class="docutils literal notranslate"><span class="pre">super().__init__()</span></code>?</p>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">super().__init__()</span></code> is crucial because it <strong>executes the parent class’s constructor</strong>, ensuring that all the initialization code set up in <code class="docutils literal notranslate"><span class="pre">Mammal</span> <span class="pre">class</span></code> (like setting up name, age, habitat, and warm_blooded) also applies to instances of <code class="docutils literal notranslate"><span class="pre">Cat</span></code>. This way, you don’t have to repeat the initialization code for these attributes in the <code class="docutils literal notranslate"><span class="pre">Cat</span> <span class="pre">class</span></code>.</p>
+<p>However, I hope you noticed that we added a new line bellow the <code class="docutils literal notranslate"><span class="pre">super().__init__()</span></code> call.</p>
+<p>While <code class="docutils literal notranslate"><span class="pre">super()</span></code> handles all the <strong>properties from Mammal</strong>, immediately after calling <code class="docutils literal notranslate"><span class="pre">super()</span></code>, we can set up things that are <strong>specific to a <code class="docutils literal notranslate"><span class="pre">Cat</span></code></strong>. This setup process might involve initializing new attributes, like <code class="docutils literal notranslate"><span class="pre">breed</span></code>, or setting default values that differ from the parent class settings.</p>
+<p>I feel like we had enough text for now, let’s finally try out our new <code class="docutils literal notranslate"><span class="pre">Cat</span></code> <strong>child class</strong>!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">whiskers</span><span class="p">:</span> <span class="n">Cat</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="s2">&quot;Whiskers&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;house&quot;</span><span class="p">,</span> <span class="s2">&quot;Siamese&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">whiskers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Whiskers is a 5-year-old warm-blooded mammal that lives in the house
+</pre></div>
+</div>
+</div>
+</div>
+<p>This look almost perfect, but actually something is missing…</p>
+<p>If you are attention to detail, you probably noticed that we did not use the <code class="docutils literal notranslate"><span class="pre">breed</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">Cat</span> <span class="pre">class</span></code>. So all that hard work was for nothing? Thankfully not.<br />
+Let me show you how we can <strong><code class="docutils literal notranslate"><span class="pre">overwrite</span> <span class="pre">class</span> <span class="pre">methods</span></code></strong>.</p>
+</section>
+</section>
+<section id="span-style-color-4169e1-overwriting-class-methods-span">
+<h2><span class="section-number">14.3. </span><span style="color:#4169E1">Overwriting class methods</span><a class="headerlink" href="#span-style-color-4169e1-overwriting-class-methods-span" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Method</span> <span class="pre">overwriting</span></code> is a fundamental concept in object-oriented programming that allows a <code class="docutils literal notranslate"><span class="pre">subclass</span></code> to provide a <strong>specific implementation</strong> of a <code class="docutils literal notranslate"><span class="pre">method</span></code> that is <strong>already defined</strong> in its <code class="docutils literal notranslate"><span class="pre">superclass</span></code>. This technique is particularly useful for tailoring the behavior of inherited methods to fit the needs of the subclass, enhancing the <strong>flexibility</strong> and <strong>functionality</strong> of your code.</p>
+<p>Let’s begin by modifying the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method in the <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class to reflect characteristics that are <strong>specific</strong> to cats, such as their <code class="docutils literal notranslate"><span class="pre">breed</span></code>. This is an example of how you can change the <strong>default</strong> behavior <code class="docutils literal notranslate"><span class="pre">inherited</span></code> from the <code class="docutils literal notranslate"><span class="pre">parent</span> <span class="pre">class</span></code> to better suit the <code class="docutils literal notranslate"><span class="pre">child</span> <span class="pre">class's</span></code> context.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">Mammal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breed</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Call the parent class __str__ method and extend it with Cat-specific details</span>
+        <span class="n">base_info</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_info</span><span class="si">}</span><span class="s2"> and is a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breed</span><span class="si">}</span><span class="s2"> cat.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method in <code class="docutils literal notranslate"><span class="pre">Cat</span></code> first calls the method from <code class="docutils literal notranslate"><span class="pre">Mammal</span></code> using <code class="docutils literal notranslate"><span class="pre">super().__str__()</span></code> to reuse the <strong>general</strong> mammal description. Then, it adds a bit more detail about the cat’s breed, providing a more descriptive and useful string representation for objects of the Cat class.</p>
+<p>Let’s see it in action:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">whiskers</span><span class="p">:</span> <span class="n">Cat</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="s2">&quot;Whiskers&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;house&quot;</span><span class="p">,</span> <span class="s2">&quot;Siamese&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">whiskers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Whiskers is a 5-year-old warm-blooded mammal that lives in the house and is a Siamese cat.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s consider a few more scenarios where method overriding might be useful:</p>
+<p><strong>Animal Sounds:</strong> Suppose we have a generic method in a <code class="docutils literal notranslate"><span class="pre">Animal</span> <span class="pre">class</span></code> that makes a sound. Different animals make different sounds, so you override this method in subclasses like <code class="docutils literal notranslate"><span class="pre">Dog</span></code> and <code class="docutils literal notranslate"><span class="pre">Bird</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a basic Animal class that includes a generic make_sound() method:</span>
+
+<span class="k">class</span> <span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">habitat</span> <span class="o">=</span> <span class="n">habitat</span>
+
+    <span class="k">def</span> <span class="nf">make_sound</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Some generic sound&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old and lives in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">habitat</span><span class="si">}</span><span class="s2">.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, the <code class="docutils literal notranslate"><span class="pre">child</span> <span class="pre">classes</span></code> <code class="docutils literal notranslate"><span class="pre">Dog</span></code> and <code class="docutils literal notranslate"><span class="pre">Bird</span></code> can <strong>overwrite</strong> this method to provide <strong>specific</strong> sounds:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Dog</span> <span class="pre">subclass</span></code> will overwrite the <code class="docutils literal notranslate"><span class="pre">make_sound()</span></code> method and will use <code class="docutils literal notranslate"><span class="pre">super()</span></code> to initialize inherited attributes from <code class="docutils literal notranslate"><span class="pre">Animal</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breed</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
+
+    <span class="k">def</span> <span class="nf">make_sound</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Bark!&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">base_info</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_info</span><span class="si">}</span><span class="s2"> It is a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breed</span><span class="si">}</span><span class="s2"> dog.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">Bird</span> <span class="pre">subclass</span></code> will overwrite the <code class="docutils literal notranslate"><span class="pre">make_sound</span> <span class="pre">method()</span></code>, and also use <code class="docutils literal notranslate"><span class="pre">super()</span></code> for initialization:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">can_fly</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">can_fly</span> <span class="o">=</span> <span class="n">can_fly</span>
+
+    <span class="k">def</span> <span class="nf">make_sound</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Chirp!&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">base_info</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+        <span class="n">fly_status</span> <span class="o">=</span> <span class="s2">&quot;can fly&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">can_fly</span> <span class="k">else</span> <span class="s2">&quot;cannot fly&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_info</span><span class="si">}</span><span class="s2"> It </span><span class="si">{</span><span class="n">fly_status</span><span class="si">}</span><span class="s2">.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s see what happens when we create a few instances of the different classes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># parent Animal class instance</span>
+<span class="n">test_animal</span><span class="p">:</span> <span class="n">Animal</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s1">&#39;Polly&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;Farm&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_animal</span><span class="o">.</span><span class="n">make_sound</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_animal</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Child Dog class insatnce</span>
+<span class="n">pluto_dog</span><span class="p">:</span> <span class="n">Dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s1">&#39;Pluto&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;House&#39;</span><span class="p">,</span> <span class="s1">&#39;Golden Retriever&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pluto_dog</span><span class="o">.</span><span class="n">make_sound</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pluto_dog</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Child Bird class insatnce</span>
+<span class="n">chirpy_bird</span><span class="p">:</span> <span class="n">Bird</span> <span class="o">=</span> <span class="n">Bird</span><span class="p">(</span><span class="s1">&#39;Chirpy&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Jungle&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chirpy_bird</span><span class="o">.</span><span class="n">make_sound</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chirpy_bird</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Some generic sound
+Polly is 6 years old and lives in Farm.
+--------------------
+Bark!
+Pluto is 2 years old and lives in House. It is a Golden Retriever dog.
+--------------------
+Chirp!
+Chirpy is 1 years old and lives in Jungle. It cannot fly.
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see, all instances made from the <code class="docutils literal notranslate"><span class="pre">child</span> <span class="pre">classes</span></code> can make different sounds. Just how we wanted!</p>
+</section>
+<section id="span-style-color-4169e1-other-forms-of-inheritance-span">
+<h2><span class="section-number">14.4. </span><span style="color:#4169E1">Other Forms of Inheritance</span><a class="headerlink" href="#span-style-color-4169e1-other-forms-of-inheritance-span" title="Permalink to this heading">#</a></h2>
+<p>After exploring how <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">overwriting</span></code> allows subclasses to provide specific implementations of methods defined in their superclass, it’s clear that inheritance can be very powerful for creating flexible and maintainable code. However, Python doesn’t limit us to just single inheritance. There are more complex forms of inheritance that can provide even greater flexibility and control over how behaviors and attributes are passed down through our classes.</p>
+<p>Let’s delve into these other forms of inheritance, namely <code class="docutils literal notranslate"><span class="pre">multiple</span> <span class="pre">inheritance</span></code> and <code class="docutils literal notranslate"><span class="pre">multilevel</span> <span class="pre">inheritance</span></code>, to see how they can further enhance our object-oriented programming capabilities.</p>
+<section id="span-style-color-b22222-multiple-inheritance-span">
+<h3><span class="section-number">14.4.1. </span><span style="color:#B22222">Multiple Inheritance</span><a class="headerlink" href="#span-style-color-b22222-multiple-inheritance-span" title="Permalink to this heading">#</a></h3>
+<p><a class="reference external" href="https://www.programiz.com/python-programming/multiple-inheritance"><code class="docutils literal notranslate"><span class="pre">Multiple</span> <span class="pre">inheritance</span></code></a> allows a class to inherit from <strong>more than one parent class</strong>, combining their behaviors and attributes into a single class. This form of inheritance can be particularly powerful, but it requires a careful understanding of the <a class="reference external" href="https://www.geeksforgeeks.org/method-resolution-order-in-python-inheritance/"><code class="docutils literal notranslate"><span class="pre">Method</span> <span class="pre">Resolution</span> <span class="pre">Order</span></code></a> (MRO), which determines how Python prioritizes parent classes when searching for methods and attributes.</p>
+<p>Let’s see an example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Father</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">father_skill</span> <span class="o">=</span> <span class="s2">&quot;Gardening, DIY&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Skills include </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">father_skill</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">class</span> <span class="nc">Mother</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mother_skill</span> <span class="o">=</span> <span class="s2">&quot;Cooking, Art&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Skills include </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mother_skill</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Father</span><span class="p">,</span> <span class="n">Mother</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">Father</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">Mother</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Child&#39;s Skills include </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">father_skill</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mother_skill</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+<span class="n">alex</span> <span class="o">=</span> <span class="n">Child</span><span class="p">(</span><span class="s2">&quot;Alex&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alex</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Alex: Child&#39;s Skills include Gardening, DIY, Cooking, Art
+</pre></div>
+</div>
+</div>
+</div>
+<p>So what’s happening here?</p>
+<p>As we can see, <code class="docutils literal notranslate"><span class="pre">Child</span></code> inherits from <strong>both</strong> <code class="docutils literal notranslate"><span class="pre">Father</span></code> and <code class="docutils literal notranslate"><span class="pre">Mother</span></code>. By initializing both parent classes with name, the Child class combines the skills attributes of both parents into a single comprehensive description. Cool, huh?</p>
+<p>To make it easier to understand <code class="docutils literal notranslate"><span class="pre">Multiple</span> <span class="pre">Inheritance</span></code>, consider the following scenario:</p>
+<p><em>Think of a child with parents from two very different backgrounds—one loves music, and the other is great at sports. This child inherits a mix of these skills, becoming both musically gifted and athletic. In Python, this is like a Child class inheriting methods from both a Musician class and an Athlete class, blending these abilities into a unique skill set.</em></p>
+<p>Hopefully now this is clear, so let me show you one last thing before the exercises.</p>
+<h4 style="color:#B22222">Multilevel Inheritance</h4>
+<p><a class="reference external" href="https://www.geeksforgeeks.org/multilevel-inheritance-in-python/"><code class="docutils literal notranslate"><span class="pre">Multilevel</span> <span class="pre">inheritance</span></code></a> allows classes to inherit from a class that is <strong>already derived</strong> from another class, creating a <strong>class hierarchy</strong> that extends over several generations. This might sound a bit complex for the first time, but don’t worry everything will make sense in a bit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Grandparent</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">origin</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="n">origin</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Origin </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">class</span> <span class="nc">Parent</span><span class="p">(</span><span class="n">Grandparent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">origin</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">hobby</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">origin</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hobby</span> <span class="o">=</span> <span class="n">hobby</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span><span class="si">}</span><span class="s2">, Hobby: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hobby</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">origin</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">hobby</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">school</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">hobby</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">school</span> <span class="o">=</span> <span class="n">school</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span><span class="si">}</span><span class="s2">, School: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">school</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">lucy</span> <span class="o">=</span> <span class="n">Child</span><span class="p">(</span><span class="s2">&quot;Lucy&quot;</span><span class="p">,</span> <span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;painting&quot;</span><span class="p">,</span> <span class="s2">&quot;Riverside High&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lucy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lucy: Origin New York, Hobby: painting, School: Riverside High
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s break down the above code:</p>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">Child</span></code> is a <strong>third-generation</strong> class <strong>deriving from</strong> <code class="docutils literal notranslate"><span class="pre">Parent</span></code>, which itself <strong>inherits from</strong> <code class="docutils literal notranslate"><span class="pre">Grandparent</span></code>. This <strong>multilevel inheritance</strong> allows <code class="docutils literal notranslate"><span class="pre">Child</span></code> to access and extend the attributes and methods of its ancestors, showcasing the hierarchical inheritance model. The <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method in <code class="docutils literal notranslate"><span class="pre">Child</span></code> extends its parent’s hobby description, demonstrating how derived classes can enhance or modify inherited properties.</p>
+<p>Same as above, let me give you an example that will make it easier for you to understand <code class="docutils literal notranslate"><span class="pre">Multilevel</span> <span class="pre">Inheritance</span></code>:</p>
+<p><em>Consider a family tradition passed from grandparent to parent to child, with each generation adding something new. The grandparent teaches gardening, the parent adds cooking, and the child integrates technology. In Python, this is mirrored by classes inheriting and extending features over generations.</em></p>
+<p>To wrap it up, lets summarise what we have learnt in this notebook. We’ve explored the concepts of <code class="docutils literal notranslate"><span class="pre">single</span></code>, <code class="docutils literal notranslate"><span class="pre">multiple</span></code> and <code class="docutils literal notranslate"><span class="pre">multilevel</span></code> inheritance in Python, highlighting how classes can inherit and extend attributes and methods. We’ve seen how these inheritance patterns allow for a more organized and reusable codebase, reflecting real-world relationships and hierarchies.</p>
+<p>Last but not least, ready your coding gloves—it’s time to put theory into practice, and hopefully, without any inheritance disputes!</p>
+</section>
+</section>
+<section id="span-style-color-3cb371-exercises-span">
+<h2><span class="section-number">14.5. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+<p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
+<br></p>
+<section id="exercise-1">
+<h3><span class="section-number">14.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a <code class="docutils literal notranslate"><span class="pre">Vehicle</span> <span class="pre">class</span></code> with attributes <code class="docutils literal notranslate"><span class="pre">make</span></code> (str), <code class="docutils literal notranslate"><span class="pre">model</span></code> (str), and <code class="docutils literal notranslate"><span class="pre">year</span></code> (int). Then, derive two subclasses: <code class="docutils literal notranslate"><span class="pre">Car</span></code> with an additional attribute <code class="docutils literal notranslate"><span class="pre">num_doors</span></code> (int), and <code class="docutils literal notranslate"><span class="pre">Motorcycle</span></code> with an additional attribute <code class="docutils literal notranslate"><span class="pre">has_sidecar</span></code> (bool, dafault is <code class="docutils literal notranslate"><span class="pre">False</span></code>). Implement the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method in each class to display the vehicle’s information.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vehicle</span><span class="p">:</span> <span class="n">Vehicle</span> <span class="o">=</span> <span class="n">Vehicle</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Toyota&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Corolla&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2020</span><span class="p">)</span>
+<span class="n">car</span><span class="p">:</span> <span class="n">Car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Honda&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Civic&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2021</span><span class="p">,</span> <span class="n">num_doors</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">motorcycle</span><span class="p">:</span> <span class="n">Motorcycle</span> <span class="o">=</span> <span class="n">Motorcycle</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Harley-Davidson&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Street 750&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2019</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">vehicle</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">motorcycle</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Vehicle</span><span class="p">:</span> <span class="n">Toyota</span> <span class="n">Corolla</span><span class="p">,</span> <span class="n">Year</span><span class="p">:</span> <span class="mi">2020</span>
+<span class="n">Car</span><span class="p">:</span> <span class="n">Honda</span> <span class="n">Civic</span><span class="p">,</span> <span class="n">Year</span><span class="p">:</span> <span class="mi">2021</span><span class="p">,</span> <span class="n">Doors</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">Motorcycle</span><span class="p">:</span> <span class="n">Harley</span><span class="o">-</span><span class="n">Davidson</span> <span class="n">Street</span> <span class="mi">750</span><span class="p">,</span> <span class="n">Year</span><span class="p">:</span> <span class="mi">2019</span><span class="p">,</span> <span class="n">Sidecar</span><span class="p">:</span> <span class="n">No</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Extend the previous exercise by creating a new schild class <code class="docutils literal notranslate"><span class="pre">ElectricCar</span></code> that inherits from <code class="docutils literal notranslate"><span class="pre">Car</span></code>. Include an additional attribute <code class="docutils literal notranslate"><span class="pre">battery_capacity</span></code> (int) in kWh, morover, modify the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method in the <code class="docutils literal notranslate"><span class="pre">ElectricCar</span></code> class to include the battery capacity.</p>
+<p>Lastly, add a method<code class="docutils literal notranslate"> <span class="pre">is_modern_vehicle()</span></code> in the <code class="docutils literal notranslate"><span class="pre">Vehicle</span> <span class="pre">class</span></code> that checks if the vehicle’s manufacturing year is <strong>2015 or later</strong>. Override this method in the <code class="docutils literal notranslate"><span class="pre">ElectricCar</span> <span class="pre">class</span></code> to <strong>always</strong> return <code class="docutils literal notranslate"><span class="pre">True</span></code> (as electric cars are considered modern by default).</p>
+<p><strong>Example input</strong>: you pass this argument to the parameter in the function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">car</span><span class="p">:</span> <span class="n">Car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Honda&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Civic&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span> <span class="n">num_doors</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">electric_car</span><span class="p">:</span> <span class="n">ElectricCar</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Tesla&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Model 3&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2022</span><span class="p">,</span> <span class="n">num_doors</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">battery_capacity</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">electric_car</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cart</span><span class="p">(</span><span class="n">car</span><span class="o">.</span><span class="n">is_modern_vehicle</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">electric_caric_car</span><span class="o">.</span><span class="n">is_modern_vehicle</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Car</span><span class="p">:</span> <span class="n">Honda</span> <span class="n">Civic</span><span class="p">,</span> <span class="n">Year</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span> <span class="n">Doors</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">ElectricCar</span><span class="p">:</span> <span class="n">Tesla</span> <span class="n">Model</span> <span class="mi">3</span><span class="p">,</span> <span class="n">Year</span><span class="p">:</span> <span class="mi">2022</span><span class="p">,</span> <span class="n">Doors</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="n">Battery</span> <span class="n">Capacity</span><span class="p">:</span> <span class="mi">75</span> <span class="n">kWh</span>
+<span class="kc">False</span>
+<span class="kc">True</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> For this task, you will implement a fleet management system that can handle multiple vehicles of different types (<code class="docutils literal notranslate"><span class="pre">Vehicle</span></code>, <code class="docutils literal notranslate"><span class="pre">Car</span></code>, <code class="docutils literal notranslate"><span class="pre">Motorcycle</span></code>, <code class="docutils literal notranslate"><span class="pre">ElectricCar</span></code>). This task requires you to:</p>
+<ol class="arabic simple">
+<li><p>Create a new class <code class="docutils literal notranslate"><span class="pre">Fleet</span></code> to manage vehicles.</p></li>
+<li><p>Add and manage vehicles in a <strong>list of dictionaries</strong>, where each dictionary contains (you have to implement this in the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>):</p>
+<ul class="simple">
+<li><p>The type of the vehicle (e.g., “Car”, “ElectricCar”, etc.).</p></li>
+<li><p>The actual object instance.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Example list:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vehicle_management</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Vehicle</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Vehicle&quot;</span><span class="p">,</span> <span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="n">Vehicle</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Toyota&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Corolla&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2020</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Car&quot;</span><span class="p">,</span> <span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="n">Car</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Honda&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Civic&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span> <span class="n">num_doors</span><span class="o">=</span><span class="mi">4</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ElectricCar&quot;</span><span class="p">,</span> <span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Tesla&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Model S&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2021</span><span class="p">,</span> <span class="n">num_doors</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">battery_capacity</span><span class="o">=</span><span class="mi">100</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Motorcycle&quot;</span><span class="p">,</span> <span class="s2">&quot;object&quot;</span><span class="p">:</span> <span class="n">Motorcycle</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Yamaha&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;R1&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span> <span class="n">has_sidecar</span><span class="o">=</span><span class="kc">False</span><span class="p">)}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Implement the following methods in the <code class="docutils literal notranslate"><span class="pre">Fleet</span></code> class:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">add_vehicle(vehicle:</span> <span class="pre">Vehicle)</span></code> that adds a vehicle to the fleet.</p>
+<ul>
+<li><p>If the object is not an instance of <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code> or its subclasses, raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> with the message: <code class="docutils literal notranslate"><span class="pre">&quot;Only</span> <span class="pre">objects</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">Vehicle</span> <span class="pre">or</span> <span class="pre">its</span> <span class="pre">subclasses</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">added</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">fleet.&quot;</span></code></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_all_vehicles()</span></code>: that returns a formatted string listing all vehicles in the fleet, grouped by type.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find_vehicle_by_model(model:</span> <span class="pre">str)</span></code> that finds and returns details of a vehicle in the fleet with the specified model name.</p>
+<ul>
+<li><p>If no such vehicle is found, raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> with the message: <code class="docutils literal notranslate"><span class="pre">&quot;No</span> <span class="pre">vehicle</span> <span class="pre">found</span> <span class="pre">with</span> <span class="pre">model</span> <span class="pre">name</span> <span class="pre">'&lt;model&gt;'.&quot;</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Requirements</strong></p>
+<ul class="simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code>, <code class="docutils literal notranslate"><span class="pre">Car</span></code>, <code class="docutils literal notranslate"><span class="pre">Motorcycle</span></code>, and<code class="docutils literal notranslate"> <span class="pre">ElectricCar</span></code> classes from previous tasks.</p></li>
+<li><p>Ensure <code class="docutils literal notranslate"><span class="pre">Fleet</span></code> manages these objects dynamically.</p></li>
+<li><p>Implement error handling by raising and catching both <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> and <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
+</ul>
+<p><strong>Example input</strong>: you pass this argument to the parameter in the function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create fleet</span>
+<span class="n">fleet</span><span class="p">:</span> <span class="n">Fleet</span> <span class="o">=</span> <span class="n">Fleet</span><span class="p">()</span>
+
+<span class="c1"># Create vehicles</span>
+<span class="n">vehicle</span><span class="p">:</span> <span class="n">Vehicle</span> <span class="o">=</span> <span class="n">Vehicle</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Toyota&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Corolla&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2020</span><span class="p">)</span>
+<span class="n">car</span><span class="p">:</span> <span class="n">Car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Honda&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Civic&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span> <span class="n">num_doors</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">electric_car</span><span class="p">:</span> <span class="n">ElectricCar</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Tesla&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Model S&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2021</span><span class="p">,</span> <span class="n">num_doors</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">battery_capacity</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">motorcycle</span><span class="p">:</span> <span class="n">Motorcycle</span> <span class="o">=</span> <span class="n">Motorcycle</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Yamaha&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;R1&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span> <span class="n">has_sidecar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Add vehicles to fleet</span>
+<span class="n">fleet</span><span class="o">.</span><span class="n">add_vehicle</span><span class="p">(</span><span class="n">vehicle</span><span class="p">)</span>
+<span class="n">fleet</span><span class="o">.</span><span class="n">add_vehicle</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>
+<span class="n">fleet</span><span class="o">.</span><span class="n">add_vehicle</span><span class="p">(</span><span class="n">electric_car</span><span class="p">)</span>
+<span class="n">fleet</span><span class="o">.</span><span class="n">add_vehicle</span><span class="p">(</span><span class="n">motorcycle</span><span class="p">)</span>
+
+<span class="c1"># Display all vehicles</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fleet</span><span class="o">.</span><span class="n">get_all_vehicles</span><span class="p">())</span>
+
+<span class="c1"># Find specific vehicle</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fleet</span><span class="o">.</span><span class="n">find_vehicle_by_model</span><span class="p">(</span><span class="s2">&quot;Model S&quot;</span><span class="p">))</span>
+
+<span class="c1"># Test error handling</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">fleet</span><span class="o">.</span><span class="n">add_vehicle</span><span class="p">(</span><span class="s2">&quot;NotAVehicle&quot;</span><span class="p">)</span>  <span class="c1"># Invalid object</span>
+<span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fleet</span><span class="o">.</span><span class="n">find_vehicle_by_model</span><span class="p">(</span><span class="s2">&quot;UnknownModel&quot;</span><span class="p">))</span>  <span class="c1"># Non-existent model</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">All</span> <span class="n">Vehicles</span> <span class="ow">in</span> <span class="n">Fleet</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">Vehicle</span><span class="p">:</span> <span class="n">Toyota</span> <span class="n">Corolla</span><span class="p">,</span> <span class="n">Year</span><span class="p">:</span> <span class="mi">2020</span>
+<span class="o">-</span> <span class="n">Car</span><span class="p">:</span> <span class="n">Honda</span> <span class="n">Civic</span><span class="p">,</span> <span class="n">Year</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span> <span class="n">Doors</span><span class="p">:</span> <span class="mi">4</span>
+<span class="o">-</span> <span class="n">ElectricCar</span><span class="p">:</span> <span class="n">Tesla</span> <span class="n">Model</span> <span class="n">S</span><span class="p">,</span> <span class="n">Year</span><span class="p">:</span> <span class="mi">2021</span><span class="p">,</span> <span class="n">Doors</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="n">Battery</span> <span class="n">Capacity</span><span class="p">:</span> <span class="mi">100</span> <span class="n">kWh</span>
+<span class="o">-</span> <span class="n">Motorcycle</span><span class="p">:</span> <span class="n">Yamaha</span> <span class="n">R1</span><span class="p">,</span> <span class="n">Year</span><span class="p">:</span> <span class="mi">2018</span><span class="p">,</span> <span class="n">Sidecar</span><span class="p">:</span> <span class="n">No</span>
+
+<span class="n">Found</span> <span class="n">Vehicle</span><span class="p">:</span>
+<span class="n">ElectricCar</span><span class="p">:</span> <span class="n">Tesla</span> <span class="n">Model</span> <span class="n">S</span><span class="p">,</span> <span class="n">Year</span><span class="p">:</span> <span class="mi">2021</span><span class="p">,</span> <span class="n">Doors</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="n">Battery</span> <span class="n">Capacity</span><span class="p">:</span> <span class="mi">100</span> <span class="n">kWh</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">Only</span> <span class="n">objects</span> <span class="n">of</span> <span class="nb">type</span> <span class="n">Vehicle</span> <span class="ow">or</span> <span class="n">its</span> <span class="n">subclasses</span> <span class="n">can</span> <span class="n">be</span> <span class="n">added</span> <span class="n">to</span> <span class="n">the</span> <span class="n">fleet</span><span class="o">.</span>
+
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">No</span> <span class="n">vehicle</span> <span class="n">found</span> <span class="k">with</span> <span class="n">model</span> <span class="n">name</span> <span class="s1">&#39;UnknownModel&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-2">
+<h3><span class="section-number">14.5.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> For this exercise, first, create the class called <code class="docutils literal notranslate"><span class="pre">MusicPlayer</span></code> that contains the following attributes: <code class="docutils literal notranslate"><span class="pre">name</span></code> (string), <code class="docutils literal notranslate"><span class="pre">data_format</span></code> (string), and <code class="docutils literal notranslate"><span class="pre">state</span></code> (integer).</p>
+<p>The default value for <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">data_format</span></code> is an empty string (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>). The <code class="docutils literal notranslate"><span class="pre">state</span></code> attribute can have three values, <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, or <code class="docutils literal notranslate"><span class="pre">2</span></code>, and its default value is <code class="docutils literal notranslate"><span class="pre">0</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: the music player is <strong>playing</strong> some music.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: the music player has been <strong>paused</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code>: the music player has been <strong>stopped</strong>.</p></li>
+</ul>
+<p>Then, define the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method so it returns the following message: “Music Player(<code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;data_format&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;state&gt;</span></code>)”.</p>
+<p>Finally, create the methods <code class="docutils literal notranslate"><span class="pre">play()</span></code>, <code class="docutils literal notranslate"><span class="pre">pause()</span></code>, and <code class="docutils literal notranslate"><span class="pre">stop()</span></code>, which will change the <code class="docutils literal notranslate"><span class="pre">state</span></code> attribute of the music player accordingly.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">play</span></code> method should change the state of the music player to <code class="docutils literal notranslate"><span class="pre">0</span></code>, whereas the <code class="docutils literal notranslate"><span class="pre">pause</span></code> method and the <code class="docutils literal notranslate"><span class="pre">stop</span></code> method should set the state of the music player to <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code> respectively.</p>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cd_player</span><span class="p">:</span> <span class="n">MusicPlayer</span> <span class="o">=</span> <span class="n">MusicPlayer</span><span class="p">(</span><span class="s1">&#39;CD Player&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">cd_player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cd_player</span><span class="p">)</span>
+
+<span class="n">cd_player</span><span class="o">.</span><span class="n">pause</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cd_player</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example utput:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Music</span> <span class="n">Player</span><span class="p">(</span><span class="n">CD</span> <span class="n">Player</span><span class="p">,</span> <span class="n">CD</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">Music</span> <span class="n">Player</span><span class="p">(</span><span class="n">CD</span> <span class="n">Player</span><span class="p">,</span> <span class="n">CD</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> There are different types of music players. For this exercise, you need to create two special types of music players: record and cassette player.</p>
+<p>First, create the <code class="docutils literal notranslate"><span class="pre">RecordPlayer</span></code> and <code class="docutils literal notranslate"><span class="pre">CassettePlayer</span></code> classes, which will inherit from the <code class="docutils literal notranslate"><span class="pre">MusicPlayer</span></code> class (created in level 1).</p>
+<p>Then, fulfill the following requirements:</p>
+<ul class="simple">
+<li><p>The name of all <code class="docutils literal notranslate"><span class="pre">RecordPlayer</span></code> objects must be <code class="docutils literal notranslate"><span class="pre">&quot;Record</span> <span class="pre">Player&quot;</span></code>.</p></li>
+<li><p>The data format of all <code class="docutils literal notranslate"><span class="pre">RecordPlayer</span></code> objects must be <code class="docutils literal notranslate"><span class="pre">&quot;Record&quot;</span></code>.</p></li>
+<li><p>The name of all <code class="docutils literal notranslate"><span class="pre">CassettePlayer</span></code> objects must be <code class="docutils literal notranslate"><span class="pre">&quot;Cassette</span> <span class="pre">Player&quot;</span></code>.</p></li>
+<li><p>The data format of all <code class="docutils literal notranslate"><span class="pre">CassettePlayer</span></code> objects must be <code class="docutils literal notranslate"><span class="pre">&quot;Cassette&quot;</span></code>.</p></li>
+<li><p>Constructors for both classes do not require any parameters.</p></li>
+<li><p>Modify the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method of the <code class="docutils literal notranslate"><span class="pre">RecordPlayer</span></code> and the <code class="docutils literal notranslate"><span class="pre">CassettePlayer</span></code> classes, so they return the message ‘<code class="docutils literal notranslate"><span class="pre">name</span></code>(<code class="docutils literal notranslate"><span class="pre">state</span></code>)’.</p></li>
+</ul>
+<p><strong>Example: Input</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">record_player</span><span class="p">:</span> <span class="n">RecordPlayer</span> <span class="o">=</span> <span class="n">RecordPlayer</span><span class="p">()</span>
+<span class="n">cassette_player</span><span class="p">:</span> <span class="n">CassettePlayer</span> <span class="o">=</span> <span class="n">CassettePlayer</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">record_player</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cassette_player</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Output:</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Record</span> <span class="n">Player</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Cassette</span> <span class="n">Player</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> The record and cassette players are old-school music players. More modern players have new features that can be used by users, such as having a list of songs and playing them independently.</p>
+<p>For this exercise create the <code class="docutils literal notranslate"><span class="pre">ModernPlayer</span></code> class that inherits from the <code class="docutils literal notranslate"><span class="pre">MusicPlayer</span></code> class (created in level 1).
+This modern player will get all the music player attributes (<code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">data_format</span></code>, and <code class="docutils literal notranslate"><span class="pre">state</span></code>), plus the <code class="docutils literal notranslate"><span class="pre">songs</span></code> attribute as parameters. The <code class="docutils literal notranslate"><span class="pre">songs</span></code> attribute is a list of strings representing the titles of the songs. It will also have the <code class="docutils literal notranslate"><span class="pre">current_song</span></code> attribute upon initialization, which will keep track of the current song being played. It should start by pointing to the first item on the list.</p>
+<p>Furthermore, the <code class="docutils literal notranslate"><span class="pre">ModernPlayer</span></code> class has the following two methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">next_song()</span></code>: this method changes the position of the current song to the next song in the list. For instance, if the current song is at position 0, then this method will change the position to 1, thereby representing the next song. If the current song is the last song and we use this method, it should point to the first song afterwards, i.e. starting all over again.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">play_current_song()</span></code>: this method returns the title of the current song of the <code class="docutils literal notranslate"><span class="pre">songs</span></code> attribute. Consider the attribute you created previously.</p></li>
+</ul>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hey_jude_songs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Can</span><span class="se">\&#39;</span><span class="s1">t Buy Me Love&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;I Should Have Known Better&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Paperback Writer&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Rain&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Lady Madonna&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Revolution&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Hey Jude&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Old Brown Shoe&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Don</span><span class="se">\&#39;</span><span class="s1">t Let Me Down&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;The Ballad of John and Yoko&#39;</span>
+<span class="p">]</span>
+
+<span class="n">cd_player</span><span class="p">:</span> <span class="n">ModernPlayer</span> <span class="o">=</span> <span class="n">ModernPlayer</span><span class="p">(</span><span class="s1">&#39;CD Player&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">hey_jude_songs</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">cd_player</span><span class="o">.</span><span class="n">next_song</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cd_player</span><span class="o">.</span><span class="n">play_current_song</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Hey</span> <span class="n">Jude</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3">
+<h3><span class="section-number">14.5.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<p>The cosmos is vast and full of fascinating systems like planets, stars, and planetary systems. Let’s build a program to model this.</p>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a base <code class="docutils literal notranslate"><span class="pre">CelestialObject</span></code> class with the following attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> (string): The name of the object.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mass</span></code> (float): The mass of the object in kilograms.</p></li>
+</ul>
+<p>Implement a <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method that returns a string describing the CelestialObject, including its name and mass.</p>
+<p>Then, create a subclass <code class="docutils literal notranslate"><span class="pre">Planet</span></code> that inherits from <code class="docutils literal notranslate"><span class="pre">CelestialObject</span></code>. Add the following attributes to <code class="docutils literal notranslate"><span class="pre">Planet</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">radius</span></code> (float): The radius of the planet in kilometers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distance_from_star</span></code> (float): The distance of the planet from its star in astronomical units (AU).</p></li>
+</ul>
+<p>Override the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method in Planet to include all relevant planet details.</p>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">celestial</span><span class="p">:</span> <span class="n">CelestialObject</span> <span class="o">=</span> <span class="n">CelestialObject</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Generic Object&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">1e20</span><span class="p">)</span>
+<span class="n">earth</span><span class="p">:</span> <span class="n">Planet</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">5.972e24</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">6371</span><span class="p">,</span> <span class="n">distance_from_star</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">celestial</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">earth</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Celestial</span> <span class="n">Object</span><span class="p">:</span> <span class="n">Generic</span> <span class="n">Object</span><span class="p">,</span> <span class="n">Mass</span><span class="p">:</span> <span class="mf">1e+20</span> <span class="n">kg</span>
+<span class="n">Planet</span><span class="p">:</span> <span class="n">Earth</span><span class="p">,</span> <span class="n">Mass</span><span class="p">:</span> <span class="mf">5.972e+24</span> <span class="n">kg</span><span class="p">,</span> <span class="n">Radius</span><span class="p">:</span> <span class="mi">6371</span> <span class="n">km</span><span class="p">,</span> <span class="n">Distance</span> <span class="kn">from</span> <span class="nn">star</span><span class="p">:</span> <span class="mf">1.0</span> <span class="n">AU</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Create a <code class="docutils literal notranslate"><span class="pre">Star</span></code> class that inherits from <code class="docutils literal notranslate"><span class="pre">CelestialObject</span></code>. Add the following attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> (string): The type of the star (e.g., “G-type”, “M-type”).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">luminosity</span></code> (float): The luminosity of the star compared to the Sun.</p></li>
+</ul>
+<p>Override the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method in <code class="docutils literal notranslate"><span class="pre">Star</span></code> to include include the star’s type and luminosity.</p>
+<p>Next, enhance the <code class="docutils literal notranslate"><span class="pre">Planet</span></code> class to associate it with a specific <code class="docutils literal notranslate"><span class="pre">Star</span></code>. Add an attribute <code class="docutils literal notranslate"><span class="pre">host_star</span></code> that holds the star it orbits.</p>
+<p>Update the Planet class’s <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to include the name of the host star.</p>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sun</span><span class="p">:</span> <span class="n">Star</span> <span class="o">=</span> <span class="n">Star</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Sun&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">1.989e30</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;G-type&quot;</span><span class="p">,</span> <span class="n">luminosity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">earth</span><span class="p">:</span> <span class="n">Planet</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">5.972e24</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">6371</span><span class="p">,</span> <span class="n">distance_from_star</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">earth</span><span class="o">.</span><span class="n">host_star</span> <span class="o">=</span> <span class="n">sun</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">()</span>
+
+
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Star</span><span class="p">:</span> <span class="n">Sun</span><span class="p">,</span> <span class="n">Mass</span><span class="p">:</span> <span class="mf">1.989e+30</span> <span class="n">kg</span><span class="p">,</span> <span class="n">Type</span><span class="p">:</span> <span class="n">G</span><span class="o">-</span><span class="nb">type</span><span class="p">,</span> <span class="n">Luminosity</span><span class="p">:</span> <span class="mf">1.0</span>
+<span class="n">Planet</span><span class="p">:</span> <span class="n">Earth</span><span class="p">,</span> <span class="n">Mass</span><span class="p">:</span> <span class="mf">5.972e+24</span> <span class="n">kg</span><span class="p">,</span> <span class="n">Radius</span><span class="p">:</span> <span class="mi">6371</span> <span class="n">km</span><span class="p">,</span> <span class="n">Distance</span> <span class="kn">from</span> <span class="nn">star</span><span class="p">:</span> <span class="mf">1.0</span> <span class="n">AU</span><span class="p">,</span> <span class="n">Host</span> <span class="n">Star</span><span class="p">:</span> <span class="n">Sun</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Make a new class: <code class="docutils literal notranslate"><span class="pre">AsteroidBelt</span></code> that represents a collection of small celestial objects orbiting a star. It inherits from <code class="docutils literal notranslate"><span class="pre">CelestialObject</span></code> and has the following unique attributes and methods:</p>
+<p>Attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">host_star</span></code> (Star): The star this asteroid belt orbits.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asteroids</span></code> (list): A list of string names representing individual asteroids in the belt.</p></li>
+</ul>
+<p>Methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">add_asteroid</span></code>(name: str): Add an asteroid to the belt.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove_asteroid</span></code>(name: str): Remove an asteroid from the belt.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__str__()</span></code>: Override the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to include the asteroid belt’s name, host star, and a list of asteroid names.</p></li>
+</ul>
+<p>Then make a new class: <code class="docutils literal notranslate"><span class="pre">Comet</span></code> which represents a celestial object that can pass through multiple star systems. It inherits from <code class="docutils literal notranslate"><span class="pre">CelestialObject</span></code> and adds the following unique attributes and methods:</p>
+<p>Attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">path</span></code> (list): A list of <code class="docutils literal notranslate"><span class="pre">Star</span></code> objects that the comet passes by.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_star</span></code> (Star): The star closest to the comet at a given time.</p></li>
+</ul>
+<p>Methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">add_star_to_path()</span></code>(star: Star): Add a star to the comet’s path.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_current_star()</span></code>(star: Star): Update the comet’s current location.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__str__()</span></code>: Override the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method to include the comet’s name, current star, and its full path (list of star names).</p></li>
+</ul>
+<p>Then implement the following function:</p>
+<ol class="arabic simple">
+<li><p><strong>Find All Moons in a Star System:</strong> Write a function that, given a <code class="docutils literal notranslate"><span class="pre">Star</span></code> object, returns the names of all moons orbiting all planets in that star system.</p></li>
+<li><p><strong>List Comets Passing Through a Star System:</strong> Write a function that, given a <code class="docutils literal notranslate"><span class="pre">Star</span></code> object, returns all comets that pass through its system (from the comet’s path attribute).</p></li>
+<li><p><strong>Find Asteroids in All Systems:</strong> Write a function that, given a list of <code class="docutils literal notranslate"><span class="pre">Star</span></code> objects, returns a dictionary where the keys are star names and the values are lists of asteroid names in their asteroid belts.</p></li>
+</ol>
+<p><strong>Example input:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create stars</span>
+<span class="n">sun</span><span class="p">:</span> <span class="n">Star</span> <span class="o">=</span> <span class="n">Star</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Sun&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">1.989e30</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;G-type&quot;</span><span class="p">)</span>
+<span class="n">alpha_centauri</span><span class="p">:</span> <span class="n">Star</span> <span class="o">=</span> <span class="n">Star</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alpha Centauri&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">2.0e30</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;G-type&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create planets</span>
+<span class="n">earth</span><span class="p">:</span> <span class="n">Planet</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">5.972e24</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">6371</span><span class="p">,</span> <span class="n">host_star</span><span class="o">=</span><span class="n">sun</span><span class="p">)</span>
+<span class="n">jupiter</span><span class="p">:</span> <span class="n">Planet</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jupiter&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">1.898e27</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">69911</span><span class="p">,</span> <span class="n">host_star</span><span class="o">=</span><span class="n">sun</span><span class="p">)</span>
+
+<span class="c1"># Add planets to stars</span>
+<span class="n">sun</span><span class="o">.</span><span class="n">add_planet</span><span class="p">(</span><span class="n">earth</span><span class="p">)</span>
+<span class="n">sun</span><span class="o">.</span><span class="n">add_planet</span><span class="p">(</span><span class="n">jupiter</span><span class="p">)</span>
+
+<span class="c1"># Create moons</span>
+<span class="n">luna</span><span class="p">:</span> <span class="n">Moon</span> <span class="o">=</span> <span class="n">Moon</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Luna&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">7.342e22</span><span class="p">,</span> <span class="n">host_planet</span><span class="o">=</span><span class="n">earth</span><span class="p">)</span>
+<span class="n">europa</span><span class="p">:</span> <span class="n">Moon</span> <span class="o">=</span> <span class="n">Moon</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Europa&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">4.8e22</span><span class="p">,</span> <span class="n">host_planet</span><span class="o">=</span><span class="n">jupiter</span><span class="p">)</span>
+
+<span class="c1"># Add moons to planets</span>
+<span class="n">earth</span><span class="o">.</span><span class="n">add_moon</span><span class="p">(</span><span class="n">luna</span><span class="p">)</span>
+<span class="n">jupiter</span><span class="o">.</span><span class="n">add_moon</span><span class="p">(</span><span class="n">europa</span><span class="p">)</span>
+
+<span class="c1"># Create an asteroid belt for the Sun</span>
+<span class="n">main_belt</span><span class="p">:</span> <span class="n">AsteroidBelt</span> <span class="o">=</span> <span class="n">AsteroidBelt</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Main Belt&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">1e21</span><span class="p">,</span> <span class="n">host_star</span><span class="o">=</span><span class="n">sun</span><span class="p">)</span>
+<span class="n">main_belt</span><span class="o">.</span><span class="n">add_asteroid</span><span class="p">(</span><span class="s2">&quot;Ceres&quot;</span><span class="p">)</span>
+<span class="n">main_belt</span><span class="o">.</span><span class="n">add_asteroid</span><span class="p">(</span><span class="s2">&quot;Vesta&quot;</span><span class="p">)</span>
+<span class="n">main_belt</span><span class="o">.</span><span class="n">add_asteroid</span><span class="p">(</span><span class="s2">&quot;Pallas&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a comet</span>
+<span class="n">halley</span><span class="p">:</span> <span class="n">Comet</span> <span class="o">=</span> <span class="n">Comet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Halley&#39;s Comet&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">2.2e14</span><span class="p">)</span>
+<span class="n">halley</span><span class="o">.</span><span class="n">add_star_to_path</span><span class="p">(</span><span class="n">sun</span><span class="p">)</span>
+<span class="n">halley</span><span class="o">.</span><span class="n">add_star_to_path</span><span class="p">(</span><span class="n">alpha_centauri</span><span class="p">)</span>
+<span class="n">halley</span><span class="o">.</span><span class="n">set_current_star</span><span class="p">(</span><span class="n">sun</span><span class="p">)</span>
+
+<span class="c1"># Write functions to explore the system</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All moons in the Sun&#39;s system:&quot;</span><span class="p">,</span> <span class="n">find_all_moons_in_star_system</span><span class="p">(</span><span class="n">sun</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Comets passing through the Sun&#39;s system:&quot;</span><span class="p">,</span> <span class="n">find_comets_in_star_system</span><span class="p">(</span><span class="n">sun</span><span class="p">,</span> <span class="p">[</span><span class="n">halley</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Asteroids in all systems:&quot;</span><span class="p">,</span> <span class="n">find_asteroids_in_all_systems</span><span class="p">([</span><span class="n">sun</span><span class="p">,</span> <span class="n">alpha_centauri</span><span class="p">]))</span>
+
+<span class="c1"># Print objects</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">main_belt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">halley</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><strong>Example output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">All</span> <span class="n">moons</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">Sun</span><span class="s1">&#39;s system: [&#39;</span><span class="n">Luna</span><span class="s1">&#39;, &#39;</span><span class="n">Europa</span><span class="s1">&#39;]</span>
+<span class="n">Comets</span> <span class="n">passing</span> <span class="n">through</span> <span class="n">the</span> <span class="n">Sun</span><span class="s1">&#39;s system: [&quot;Halley&#39;</span><span class="n">s</span> <span class="n">Comet</span><span class="s2">&quot;]</span>
+<span class="n">Asteroids</span> <span class="ow">in</span> <span class="nb">all</span> <span class="n">systems</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Sun&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Ceres&#39;</span><span class="p">,</span> <span class="s1">&#39;Vesta&#39;</span><span class="p">,</span> <span class="s1">&#39;Pallas&#39;</span><span class="p">],</span> <span class="s1">&#39;Alpha Centauri&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+
+<span class="n">Asteroid</span> <span class="n">Belt</span><span class="p">:</span> <span class="n">Main</span> <span class="n">Belt</span><span class="p">,</span> <span class="n">Mass</span><span class="p">:</span> <span class="mf">1.0e+21</span> <span class="n">kg</span><span class="p">,</span> <span class="n">Host</span> <span class="n">Star</span><span class="p">:</span> <span class="n">Sun</span>
+<span class="n">Asteroids</span><span class="p">:</span> <span class="n">Ceres</span><span class="p">,</span> <span class="n">Vesta</span><span class="p">,</span> <span class="n">Pallas</span>
+
+<span class="n">Comet</span><span class="p">:</span> <span class="n">Halley</span><span class="s1">&#39;s Comet, Mass: 2.2e+14 kg, Current Star: Sun</span>
+<span class="n">Path</span><span class="p">:</span> <span class="n">Sun</span> <span class="o">-&gt;</span> <span class="n">Alpha</span> <span class="n">Centauri</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><em>Material for the VU Amsterdam course “Introduction to Python Programming” for BSc Artificial Intelligence students. These notebooks are created using the following sources:</em></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://programming-pybook.github.io/introProgramming/intro.html">Learning Python by Doing</a>: This book, developed by teachers of TU/e Eindhoven and VU Amsterdam, is the main source for the course materials. Code snippets or text explanations from the book may be used in the notebooks, sometimes with slight adjustments.</p></li>
+<li><p><a class="reference external" href="https://greenteapress.com/thinkpython2/html/">Think Python</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org">GeekForGeeks</a></p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "VU-IntroPython/TAs-Material",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/15-inheritance"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../14-classes-methods/classes-methods.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Classes and Methods</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-what-is-class-inheritance-span">14.1. <span style="color:#4169E1">What is <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">inheritance</span></code>?</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-syntax-of-class-inheritance-span">14.1.1. <span style="color:#B22222">Syntax of <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">inheritance</span></code></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-single-inheritance-span">14.2. <span style="color:#4169E1">Single Inheritance</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-creating-a-child-class-span">14.2.1. <span style="color:#B22222">Creating a <code class="docutils literal notranslate"><span class="pre">child</span> <span class="pre">class</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-constructor-and-super-span">14.2.2. <span style="color:#B22222">Constructor and <code class="docutils literal notranslate"><span class="pre">super()</span></code></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-customizing-code-init-code-in-subclasses-span">14.2.3. <span style="color:#B22222">Customizing <code><strong>init</strong>()</code> in subclasses</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-overwriting-class-methods-span">14.3. <span style="color:#4169E1">Overwriting class methods</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-other-forms-of-inheritance-span">14.4. <span style="color:#4169E1">Other Forms of Inheritance</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-multiple-inheritance-span">14.4.1. <span style="color:#B22222">Multiple Inheritance</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">14.5. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">14.5.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">14.5.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">14.5.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Koen van der Pool, Mauricio Verano Merino & Márton Bodó
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024. Vrije Universiteit Amsterdam.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

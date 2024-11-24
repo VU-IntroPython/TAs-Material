@@ -183,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../12-tuples/tuples.html">11. Tuples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../13-intro-to-classes/intro-to-classes.html">12. Intro to Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../14-classes-methods/classes-methods.html">13. Classes and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15-inheritance/inheritance.html">14. Inheritance</a></li>
 </ul>
 
     </div>
@@ -440,10 +441,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-try-with-except-and-else-clauses-span">8.3.2. <span style="color:#B22222"><code class="docutils literal notranslate"><span class="pre">try</span></code> with <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> clauses</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-raise-keyword-span">8.3.3. <span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">raise</span></code> keyword</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-try-with-except-and-finally-clauses-span">8.3.4. <span style="color:#B22222"><code class="docutils literal notranslate"><span class="pre">try</span></code> with <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">finally</span></code> clauses</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-handling-exceptions-outside-a-function-span">8.3.5. <span style="color:#B22222">Handling exceptions outside a function</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-custom-exceptions-optional-span">8.4. <span style="color:#4169E1">Custom Exceptions (Optional)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-defining-custom-exceptions">8.4.1. <span style="color:#B22222">Defining Custom Exceptions</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-defining-custom-exceptions-span">8.4.1. <span style="color:#B22222">Defining Custom Exceptions</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">8.5. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
@@ -476,7 +478,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To enable type hints for lists, dicts, tuples, and sets we need to import the following:</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Set</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Any</span>
 </pre></div>
 </div>
 </div>
@@ -895,15 +897,68 @@ For <strong>each</strong> <code class="docutils literal notranslate"><span class
 The <b>finally block</b> will still execute, printing <code>”Execution complete. Thank you!”</code></p>
 </div>
 </section>
+<section id="span-style-color-b22222-handling-exceptions-outside-a-function-span">
+<h3><span class="section-number">8.3.5. </span><span style="color:#B22222">Handling exceptions outside a function</span><a class="headerlink" href="#span-style-color-b22222-handling-exceptions-outside-a-function-span" title="Permalink to this heading">#</a></h3>
+<p>It is also possible to handle exceptions <strong>outside the function</strong> where we defined it. The bellow example demonstrates how to use the <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement <strong>inside a function</strong> to signal an error when a condition is not met (e.g., an item not being found in a collection). The error is then handled using a <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code> block <strong>outside the function</strong>. This pattern is common in Python when building robust programs that need to handle specific error cases without crashing.</p>
+<p>In this case, the program searches for a book in a collection and raises an exception if the book is not found. The error message is displayed using the except block.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_book</span><span class="p">(</span><span class="n">books</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="n">book_title</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Searches for a book in the books dictionary by its title.</span>
+<span class="sd">    If the book is not found, raises an exception.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">details</span> <span class="ow">in</span> <span class="n">books</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">title</span> <span class="o">==</span> <span class="n">book_title</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">details</span>
+
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Book not found&quot;</span><span class="p">)</span>
+
+<span class="c1"># Try and except outside the function</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">books_collection</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;1984&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;George Orwell&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1949</span><span class="p">},</span>
+        <span class="s2">&quot;To Kill a Mockingbird&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Harper Lee&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1960</span><span class="p">},</span>
+        <span class="s2">&quot;The Great Gatsby&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;F. Scott Fitzgerald&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1925</span><span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Searching for a book that doesn&#39;t exist</span>
+    <span class="n">find_book</span><span class="p">(</span><span class="n">books_collection</span><span class="p">,</span> <span class="s2">&quot;Moby Dick&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Book not found
+</pre></div>
+</div>
+</div>
+</div>
+<p>So what’s happening here?</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">find_book()</span></code> function is designed to search for a book by its title in a collection of books.</p>
+<ul>
+<li><p>It returns the book details if found or raises an exception if not.</p></li>
+</ul>
+</li>
+<li><p>The function explicitly <code class="docutils literal notranslate"><span class="pre">raises</span></code> an <strong>exception</strong> (<code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">Exception(&quot;Book</span> <span class="pre">not</span> <span class="pre">found&quot;)</span></code>) when the book is not in the collection.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">block</span></code> contains the function call, and if the book is not found, the <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement triggers the <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">block</span></code>.</p></li>
+<li><p>The <strong>error message</strong> <code class="docutils literal notranslate"><span class="pre">&quot;Book</span> <span class="pre">not</span> <span class="pre">found&quot;</span></code> is printed, ensuring the program doesn’t crash.</p></li>
+</ul>
+<p>This approach is ideal for building user-friendly applications where users can search for specific items, and the program neatly informs them if something is missing.</p>
+</section>
 </section>
 <section id="span-style-color-4169e1-custom-exceptions-optional-span">
 <h2><span class="section-number">8.4. </span><span style="color:#4169E1">Custom Exceptions (Optional)</span><a class="headerlink" href="#span-style-color-4169e1-custom-exceptions-optional-span" title="Permalink to this heading">#</a></h2>
 <p>So far we have seen what exceptions are, what are the most common built-in exceptions and how to use the <code class="docutils literal notranslate"><span class="pre">try</span></code>… <code class="docutils literal notranslate"><span class="pre">except</span></code>…<code class="docutils literal notranslate"><span class="pre">else</span></code>/<code class="docutils literal notranslate"><span class="pre">finally</span></code> clauses.<br />
 However, sometimes we need to define exceptions tailored for our code. In these cases, it is very likely that no built-in exceptions will suffice. But don’t worry, we can write our own <strong>custom exceptions</strong>!</p>
 <p>Buckle up and let’s see how to do that! (<strong>NOTE</strong>: creating custom exceptions requires knowledge that we have not discussed yet)</p>
-<section id="span-style-color-b22222-defining-custom-exceptions">
-<h3><span class="section-number">8.4.1. </span><span style="color:#B22222">Defining Custom Exceptions<a class="headerlink" href="#span-style-color-b22222-defining-custom-exceptions" title="Permalink to this heading">#</a></h3>
-</span><p>As mentioned before, we can define custom exceptions. To do so, we need to create a new class that is derived from the built-in Exception class. ( we will learn about classes in Notebook 14)<br />
+<section id="span-style-color-b22222-defining-custom-exceptions-span">
+<h3><span class="section-number">8.4.1. </span><span style="color:#B22222">Defining Custom Exceptions</span><a class="headerlink" href="#span-style-color-b22222-defining-custom-exceptions-span" title="Permalink to this heading">#</a></h3>
+<p>As mentioned before, we can define custom exceptions. To do so, we need to create a new class that is derived from the built-in Exception class. ( we will learn about classes in Notebook 14)<br />
 Here’s the syntax to define custom exceptions,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CustomError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="o">...</span>
@@ -1269,10 +1324,11 @@ Enter the name of an exotic animal (or &#39;stop&#39; to finish): stop
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-try-with-except-and-else-clauses-span">8.3.2. <span style="color:#B22222"><code class="docutils literal notranslate"><span class="pre">try</span></code> with <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> clauses</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-the-raise-keyword-span">8.3.3. <span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">raise</span></code> keyword</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-try-with-except-and-finally-clauses-span">8.3.4. <span style="color:#B22222"><code class="docutils literal notranslate"><span class="pre">try</span></code> with <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">finally</span></code> clauses</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-handling-exceptions-outside-a-function-span">8.3.5. <span style="color:#B22222">Handling exceptions outside a function</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-custom-exceptions-optional-span">8.4. <span style="color:#4169E1">Custom Exceptions (Optional)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-defining-custom-exceptions">8.4.1. <span style="color:#B22222">Defining Custom Exceptions</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-defining-custom-exceptions-span">8.4.1. <span style="color:#B22222">Defining Custom Exceptions</span></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">8.5. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
