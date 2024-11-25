@@ -493,21 +493,27 @@ document.write(`
 <p>Sounds fun, righ? Let’s see how we can implement <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">inheritance</span></code> in Python.</p>
 <section id="span-style-color-b22222-syntax-of-class-inheritance-span">
 <h3><span class="section-number">14.1.1. </span><span style="color:#B22222">Syntax of <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">inheritance</span></code></span><a class="headerlink" href="#span-style-color-b22222-syntax-of-class-inheritance-span" title="Permalink to this heading">#</a></h3>
-<p>Let’s see a high level example of high <code class="docutils literal notranslate"><span class="pre">class</span></code> inheritance will work:</p>
+<p>Let’s see a high level example of how <code class="docutils literal notranslate"><span class="pre">class</span></code> inheritance will work:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parent Class</span>
 <span class="k">class</span> <span class="nc">ParentClass</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">common_attribute1</span><span class="p">,</span> <span class="n">common_attribute2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Explanation of what the parent class does</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">common_attribute1</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">common_attribute2</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># Initialize common attributes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">common_attribute1</span> <span class="o">=</span> <span class="n">common_attribute1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">common_attribute2</span> <span class="o">=</span> <span class="n">common_attribute2</span>
 
-    <span class="k">def</span> <span class="nf">common_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">common_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="c1"># Define a method that can be shared with child classes</span>
         <span class="k">return</span> <span class="s2">&quot;This is a method in the Parent Class&quot;</span>
 
 <span class="c1"># Child Class</span>
 <span class="k">class</span> <span class="nc">ChildClass</span><span class="p">(</span><span class="n">ParentClass</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">common_attribute1</span><span class="p">,</span> <span class="n">common_attribute2</span><span class="p">,</span> <span class="n">specific_attribute</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Explanation of what the child class does</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">common_attribute1</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">common_attribute2</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">specific_attribute</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># Call the ParentClass constructor using super()</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">common_attribute1</span><span class="p">,</span> <span class="n">common_attribute2</span><span class="p">)</span>
         <span class="c1"># Initialize child-specific attribute</span>
@@ -533,6 +539,20 @@ Think of this as a <strong>specialized version</strong> of the ParentClass. It g
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mammal</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a mammal with attributes and behaviors common to all mammals.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the mammal.</span>
+<span class="sd">        age (int): The age of the mammal in years.</span>
+<span class="sd">        habitat (str): The natural habitat where the mammal resides.</span>
+<span class="sd">        warm_blooded (bool): Indicates if the mammal is warm-blooded (default is True).</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        __str__(): Returns a string representation of the mammal, including its name, age,</span>
+<span class="sd">                   warm-blooded status, and habitat.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
@@ -571,6 +591,21 @@ Think of this as a <strong>specialized version</strong> of the ParentClass. It g
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">Mammal</span><span class="p">):</span> <span class="c1"># so this class inherits from the Mammal class</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a cat, which is a specific type of mammal.</span>
+
+<span class="sd">    Inherits from:</span>
+<span class="sd">        Mammal: The base class representing general mammalian characteristics.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the cat.</span>
+<span class="sd">        age (int): The age of the cat in years.</span>
+<span class="sd">        habitat (str): The natural habitat where the cat resides.</span>
+<span class="sd">        warm_blooded (bool): Indicates if the cat is warm-blooded (default is True).</span>
+<span class="sd">    </span>
+<span class="sd">    Methods:</span>
+<span class="sd">        Inherits all methods from the Mammal class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">)</span> <span class="c1">#  Call the constructor of the parent class</span>
 </pre></div>
@@ -864,7 +899,7 @@ Chirpy is 1 years old and lives in Jungle. It cannot fly.
 <br></p>
 <section id="exercise-1">
 <h3><span class="section-number">14.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
-<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a <code class="docutils literal notranslate"><span class="pre">Vehicle</span> <span class="pre">class</span></code> with attributes <code class="docutils literal notranslate"><span class="pre">make</span></code> (str), <code class="docutils literal notranslate"><span class="pre">model</span></code> (str), and <code class="docutils literal notranslate"><span class="pre">year</span></code> (int). Then, derive two subclasses: <code class="docutils literal notranslate"><span class="pre">Car</span></code> with an additional attribute <code class="docutils literal notranslate"><span class="pre">num_doors</span></code> (int), and <code class="docutils literal notranslate"><span class="pre">Motorcycle</span></code> with an additional attribute <code class="docutils literal notranslate"><span class="pre">has_sidecar</span></code> (bool, dafault is <code class="docutils literal notranslate"><span class="pre">False</span></code>). Implement the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method in each class to display the vehicle’s information.</p>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Create a <code class="docutils literal notranslate"><span class="pre">Vehicle</span> <span class="pre">class</span></code> with attributes <code class="docutils literal notranslate"><span class="pre">make</span></code> (str), <code class="docutils literal notranslate"><span class="pre">model</span></code> (str), and <code class="docutils literal notranslate"><span class="pre">year</span></code> (int). Then, derive two subclasses: <code class="docutils literal notranslate"><span class="pre">Car</span></code> with an additional attribute <code class="docutils literal notranslate"><span class="pre">num_doors</span></code> (int), and <code class="docutils literal notranslate"><span class="pre">Motorcycle</span></code> with an additional attribute <code class="docutils literal notranslate"><span class="pre">has_sidecar</span></code> (bool, default is <code class="docutils literal notranslate"><span class="pre">False</span></code>). Implement the <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> method in each class to display the vehicle’s information.</p>
 <p><strong>Example input</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vehicle</span><span class="p">:</span> <span class="n">Vehicle</span> <span class="o">=</span> <span class="n">Vehicle</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Toyota&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Corolla&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2020</span><span class="p">)</span>
 <span class="n">car</span><span class="p">:</span> <span class="n">Car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="n">make</span><span class="o">=</span><span class="s2">&quot;Honda&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;Civic&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2021</span><span class="p">,</span> <span class="n">num_doors</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -1090,7 +1125,7 @@ This modern player will get all the music player attributes (<code class="docuti
 <li><p><code class="docutils literal notranslate"><span class="pre">play_current_song()</span></code>: this method returns the title of the current song of the <code class="docutils literal notranslate"><span class="pre">songs</span></code> attribute. Consider the attribute you created previously.</p></li>
 </ul>
 <p><strong>Example input:</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hey_jude_songs</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">beatles_songs</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;Can</span><span class="se">\&#39;</span><span class="s1">t Buy Me Love&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;I Should Have Known Better&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Paperback Writer&#39;</span><span class="p">,</span>
@@ -1103,7 +1138,7 @@ This modern player will get all the music player attributes (<code class="docuti
     <span class="s1">&#39;The Ballad of John and Yoko&#39;</span>
 <span class="p">]</span>
 
-<span class="n">cd_player</span><span class="p">:</span> <span class="n">ModernPlayer</span> <span class="o">=</span> <span class="n">ModernPlayer</span><span class="p">(</span><span class="s1">&#39;CD Player&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">hey_jude_songs</span><span class="p">)</span>
+<span class="n">cd_player</span><span class="p">:</span> <span class="n">ModernPlayer</span> <span class="o">=</span> <span class="n">ModernPlayer</span><span class="p">(</span><span class="s1">&#39;CD Player&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">beatles_songs</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
     <span class="n">cd_player</span><span class="o">.</span><span class="n">next_song</span><span class="p">()</span>
@@ -1172,8 +1207,8 @@ This modern player will get all the music player attributes (<code class="docuti
 <span class="n">earth</span><span class="p">:</span> <span class="n">Planet</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">5.972e24</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">6371</span><span class="p">,</span> <span class="n">distance_from_star</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 <span class="n">earth</span><span class="o">.</span><span class="n">host_star</span> <span class="o">=</span> <span class="n">sun</span>
 
-<span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sun</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">earth</span><span class="p">)</span>
 
 
 </pre></div>
@@ -1223,12 +1258,12 @@ This modern player will get all the music player attributes (<code class="docuti
 </ol>
 <p><strong>Example input:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create stars</span>
-<span class="n">sun</span><span class="p">:</span> <span class="n">Star</span> <span class="o">=</span> <span class="n">Star</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Sun&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">1.989e30</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;G-type&quot;</span><span class="p">)</span>
-<span class="n">alpha_centauri</span><span class="p">:</span> <span class="n">Star</span> <span class="o">=</span> <span class="n">Star</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alpha Centauri&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">2.0e30</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;G-type&quot;</span><span class="p">)</span>
+<span class="n">sun</span><span class="p">:</span> <span class="n">Star</span> <span class="o">=</span> <span class="n">Star</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Sun&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">1.989e30</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;G-type&quot;</span><span class="p">,</span> <span class="n">luminosity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">alpha_centauri</span><span class="p">:</span> <span class="n">Star</span> <span class="o">=</span> <span class="n">Star</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alpha Centauri&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">2.0e30</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;G-type&quot;</span><span class="p">,</span> <span class="n">luminosity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 
 <span class="c1"># Create planets</span>
-<span class="n">earth</span><span class="p">:</span> <span class="n">Planet</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">5.972e24</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">6371</span><span class="p">,</span> <span class="n">host_star</span><span class="o">=</span><span class="n">sun</span><span class="p">)</span>
-<span class="n">jupiter</span><span class="p">:</span> <span class="n">Planet</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jupiter&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">1.898e27</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">69911</span><span class="p">,</span> <span class="n">host_star</span><span class="o">=</span><span class="n">sun</span><span class="p">)</span>
+<span class="n">earth</span><span class="p">:</span> <span class="n">Planet</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">5.972e24</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">6371</span><span class="p">,</span> <span class="n">host_star</span><span class="o">=</span><span class="n">sun</span><span class="p">,</span> <span class="n">distance_from_star</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">jupiter</span><span class="p">:</span> <span class="n">Planet</span> <span class="o">=</span> <span class="n">Planet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jupiter&quot;</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mf">1.898e27</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">69911</span><span class="p">,</span> <span class="n">host_star</span><span class="o">=</span><span class="n">sun</span><span class="p">,</span> <span class="n">distance_from_star</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 
 <span class="c1"># Add planets to stars</span>
 <span class="n">sun</span><span class="o">.</span><span class="n">add_planet</span><span class="p">(</span><span class="n">earth</span><span class="p">)</span>
