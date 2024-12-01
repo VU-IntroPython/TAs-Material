@@ -1,0 +1,1046 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>15. Comprehensions &#8212; Workbook Intro Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/16-comprehensions/comprehensions';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="16. Generators" href="../17-generators/generators.html" />
+    <link rel="prev" title="14. Inheritance" href="../15-inheritance/inheritance.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Workbook Intro Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Workbook Intro Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Programming Workbook XB-0082
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-variables-expressions-statements/variables-expressions-statements.html">1. Variables, Expressions, and Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-functions/functions.html">2. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-conditionals/conditionals.html">3. Conditionals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-while-loop/while-loop.html">4. While Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-for-loop/for-loop.html">5. For Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-lists/lists.html">6. Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-dictionaries/dictionaries.html">7. Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-exceptions/exceptions.html">8. Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-files/files.html">9. Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11-tests/tests.html">10. Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12-tuples/tuples.html">11. Tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13-intro-to-classes/intro-to-classes.html">12. Intro to Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14-classes-methods/classes-methods.html">13. Classes and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15-inheritance/inheritance.html">14. Inheritance</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Comprehensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../17-generators/generators.html">16. Generators</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/VU-IntroPython/TAs-Material.git/master/v2/gh/VU-IntroPython/TAs-Material/master?urlpath=lab/tree/notebooks/notebooks/16-comprehensions/comprehensions.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/VU-IntroPython/TAs-Material/issues/new?title=Issue%20on%20page%20%2Fnotebooks/16-comprehensions/comprehensions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/16-comprehensions/comprehensions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Comprehensions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-why-comprehensions-span">15.1. <span style="color:#4169E1">Why Comprehensions?</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-list-comprehension-span">15.2. <span style="color:#4169E1">List Comprehension</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-selective-inclusion-in-a-comprehension-span">15.2.1. <span style="color:#B22222">Selective Inclusion in a Comprehension</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-conditional-expression-within-a-comprehension-span">15.2.2. <span style="color:#B22222">Conditional Expression within a Comprehension</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-set-and-dictionary-comprehension-span">15.3. <span style="color:#4169E1">Set and Dictionary Comprehension</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-set-comprehension-span">15.3.1. <span style="color:#B22222">Set Comprehension</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-dictionary-comprehension-span">15.3.2. <span style="color:#B22222">Dictionary Comprehension</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-nested-comprehensions-span">15.4. <span style="color:#4169E1">Nested Comprehensions</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">15.5. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">15.5.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">15.5.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">15.5.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="comprehensions">
+<h1><span class="section-number">15. </span>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this heading">#</a></h1>
+<p><strong>In this notebook, we cover the following subjects:</strong></p>
+<ul class="simple">
+<li><p>Why Comprehensions?;</p></li>
+<li><p>List Comprehension;</p></li>
+<li><p>Set and Dictionary Comprehension;</p></li>
+<li><p>Nested Comprehensions.</p></li>
+</ul>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To enable type hints for lists, dicts, tuples, and sets we need to import the following:</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Set</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="span-style-color-4169e1-why-comprehensions-span">
+<h2><span class="section-number">15.1. </span><span style="color:#4169E1">Why Comprehensions?</span><a class="headerlink" href="#span-style-color-4169e1-why-comprehensions-span" title="Permalink to this heading">#</a></h2>
+<p>When you’re creating sequences, like lists or sets, it can be tedious and repetitive. Luckily, <a class="reference external" href="https://programming-pybook.github.io/introProgramming/chapters/comprehensions_generators.html#comprehensions">comprehensions</a> can make that process a lot easier.</p>
+<p>A <strong>comprehension</strong> is an <em>expression</em> that constructs a <em>data structure</em> based on some <em>iterable</em>. In this notebook, we will cover the three main types of comprehensions: list, dictionary, and set comprehensions. Examples make comprehensions much clearer, so let’s dive into the first one.</p>
+</section>
+<section id="span-style-color-4169e1-list-comprehension-span">
+<h2><span class="section-number">15.2. </span><span style="color:#4169E1">List Comprehension</span><a class="headerlink" href="#span-style-color-4169e1-list-comprehension-span" title="Permalink to this heading">#</a></h2>
+<p>Imagine you’re given the task of creating a list with all the squares of the numbers 0 through 9. Most probably ou would solve this task using a traditional loop in the following way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squared_numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">squared_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">squared_numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This looks like a successful execution, doesn’t it? However, you can do this in a more compact way using comprehensions. The syntax for list comprehensions is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list_comprehension</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Now, if we apply this to our task, it looks like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squared_numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">squared_numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</pre></div>
+</div>
+</div>
+</div>
+<p>See? The same result is achieved in an easier way that also requires less effort. The code snippets can each be linked to the components of the comprehension:</p>
+<ul class="simple">
+<li><p><strong>Expression:</strong> <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">**</span> <span class="pre">2</span></code> – This is where the magic happens. It’s the operation you want to apply to each element in the iterable.</p></li>
+<li><p><strong>Item:</strong> <code class="docutils literal notranslate"><span class="pre">number</span></code> – This is your placeholder, representing each element that you take from the sequence to process.</p></li>
+<li><p><strong>Iterable:</strong> <code class="docutils literal notranslate"><span class="pre">range(10)</span></code> – This is the original sequence you’re iterating over, one by one, to apply the operation.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A list comprehension is easily recognized by the <b>square brackets</b> <code>[]</code>, which indicate that you’re creating a list.</p>
+</div>
+<section id="span-style-color-b22222-selective-inclusion-in-a-comprehension-span">
+<h3><span class="section-number">15.2.1. </span><span style="color:#B22222">Selective Inclusion in a Comprehension</span><a class="headerlink" href="#span-style-color-b22222-selective-inclusion-in-a-comprehension-span" title="Permalink to this heading">#</a></h3>
+<p>You can also selectively include items in your list by adding an <code class="docutils literal notranslate"><span class="pre">if</span></code> clause. This adjusts the syntax we used earlier like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list_comprehension</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span> <span class="k">if</span> <span class="n">condition</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>For example, we can adjust our previous task by specifying that we only want to store the squares of the odd numbers in the list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">odd_squares</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">odd_squares</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 9, 25, 49, 81]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">What is limiting about using <code>if</code> alone in list comprehensions, and how can this be resolved?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Using &lt;code&gt;if&lt;/code&gt; alone filters out elements that don’t meet the condition. To include both elements that meet and don’t meet the condition, use a &lt;b&gt;conditional expression&lt;/b&gt; within the list comprehension. This approach allows you to handle both cases in one comprehension.
+</pre></div>
+</div>
+</div>
+</section>
+<section id="span-style-color-b22222-conditional-expression-within-a-comprehension-span">
+<h3><span class="section-number">15.2.2. </span><span style="color:#B22222">Conditional Expression within a Comprehension</span><a class="headerlink" href="#span-style-color-b22222-conditional-expression-within-a-comprehension-span" title="Permalink to this heading">#</a></h3>
+<p>Sometimes, we want to distinguish between elements or apply different operations in a sequence rather than just filtering. For this, we use a <strong>conditional expression</strong> in a list comprehension. This lets us choose between two expressions based on a condition. The syntax is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">true_expression</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">false_expression</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">true_expression</span> <span class="pre">if</span> <span class="pre">condition</span> <span class="pre">else</span> <span class="pre">false_expression</span></code> represents the <strong>conditional expression</strong>. It determines which expression to use depending on whether the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. Let’s break it down:</p>
+<ul class="simple">
+<li><p><strong>true_expression</strong>: If the condition evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>, this is the expression used.</p></li>
+<li><p><strong>condition</strong>: This is the condition that decides which expression to use.</p></li>
+<li><p><strong>false_expression</strong>: This is the expression used when the condition evaluates to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p>Let’s look at an example. Imagine, your task is to create a new list from a list of integers where each number is squared if it’s even, and 0 if it’s odd.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Original list of integers</span>
+<span class="n">numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">67</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original list:&quot;</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
+
+<span class="c1"># List comprehension to square even numbers and replace odd numbers with 0</span>
+<span class="n">squared_evens_or_zero</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Squared evens or zero:&quot;</span><span class="p">,</span> <span class="n">squared_evens_or_zero</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original list: [12, 45, 7, 23, 89, 34, 56, 78, 9, 67]
+Squared evens or zero: [144, 0, 0, 0, 0, 1156, 3136, 6084, 0, 0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember that an expression is a combination of values, variables, and operators, but a value by itself is also considered an expression.</p>
+</div>
+<p>In this example, we apply an <em>operation</em> when a number is even (condition evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>) and replace it with a specific <em>value</em>, namely 0, when the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>. We can also choose a different <em>operation</em> for the <code class="docutils literal notranslate"><span class="pre">False</span></code> condition. For instance, instead of replacing each odd number with 0, we could triple it if it’s odd.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List of integers</span>
+<span class="n">numbers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">67</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original list:&quot;</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
+
+<span class="c1"># List comprehension to square even numbers and triple odd numbers</span>
+<span class="n">squared_evens_or_triple_odds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">3</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Squared evens or tripled odds:&quot;</span><span class="p">,</span> <span class="n">squared_evens_or_triple_odds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original list: [12, 45, 7, 23, 89, 34, 56, 78, 9, 67]
+Squared evens or tripled odds: [144, 135, 21, 69, 267, 1156, 3136, 6084, 27, 201]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="span-style-color-4169e1-set-and-dictionary-comprehension-span">
+<h2><span class="section-number">15.3. </span><span style="color:#4169E1">Set and Dictionary Comprehension</span><a class="headerlink" href="#span-style-color-4169e1-set-and-dictionary-comprehension-span" title="Permalink to this heading">#</a></h2>
+<section id="span-style-color-b22222-set-comprehension-span">
+<h3><span class="section-number">15.3.1. </span><span style="color:#B22222">Set Comprehension</span><a class="headerlink" href="#span-style-color-b22222-set-comprehension-span" title="Permalink to this heading">#</a></h3>
+<p><strong>Set comprehension</strong> mirrors list comprehension but produces a set instead. The syntax is nearly identical, with the main difference being that sets use curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set_comprehension</span> <span class="o">=</span> <span class="p">{</span><span class="n">expression</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span> <span class="k">if</span> <span class="n">condition</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Let’s look at an example. Imagine we have a list of words, and we want to create a set that contains all the words longer than three characters, converted to uppercase.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plants</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rose&quot;</span><span class="p">,</span> <span class="s2">&quot;lily&quot;</span><span class="p">,</span> <span class="s2">&quot;sunflower&quot;</span><span class="p">,</span> <span class="s2">&quot;oak&quot;</span><span class="p">,</span> <span class="s2">&quot;fern&quot;</span><span class="p">,</span> <span class="s2">&quot;cactus&quot;</span><span class="p">]</span>
+
+<span class="n">uppercase_plants</span> <span class="o">=</span> <span class="p">{</span><span class="n">plant</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">plant</span> <span class="ow">in</span> <span class="n">plants</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">plant</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">uppercase_plants</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;LILY&#39;, &#39;FERN&#39;, &#39;ROSE&#39;, &#39;SUNFLOWER&#39;, &#39;CACTUS&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-b22222-dictionary-comprehension-span">
+<h3><span class="section-number">15.3.2. </span><span style="color:#B22222">Dictionary Comprehension</span><a class="headerlink" href="#span-style-color-b22222-dictionary-comprehension-span" title="Permalink to this heading">#</a></h3>
+<p>Just like list and set comprehensions, dictionary comprehensions are easiest to understand through an example. The syntax is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dict_comprehension</span> <span class="o">=</span> <span class="p">{</span><span class="n">key_expression</span><span class="p">:</span> <span class="n">value_expression</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Let’s jump straight to an example. For instance, if you want to create a dictionary where the keys are numbers from 1 to 5 and the values are their squares, you can achieve this with a dictionary comprehension:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dictionary of numbers and their squares</span>
+<span class="n">squares_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">squares_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+</pre></div>
+</div>
+</div>
+</div>
+<p>As can be seen, the main difference between list and set comprehensions and dictionary comprehensions is how elements are defined. In dictionary comprehensions, you specify both a key and a value, with each being defined by an expression.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><b>Conditional expressions</b> and <b>selective inclusion</b> can also be used in dictionary and set comprehensions.</p>
+</div>
+</section>
+</section>
+<section id="span-style-color-4169e1-nested-comprehensions-span">
+<h2><span class="section-number">15.4. </span><span style="color:#4169E1">Nested Comprehensions</span><a class="headerlink" href="#span-style-color-4169e1-nested-comprehensions-span" title="Permalink to this heading">#</a></h2>
+<p>If you need to select items after transforming them, you can use a <strong>nested comprehension</strong>. In this approach, the <em>inner comprehension</em> is evaluated first, and the result is then used by the <em>outer comprehension</em>. The syntax for nested list comprehensions is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nested_list_comprehension</span> <span class="o">=</span> <span class="p">[[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">inner_iterable</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">outer_iterable</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Here, the inner comprehension processes items from <code class="docutils literal notranslate"><span class="pre">inner_iterable</span></code>, and the outer comprehension uses the resulting lists to construct the final structure.</p>
+<p>For instance, let’s say you want to create a 3x3 matrix represented as a list of lists where each element is the product (multiplication) of its row and column indices (using 1 as the starting index):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, 2, 3], [2, 4, 6], [3, 6, 9]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, you have a nested comprehension. The outer comprehension constructs the rows of the matrix, and the inner comprehension <code class="docutils literal notranslate"><span class="pre">[i</span> <span class="pre">*</span> <span class="pre">j</span> <span class="pre">for</span> <span class="pre">j</span> <span class="pre">in</span> <span class="pre">range(1,</span> <span class="pre">4)]</span></code> generates the elements within each row by computing the products of <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>.</p>
+<p>Note: a matrix looks as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                | 1  2  3 |
+                                | 4  5  6 |
+                                | 7  8  9 |
+</pre></div>
+</div>
+<p>Which can be represented in Python as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>                                <span class="n">matrix</span> <span class="o">=</span> <span class="p">[</span>
+                                    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+                                    <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+                                <span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can use <b>nested comprehensions</b> with <b>sets</b> and <b>dictionaries</b> just as you would with lists.</p>
+</div>
+</section>
+<section id="span-style-color-3cb371-exercises-span">
+<h2><span class="section-number">15.5. </span><span style="color:#3CB371">Exercises</span><a class="headerlink" href="#span-style-color-3cb371-exercises-span" title="Permalink to this heading">#</a></h2>
+<p>Let’s practice! Mind that each exercise is designed with multiple levels to help you progressively build your skills. <span style="color:darkorange;"><strong>Level 1</strong></span> is the foundational level, designed to be straightforward so that everyone can successfully complete it. In <span style="color:darkorange;"><strong>Level 2</strong></span>, we step it up a notch, expecting you to use more complex concepts or combine them in new ways. Finally, in <span style="color:darkorange;"><strong>Level 3</strong></span>, we get closest to exam level questions, but we may use some concepts that are not covered in this notebook. However, in programming, you often encounter situations where you’re unsure how to proceed. Fortunately, you can often solve these problems by starting to work on them and figuring things out as you go. Practicing this skill is extremely helpful, so we highly recommend completing these exercises.</p>
+<p>For each of the exercises, make sure to add a <code class="docutils literal notranslate"><span class="pre">docstring</span></code> and <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hints</span></code>, and <strong>do not</strong> import any libraries unless specified otherwise.
+<br></p>
+<section id="exercise-1">
+<h3><span class="section-number">15.5.1. </span>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this heading">#</a></h3>
+<p>Let’s practise with comprehensions! Imagine you’re the coach of a new football team and need to get to know your players. You have stats showing each player’s goal-scoring record throughout their career.</p>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> Your task is to create a function called <code class="docutils literal notranslate"><span class="pre">average_goals()</span></code>. This function should accept a list of dictionaries. Each dictionary represents a player and contains their name and a list of integers showing the number of goals scored each season. You need to calculate the average number of goals scored by each player over their entire career and store this in a new dictionary. In this dictionary, each key will be a player’s name, and the value will be their average number of goals per season, rounded to one decimal place. Use <strong>comprehensions</strong> to compute the averages.</p>
+<p><strong>Print</strong> the result <strong>outside</strong> the function in a clear and readable format.</p>
+<p><strong>Example input</strong>: you pass this argument to the parameter in the function call.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">players</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Vivianne Miedema&#39;</span><span class="p">,</span> <span class="s1">&#39;goals&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">25</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Ellen White&#39;</span><span class="p">,</span> <span class="s1">&#39;goals&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Marta&#39;</span><span class="p">,</span> <span class="s1">&#39;goals&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alexandra Popp&#39;</span><span class="p">,</span> <span class="s1">&#39;goals&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">]}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Example return value</strong>:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;Vivianne Miedema&#39;</span><span class="p">:</span> <span class="mf">21.4</span><span class="p">,</span>
+    <span class="s1">&#39;Ellen White&#39;</span><span class="p">:</span> <span class="mf">13.6</span><span class="p">,</span>
+    <span class="s1">&#39;Marta&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+    <span class="s1">&#39;Alexandra Popp&#39;</span><span class="p">:</span> <span class="mf">11.6</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Vivianne</span> <span class="n">Miedema</span><span class="p">:</span> <span class="mf">21.4</span>
+<span class="n">Ellen</span> <span class="n">White</span><span class="p">:</span> <span class="mf">13.6</span>
+<span class="n">Marta</span><span class="p">:</span> <span class="mf">10.0</span>
+<span class="n">Alexandra</span> <span class="n">Popp</span><span class="p">:</span> <span class="mf">11.6</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> As a football analytics intern, you are tasked with calculating the areas of junior league football pitches, represented by <strong>squares of prime dimensions</strong> from <strong>2</strong> to <strong>19</strong>. Create a list comprehension <code class="docutils literal notranslate"><span class="pre">prime_square_areas</span></code> that captures these areas.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">169</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Advance your pitch area analysis by generating a list of unique pitch areas, ensuring that <strong>no</strong> two pitches have the same <strong>remainder</strong> when <strong>divided by 10</strong>. Use a list comprehension named <code class="docutils literal notranslate"><span class="pre">unique_remainder_areas</span></code> to derive the areas from prime dimensions between 2 and 19 (computed in level 2), Moreover, filter them to keep only the <strong>first</strong> occurrence of each unique remainder.</p>
+<p><strong>Example:</strong> If the areas calculated are <code class="docutils literal notranslate"><span class="pre">[4,</span> <span class="pre">9,</span> <span class="pre">25,</span> <span class="pre">49,</span> <span class="pre">121,</span> <span class="pre">169]</span></code>, the remainders when divided by 10 are <code class="docutils literal notranslate"><span class="pre">[4,</span> <span class="pre">9,</span> <span class="pre">5,</span> <span class="pre">9,</span> <span class="pre">1,</span> <span class="pre">9]</span></code>. The unique first occurrences are <code class="docutils literal notranslate"><span class="pre">[4,</span> <span class="pre">9,</span> <span class="pre">5,</span> <span class="pre">1]</span></code>, corresponding to areas <code class="docutils literal notranslate"><span class="pre">[4,</span> <span class="pre">9,</span> <span class="pre">25,</span> <span class="pre">121]</span></code>.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">121</span>
+</pre></div>
+</div>
+</section>
+<section id="exercise-2">
+<h3><span class="section-number">15.5.2. </span>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> You are tasked with managing Christmas gifts for children. Each gift has a certain value (in dollars) based on the <strong>number of candies in a box</strong>, <code class="docutils literal notranslate"><span class="pre">cubed</span></code>. Create a set comprehension named <code class="docutils literal notranslate"><span class="pre">gift_values</span></code> that calculates the value of each gift box, where the number of candies ranges from 1 to 10.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">216</span><span class="p">,</span> <span class="mi">343</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">729</span><span class="p">,</span> <span class="mi">1000</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> Santa’s elves have created a list of children’s names along with the number of candies each child wishes for in their gift. Create a <strong>dictionary comprehension</strong> named <code class="docutils literal notranslate"><span class="pre">wishlist_dict</span></code> that maps each child’s name to their desired number of candies, but <strong>only include</strong> those children who want <strong>more than 5</strong> candies.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wishlist</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Alice&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;Daisy&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Ethan&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;Bob&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;Ethan&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> Santa is decorating the Christmas tree and wants to use different colored ornaments. The elves have identified the ornaments by color names. You need to create a nested data structure—specifically, a <strong>dictionary</strong> where each <strong>key</strong> is an <strong>ornament color</strong>, and the <strong>value</strong> is a <strong>set of unique letters</strong> used in the color’s name. Use a dictionary comprehension named <code class="docutils literal notranslate"><span class="pre">ornament_letters</span></code>.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ornament_colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;silver&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;red&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">},</span> <span class="s1">&#39;gold&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">},</span> <span class="s1">&#39;silver&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">},</span> <span class="s1">&#39;blue&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">}}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-3">
+<h3><span class="section-number">15.5.3. </span>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this heading">#</a></h3>
+<p><span style="color:darkorange;"><strong>Level 1</strong>:</span> You have a list of designer brands and their popularity ratings (on a scale from 1 to 10). Use a dictionary comprehension named <code class="docutils literal notranslate"><span class="pre">brand_popularity</span></code> to create a dictionary where each <strong>brand</strong> is a <strong>key</strong>, and its <strong>rating</strong> is the <strong>value</strong>. <code class="docutils literal notranslate"><span class="pre">If</span></code> the rating is <strong>8</strong> <code class="docutils literal notranslate"><span class="pre">or</span></code> <strong>above</strong>, mark the brand as <code class="docutils literal notranslate"><span class="pre">&quot;Highly</span> <span class="pre">Popular&quot;</span></code>; otherwise, mark it as <code class="docutils literal notranslate"><span class="pre">&quot;Moderately</span> <span class="pre">Popular&quot;</span></code>.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">brands</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Gucci&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;Prada&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;Louis Vuitton&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;Chanel&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;Balenciaga&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;Gucci&#39;</span><span class="p">:</span> <span class="s1">&#39;Highly Popular&#39;</span><span class="p">,</span> <span class="s1">&#39;Prada&#39;</span><span class="p">:</span> <span class="s1">&#39;Moderately Popular&#39;</span><span class="p">,</span> <span class="s1">&#39;Louis Vuitton&#39;</span><span class="p">:</span> <span class="s1">&#39;Highly Popular&#39;</span><span class="p">,</span> <span class="s1">&#39;Chanel&#39;</span><span class="p">:</span> <span class="s1">&#39;Highly Popular&#39;</span><span class="p">,</span> <span class="s1">&#39;Balenciaga&#39;</span><span class="p">:</span> <span class="s1">&#39;Moderately Popular&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 2</strong>:</span> During the holiday season, designer brands are offering discounts based on their popularity. Brands rated <strong>8</strong> <code class="docutils literal notranslate"><span class="pre">or</span></code> <strong>higher</strong> will have a <code class="docutils literal notranslate"><span class="pre">20%</span> <span class="pre">discount</span></code>, while others will have a <code class="docutils literal notranslate"><span class="pre">10%</span> <span class="pre">discount</span></code>. Use a <strong>dictionary comprehension</strong> named <code class="docutils literal notranslate"><span class="pre">brand_discounts</span></code> to create a dictionary where each brand’s value is its discount percentage. This dictionary should be derived from the popularity ratings provided.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">brands</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Gucci&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;Prada&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;Louis Vuitton&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;Chanel&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;Balenciaga&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;Gucci&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="o">%</span><span class="p">,</span> <span class="s1">&#39;Prada&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="o">%</span><span class="p">,</span> <span class="s1">&#39;Louis Vuitton&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="o">%</span><span class="p">,</span> <span class="s1">&#39;Chanel&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="o">%</span><span class="p">,</span> <span class="s1">&#39;Balenciaga&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="o">%</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color:darkorange;"><strong>Level 3</strong>:</span> During the holiday season, the brands are creating gift collections. The collection is made up of items whose total value must be below a threshold. Create a <strong>nested dictionary</strong> named <code class="docutils literal notranslate"><span class="pre">brand_collections</span></code> where each <strong>brand</strong> is a <strong>key</strong>, and the <strong>value</strong> is another <strong>dictionary</strong> of <strong>item names</strong> and <strong>prices</strong>. <strong>Only</strong> include items whose price, after applying the appropriate discount (from Level 2), is <code class="docutils literal notranslate"><span class="pre">below</span> <span class="pre">$500</span></code>. Use a dictionary comprehension with a nested comprehension to accomplish this.</p>
+<p><strong>Example input</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">brand_items</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Gucci&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Bag&#39;</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span> <span class="s1">&#39;Shoes&#39;</span><span class="p">:</span> <span class="mi">450</span><span class="p">,</span> <span class="s1">&#39;Belt&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">},</span>
+    <span class="s1">&#39;Prada&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Sunglasses&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;Hat&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;Shoes&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">},</span>
+    <span class="s1">&#39;Louis Vuitton&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Bag&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;Wallet&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;Scarf&#39;</span><span class="p">:</span> <span class="mi">150</span><span class="p">},</span>
+    <span class="s1">&#39;Chanel&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Perfume&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;Handbag&#39;</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span> <span class="s1">&#39;Necklace&#39;</span><span class="p">:</span> <span class="mi">450</span><span class="p">},</span>
+    <span class="s1">&#39;Balenciaga&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Sneakers&#39;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;Hoodie&#39;</span><span class="p">:</span> <span class="mi">550</span><span class="p">,</span> <span class="s1">&#39;Cap&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">brand_discounts</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Gucci&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;Prada&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;Louis Vuitton&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;Chanel&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;Balenciaga&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example output</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;Gucci&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Shoes&#39;</span><span class="p">:</span> <span class="mf">360.0</span><span class="p">,</span> <span class="s1">&#39;Belt&#39;</span><span class="p">:</span> <span class="mf">240.0</span><span class="p">},</span>
+    <span class="s1">&#39;Prada&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Sunglasses&#39;</span><span class="p">:</span> <span class="mf">180.0</span><span class="p">,</span> <span class="s1">&#39;Hat&#39;</span><span class="p">:</span> <span class="mf">90.0</span><span class="p">},</span>
+    <span class="s1">&#39;Louis Vuitton&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Wallet&#39;</span><span class="p">:</span> <span class="mf">320.0</span><span class="p">,</span> <span class="s1">&#39;Scarf&#39;</span><span class="p">:</span> <span class="mf">120.0</span><span class="p">},</span>
+    <span class="s1">&#39;Chanel&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Perfume&#39;</span><span class="p">:</span> <span class="mf">240.0</span><span class="p">,</span> <span class="s1">&#39;Necklace&#39;</span><span class="p">:</span> <span class="mf">360.0</span><span class="p">},</span>
+    <span class="s1">&#39;Balenciaga&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Sneakers&#39;</span><span class="p">:</span> <span class="mf">360.0</span><span class="p">,</span> <span class="s1">&#39;Cap&#39;</span><span class="p">:</span> <span class="mf">180.0</span><span class="p">}</span>
+<span class="p">}</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><em>Material for the VU Amsterdam course “Introduction to Python Programming” for BSc Artificial Intelligence students. These notebooks are created using the following sources:</em></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://programming-pybook.github.io/introProgramming/intro.html">Learning Python by Doing</a>: This book, developed by teachers of TU/e Eindhoven and VU Amsterdam, is the main source for the course materials. Code snippets or text explanations from the book may be used in the notebooks, sometimes with slight adjustments.</p></li>
+<li><p><a class="reference external" href="https://greenteapress.com/thinkpython2/html/">Think Python</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org">GeekForGeeks</a></p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "VU-IntroPython/TAs-Material",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/16-comprehensions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../15-inheritance/inheritance.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Inheritance</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../17-generators/generators.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Generators</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-why-comprehensions-span">15.1. <span style="color:#4169E1">Why Comprehensions?</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-list-comprehension-span">15.2. <span style="color:#4169E1">List Comprehension</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-selective-inclusion-in-a-comprehension-span">15.2.1. <span style="color:#B22222">Selective Inclusion in a Comprehension</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-conditional-expression-within-a-comprehension-span">15.2.2. <span style="color:#B22222">Conditional Expression within a Comprehension</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-set-and-dictionary-comprehension-span">15.3. <span style="color:#4169E1">Set and Dictionary Comprehension</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-set-comprehension-span">15.3.1. <span style="color:#B22222">Set Comprehension</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-b22222-dictionary-comprehension-span">15.3.2. <span style="color:#B22222">Dictionary Comprehension</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-4169e1-nested-comprehensions-span">15.4. <span style="color:#4169E1">Nested Comprehensions</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-3cb371-exercises-span">15.5. <span style="color:#3CB371">Exercises</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">15.5.1. Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">15.5.2. Exercise 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">15.5.3. Exercise 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Koen van der Pool, Mauricio Verano Merino & Márton Bodó
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024. Vrije Universiteit Amsterdam.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
