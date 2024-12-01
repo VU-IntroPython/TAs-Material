@@ -20,3 +20,5 @@ chapters:
 - file: notebooks/13-intro-to-classes/intro-to-classes.ipynb
 - file: notebooks/14-classes-methods/classes-methods.ipynb
 - file: notebooks/15-inheritance/inheritance.ipynb
+- file: notebooks/16-comprehensions/comprehensions.ipynb
+- file: notebooks/17-generators/generators.ipynb
