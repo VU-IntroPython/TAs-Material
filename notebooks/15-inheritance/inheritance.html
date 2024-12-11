@@ -503,11 +503,19 @@ document.write(`
 <span class="sd">    Explanation of what the parent class does</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">common_attribute1</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">common_attribute2</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Docstring</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
         <span class="c1"># Initialize common attributes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">common_attribute1</span> <span class="o">=</span> <span class="n">common_attribute1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">common_attribute2</span> <span class="o">=</span> <span class="n">common_attribute2</span>
 
     <span class="k">def</span> <span class="nf">common_method</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Docstring</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
         <span class="c1"># Define a method that can be shared with child classes</span>
         <span class="k">return</span> <span class="s2">&quot;This is a method in the Parent Class&quot;</span>
 
@@ -517,12 +525,20 @@ document.write(`
 <span class="sd">    Explanation of what the child class does</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">common_attribute1</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">common_attribute2</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">specific_attribute</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Docstring</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
         <span class="c1"># Call the ParentClass constructor using super()</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">common_attribute1</span><span class="p">,</span> <span class="n">common_attribute2</span><span class="p">)</span>
         <span class="c1"># Initialize child-specific attribute</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">specific_attribute</span> <span class="o">=</span> <span class="n">specific_attribute</span>
 
     <span class="k">def</span> <span class="nf">specific_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Docstring</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        
         <span class="c1"># Define a method specific to the ChildClass</span>
         <span class="k">return</span> <span class="s2">&quot;This is a method specific to the Child Class&quot;</span>
 </pre></div>
@@ -549,25 +565,34 @@ Think of this as a <strong>specialized version</strong> of the ParentClass. It g
 <span class="sd">        name (str): The name of the mammal.</span>
 <span class="sd">        age (int): The age of the mammal in years.</span>
 <span class="sd">        habitat (str): The natural habitat where the mammal resides.</span>
-<span class="sd">        warm_blooded (bool): Indicates if the mammal is warm-blooded (default is True).</span>
-
-<span class="sd">    Methods:</span>
-<span class="sd">        __str__(): Returns a string representation of the mammal, including its name, age,</span>
-<span class="sd">                   warm-blooded status, and habitat.</span>
+<span class="sd">        warm_blooded (bool): Indicates if the mammal is warm-blooded. Defaults to True.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Mammal class with specified name, age, habitat, and </span>
+<span class="sd">        warm-blooded status.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the mammal.</span>
+<span class="sd">            age (int): The age of the mammal.</span>
+<span class="sd">            habitat (str): The natural habitat where the mammal resides.</span>
+<span class="sd">            warm_blooded (bool): Indicates if the mammal is warm-blooded. Defaults to True.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">habitat</span> <span class="o">=</span> <span class="n">habitat</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">warm_blooded</span> <span class="o">=</span> <span class="n">warm_blooded</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">warm_blooded</span><span class="p">:</span>
-            <span class="n">warm_blood_status</span> <span class="o">=</span> <span class="s1">&#39;warm-blooded&#39;</span> 
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">warm_blood_status</span> <span class="o">=</span> <span class="s1">&#39;cold-blooded&#39;</span>
-        
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the mammal, providing a description that includes its</span>
+<span class="sd">        name, age, warm-blooded status, and habitat.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A descriptive string of the mammal.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">warm_blood_status</span> <span class="o">=</span> <span class="s1">&#39;warm-blooded&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">warm_blooded</span> <span class="k">else</span> <span class="s1">&#39;cold-blooded&#39;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">-year-old </span><span class="si">{</span><span class="n">warm_blood_status</span><span class="si">}</span><span class="s2"> mammal that lives in the </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">habitat</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
@@ -656,7 +681,35 @@ Think of this as a <strong>specialized version</strong> of the ParentClass. It g
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">Mammal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a cat, which is a specific type of mammal. Inherits from the Mammal class.</span>
+
+<span class="sd">    Attributes inherited from Mammal:</span>
+<span class="sd">        name (str): The name of the cat.</span>
+<span class="sd">        age (int): The age of the cat in years.</span>
+<span class="sd">        habitat (str): The natural habitat where the cat resides.</span>
+<span class="sd">        warm_blooded (bool): Indicates if the cat is warm-blooded. Defaults to True.</span>
+
+<span class="sd">    New Attribute:</span>
+<span class="sd">        breed (str): The breed of the cat.</span>
+
+<span class="sd">    Inherits methods from Mammal, and can use or override them as necessary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breed</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Cat class, which includes all the attributes of the </span>
+<span class="sd">        Mammal class along with a specific attribute for the breed of the cat.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the cat.</span>
+<span class="sd">            age (int): The age of the cat.</span>
+<span class="sd">            habitat (str): The natural habitat where the cat resides.</span>
+<span class="sd">            breed (str): The breed of the cat.</span>
+<span class="sd">            warm_blooded (bool): Indicates if the cat is warm-blooded. Defaults to True.</span>
+
+<span class="sd">        Calls the constructor of the Mammal class to initialize inherited attributes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">)</span>  <span class="c1"># First, call the parent class constructor</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>  <span class="c1"># Now, add the new attribute specific to cats</span>
 </pre></div>
