@@ -638,17 +638,39 @@ Hello, Alice!
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breed</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;Mixed Breed&quot;</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to represent a dog.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the dog.</span>
+<span class="sd">        breed (str): The breed of the dog. Defaults to &#39;Mixed Breed&#39;.</span>
+<span class="sd">        age (int): The age of the dog. Defaults to 1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breed</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Mixed Breed&quot;</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Dog class with optional breed and age parameters.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the dog.</span>
+<span class="sd">            breed (str): The breed of the dog, with a default value if not specified.</span>
+<span class="sd">            age (int): The age of the dog, with a default value of 1 if not specified.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the Dog instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A description of the dog including its name, breed, and age.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My name is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, I&#39;m a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breed</span><span class="si">}</span><span class="s2"> and I&#39;m </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old!&quot;</span><span class="p">)</span>
 
 <span class="c1"># Creating instances with and without specifying all arguments</span>
-<span class="n">dog1</span><span class="p">:</span> <span class="n">Dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Buddy&quot;</span><span class="p">)</span>
-<span class="n">dog2</span><span class="p">:</span> <span class="n">Dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Luna&quot;</span><span class="p">,</span> <span class="s2">&quot;Golden Retriever&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">dog1</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Buddy&quot;</span><span class="p">)</span>  <span class="c1"># Defaults to Mixed Breed and age 1</span>
+<span class="n">dog2</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Luna&quot;</span><span class="p">,</span> <span class="s2">&quot;Golden Retriever&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">dog1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
@@ -744,16 +766,31 @@ My name is Luna, I&#39;m a Golden Retriever and I&#39;m 3 years old!
 <span class="sd">        is_solid (bool): Indicates whether the cube is solid or hollow.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side_length</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">material</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">is_solid</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Cube class.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            side_length (float): The length of a side of the cube.</span>
+<span class="sd">            color (str): The color of the cube.</span>
+<span class="sd">            material (str): The material of which the cube is made.</span>
+<span class="sd">            is_solid (bool): Indicates whether the cube is solid or hollow.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">side_length</span> <span class="o">=</span> <span class="n">side_length</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">material</span> <span class="o">=</span> <span class="n">material</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_solid</span> <span class="o">=</span> <span class="n">is_solid</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the Cube instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A description of the cube including its side length, color, material, and solid status.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cube with side length: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">side_length</span><span class="si">}</span><span class="s2">, color: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="si">}</span><span class="s2">, &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;material: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">material</span><span class="si">}</span><span class="s2">, solid: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">is_solid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-
+<span class="c1"># Creating an instance of Cube</span>
 <span class="n">my_cube</span> <span class="o">=</span> <span class="n">Cube</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;plastic&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">my_cube</span><span class="p">)</span>
@@ -785,21 +822,46 @@ My name is Luna, I&#39;m a Golden Retriever and I&#39;m 3 years old!
 <span class="sd">        is_solid (bool): Indicates whether the cube is solid or hollow.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side_length</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">material</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">is_solid</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Cube class.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            side_length (float): The length of a side of the cube.</span>
+<span class="sd">            color (str): The color of the cube.</span>
+<span class="sd">            material (str): The material of which the cube is made.</span>
+<span class="sd">            is_solid (bool): Indicates whether the cube is solid or hollow.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">side_length</span> <span class="o">=</span> <span class="n">side_length</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">material</span> <span class="o">=</span> <span class="n">material</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_solid</span> <span class="o">=</span> <span class="n">is_solid</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the Cube instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A description of the cube including its side length, color, material, and solid status.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cube with side length: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">side_length</span><span class="si">}</span><span class="s2">, color: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="si">}</span><span class="s2">, &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;material: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">material</span><span class="si">}</span><span class="s2">, solid: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">is_solid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="c1"># class method</span>
     <span class="k">def</span> <span class="nf">calculate_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates the volume of the cube based on its side length.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: The volume of the cube.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">side_length</span> <span class="o">**</span> <span class="mi">3</span>
 
-    <span class="c1"># class method</span>
     <span class="k">def</span> <span class="nf">calculate_surface_area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates the surface area of the cube based on its side length.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: The surface area of the cube.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="mi">6</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">side_length</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -867,9 +929,19 @@ My name is Luna, I&#39;m a Golden Retriever and I&#39;m 3 years old!
 <span class="sd">        age (int): The age of the penguin in years.</span>
 <span class="sd">        species (str): The species of the penguin.</span>
 <span class="sd">        weight (float): The weight of the penguin in kilograms.</span>
-<span class="sd">        is_hungry (bool): Indicates if the penguin is hungry.</span>
+<span class="sd">        is_hungry (bool): Indicates if the penguin is hungry, defaults to True.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">species</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">is_hungry</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Penguin class with all essential attributes.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the penguin.</span>
+<span class="sd">            age (int): The age of the penguin.</span>
+<span class="sd">            species (str): The species of the penguin.</span>
+<span class="sd">            weight (float): The weight of the penguin.</span>
+<span class="sd">            is_hungry (bool): Indicates if the penguin is currently hungry, defaults to True.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="n">species</span>
@@ -877,22 +949,49 @@ My name is Luna, I&#39;m a Golden Retriever and I&#39;m 3 years old!
         <span class="bp">self</span><span class="o">.</span><span class="n">is_hungry</span> <span class="o">=</span> <span class="n">is_hungry</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the Penguin instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A description of the penguin including its name, species, age, weight, and hunger status.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Penguin </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (Species: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">species</span><span class="si">}</span><span class="s2">) - Age: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years, &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;Weight: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="si">}</span><span class="s2"> kg, Hungry: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">is_hungry</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">swim</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Simulates the penguin swimming.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A description of the penguin swimming.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is happily swimming in the cold water! 🏊‍♂️❄️&quot;</span>
 
     <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">food</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Feeds the penguin, affecting its hunger status.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            food (str): The type of food the penguin eats.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A message indicating that the penguin has eaten or that it is not hungry.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_hungry</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">is_hungry</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> ate the </span><span class="si">{</span><span class="n">food</span><span class="si">}</span><span class="s2"> and is now full. 🍽️&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is not hungry right now.&quot;</span>
 
-    <span class="k">def</span> <span class="nf">grow_older</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">grow_older</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Increments the age of the penguin by one year.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A message celebrating the penguin&#39;s birthday.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> has turned </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old! 🎂&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> has turned </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old! 🎂&quot;</span>
 </pre></div>
 </div>
 </div>

@@ -593,24 +593,43 @@ Think of this as a <strong>specialized version</strong> of the ParentClass. It g
 <p>All right, all is good! Now, to define a <code class="docutils literal notranslate"><span class="pre">child</span> <span class="pre">class</span></code>, we declare a new class and specify the <code class="docutils literal notranslate"><span class="pre">parent</span> <span class="pre">class</span></code> in <strong>parentheses</strong>. Here’s how we define our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class that <strong>inherits</strong> from <code class="docutils literal notranslate"><span class="pre">Mammal</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">Mammal</span><span class="p">):</span> <span class="c1"># so this class inherits from the Mammal class</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mammal</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A class representing a cat, which is a specific type of mammal.</span>
-
-<span class="sd">    Inherits from:</span>
-<span class="sd">        Mammal: The base class representing general mammalian characteristics.</span>
+<span class="sd">    A class representing a mammal with attributes and behaviors common to all mammals.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        name (str): The name of the cat.</span>
-<span class="sd">        age (int): The age of the cat in years.</span>
-<span class="sd">        habitat (str): The natural habitat where the cat resides.</span>
-<span class="sd">        warm_blooded (bool): Indicates if the cat is warm-blooded (default is True).</span>
-<span class="sd">    </span>
-<span class="sd">    Methods:</span>
-<span class="sd">        Inherits all methods from the Mammal class.</span>
+<span class="sd">        name (str): The name of the mammal.</span>
+<span class="sd">        age (int): The age of the mammal in years.</span>
+<span class="sd">        habitat (str): The natural habitat where the mammal resides.</span>
+<span class="sd">        warm_blooded (bool): Indicates if the mammal is warm-blooded. Defaults to True.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">)</span> <span class="c1">#  Call the constructor of the parent class</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Mammal class with specified name, age, habitat, and </span>
+<span class="sd">        warm-blooded status.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the mammal.</span>
+<span class="sd">            age (int): The age of the mammal.</span>
+<span class="sd">            habitat (str): The natural habitat where the mammal resides.</span>
+<span class="sd">            warm_blooded (bool): Indicates if the mammal is warm-blooded. Defaults to True.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">habitat</span> <span class="o">=</span> <span class="n">habitat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">warm_blooded</span> <span class="o">=</span> <span class="n">warm_blooded</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the mammal, providing a description that includes its</span>
+<span class="sd">        name, age, warm-blooded status, and habitat.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A descriptive string of the mammal.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">warm_blood_status</span> <span class="o">=</span> <span class="s1">&#39;warm-blooded&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">warm_blooded</span> <span class="k">else</span> <span class="s1">&#39;cold-blooded&#39;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">-year-old </span><span class="si">{</span><span class="n">warm_blood_status</span><span class="si">}</span><span class="s2"> mammal that lives in the </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">habitat</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -674,14 +693,37 @@ Let me show you how we can <strong><code class="docutils literal notranslate"><s
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">Mammal</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breed</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a cat, which is a specific type of mammal.</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># Call the parent class __str__ method and extend it with Cat-specific details</span>
-        <span class="n">base_info</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_info</span><span class="si">}</span><span class="s2"> and is a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breed</span><span class="si">}</span><span class="s2"> cat.&quot;</span>
+<span class="sd">    Attributes inherited from Mammal:</span>
+<span class="sd">        name (str): The name of the cat.</span>
+<span class="sd">        age (int): The age of the cat in years.</span>
+<span class="sd">        habitat (str): The natural habitat where the cat resides.</span>
+<span class="sd">        warm_blooded (bool): Indicates if the cat is warm-blooded. Defaults to True.</span>
+
+<span class="sd">    New Attribute:</span>
+<span class="sd">        breed (str): The breed of the cat.</span>
+
+<span class="sd">    Inherits methods from Mammal, and can use or override them as necessary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breed</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Cat class, which includes all the attributes of the </span>
+<span class="sd">        Mammal class along with a specific attribute for the breed of the cat.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the cat.</span>
+<span class="sd">            age (int): The age of the cat.</span>
+<span class="sd">            habitat (str): The natural habitat where the cat resides.</span>
+<span class="sd">            breed (str): The breed of the cat.</span>
+<span class="sd">            warm_blooded (bool): Indicates if the cat is warm-blooded. Defaults to True.</span>
+
+<span class="sd">        Calls the constructor of the Mammal class to initialize inherited attributes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">,</span> <span class="n">warm_blooded</span><span class="p">)</span>  <span class="c1"># First, call the parent class constructor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>  <span class="c1"># Now, add the new attribute specific to cats</span>
 </pre></div>
 </div>
 </div>
@@ -696,7 +738,7 @@ Let me show you how we can <strong><code class="docutils literal notranslate"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Whiskers is a 5-year-old warm-blooded mammal that lives in the house and is a Siamese cat.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Whiskers is a 5-year-old warm-blooded mammal that lives in the house
 </pre></div>
 </div>
 </div>
@@ -708,15 +750,45 @@ Let me show you how we can <strong><code class="docutils literal notranslate"><s
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a basic Animal class that includes a generic make_sound() method:</span>
 
 <span class="k">class</span> <span class="nc">Animal</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A basic class representing an animal with common attributes and behaviors.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the animal.</span>
+<span class="sd">        age (int): The age of the animal in years.</span>
+<span class="sd">        habitat (str): The natural habitat where the animal resides.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Animal class with specified name, age, and habitat.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the animal.</span>
+<span class="sd">            age (int): The age of the animal.</span>
+<span class="sd">            habitat (str): The natural habitat where the animal resides.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">habitat</span> <span class="o">=</span> <span class="n">habitat</span>
 
     <span class="k">def</span> <span class="nf">make_sound</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a generic sound that represents a typical animal sound.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A generic animal sound.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;Some generic sound&quot;</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the animal, providing a description that includes its</span>
+<span class="sd">        name, age, and habitat.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A descriptive string of the animal.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old and lives in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">habitat</span><span class="si">}</span><span class="s2">.&quot;</span>
 </pre></div>
 </div>
@@ -727,15 +799,52 @@ Let me show you how we can <strong><code class="docutils literal notranslate"><s
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a dog, which is a specific type of animal. Inherits from the Animal class.</span>
+
+<span class="sd">    Attributes inherited from Animal:</span>
+<span class="sd">        name (str): The name of the dog.</span>
+<span class="sd">        age (int): The age of the dog in years.</span>
+<span class="sd">        habitat (str): The natural habitat where the dog resides.</span>
+
+<span class="sd">    New Attribute:</span>
+<span class="sd">        breed (str): The breed of the dog.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breed</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Dog class, which includes all the attributes of the </span>
+<span class="sd">        Animal class along with a specific attribute for the breed of the dog.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the dog.</span>
+<span class="sd">            age (int): The age of the dog.</span>
+<span class="sd">            habitat (str): The natural habitat where the dog resides.</span>
+<span class="sd">            breed (str): The breed of the dog.</span>
+
+<span class="sd">        Calls the constructor of the Animal class to initialize inherited attributes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">)</span>  <span class="c1"># Call the parent class constructor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>  <span class="c1"># Now, add the new attribute specific to dogs</span>
 
     <span class="k">def</span> <span class="nf">make_sound</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a sound typical of dogs, overriding the generic animal sound.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A dog-specific sound.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;Bark!&quot;</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="n">base_info</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the dog, enhancing the base animal description with </span>
+<span class="sd">        details about the dog&#39;s breed.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A descriptive string of the dog including its breed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">base_info</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>  <span class="c1"># Get the base animal information</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_info</span><span class="si">}</span><span class="s2"> It is a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">breed</span><span class="si">}</span><span class="s2"> dog.&quot;</span>
 </pre></div>
 </div>
@@ -745,15 +854,52 @@ Let me show you how we can <strong><code class="docutils literal notranslate"><s
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a bird, a specific type of animal. Inherits from the Animal class.</span>
+
+<span class="sd">    Attributes inherited from Animal:</span>
+<span class="sd">        name (str): The name of the bird.</span>
+<span class="sd">        age (int): The age of the bird in years.</span>
+<span class="sd">        habitat (str): The natural habitat where the bird resides.</span>
+
+<span class="sd">    New Attribute:</span>
+<span class="sd">        can_fly (bool): Indicates whether the bird can fly.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">habitat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">can_fly</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">can_fly</span> <span class="o">=</span> <span class="n">can_fly</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Bird class, which includes all the attributes of the </span>
+<span class="sd">        Animal class along with a specific attribute indicating if the bird can fly.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the bird.</span>
+<span class="sd">            age (int): The age of the bird.</span>
+<span class="sd">            habitat (str): The natural habitat where the bird resides.</span>
+<span class="sd">            can_fly (bool): Indicates whether the bird can fly.</span>
+
+<span class="sd">        Calls the constructor of the Animal class to initialize inherited attributes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">habitat</span><span class="p">)</span>  <span class="c1"># Call the parent class constructor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">can_fly</span> <span class="o">=</span> <span class="n">can_fly</span>  <span class="c1"># Now, add the new attribute specific to birds</span>
 
     <span class="k">def</span> <span class="nf">make_sound</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a sound typical of birds, overriding the generic animal sound.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A bird-specific sound.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;Chirp!&quot;</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="n">base_info</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the bird, enhancing the base animal description with </span>
+<span class="sd">        details about the bird&#39;s ability to fly.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A descriptive string of the bird including its flight capability.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">base_info</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>  <span class="c1"># Get the base animal information</span>
         <span class="n">fly_status</span> <span class="o">=</span> <span class="s2">&quot;can fly&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">can_fly</span> <span class="k">else</span> <span class="s2">&quot;cannot fly&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_info</span><span class="si">}</span><span class="s2"> It </span><span class="si">{</span><span class="n">fly_status</span><span class="si">}</span><span class="s2">.&quot;</span>
 </pre></div>
@@ -808,32 +954,87 @@ Chirpy is 1 years old and lives in Jungle. It cannot fly.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Father</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a father with specific skills.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the father.</span>
+<span class="sd">        father_skill (str): Skills associated with the father, defaulting to &quot;Gardening, DIY&quot;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Father class with a name and default skills.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the father.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">father_skill</span> <span class="o">=</span> <span class="s2">&quot;Gardening, DIY&quot;</span>
     
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the father, including his name and skills.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Description of the father and his skills.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Skills include </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">father_skill</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="k">class</span> <span class="nc">Mother</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a mother with specific skills.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the mother.</span>
+<span class="sd">        mother_skill (str): Skills associated with the mother, defaulting to &quot;Cooking, Art&quot;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Mother class with a name and default skills.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the mother.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mother_skill</span> <span class="o">=</span> <span class="s2">&quot;Cooking, Art&quot;</span>
     
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the mother, including her name and skills.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Description of the mother and her skills.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Skills include </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mother_skill</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Father</span><span class="p">,</span> <span class="n">Mother</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a child inheriting skills from both father and mother.</span>
+
+<span class="sd">    Inherits attributes and methods from both Father and Mother classes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">Father</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-        <span class="n">Mother</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Child class, inheriting skills from both parents.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the child.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Father</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>  <span class="c1"># Initialize Father part of the child</span>
+        <span class="n">Mother</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>  <span class="c1"># Initialize Mother part of the child</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the child, including the name and combined skills from both parents.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Description of the child and inherited skills.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Child&#39;s Skills include </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">father_skill</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mother_skill</span><span class="si">}</span><span class="s2">&quot;</span>
 
-
+<span class="c1"># Creating an instance of Child</span>
 <span class="n">alex</span> <span class="o">=</span> <span class="n">Child</span><span class="p">(</span><span class="s2">&quot;Alex&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">alex</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">alex</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -853,28 +1054,90 @@ Chirpy is 1 years old and lives in Jungle. It cannot fly.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Grandparent</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a grandparent with basic attributes.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the grandparent.</span>
+<span class="sd">        origin (str): The geographic or cultural origin of the grandparent.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">origin</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Grandparent class with a name and origin.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the grandparent.</span>
+<span class="sd">            origin (str): The origin of the grandparent.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="n">origin</span>
     
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the grandparent, including their name and origin.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Description of the grandparent and their origin.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: Origin </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="k">class</span> <span class="nc">Parent</span><span class="p">(</span><span class="n">Grandparent</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a parent that extends the Grandparent class, adding a new attribute.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        hobby (str): The hobby of the parent.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">origin</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">hobby</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Parent class, inheriting attributes from the Grandparent class and adding a hobby.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the parent.</span>
+<span class="sd">            origin (str): The origin of the parent.</span>
+<span class="sd">            hobby (str): The hobby of the parent.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">origin</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hobby</span> <span class="o">=</span> <span class="n">hobby</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the parent, enhancing the grandparent&#39;s description with the hobby.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Description of the parent including their origin and hobby.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span><span class="si">}</span><span class="s2">, Hobby: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hobby</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a child that extends the Parent class, adding another new attribute.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        school (str): The school that the child attends.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">origin</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">hobby</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">school</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Child class, inheriting attributes from the Parent class and adding the school attribute.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the child.</span>
+<span class="sd">            origin (str): The origin of the child.</span>
+<span class="sd">            hobby (str): The hobby of the child.</span>
+<span class="sd">            school (str): The school the child attends.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">hobby</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">school</span> <span class="o">=</span> <span class="n">school</span>
     
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the child, enhancing the parent&#39;s description with the school.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Description of the child including their origin, hobby, and school.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span><span class="si">}</span><span class="s2">, School: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">school</span><span class="si">}</span><span class="s2">&quot;</span>
+        
 
 <span class="n">lucy</span> <span class="o">=</span> <span class="n">Child</span><span class="p">(</span><span class="s2">&quot;Lucy&quot;</span><span class="p">,</span> <span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;painting&quot;</span><span class="p">,</span> <span class="s2">&quot;Riverside High&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lucy</span><span class="p">)</span>

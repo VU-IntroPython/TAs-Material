@@ -489,7 +489,7 @@ document.write(`
 <p>Let’s look at an example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_tuple</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_tuple</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">)</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">)</span>
@@ -504,10 +504,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The ellipsis <code>(…)</code> indicates that the tuple can have any number of <b>int</b> elements (including zero, in some contexts, but often used to imply a flexible, indefinite length).</p>
 </div>
 <p>If you want to create a <strong>tuple with just one element</strong>, then you have to add a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>) as <strong>terminator</strong>.</p>
 <div class="cell docutils container">
@@ -565,15 +561,15 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;t1 =&#39;</span><span class="p">,</span> <span class="n">t1</span><span class="p">)</span>
 
 <span class="c1"># Tuple with integers</span>
-<span class="n">t2</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">t2</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;t2 =&#39;</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span>
 
 <span class="c1"># Tuple with characters (from a string, so str elements)</span>
-<span class="n">t3</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
+<span class="n">t3</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;t3 =&#39;</span><span class="p">,</span> <span class="n">t3</span><span class="p">)</span>
 
 <span class="c1"># Tuple with integers (from dictionary keys)</span>
-<span class="n">t4</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;two&#39;</span><span class="p">})</span>
+<span class="n">t4</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;two&#39;</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;t4 =&#39;</span><span class="p">,</span> <span class="n">t4</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -636,7 +632,7 @@ t4 = (1, 2)
 <p>The elements in a tuple can be accessed using indexing. (same as with lists)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers_tuple</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers_tuple</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="c1"># index                           0, 1, 2, 3, 4</span>
 
 <span class="n">first_element</span> <span class="o">=</span> <span class="n">numbers_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -663,7 +659,7 @@ t4 = (1, 2)
 <p>You can create sub-tuples by slicing a tuple and assigning them to a new variable.  (same as with lists)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">actors_tuple</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Cillian Murphy&quot;</span><span class="p">,</span> <span class="s2">&quot;Emily Blunt&quot;</span><span class="p">,</span> <span class="s2">&quot;Robert Downey Jr.&quot;</span><span class="p">,</span> <span class="s2">&quot;Matt Damon&quot;</span><span class="p">,</span> <span class="s2">&quot;Florence Pugh&quot;</span><span class="p">,</span> <span class="s2">&quot;Kenneth Branagh&quot;</span><span class="p">,</span> <span class="s2">&quot;Rami Malek&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">actors_tuple</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Cillian Murphy&quot;</span><span class="p">,</span> <span class="s2">&quot;Emily Blunt&quot;</span><span class="p">,</span> <span class="s2">&quot;Robert Downey Jr.&quot;</span><span class="p">,</span> <span class="s2">&quot;Matt Damon&quot;</span><span class="p">,</span> <span class="s2">&quot;Florence Pugh&quot;</span><span class="p">,</span> <span class="s2">&quot;Kenneth Branagh&quot;</span><span class="p">,</span> <span class="s2">&quot;Rami Malek&quot;</span><span class="p">)</span>
 
 <span class="n">main_cast_oppenheimer</span> <span class="o">=</span> <span class="n">actors_tuple</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 
@@ -683,8 +679,8 @@ t4 = (1, 2)
 <p>Identical to lists, the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator can be used to concatenate two tuples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morning_tasks</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Wake up&quot;</span><span class="p">,</span> <span class="s2">&quot;Brush teeth&quot;</span><span class="p">,</span> <span class="s2">&quot;Eat breakfast&quot;</span><span class="p">)</span>
-<span class="n">evening_tasks</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Dinner&quot;</span><span class="p">,</span> <span class="s2">&quot;Watch TV&quot;</span><span class="p">,</span> <span class="s2">&quot;Go to bed&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morning_tasks</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Wake up&quot;</span><span class="p">,</span> <span class="s2">&quot;Brush teeth&quot;</span><span class="p">,</span> <span class="s2">&quot;Eat breakfast&quot;</span><span class="p">)</span>
+<span class="n">evening_tasks</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Dinner&quot;</span><span class="p">,</span> <span class="s2">&quot;Watch TV&quot;</span><span class="p">,</span> <span class="s2">&quot;Go to bed&quot;</span><span class="p">)</span>
 
 <span class="n">daily_tasks</span> <span class="o">=</span> <span class="n">morning_tasks</span> <span class="o">+</span> <span class="n">evening_tasks</span>
 
@@ -704,7 +700,7 @@ t4 = (1, 2)
 <p>A new tuple can be created by repeating an existing one using the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_fruits</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Apple&quot;</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">,</span> <span class="s2">&quot;Cherry&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">favorite_fruits</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Apple&quot;</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">,</span> <span class="s2">&quot;Cherry&quot;</span><span class="p">)</span>
 
 <span class="n">abundant_fruit_basket</span> <span class="o">=</span> <span class="n">favorite_fruits</span> <span class="o">*</span> <span class="mi">3</span>
 
@@ -724,7 +720,7 @@ t4 = (1, 2)
 <p>The length of a tuple can be found using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">road_trip_stops</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Gas Station&quot;</span><span class="p">,</span> <span class="s2">&quot;Restaurant&quot;</span><span class="p">,</span> <span class="s2">&quot;Hotel&quot;</span><span class="p">,</span> <span class="s2">&quot;Park&quot;</span><span class="p">,</span> <span class="s2">&quot;Museum&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">road_trip_stops</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Gas Station&quot;</span><span class="p">,</span> <span class="s2">&quot;Restaurant&quot;</span><span class="p">,</span> <span class="s2">&quot;Hotel&quot;</span><span class="p">,</span> <span class="s2">&quot;Park&quot;</span><span class="p">,</span> <span class="s2">&quot;Museum&quot;</span><span class="p">)</span>
 
 <span class="n">number_of_stops</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">road_trip_stops</span><span class="p">)</span>
 
@@ -752,7 +748,7 @@ t4 = (1, 2)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Packing multiple values into a tuple</span>
-<span class="n">my_tuple</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">my_tuple</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="c1"># Unpacking values from the tuple</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">my_tuple</span>

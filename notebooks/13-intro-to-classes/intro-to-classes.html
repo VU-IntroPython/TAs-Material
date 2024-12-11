@@ -491,7 +491,21 @@ document.write(`
 <section id="span-style-color-b22222-the-init-method-span">
 <h3><span class="section-number">12.1.2. </span><span style="color:#B22222">The <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> Method</span><a class="headerlink" href="#span-style-color-b22222-the-init-method-span" title="Permalink to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a cat.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the cat.</span>
+<span class="sd">        age (int): The age of the cat in years.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Cat class.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the cat.</span>
+<span class="sd">            age (int): The age of the cat in years.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>  <span class="c1"># This assigns the name to the cat (attribute)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>    <span class="c1"># This assigns the age to the cat (attribute)</span>
 </pre></div>
@@ -507,7 +521,21 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a cat.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the cat.</span>
+<span class="sd">        age (int): The age of the cat in years.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Cat class.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the cat.</span>
+<span class="sd">            age (int): The age of the cat in years.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
 
@@ -518,7 +546,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Cat object at 0x7fc714b0ddf0&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Cat object at 0x7f6e008f8df0&gt;
 </pre></div>
 </div>
 </div>
@@ -563,19 +591,30 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A class to represent a cat.    </span>
-<span class="sd">    Attributes:</span>
-<span class="sd">        name : str -&gt;The name of the cat.</span>
-<span class="sd">        age : int -&gt; The age of the cat.</span>
-<span class="sd">    Methods:</span>
-<span class="sd">        __str__() -&gt; Returns a string representation of the cat.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    A class representing a cat.</span>
 
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the cat.</span>
+<span class="sd">        age (int): The age of the cat in years.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Cat class.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the cat.</span>
+<span class="sd">            age (int): The age of the cat in years.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-        
+
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the Cat instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A description of the cat including its name and age.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Cat named </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> who is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old.&quot;</span>
 </pre></div>
 </div>
@@ -597,7 +636,7 @@ document.write(`
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Remember, you need to add <b>typehints</b> and <b>docstrings</b> to classes as well. This means that bellow the class definition there should be a docstring (see code above) and all other methods inside the class must only have typehints.</p>
+<p>Remember, you need to add <b>typehints</b> and <b>docstrings</b> to classes as well. This means that bellow the class definition there should be a docstring (see code above) and all other methods inside the class must have both typehints and a docstring.</p>
 </div>
 </section>
 <section id="span-style-color-b22222-a-few-more-example-classes-span">
@@ -615,11 +654,25 @@ document.write(`
 <span class="sd">        favorite_food (str): The panda&#39;s favorite food.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">favorite_food</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Panda class.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the panda.</span>
+<span class="sd">            age (int): The age of the panda.</span>
+<span class="sd">            favorite_food (str): The favorite food of the panda.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">favorite_food</span> <span class="o">=</span> <span class="n">favorite_food</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the Panda instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A description of the panda including its name, age, and favorite food.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">-year-old panda who loves eating </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">favorite_food</span><span class="si">}</span><span class="s2">.&quot;</span>
 
 <span class="c1"># Creating an instance of Panda</span>
@@ -656,16 +709,31 @@ document.write(`
 <span class="sd">        tree_count (int): The number of trees in the jungle.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">animals</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">tree_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a new instance of the Jungle class.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the jungle.</span>
+<span class="sd">            animals (list[str]): A list of the names of animal species found in the jungle.</span>
+<span class="sd">            tree_count (int): The number of trees in the jungle.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">animals</span> <span class="o">=</span> <span class="n">animals</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tree_count</span> <span class="o">=</span> <span class="n">tree_count</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a string representation of the Jungle instance, providing a welcome message and details about the jungle.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A detailed description of the jungle including its name, animals, and tree count.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">animal_list</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">animals</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Welcome to the </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> Jungle!</span><span class="se">\n</span><span class="s2">&quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;Animals here: </span><span class="si">{</span><span class="n">animal_list</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;Number of trees: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tree_count</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
+<span class="c1"># Creating an instance of Jungle</span>
 <span class="n">jungle1</span> <span class="o">=</span> <span class="n">Jungle</span><span class="p">(</span><span class="s2">&quot;Amazon&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;tigers&quot;</span><span class="p">,</span> <span class="s2">&quot;monkeys&quot;</span><span class="p">,</span> <span class="s2">&quot;parrots&quot;</span><span class="p">],</span> <span class="mi">15000</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">jungle1</span><span class="p">)</span>
 </pre></div>
